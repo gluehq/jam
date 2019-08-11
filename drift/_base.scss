@@ -1,0 +1,220 @@
+
+//  V A R I A B L E S
+
+$cols-max:  24;
+$cols-min:  4;
+
+$ygap-ph:   12px;
+$ygap-pl:   16px;
+$ygap-tb:   20px;
+$ygap-cm:   24px;
+$ygap-st:   28px;
+$ygap-lg:   32px;
+
+$xgap-ph:   12px;
+$xgap-pl:   16px;
+$xgap-tb:   24px;
+$xgap-cm:   36px;
+$xgap-st:   48px;
+$xgap-lg:   56px;
+
+$plus:      376px;// iPhone 6, 7, 8 portrait
+$tablet:    668px;// iPhone 6, 7, 8 landscape
+$compact:   835px;// iPad portrait
+$standard:  1025px;// iPad 10" portrait
+$large:     1367px;// Common 13" laptop size
+
+$grey-5:    #f5f5f5;// 5%
+$grey-10:   #ececec;// 10%
+$grey-20:   #cdcdcd;// 20%
+$grey-30:   #c2c2c2;// 30%
+$grey-40:   #acacac;// 40%
+$grey-50:   #959595;// 50%
+$grey-60:   #696969;// 60%
+$grey-70:   #636363;// 70%
+$grey-80:   #484848;// 80%
+
+
+//  M E D I A   Q U E R I E S
+
+@mixin media($media) {
+
+    @if $media == phone {
+        @media (max-width: $plus - 1px) { @content; }
+    }
+
+    @if $media == plus {
+        @media (min-width: $plus) and (max-width: $tablet - 1px) { @content; }
+    }
+
+    @if $media == tablet {
+        @media (min-width: $tablet) and (max-width: $compact - 1px) { @content; }
+    }
+
+    @if $media == compact {
+        @media (min-width: $compact) and (max-width: $standard - 1px) { @content; }
+    }
+
+    @if $media == standard {
+        @media (min-width: $standard) and (max-width: $large - 1px) { @content; }
+    }
+
+    @if $media == large {
+        @media (min-width: $large) { @content; }
+    }
+
+    //  Combined ranges
+
+    @if $media == phone-plus {
+        @media (max-width: $tablet - 1px) { @content; }
+    }
+
+    @if $media == phone-tablet {
+        @media (max-width: $compact - 1px) { @content; }
+    }
+
+    @if $media == plus-compact {
+        @media (min-width: $plus) and ($standard - 1px) { @content; }
+    }
+
+    @if $media == tablet-compact {
+        @media (min-width: $tablet) and (max-width: $standard - 1px) { @content; }
+    }
+    
+    @if $media == standard-large {
+        @media (min-width: $standard) { @content; }
+    }
+
+}
+
+
+//  M I X I N S
+
+//  responsive fixed-width gaps between columns
+
+@mixin xgap() {
+    
+    @include media(phone) {
+        column-gap: $xgap-ph;
+    }
+    
+    @include media(plus) {
+        column-gap: $xgap-pl;
+    }
+    
+    @include media(tablet) {
+        column-gap: $xgap-tb;
+    }
+    
+    @include media(compact) {
+        column-gap: $xgap-cm;
+    }
+    
+    @include media(standard) {
+        column-gap: $xgap-st;
+    }
+    
+    @include media(large) {
+        column-gap: $xgap-lg;
+    }
+    
+}
+
+
+//  T Y P E
+
+//  Moved all the type mixins here so they can be imported by the
+//  modules without duplicating all the final type CSS in them
+
+@mixin h1 {
+    
+    margin: 0 0 1.6rem 0;
+    font-size: 4.4rem;
+    font-weight: 300;
+    line-height: 5.0rem;
+    
+    @include media(lower-phone) {
+        margin: 0 0 1.4rem 0;
+        font-size: 3.8rem;
+        line-height: 4.4rem;
+    }
+    
+}
+
+@mixin h2 {
+    
+    margin: 0 0 1.4rem 0;
+    font-size: 3.8rem;
+    font-weight: 300;
+    line-height: 4.4rem;
+    
+    @include media(phone) {
+        font-size: 3.4rem;
+        line-height: 4rem;
+    }
+    
+}
+
+@mixin h3 {
+    margin: 0 0 1.4rem 0;
+    font-size: 3.0rem;
+    font-weight: 300;
+    line-height: 3.6rem;
+}
+
+@mixin h4 {
+    margin: 0 0 1rem 0;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 3.2rem;
+}
+
+@mixin p-large {
+
+    margin: 0 0 1.6rem 0;
+    font-size: 2.0rem;
+    line-height: 2.6rem;
+
+    @include media(standard) {
+        line-height: 2.8rem;
+    }
+
+    @include media(phone) {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+    }
+
+}
+
+@mixin p {
+
+    margin-bottom: 1.6rem;
+    padding: 0;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+
+    @include media(standard) {
+        // line-height: 2.6rem;
+    }
+
+}
+
+@mixin p-small {
+
+    margin-bottom: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    letter-spacing: 0.01em;
+
+    @include media(phone) {
+        // font-size: 1.5rem;
+        // line-height: 2rem;
+    }
+
+}
+
+@mixin p-tiny {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+}

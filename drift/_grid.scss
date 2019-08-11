@@ -1,0 +1,172 @@
+
+.drift {
+    display: grid;
+    grid-template-columns: repeat($cols-max, 1fr);
+    margin: 0 auto;
+    width: 100%;
+    max-width: $large - 1px;
+}
+
+
+//  S P A N S
+
+[class*=span-] {
+    display: grid;
+    @include xgap();
+}
+
+//  generic span
+
+@mixin span($span, $parent-span, $offset) {
+    
+    grid-template-columns: repeat($span, 1fr);
+    grid-column: #{$offset} / #{-1 - ($parent-span - $span)};
+    
+}
+
+// span groupings
+
+@mixin spans($span) {
+        
+    @include span($span, $cols-max, 1);
+
+    &.align-c {
+        
+        $offset: ($cols-max - $span) / 2;
+        grid-column: #{$offset + 1}/#{-1 - $offset};
+        
+        // could limit this to whole cols either side
+        
+        // @if offset % 1 == 0 {
+            // content: 'yes';
+        // }
+        
+    }
+
+    &.align-r {
+        grid-column: #{1 + ($cols-max - $span)}/-1;
+    }
+
+    @for $sub-span from $span through $cols-min {
+
+        .span-#{$sub-span} {
+            @include span($sub-span, $span, 1);
+        }
+
+        @if $sub-span < $span {
+
+            @for $sibling-span from ($span - $sub-span) through 1 {
+
+                .span-#{$sub-span} + .span-#{$sibling-span}.in-row {
+                    @include span(0, 0, $sub-span + 1);
+                }
+
+            }
+
+        }
+
+    }
+    
+}
+
+//  complete grid
+
+@for $span from $cols-max through $cols-min {
+      
+    .drift .span-#{$span} {
+        
+        @include spans($span);
+
+        //  limit the width variations on phones
+
+//        $sizes: phone, plus;
+//        
+//        @each $size in $sizes {
+//
+//            @include media($size) {
+//                // 6 = the amount of spans to group?
+//                // 8 = ?
+//                // content: '#{(floor($span / 6) + 8) * 2}';
+//                $resp-span: (floor($span / 6) + 8) * 2;
+//                @include spans($resp-span);
+//            }
+//        
+//        }
+        
+    }
+
+}
+
+
+//  C O L S
+
+.drift .cols-3 {
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1;
+    @include xgap;
+    
+    // nth-of-type chosen over nth-child so option
+    // to include non column elements remains
+    
+    // Remember nth methods do not recognise classes
+    
+    > div:nth-of-type(3n+1) {
+        grid-column: 1;
+        // background-color: orange;
+    }
+    
+    > div:nth-of-type(3n+2) {
+        grid-column: 2;
+        // background-color: salmon;
+    }
+    
+    > div:nth-of-type(3n+3) {
+        grid-column: 3;
+        // background-color: hotpink;
+    }
+    
+}
+
+.drift *:not([class*=span-]) {
+    // display: block;
+    // z-index: 1;
+    grid-column: 1 / -1;
+    // background-color: yellow;
+}
+
+img {
+    width: 100%;
+}
+
+
+//  D E V
+
+$color-dev-bkgd: rgba(255, 0, 0, 0.1);
+
+*[class*=span-], *[class*=cols-] > div {
+    background-color: $color-dev-bkgd;
+}
+
+#dev-grid {
+    
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: $large - 1px;
+    background-color: $color-dev-bkgd;
+    
+    > div {
+        overflow: hidden;
+        background-color: $color-dev-bkgd;
+        box-shadow: inset 1px 0 0 0 black;
+    }
+    
+    > div:nth-child(n+13) {
+        text-align: right;
+        box-shadow: inset -1px 0 0 0 black;
+    }
+    
+}
