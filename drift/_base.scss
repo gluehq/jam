@@ -2,7 +2,7 @@
 //  V A R I A B L E S
 
 $cols-max:  24;
-$cols-min:  4;
+$span-min:  4;
 
 $ygap-ph:   12px;
 $ygap-pl:   16px;
@@ -18,11 +18,11 @@ $xgap-cm:   36px;
 $xgap-st:   48px;
 $xgap-lg:   56px;
 
-$plus:      376px;// iPhone 6, 7, 8 portrait
-$tablet:    668px;// iPhone 6, 7, 8 landscape
-$compact:   835px;// iPad portrait
-$standard:  1025px;// iPad 10" portrait
-$large:     1367px;// Common 13" laptop size
+$plus:      414px;// iPhone 6, 7, 8 plus portrait
+$tablet:    737px;// iPhone 6, 7, 8 plus landscape + 1px
+$compact:   835px;// iPad 10" portrait + 1px
+$standard:  1025px;// iPad 10" landscape, 13" portrait + 1px
+$large:     1367px;// Common 13" laptop size + 1px
 
 $grey-5:    #f5f5f5;// 5%
 $grey-10:   #ececec;// 10%

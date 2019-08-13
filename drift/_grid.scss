@@ -12,7 +12,7 @@
 
 [class*=span-] {
     display: grid;
-    @include xgap();
+    // @include xgap();
 }
 
 //  generic span
@@ -47,21 +47,30 @@
         grid-column: #{1 + ($cols-max - $span)}/-1;
     }
 
-    @for $sub-span from $span through $cols-min {
+    @for $sub-span from $span through $span-min {
 
         .span-#{$sub-span} {
             @include span($sub-span, $span, 1);
         }
 
-        @if $sub-span < $span {
+        @if $sub-span < ($span - $span-min) {
+            
+            // All values above span-min
 
-            @for $sibling-span from ($span - $sub-span) through 1 {
-
-                .span-#{$sub-span} + .span-#{$sibling-span}.in-row {
-                    @include span(0, 0, $sub-span + 1);
-                }
-
+//            @for $sibling-span from ($span - $sub-span) through $span-min {
+//
+//                .span-#{$sub-span} + .span-#{$sibling-span}.in-row {
+//                    @include span(0, 0, $sub-span + 1);
+//                }
+//
+//            }
+            
+            // Just the remainder
+            
+            .span-#{$sub-span} + .span-#{$span - $sub-span}.in-row {
+                @include span(0, 0, $sub-span + 1);
             }
+            
 
         }
 
@@ -71,7 +80,7 @@
 
 //  complete grid
 
-@for $span from $cols-max through $cols-min {
+@for $span from $cols-max through $span-min {
       
     .drift .span-#{$span} {
         
@@ -79,19 +88,19 @@
 
         //  limit the width variations on phones
 
-//        $sizes: phone, plus;
-//        
-//        @each $size in $sizes {
-//
-//            @include media($size) {
-//                // 6 = the amount of spans to group?
-//                // 8 = ?
-//                // content: '#{(floor($span / 6) + 8) * 2}';
-//                $resp-span: (floor($span / 6) + 8) * 2;
-//                @include spans($resp-span);
-//            }
-//        
-//        }
+        $sizes: phone, plus;
+        
+        @each $size in $sizes {
+
+            @include media($size) {
+                // 6 = the amount of spans to group?
+                // 8 = ?
+                // content: '#{(floor($span / 6) + 8) * 2}';
+                $resp-span: (floor($span / 6) + 8) * 2;
+                @include spans($resp-span);
+            }
+        
+        }
         
     }
 
@@ -105,7 +114,6 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1;
-    @include xgap;
     
     // nth-of-type chosen over nth-child so option
     // to include non column elements remains
