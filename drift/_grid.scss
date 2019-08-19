@@ -5,6 +5,7 @@
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
+    grid-column-gap: 3px;
 }
 
 
@@ -12,108 +13,40 @@
 
 [class*=span-] {
     display: grid;
+    position: relative;
+    // grid-column-gap: 3px;
     // @include xgap();
-}
-
-//  generic span
-
-@mixin span($span, $parent-span, $offset) {
-    
-    grid-template-columns: repeat($span, 1fr);
-    grid-column: #{$offset} / #{-1 - ($parent-span - $span)};
-    
-}
-
-// span groupings
-
-@mixin spans($span) {
-        
-    @include span($span, $cols-max, 1);
-
-    &.align-c {
-        
-        $offset: ($cols-max - $span) / 2;
-        grid-column: #{$offset + 1}/#{-1 - $offset};
-        
-        // could limit this to whole cols either side
-        
-        // @if offset % 1 == 0 {
-            // content: 'yes';
-        // }
-        
-    }
-
-    &.align-r {
-        grid-column: #{1 + ($cols-max - $span)}/-1;
-    }
-
-    @for $sub-span from $span through $span-min {
-
-        .span-#{$sub-span} {
-            @include span($sub-span, $span, 1);
-        }
-
-        @if $sub-span < ($span - $span-min) {
-            
-            // All values above span-min
-
-//            @for $sibling-span from ($span - $sub-span) through $span-min {
-//
-//                .span-#{$sub-span} + .span-#{$sibling-span}.in-row {
-//                    @include span(0, 0, $sub-span + 1);
-//                }
-//
-//            }
-            
-            // Just the remainder
-            
-            .span-#{$sub-span} + .span-#{$span - $sub-span}.in-row {
-                @include span(0, 0, $sub-span + 1);
-            }
-            
-
-        }
-
-    }
-    
-}
-
-//  complete grid
-
-@for $span from $cols-max through $span-min {
-      
-    .drift .span-#{$span} {
-        
-        @include spans($span);
-
-        //  limit the width variations on phones
-
-        $sizes: phone, plus;
-        
-        @each $size in $sizes {
-
-            @include media($size) {
-                // 6 = the amount of spans to group?
-                // 8 = ?
-                // content: '#{(floor($span / 6) + 8) * 2}';
-                $resp-span: (floor($span / 6) + 8) * 2;
-                @include spans($resp-span);
-            }
-        
-        }
-        
-    }
-
 }
 
 
 //  C O L S
 
+//  Need to precede the split classes
+
+.drift [class*="cols-"] {
+    display: grid;
+    grid-template-rows: 1;
+}
+
+.drift .cols-2 {
+    
+    grid-template-columns: repeat(2, 1fr);
+    
+    > div:nth-of-type(2n+1) {
+        grid-column: 1;
+        // background-color: orange;
+    }
+    
+    > div:nth-of-type(2n+2) {
+        grid-column: 2;
+        // background-color: salmon;
+    }
+    
+}
+
 .drift .cols-3 {
     
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1;
     
     // nth-of-type chosen over nth-child so option
     // to include non column elements remains
@@ -137,6 +70,140 @@
     
 }
 
+//  generic span
+
+@mixin span($span, $parent-span, $offset) {
+    
+    grid-template-columns: repeat($span, 1fr);
+    grid-column: #{$offset} / #{-1 - ($parent-span - $span)};
+    
+}
+
+// span groupings
+
+@mixin spans($span) {
+        
+    // @include span($span, $cols-max, 1);
+    
+    // limit to even number of cols
+        
+    // @if $span % 2 == 0 {
+
+        // &.align-c {
+            
+            grid-template-columns: repeat($span, 1fr);// don't remove!
+            $offset: ($cols-max - $span) / 2;
+            grid-column: #{$offset + 1}/#{-1 - $offset};
+            
+        // }
+        
+    // }
+
+    // &.align-r {
+        // grid-column: #{1 + ($cols-max - $span)}/-1;
+    // }
+        
+    $split-l: $split-min;
+    @while $split-l <= $split-max {
+        
+        @if $split-l != 50 {
+
+            $split-r: 100 - $split-l;
+
+            &.split-#{$split-l}-#{$split-r} {
+                
+                $col-start: ($span / 100) * $split-l;
+                $col-end: ($span / 100) * $split-r;
+                
+                > div:nth-child(2n+1) {
+                    // width: percentage($split-l / 100);
+                    // content: '#{$span} #{$col-start=round($col-start)} #{$col-end=round($col-end)}';
+                    // grid-template-columns: repeat(#{round($col-start)}, 1fr);
+                    content: '#{round($col-start)}';
+                    // width: percentage($split-l / 100);
+                    grid-column: 1 / span #{round($col-start)};
+                }
+                
+                > div:nth-child(2n+2) {
+                    // grid-template-columns: repeat(#{round($col-end)}, 1fr);
+                    content: '#{round($col-end)}';
+                    // width: percentage($split-r / 100);
+                    grid-column: #{round($col-start)+1}/-1;
+                }
+                
+            }
+    
+        }
+        
+        $split-l: $split-l + 5;
+    
+    }
+
+//    @for $sub-span from $span through $span-min {
+//
+//        .span-#{$sub-span} {
+//            @include span($sub-span, $span, 1);
+//        }
+//
+//        @if $sub-span < ($span - $span-min) {
+//            
+//            // All values above span-min
+//
+////            @for $sibling-span from ($span - $sub-span) through $span-min {
+////
+////                .span-#{$sub-span} + .span-#{$sibling-span}.in-row {
+////                    @include span(0, 0, $sub-span + 1);
+////                }
+////
+////            }
+//            
+//            // Just the remainder
+//            
+//            .span-#{$sub-span} + .span-#{$span - $sub-span}.in-row {
+//                @include span(0, 0, $sub-span + 1);
+//            }
+//            
+//
+//        }
+//
+//    }
+    
+}
+
+//  complete grid
+
+@for $span from $cols-max through $span-min {
+    
+    // @if $span % 2 == 0 {
+      
+        .drift .span-#{$span} {
+        
+            @include spans($span);
+
+            //  limit the width variations on phones
+
+    //        $sizes: phone, plus;
+    //        
+    //        @each $size in $sizes {
+    //
+    //            @include media($size) {
+    //                // 6 = the amount of spans to group?
+    //                // 8 = ?
+    //                // content: '#{(floor($span / 6) + 8) * 2}';
+    //                $resp-span: (floor($span / 6) + 8) * 2;
+    //                @include spans($resp-span);
+    //            }
+    //        
+    //        }
+
+        }
+        
+    // }
+
+}
+
+// Non grid element
+
 .drift *:not([class*=span-]) {
     // display: block;
     // z-index: 1;
@@ -148,33 +215,55 @@ img {
     width: 100%;
 }
 
+.span-22 {
+    // background-color: rgba(0, 0, 255, 0.1);
+    // height: 30px;
+    // margin: 0;
+}
+
+section.drift {
+    // background-color: beige;
+}
 
 //  D E V
 
 $color-dev-bkgd: rgba(255, 0, 0, 0.1);
 
-*[class*=span-], *[class*=cols-] > div {
-    background-color: $color-dev-bkgd;
+[class*=cols-] > div {
+// [class*=span-] > div, [class*=cols-] > div {
+     background-color: $color-dev-bkgd;
 }
 
 #dev-grid {
     
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    grid-column: 1 / -1;
+    // display: grid;
+    // grid-template-columns: repeat(24, 1fr);
+    // grid-column: 1 / -1;
     width: 100%;
-    max-width: $large - 1px;
-    background-color: $color-dev-bkgd;
+    // max-width: $large - 1px;
+    // background-color: $color-dev-bkgd;
     
-    > div {
+    [class*="span-"] > div {
         overflow: hidden;
         background-color: $color-dev-bkgd;
-        box-shadow: inset 1px 0 0 0 black;
+        box-shadow: inset 1px 0 0 0 white;
     }
     
-    > div:nth-child(n+13) {
+    .span-24 {
+    
+        @for $span from 1 through $cols-max {
+        
+            > div:nth-child(#{$span}) {
+                grid-column: #{$span};
+            }
+            
+        }
+    
+    }
+    
+    [class*="span-"] > div:nth-child(n+13) {
         text-align: right;
-        box-shadow: inset -1px 0 0 0 black;
+        box-shadow: inset -1px 0 0 0 white;
     }
     
 }
