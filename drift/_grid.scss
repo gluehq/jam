@@ -18,58 +18,6 @@
     // @include xgap();
 }
 
-
-//  C O L S
-
-//  Need to precede the split classes
-
-.drift [class*="cols-"] {
-    display: grid;
-    grid-template-rows: 1;
-}
-
-.drift .cols-2 {
-    
-    grid-template-columns: repeat(2, 1fr);
-    
-    > div:nth-of-type(2n+1) {
-        grid-column: 1;
-        // background-color: orange;
-    }
-    
-    > div:nth-of-type(2n+2) {
-        grid-column: 2;
-        // background-color: salmon;
-    }
-    
-}
-
-.drift .cols-3 {
-    
-    grid-template-columns: repeat(3, 1fr);
-    
-    // nth-of-type chosen over nth-child so option
-    // to include non column elements remains
-    
-    // Remember nth methods do not recognise classes
-    
-    > div:nth-of-type(3n+1) {
-        grid-column: 1;
-        // background-color: orange;
-    }
-    
-    > div:nth-of-type(3n+2) {
-        grid-column: 2;
-        // background-color: salmon;
-    }
-    
-    > div:nth-of-type(3n+3) {
-        grid-column: 3;
-        // background-color: hotpink;
-    }
-    
-}
-
 //  generic span
 
 @mixin span($span, $parent-span, $offset) {
@@ -98,46 +46,86 @@
         // }
         
     // }
+    
+            $skew-adj: round($span / 6);
+    
+            @if $span > 6 and $skew-adj > 0 {
+   
+                $directions: l, r;
+
+                @each $way in $directions {
+
+                    @for $amount from 1 through $skew-adj {
+
+                        &.skew-#{$way}-#{$amount} {
+                            
+                            // content: '.';
+                            
+                            $col-end: '';
+                            
+                            @if $way == r {
+                                $col-end: ($span / 2) + $amount;
+                            } @else {
+                                $col-end: ($span / 2) - $amount;
+                            }
+                            
+                            > div:nth-child(2n+1) {
+                                grid-column: 1 / span #{$col-end};
+                            }
+                            
+                            > div:nth-child(2n+2) {
+                                grid-column: #{$col-end +1} / -1;
+                            }
+                            
+                        }
+
+                    }
+
+                }
+
+            }
+    
+    //$span
 
     // &.align-r {
         // grid-column: #{1 + ($cols-max - $span)}/-1;
     // }
         
-    $split-l: $split-min;
-    @while $split-l <= $split-max {
-        
-        @if $split-l != 50 {
-
-            $split-r: 100 - $split-l;
-
-            &.split-#{$split-l}-#{$split-r} {
-                
-                $col-start: ($span / 100) * $split-l;
-                $col-end: ($span / 100) * $split-r;
-                
-                > div:nth-child(2n+1) {
-                    // width: percentage($split-l / 100);
-                    // content: '#{$span} #{$col-start=round($col-start)} #{$col-end=round($col-end)}';
-                    // grid-template-columns: repeat(#{round($col-start)}, 1fr);
-                    content: '#{round($col-start)}';
-                    // width: percentage($split-l / 100);
-                    grid-column: 1 / span #{round($col-start)};
-                }
-                
-                > div:nth-child(2n+2) {
-                    // grid-template-columns: repeat(#{round($col-end)}, 1fr);
-                    content: '#{round($col-end)}';
-                    // width: percentage($split-r / 100);
-                    grid-column: #{round($col-start)+1}/-1;
-                }
-                
-            }
-    
-        }
-        
-        $split-l: $split-l + 5;
-    
-    }
+//    $split-l: $split-min;
+//    @while $split-l <= $split-max {
+//        
+//        @if $split-l != 50 {
+//
+//            $split-r: 100 - $split-l;
+//
+//            &.split-#{$split-l}-#{$split-r} {
+//                
+//                $col-start: ($span / 100) * $split-l;
+//                $col-end: ($span / 100) * $split-r;
+//                
+//                > div:nth-child(2n+1) {
+//                    // width: percentage($split-l / 100);
+//                    // content: '#{$span} #{$col-start=round($col-start)} #{$col-end=round($col-end)}';
+//                    // grid-template-columns: repeat(#{round($col-start)}, 1fr);
+//                    content: '#{round($col-start)}';
+//                    // width: percentage($split-l / 100);
+//                    grid-column: 1 / span #{round($col-start)};
+//                }
+//                
+//                > div:nth-child(2n+2) {
+//                    // grid-template-columns: repeat(#{round($col-end)}, 1fr);
+//                    content: '#{round($col-end)}';
+//                    // width: percentage($split-r / 100);
+//                    grid-column: #{round($col-start)+1}/-1;
+//                }
+//                
+//            }
+//    
+//        }
+//        
+//        $split-l: $split-l + 5;
+//    
+//    }
 
 //    @for $sub-span from $span through $span-min {
 //
@@ -174,32 +162,88 @@
 
 @for $span from $cols-max through $span-min {
     
-    // @if $span % 2 == 0 {
+    @if $span % 2 == 0 {
       
         .drift .span-#{$span} {
+            
+            // the div selector provides enough specificity to override the uniform cols rules below
         
             @include spans($span);
 
             //  limit the width variations on phones
 
-    //        $sizes: phone, plus;
-    //        
-    //        @each $size in $sizes {
-    //
-    //            @include media($size) {
-    //                // 6 = the amount of spans to group?
-    //                // 8 = ?
-    //                // content: '#{(floor($span / 6) + 8) * 2}';
-    //                $resp-span: (floor($span / 6) + 8) * 2;
-    //                @include spans($resp-span);
-    //            }
-    //        
-    //        }
+            $sizes: phone-tablet;
+            
+            @each $size in $sizes {
+    
+                @include media($size) {
+                    // 6 = the amount of spans to group?
+                    // 8 = maybe 24 / (6 / 2) ?
+                    $resp-span: (floor($span / 6) + 8) * 2;
+                    @include spans($resp-span);
+                }
+            
+            }
 
         }
         
-    // }
+    }
 
+}
+
+//  C O L S
+
+//  Need to follow the span classes
+
+.drift [class*="cols-"] {
+    display: grid;
+    grid-template-rows: 1;
+}
+
+.drift .cols-2 {
+    
+    @include media(tablet-large) {
+    
+        grid-template-columns: repeat(2, 1fr);
+
+        > div:nth-of-type(2n+1) {
+            grid-column: 1;
+            // background-color: orange;
+        }
+
+        > div:nth-of-type(2n+2) {
+            grid-column: 2;
+            // background-color: salmon;
+        }
+        
+    }
+    
+}
+
+.drift .cols-3 {
+    
+    grid-template-columns: repeat(3, 1fr);
+    
+    // nth-of-type chosen over nth-child so option
+    // to include non column elements remains
+    
+    // Remember nth methods do not recognise classes
+    
+    > div:nth-of-type(3n+1) {
+        grid-column: 1;
+        // background-color: orange;
+    }
+    
+    > div:nth-of-type(3n+2) {
+        grid-column: 2;
+        // background-color: salmon;
+    }
+    
+    > div:nth-of-type(3n+3) {
+        grid-column: 3;
+        // background-color: hotpink;
+    }
+    
 }
 
 // Non grid element
