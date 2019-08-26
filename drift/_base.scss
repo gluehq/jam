@@ -1,31 +1,25 @@
 
 //  V A R I A B L E S
 
-$cols-max:  24;
+$span-max:  24;
 $span-min:  4;
+
+$cols-max:  3;
 
 $skew-max:  4;
 
-$split-max: 60;
-$split-min: 40;
-
 $ygap-ph:   12px;
-$ygap-pl:   16px;
-$ygap-tb:   20px;
-$ygap-cm:   24px;
-$ygap-st:   28px;
+$ygap-tb:   16px;
+$ygap-st:   24px;
 $ygap-lg:   32px;
 
 $xgap-ph:   12px;
-$xgap-pl:   16px;
 $xgap-tb:   24px;
-$xgap-cm:   36px;
 $xgap-st:   48px;
 $xgap-lg:   56px;
 
-$plus:      414px;// iPhone 6, 7, 8 plus portrait
-$tablet:    668px;// iPhone 6, 7, 8 landscape + 1px
-$compact:   835px;// iPad 10" portrait + 1px
+$plus:      414px;// iPhone 5 landscape + 1px
+$tablet:    768px;// iPhone 6, 7, 8 Plus landscape + 1px
 $standard:  1025px;// iPad 10" landscape, 13" portrait + 1px
 $large:     1367px;// Common 13" laptop size + 1px
 
@@ -43,6 +37,8 @@ $grey-80:   #484848;// 80%
 //  M E D I A   Q U E R I E S
 
 @mixin media($media) {
+    
+    //  Individual ranges
 
     @if $media == phone {
         @media (max-width: $plus - 1px) { @content; }
@@ -53,11 +49,7 @@ $grey-80:   #484848;// 80%
     }
 
     @if $media == tablet {
-        @media (min-width: $tablet) and (max-width: $compact - 1px) { @content; }
-    }
-
-    @if $media == compact {
-        @media (min-width: $compact) and (max-width: $standard - 1px) { @content; }
+        @media (min-width: $tablet) and (max-width: $standard - 1px) { @content; }
     }
 
     @if $media == standard {
@@ -75,15 +67,27 @@ $grey-80:   #484848;// 80%
     }
 
     @if $media == phone-tablet {
-        @media (max-width: $compact - 1px) { @content; }
+        @media (max-width: $standard - 1px) { @content; }
     }
 
-    @if $media == plus-compact {
-        @media (min-width: $plus) and ($standard - 1px) { @content; }
+    @if $media == phone-standard {
+        @media (max-width: $large - 1px) { @content; }
     }
 
-    @if $media == tablet-compact {
-        @media (min-width: $tablet) and (max-width: $standard - 1px) { @content; }
+    @if $media == plus-tablet {
+        @media (min-width: $plus) and (max-width: $standard - 1px) { @content; }
+    }
+
+    @if $media == plus-standard {
+        @media (min-width: $plus) and (max-width: $large - 1px) { @content; }
+    }
+
+    @if $media == plus-large {
+        @media (min-width: $plus) { @content; }
+    }
+
+    @if $media == tablet-standard {
+        @media (min-width: $tablet) and (max-width: $large - 1px) { @content; }
     }
 
     @if $media == tablet-large {
@@ -107,16 +111,8 @@ $grey-80:   #484848;// 80%
         column-gap: $xgap-ph;
     }
     
-    @include media(plus) {
-        column-gap: $xgap-pl;
-    }
-    
     @include media(tablet) {
         column-gap: $xgap-tb;
-    }
-    
-    @include media(compact) {
-        column-gap: $xgap-cm;
     }
     
     @include media(standard) {

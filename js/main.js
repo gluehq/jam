@@ -13,9 +13,8 @@ var check_media;
 // Make sure these correspond with CSS
 
 var phone_limit = 414;
-var plus_limit = 668;
-var tablet_limit = 835;
-var compact_limit = 1025;
+var plus_limit = 768;
+var tablet_limit = 1025;
 var standard_limit = 1367;
 
 // Scroll tracking
@@ -54,9 +53,7 @@ function on_resize() {
         check_media = 'plus';
     } else if (actual_width >= plus_limit && actual_width < tablet_limit) {
         check_media = 'tablet';
-    } else if (actual_width >= tablet_limit && actual_width < compact_limit) {
-        check_media = 'compact';
-    } else if (actual_width >= compact_limit && actual_width < standard_limit) {
+    } else if (actual_width >= tablet_limit && actual_width < standard_limit) {
         check_media = 'standard';
     } else if (actual_width >= standard_limit) {
         check_media = 'large';
