@@ -62,14 +62,16 @@
                             $col-end: ($span / 2) + $amount;
                         }
                         
-                        > div:nth-of-type(2n+1) {
+                        > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
                             // grid-template-columns: repeat($col-end, 1fr);
                             grid-column: 1 / span #{$col-end};
+                            order: 1;
                         }
                         
-                        > div:nth-of-type(2n+2) {
+                        > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
                             // grid-template-columns:      repeat(($span - $col-end), 1fr);
                             grid-column: #{$col-end +1} / -1;
+                            order: 2;
                         }
                         
                     }
@@ -142,15 +144,16 @@
 @for $col from 2 through $cols-max {
     
     .drift .cols-#{$col}:not([class*="skew-"]) {
-    
-        grid-template-columns: repeat(#{$col}, 1fr);
         
+        grid-template-columns: repeat(#{$col}, 1fr);
+            
         @for $div from 1 through $col {
 
-            > div:nth-of-type(#{$col}n+#{$div}) {
+            > div:nth-of-type(#{$col}n+#{$div}), &.flipped > div:nth-of-type(#{$col}n+#{$col - $div + 1}) {
+                order: $div;
                 grid-column: $div;
             }
-            
+
         }
         
         @include media(phone-plus) {
