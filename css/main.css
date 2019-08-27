@@ -4,10 +4,40 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1366px; }
+  @media (max-width: 413px) {
+    .drift {
+      column-gap: 16px; } }
+  @media (min-width: 414px) and (max-width: 767px) {
+    .drift {
+      column-gap: 28px; } }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .drift {
+      column-gap: 36px; } }
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    .drift {
+      column-gap: 44px; } }
+  @media (min-width: 1367px) {
+    .drift {
+      column-gap: 56px; } }
 
 [class*=span-] {
   display: grid;
   position: relative; }
+  @media (max-width: 413px) {
+    [class*=span-] {
+      column-gap: 16px; } }
+  @media (min-width: 414px) and (max-width: 767px) {
+    [class*=span-] {
+      column-gap: 28px; } }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    [class*=span-] {
+      column-gap: 36px; } }
+  @media (min-width: 1025px) and (max-width: 1366px) {
+    [class*=span-] {
+      column-gap: 44px; } }
+  @media (min-width: 1367px) {
+    [class*=span-] {
+      column-gap: 56px; } }
 
 @media (min-width: 1025px) {
   .drift .span-14 {
@@ -579,11 +609,9 @@ img {
     grid-column: 14; }
   #dev-grid .span-14 > div {
     overflow: hidden;
-    background-color: rgba(255, 0, 0, 0.1);
-    box-shadow: inset 1px 0 0 0 white; }
+    background-color: rgba(255, 0, 0, 0.1); }
   #dev-grid .span-14 > div:nth-of-type(n+8) {
-    text-align: right;
-    box-shadow: inset -1px 0 0 0 white; }
+    text-align: right; }
 
 body {
   margin: 0; }

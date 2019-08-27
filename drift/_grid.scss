@@ -2,10 +2,10 @@
 .drift {
     display: grid;
     grid-template-columns: repeat($span-max, 1fr);
+    @include xgap();
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
-    // grid-column-gap: 3px;
 }
 
 
@@ -14,7 +14,7 @@
 [class*=span-] {
     display: grid;
     position: relative;
-    // @include xgap();
+    @include xgap();
 }
 
 //  Core rules
@@ -211,12 +211,12 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     .span-#{$span-max} > div {
         overflow: hidden;
         background-color: $color-dev-bkgd;
-        box-shadow: inset 1px 0 0 0 white;
+        // box-shadow: inset 1px 0 0 0 white;
     }
     
     .span-#{$span-max} > div:nth-of-type(n+#{($span-max / 2) + 1}) {
         text-align: right;
-        box-shadow: inset -1px 0 0 0 white;
+        // box-shadow: inset -1px 0 0 0 white;
     }
     
 }
