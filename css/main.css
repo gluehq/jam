@@ -1,540 +1,34 @@
 .drift {
   display: grid;
-  grid-template-columns: repeat(24, 1fr);
+  grid-template-columns: repeat(14, 1fr);
   margin: 0 auto;
   width: 100%;
-  max-width: 1366px;
-  grid-column-gap: 3px; }
+  max-width: 1366px; }
 
 [class*=span-] {
   display: grid;
   position: relative; }
 
 @media (min-width: 1025px) {
-  .drift .span-24 {
-    grid-template-columns: repeat(24, 1fr);
-    grid-column: 1/-1; }
-    .drift .span-24.skew-l-4 > div:nth-of-type(2n+1), .drift .span-24.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-24.skew-l-4 > div:nth-of-type(2n+2), .drift .span-24.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-3 > div:nth-of-type(2n+1), .drift .span-24.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-24.skew-l-3 > div:nth-of-type(2n+2), .drift .span-24.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-2 > div:nth-of-type(2n+1), .drift .span-24.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-24.skew-l-2 > div:nth-of-type(2n+2), .drift .span-24.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-1 > div:nth-of-type(2n+1), .drift .span-24.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-24.skew-l-1 > div:nth-of-type(2n+2), .drift .span-24.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-4 > div:nth-of-type(2n+1), .drift .span-24.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 16;
-      order: 1; }
-    .drift .span-24.skew-r-4 > div:nth-of-type(2n+2), .drift .span-24.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 17 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-3 > div:nth-of-type(2n+1), .drift .span-24.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-24.skew-r-3 > div:nth-of-type(2n+2), .drift .span-24.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-2 > div:nth-of-type(2n+1), .drift .span-24.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-24.skew-r-2 > div:nth-of-type(2n+2), .drift .span-24.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-1 > div:nth-of-type(2n+1), .drift .span-24.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-24.skew-r-1 > div:nth-of-type(2n+2), .drift .span-24.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .drift .span-24 {
-    grid-template-columns: repeat(24, 1fr);
-    grid-column: 1/-1; }
-    .drift .span-24.skew-l-4 > div:nth-of-type(2n+1), .drift .span-24.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-24.skew-l-4 > div:nth-of-type(2n+2), .drift .span-24.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-3 > div:nth-of-type(2n+1), .drift .span-24.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-24.skew-l-3 > div:nth-of-type(2n+2), .drift .span-24.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-2 > div:nth-of-type(2n+1), .drift .span-24.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-24.skew-l-2 > div:nth-of-type(2n+2), .drift .span-24.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-24.skew-l-1 > div:nth-of-type(2n+1), .drift .span-24.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-24.skew-l-1 > div:nth-of-type(2n+2), .drift .span-24.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-4 > div:nth-of-type(2n+1), .drift .span-24.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 16;
-      order: 1; }
-    .drift .span-24.skew-r-4 > div:nth-of-type(2n+2), .drift .span-24.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 17 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-3 > div:nth-of-type(2n+1), .drift .span-24.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-24.skew-r-3 > div:nth-of-type(2n+2), .drift .span-24.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-2 > div:nth-of-type(2n+1), .drift .span-24.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-24.skew-r-2 > div:nth-of-type(2n+2), .drift .span-24.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-24.skew-r-1 > div:nth-of-type(2n+1), .drift .span-24.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-24.skew-r-1 > div:nth-of-type(2n+2), .drift .span-24.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; } }
-
-@media (max-width: 767px) {
-  .drift .span-24 {
-    grid-template-columns: repeat(24, 1fr);
-    grid-column: 1/-1; }
-    .drift .span-24 > div, .drift .span-24 > div[class*="cols-"] > div {
-      grid-column: 1 / -1; } }
-
-@media (min-width: 1025px) {
-  .drift .span-22 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-22.skew-l-4 > div:nth-of-type(2n+1), .drift .span-22.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-22.skew-l-4 > div:nth-of-type(2n+2), .drift .span-22.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-3 > div:nth-of-type(2n+1), .drift .span-22.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-22.skew-l-3 > div:nth-of-type(2n+2), .drift .span-22.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-2 > div:nth-of-type(2n+1), .drift .span-22.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-22.skew-l-2 > div:nth-of-type(2n+2), .drift .span-22.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-1 > div:nth-of-type(2n+1), .drift .span-22.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-22.skew-l-1 > div:nth-of-type(2n+2), .drift .span-22.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-4 > div:nth-of-type(2n+1), .drift .span-22.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-22.skew-r-4 > div:nth-of-type(2n+2), .drift .span-22.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-3 > div:nth-of-type(2n+1), .drift .span-22.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-22.skew-r-3 > div:nth-of-type(2n+2), .drift .span-22.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-2 > div:nth-of-type(2n+1), .drift .span-22.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-22.skew-r-2 > div:nth-of-type(2n+2), .drift .span-22.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-1 > div:nth-of-type(2n+1), .drift .span-22.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-22.skew-r-1 > div:nth-of-type(2n+2), .drift .span-22.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .drift .span-22 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-22.skew-l-4 > div:nth-of-type(2n+1), .drift .span-22.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-22.skew-l-4 > div:nth-of-type(2n+2), .drift .span-22.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-3 > div:nth-of-type(2n+1), .drift .span-22.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-22.skew-l-3 > div:nth-of-type(2n+2), .drift .span-22.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-2 > div:nth-of-type(2n+1), .drift .span-22.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-22.skew-l-2 > div:nth-of-type(2n+2), .drift .span-22.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-22.skew-l-1 > div:nth-of-type(2n+1), .drift .span-22.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-22.skew-l-1 > div:nth-of-type(2n+2), .drift .span-22.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-4 > div:nth-of-type(2n+1), .drift .span-22.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-22.skew-r-4 > div:nth-of-type(2n+2), .drift .span-22.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-3 > div:nth-of-type(2n+1), .drift .span-22.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-22.skew-r-3 > div:nth-of-type(2n+2), .drift .span-22.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-2 > div:nth-of-type(2n+1), .drift .span-22.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-22.skew-r-2 > div:nth-of-type(2n+2), .drift .span-22.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-22.skew-r-1 > div:nth-of-type(2n+1), .drift .span-22.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-22.skew-r-1 > div:nth-of-type(2n+2), .drift .span-22.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; } }
-
-@media (max-width: 767px) {
-  .drift .span-22 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-22 > div, .drift .span-22 > div[class*="cols-"] > div {
-      grid-column: 1 / -1; } }
-
-@media (min-width: 1025px) {
-  .drift .span-20 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
-    .drift .span-20.skew-l-4 > div:nth-of-type(2n+1), .drift .span-20.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-20 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-20 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-20.skew-l-4 > div:nth-of-type(2n+2), .drift .span-20.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-20 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-20 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-20.skew-l-2 > div:nth-of-type(2n+1), .drift .span-20.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-20.skew-l-2 > div:nth-of-type(2n+2), .drift .span-20.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-20.skew-l-1 > div:nth-of-type(2n+1), .drift .span-20.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-20.skew-l-1 > div:nth-of-type(2n+2), .drift .span-20.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-4 > div:nth-of-type(2n+1), .drift .span-20.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-20 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-20 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-20.skew-r-4 > div:nth-of-type(2n+2), .drift .span-20.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-20 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-20 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-2 > div:nth-of-type(2n+1), .drift .span-20.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-20.skew-r-2 > div:nth-of-type(2n+2), .drift .span-20.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-1 > div:nth-of-type(2n+1), .drift .span-20.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-20.skew-r-1 > div:nth-of-type(2n+2), .drift .span-20.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .drift .span-20 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-20.skew-l-4 > div:nth-of-type(2n+1), .drift .span-20.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-20.skew-l-4 > div:nth-of-type(2n+2), .drift .span-20.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-20.skew-l-3 > div:nth-of-type(2n+1), .drift .span-20.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-20.skew-l-3 > div:nth-of-type(2n+2), .drift .span-20.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-20.skew-l-2 > div:nth-of-type(2n+1), .drift .span-20.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-20.skew-l-2 > div:nth-of-type(2n+2), .drift .span-20.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-20.skew-l-1 > div:nth-of-type(2n+1), .drift .span-20.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-20.skew-l-1 > div:nth-of-type(2n+2), .drift .span-20.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-4 > div:nth-of-type(2n+1), .drift .span-20.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-20.skew-r-4 > div:nth-of-type(2n+2), .drift .span-20.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-3 > div:nth-of-type(2n+1), .drift .span-20.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-20.skew-r-3 > div:nth-of-type(2n+2), .drift .span-20.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-2 > div:nth-of-type(2n+1), .drift .span-20.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-20.skew-r-2 > div:nth-of-type(2n+2), .drift .span-20.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-20.skew-r-1 > div:nth-of-type(2n+1), .drift .span-20.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-20.skew-r-1 > div:nth-of-type(2n+2), .drift .span-20.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; } }
-
-@media (max-width: 767px) {
-  .drift .span-20 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-20 > div, .drift .span-20 > div[class*="cols-"] > div {
-      grid-column: 1 / -1; } }
-
-@media (min-width: 1025px) {
-  .drift .span-18 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
-    .drift .span-18.skew-l-4 > div:nth-of-type(2n+1), .drift .span-18.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-18 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-18 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
-      order: 1; }
-    .drift .span-18.skew-l-4 > div:nth-of-type(2n+2), .drift .span-18.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-18 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-18 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
-      order: 2; }
-    .drift .span-18.skew-l-2 > div:nth-of-type(2n+1), .drift .span-18.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-18.skew-l-2 > div:nth-of-type(2n+2), .drift .span-18.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-18.skew-l-1 > div:nth-of-type(2n+1), .drift .span-18.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-18.skew-l-1 > div:nth-of-type(2n+2), .drift .span-18.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-4 > div:nth-of-type(2n+1), .drift .span-18.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-18 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-18 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-18.skew-r-4 > div:nth-of-type(2n+2), .drift .span-18.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-18 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-18 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-2 > div:nth-of-type(2n+1), .drift .span-18.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-18.skew-r-2 > div:nth-of-type(2n+2), .drift .span-18.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-1 > div:nth-of-type(2n+1), .drift .span-18.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-18.skew-r-1 > div:nth-of-type(2n+2), .drift .span-18.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .drift .span-18 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-18.skew-l-4 > div:nth-of-type(2n+1), .drift .span-18.skew-l-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-18.skew-l-4 > div:nth-of-type(2n+2), .drift .span-18.skew-l-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-18.skew-l-3 > div:nth-of-type(2n+1), .drift .span-18.skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-18.skew-l-3 > div:nth-of-type(2n+2), .drift .span-18.skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-18.skew-l-2 > div:nth-of-type(2n+1), .drift .span-18.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-18.skew-l-2 > div:nth-of-type(2n+2), .drift .span-18.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-18.skew-l-1 > div:nth-of-type(2n+1), .drift .span-18.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-18.skew-l-1 > div:nth-of-type(2n+2), .drift .span-18.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-4 > div:nth-of-type(2n+1), .drift .span-18.skew-r-4.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 15;
-      order: 1; }
-    .drift .span-18.skew-r-4 > div:nth-of-type(2n+2), .drift .span-18.skew-r-4.flipped > div:nth-of-type(2n+1) {
-      grid-column: 16 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-3 > div:nth-of-type(2n+1), .drift .span-18.skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 14;
-      order: 1; }
-    .drift .span-18.skew-r-3 > div:nth-of-type(2n+2), .drift .span-18.skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 15 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-2 > div:nth-of-type(2n+1), .drift .span-18.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-18.skew-r-2 > div:nth-of-type(2n+2), .drift .span-18.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-18.skew-r-1 > div:nth-of-type(2n+1), .drift .span-18.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-18.skew-r-1 > div:nth-of-type(2n+2), .drift .span-18.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; } }
-
-@media (max-width: 767px) {
-  .drift .span-18 {
-    grid-template-columns: repeat(22, 1fr);
-    grid-column: 2/-2; }
-    .drift .span-18 > div, .drift .span-18 > div[class*="cols-"] > div {
-      grid-column: 1 / -1; } }
-
-@media (min-width: 1025px) {
-  .drift .span-16 {
-    grid-template-columns: repeat(16, 1fr);
-    grid-column: 5/-5; }
-    .drift .span-16.skew-l-4 > div:nth-of-type(2n+1), .drift .span-16.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-16 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-16 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 5;
-      order: 1; }
-    .drift .span-16.skew-l-4 > div:nth-of-type(2n+2), .drift .span-16.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-16 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-16 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 6 / -1;
-      order: 2; }
-    .drift .span-16.skew-l-2 > div:nth-of-type(2n+1), .drift .span-16.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
-      order: 1; }
-    .drift .span-16.skew-l-2 > div:nth-of-type(2n+2), .drift .span-16.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
-      order: 2; }
-    .drift .span-16.skew-l-1 > div:nth-of-type(2n+1), .drift .span-16.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-16.skew-l-1 > div:nth-of-type(2n+2), .drift .span-16.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-4 > div:nth-of-type(2n+1), .drift .span-16.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-16 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-16 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-16.skew-r-4 > div:nth-of-type(2n+2), .drift .span-16.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-16 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-16 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-2 > div:nth-of-type(2n+1), .drift .span-16.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-16.skew-r-2 > div:nth-of-type(2n+2), .drift .span-16.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-1 > div:nth-of-type(2n+1), .drift .span-16.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-16.skew-r-1 > div:nth-of-type(2n+2), .drift .span-16.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .drift .span-16 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
-    .drift .span-16.skew-l-4 > div:nth-of-type(2n+1), .drift .span-16.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-16 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-16 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
-      order: 1; }
-    .drift .span-16.skew-l-4 > div:nth-of-type(2n+2), .drift .span-16.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-16 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-16 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
-      order: 2; }
-    .drift .span-16.skew-l-2 > div:nth-of-type(2n+1), .drift .span-16.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
-      order: 1; }
-    .drift .span-16.skew-l-2 > div:nth-of-type(2n+2), .drift .span-16.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
-      order: 2; }
-    .drift .span-16.skew-l-1 > div:nth-of-type(2n+1), .drift .span-16.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
-      order: 1; }
-    .drift .span-16.skew-l-1 > div:nth-of-type(2n+2), .drift .span-16.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-4 > div:nth-of-type(2n+1), .drift .span-16.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-16 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-16 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-16.skew-r-4 > div:nth-of-type(2n+2), .drift .span-16.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-16 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-16 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-2 > div:nth-of-type(2n+1), .drift .span-16.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-16.skew-r-2 > div:nth-of-type(2n+2), .drift .span-16.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; }
-    .drift .span-16.skew-r-1 > div:nth-of-type(2n+1), .drift .span-16.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
-      order: 1; }
-    .drift .span-16.skew-r-1 > div:nth-of-type(2n+2), .drift .span-16.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; } }
-
-@media (max-width: 767px) {
-  .drift .span-16 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
-    .drift .span-16 > div, .drift .span-16 > div[class*="cols-"] > div {
-      grid-column: 1 / -1; } }
-
-@media (min-width: 1025px) {
   .drift .span-14 {
     grid-template-columns: repeat(14, 1fr);
-    grid-column: 6/-6; }
-    .drift .span-14.skew-l-4 > div:nth-of-type(2n+1), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-14 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-14 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+    grid-column: 1/-1; }
+    .drift .span-14.skew-l-4 > div:nth-of-type(2n+1), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 3;
+      order: 1; }
+    .drift .span-14.skew-l-4 > div:nth-of-type(2n+2), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+1) {
+      grid-column: 4 / -1;
+      order: 2; }
+    .drift .span-14.skew-l-3 > div:nth-of-type(2n+1), .drift .span-14.skew-l-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 4;
+      order: 1; }
+    .drift .span-14.skew-l-3 > div:nth-of-type(2n+2), .drift .span-14.skew-l-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 5 / -1;
+      order: 2; }
+    .drift .span-14.skew-l-2 > div:nth-of-type(2n+1), .drift .span-14.skew-l-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 5;
       order: 1; }
-    .drift .span-14.skew-l-4 > div:nth-of-type(2n+2), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-14 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-14 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-14.skew-l-2 > div:nth-of-type(2n+2), .drift .span-14.skew-l-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 6 / -1;
       order: 2; }
     .drift .span-14.skew-l-1 > div:nth-of-type(2n+1), .drift .span-14.skew-l-1.flipped > div:nth-of-type(2n+2) {
@@ -543,10 +37,22 @@
     .drift .span-14.skew-l-1 > div:nth-of-type(2n+2), .drift .span-14.skew-l-1.flipped > div:nth-of-type(2n+1) {
       grid-column: 7 / -1;
       order: 2; }
-    .drift .span-14.skew-r-4 > div:nth-of-type(2n+1), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-14 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-14 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+    .drift .span-14.skew-r-4 > div:nth-of-type(2n+1), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 11;
+      order: 1; }
+    .drift .span-14.skew-r-4 > div:nth-of-type(2n+2), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+1) {
+      grid-column: 12 / -1;
+      order: 2; }
+    .drift .span-14.skew-r-3 > div:nth-of-type(2n+1), .drift .span-14.skew-r-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 10;
+      order: 1; }
+    .drift .span-14.skew-r-3 > div:nth-of-type(2n+2), .drift .span-14.skew-r-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 11 / -1;
+      order: 2; }
+    .drift .span-14.skew-r-2 > div:nth-of-type(2n+1), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 9;
       order: 1; }
-    .drift .span-14.skew-r-4 > div:nth-of-type(2n+2), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-14 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-14 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-14.skew-r-2 > div:nth-of-type(2n+2), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 10 / -1;
       order: 2; }
     .drift .span-14.skew-r-1 > div:nth-of-type(2n+1), .drift .span-14.skew-r-1.flipped > div:nth-of-type(2n+2) {
@@ -558,60 +64,78 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-14 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
-    .drift .span-14.skew-l-4 > div:nth-of-type(2n+1), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-14 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+    grid-template-columns: repeat(14, 1fr);
+    grid-column: 1/-1; }
+    .drift .span-14.skew-l-4 > div:nth-of-type(2n+1), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 3;
       order: 1; }
-    .drift .span-14.skew-l-4 > div:nth-of-type(2n+2), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-14 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+    .drift .span-14.skew-l-4 > div:nth-of-type(2n+2), .drift .span-14.skew-l-4.flipped > div:nth-of-type(2n+1) {
+      grid-column: 4 / -1;
+      order: 2; }
+    .drift .span-14.skew-l-3 > div:nth-of-type(2n+1), .drift .span-14.skew-l-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 4;
+      order: 1; }
+    .drift .span-14.skew-l-3 > div:nth-of-type(2n+2), .drift .span-14.skew-l-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 5 / -1;
       order: 2; }
     .drift .span-14.skew-l-2 > div:nth-of-type(2n+1), .drift .span-14.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
+      grid-column: 1/span 5;
       order: 1; }
     .drift .span-14.skew-l-2 > div:nth-of-type(2n+2), .drift .span-14.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
+      grid-column: 6 / -1;
       order: 2; }
     .drift .span-14.skew-l-1 > div:nth-of-type(2n+1), .drift .span-14.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
+      grid-column: 1/span 6;
       order: 1; }
     .drift .span-14.skew-l-1 > div:nth-of-type(2n+2), .drift .span-14.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
+      grid-column: 7 / -1;
       order: 2; }
-    .drift .span-14.skew-r-4 > div:nth-of-type(2n+1), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-14 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-14 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
-      order: 1; }
-    .drift .span-14.skew-r-4 > div:nth-of-type(2n+2), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-14 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-14 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
-      order: 2; }
-    .drift .span-14.skew-r-2 > div:nth-of-type(2n+1), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
-      order: 1; }
-    .drift .span-14.skew-r-2 > div:nth-of-type(2n+2), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
-      order: 2; }
-    .drift .span-14.skew-r-1 > div:nth-of-type(2n+1), .drift .span-14.skew-r-1.flipped > div:nth-of-type(2n+2) {
+    .drift .span-14.skew-r-4 > div:nth-of-type(2n+1), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 11;
       order: 1; }
-    .drift .span-14.skew-r-1 > div:nth-of-type(2n+2), .drift .span-14.skew-r-1.flipped > div:nth-of-type(2n+1) {
+    .drift .span-14.skew-r-4 > div:nth-of-type(2n+2), .drift .span-14.skew-r-4.flipped > div:nth-of-type(2n+1) {
       grid-column: 12 / -1;
+      order: 2; }
+    .drift .span-14.skew-r-3 > div:nth-of-type(2n+1), .drift .span-14.skew-r-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 10;
+      order: 1; }
+    .drift .span-14.skew-r-3 > div:nth-of-type(2n+2), .drift .span-14.skew-r-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 11 / -1;
+      order: 2; }
+    .drift .span-14.skew-r-2 > div:nth-of-type(2n+1), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 9;
+      order: 1; }
+    .drift .span-14.skew-r-2 > div:nth-of-type(2n+2), .drift .span-14.skew-r-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 10 / -1;
+      order: 2; }
+    .drift .span-14.skew-r-1 > div:nth-of-type(2n+1), .drift .span-14.skew-r-1.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 8;
+      order: 1; }
+    .drift .span-14.skew-r-1 > div:nth-of-type(2n+2), .drift .span-14.skew-r-1.flipped > div:nth-of-type(2n+1) {
+      grid-column: 9 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-14 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
+    grid-template-columns: repeat(14, 1fr);
+    grid-column: 1/-1; }
     .drift .span-14 > div, .drift .span-14 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
 @media (min-width: 1025px) {
   .drift .span-12 {
     grid-template-columns: repeat(12, 1fr);
-    grid-column: 7/-7; }
-    .drift .span-12.skew-l-4 > div:nth-of-type(2n+1), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-12 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+    grid-column: 2/-2; }
+    .drift .span-12.skew-l-4 > div:nth-of-type(2n+1), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 3;
+      order: 1; }
+    .drift .span-12.skew-l-4 > div:nth-of-type(2n+2), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 4 / -1;
+      order: 2; }
+    .drift .span-12.skew-l-2 > div:nth-of-type(2n+1), .drift .span-12.skew-l-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 4;
       order: 1; }
-    .drift .span-12.skew-l-4 > div:nth-of-type(2n+2), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-12 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-12.skew-l-2 > div:nth-of-type(2n+2), .drift .span-12.skew-l-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 5 / -1;
       order: 2; }
     .drift .span-12.skew-l-1 > div:nth-of-type(2n+1), .drift .span-12.skew-l-1.flipped > div:nth-of-type(2n+2) {
@@ -620,10 +144,16 @@
     .drift .span-12.skew-l-1 > div:nth-of-type(2n+2), .drift .span-12.skew-l-1.flipped > div:nth-of-type(2n+1) {
       grid-column: 6 / -1;
       order: 2; }
-    .drift .span-12.skew-r-4 > div:nth-of-type(2n+1), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-12 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+    .drift .span-12.skew-r-4 > div:nth-of-type(2n+1), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 9;
+      order: 1; }
+    .drift .span-12.skew-r-4 > div:nth-of-type(2n+2), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 10 / -1;
+      order: 2; }
+    .drift .span-12.skew-r-2 > div:nth-of-type(2n+1), .drift .span-12.skew-r-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 8;
       order: 1; }
-    .drift .span-12.skew-r-4 > div:nth-of-type(2n+2), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-12 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-12.skew-r-2 > div:nth-of-type(2n+2), .drift .span-12.skew-r-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 9 / -1;
       order: 2; }
     .drift .span-12.skew-r-1 > div:nth-of-type(2n+1), .drift .span-12.skew-r-1.flipped > div:nth-of-type(2n+2) {
@@ -635,60 +165,66 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-12 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
+    grid-template-columns: repeat(12, 1fr);
+    grid-column: 2/-2; }
     .drift .span-12.skew-l-4 > div:nth-of-type(2n+1), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+      grid-column: 1/span 3;
       order: 1; }
     .drift .span-12.skew-l-4 > div:nth-of-type(2n+2), .drift .span-12.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+      grid-column: 4 / -1;
       order: 2; }
     .drift .span-12.skew-l-2 > div:nth-of-type(2n+1), .drift .span-12.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
+      grid-column: 1/span 4;
       order: 1; }
     .drift .span-12.skew-l-2 > div:nth-of-type(2n+2), .drift .span-12.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
+      grid-column: 5 / -1;
       order: 2; }
     .drift .span-12.skew-l-1 > div:nth-of-type(2n+1), .drift .span-12.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
+      grid-column: 1/span 5;
       order: 1; }
     .drift .span-12.skew-l-1 > div:nth-of-type(2n+2), .drift .span-12.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
+      grid-column: 6 / -1;
       order: 2; }
     .drift .span-12.skew-r-4 > div:nth-of-type(2n+1), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 13;
+      grid-column: 1/span 9;
       order: 1; }
     .drift .span-12.skew-r-4 > div:nth-of-type(2n+2), .drift .span-12.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-12 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-12 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 14 / -1;
+      grid-column: 10 / -1;
       order: 2; }
     .drift .span-12.skew-r-2 > div:nth-of-type(2n+1), .drift .span-12.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
+      grid-column: 1/span 8;
       order: 1; }
     .drift .span-12.skew-r-2 > div:nth-of-type(2n+2), .drift .span-12.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
+      grid-column: 9 / -1;
       order: 2; }
     .drift .span-12.skew-r-1 > div:nth-of-type(2n+1), .drift .span-12.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
+      grid-column: 1/span 7;
       order: 1; }
     .drift .span-12.skew-r-1 > div:nth-of-type(2n+2), .drift .span-12.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
+      grid-column: 8 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-12 {
-    grid-template-columns: repeat(20, 1fr);
-    grid-column: 3/-3; }
+    grid-template-columns: repeat(12, 1fr);
+    grid-column: 2/-2; }
     .drift .span-12 > div, .drift .span-12 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
 @media (min-width: 1025px) {
   .drift .span-10 {
     grid-template-columns: repeat(10, 1fr);
-    grid-column: 8/-8; }
-    .drift .span-10.skew-l-4 > div:nth-of-type(2n+1), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-10 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+    grid-column: 3/-3; }
+    .drift .span-10.skew-l-4 > div:nth-of-type(2n+1), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 2;
+      order: 1; }
+    .drift .span-10.skew-l-4 > div:nth-of-type(2n+2), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 3 / -1;
+      order: 2; }
+    .drift .span-10.skew-l-2 > div:nth-of-type(2n+1), .drift .span-10.skew-l-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 3;
       order: 1; }
-    .drift .span-10.skew-l-4 > div:nth-of-type(2n+2), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-10 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-10.skew-l-2 > div:nth-of-type(2n+2), .drift .span-10.skew-l-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 4 / -1;
       order: 2; }
     .drift .span-10.skew-l-1 > div:nth-of-type(2n+1), .drift .span-10.skew-l-1.flipped > div:nth-of-type(2n+2) {
@@ -697,10 +233,16 @@
     .drift .span-10.skew-l-1 > div:nth-of-type(2n+2), .drift .span-10.skew-l-1.flipped > div:nth-of-type(2n+1) {
       grid-column: 5 / -1;
       order: 2; }
-    .drift .span-10.skew-r-4 > div:nth-of-type(2n+1), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-10 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+    .drift .span-10.skew-r-4 > div:nth-of-type(2n+1), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 8;
+      order: 1; }
+    .drift .span-10.skew-r-4 > div:nth-of-type(2n+2), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+1) {
+      grid-column: 9 / -1;
+      order: 2; }
+    .drift .span-10.skew-r-2 > div:nth-of-type(2n+1), .drift .span-10.skew-r-2.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 7;
       order: 1; }
-    .drift .span-10.skew-r-4 > div:nth-of-type(2n+2), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-10 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+    .drift .span-10.skew-r-2 > div:nth-of-type(2n+2), .drift .span-10.skew-r-2.flipped > div:nth-of-type(2n+1) {
       grid-column: 8 / -1;
       order: 2; }
     .drift .span-10.skew-r-1 > div:nth-of-type(2n+1), .drift .span-10.skew-r-1.flipped > div:nth-of-type(2n+2) {
@@ -712,220 +254,256 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-10 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(12, 1fr);
+    grid-column: 2/-2; }
     .drift .span-10.skew-l-4 > div:nth-of-type(2n+1), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
+      grid-column: 1/span 3;
       order: 1; }
     .drift .span-10.skew-l-4 > div:nth-of-type(2n+2), .drift .span-10.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
+      grid-column: 4 / -1;
       order: 2; }
     .drift .span-10.skew-l-2 > div:nth-of-type(2n+1), .drift .span-10.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+      grid-column: 1/span 4;
       order: 1; }
     .drift .span-10.skew-l-2 > div:nth-of-type(2n+2), .drift .span-10.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+      grid-column: 5 / -1;
       order: 2; }
     .drift .span-10.skew-l-1 > div:nth-of-type(2n+1), .drift .span-10.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
+      grid-column: 1/span 5;
       order: 1; }
     .drift .span-10.skew-l-1 > div:nth-of-type(2n+2), .drift .span-10.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
+      grid-column: 6 / -1;
       order: 2; }
     .drift .span-10.skew-r-4 > div:nth-of-type(2n+1), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
+      grid-column: 1/span 9;
       order: 1; }
     .drift .span-10.skew-r-4 > div:nth-of-type(2n+2), .drift .span-10.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-10 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-10 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
+      grid-column: 10 / -1;
       order: 2; }
     .drift .span-10.skew-r-2 > div:nth-of-type(2n+1), .drift .span-10.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
+      grid-column: 1/span 8;
       order: 1; }
     .drift .span-10.skew-r-2 > div:nth-of-type(2n+2), .drift .span-10.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
+      grid-column: 9 / -1;
       order: 2; }
     .drift .span-10.skew-r-1 > div:nth-of-type(2n+1), .drift .span-10.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
+      grid-column: 1/span 7;
       order: 1; }
     .drift .span-10.skew-r-1 > div:nth-of-type(2n+2), .drift .span-10.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
+      grid-column: 8 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-10 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(12, 1fr);
+    grid-column: 2/-2; }
     .drift .span-10 > div, .drift .span-10 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
 @media (min-width: 1025px) {
   .drift .span-8 {
     grid-template-columns: repeat(8, 1fr);
-    grid-column: 9/-9; }
-    .drift .span-8.skew-l-4 > div:nth-of-type(2n+1), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-2.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-1 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-1.flipped > div:nth-of-type(2n+2) {
+    grid-column: 4/-4; }
+    .drift .span-8.skew-l-4 > div:nth-of-type(2n+1), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 2;
+      order: 1; }
+    .drift .span-8.skew-l-4 > div:nth-of-type(2n+2), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 3 / -1;
+      order: 2; }
+    .drift .span-8.skew-l-1 > div:nth-of-type(2n+1), .drift .span-8.skew-l-1.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 3;
       order: 1; }
-    .drift .span-8.skew-l-4 > div:nth-of-type(2n+2), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-2.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-1 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-1.flipped > div:nth-of-type(2n+1) {
+    .drift .span-8.skew-l-1 > div:nth-of-type(2n+2), .drift .span-8.skew-l-1.flipped > div:nth-of-type(2n+1) {
       grid-column: 4 / -1;
       order: 2; }
-    .drift .span-8.skew-r-4 > div:nth-of-type(2n+1), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-2.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-1 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-1.flipped > div:nth-of-type(2n+2) {
+    .drift .span-8.skew-r-4 > div:nth-of-type(2n+1), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 6;
+      order: 1; }
+    .drift .span-8.skew-r-4 > div:nth-of-type(2n+2), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 7 / -1;
+      order: 2; }
+    .drift .span-8.skew-r-1 > div:nth-of-type(2n+1), .drift .span-8.skew-r-1.flipped > div:nth-of-type(2n+2) {
       grid-column: 1/span 5;
       order: 1; }
-    .drift .span-8.skew-r-4 > div:nth-of-type(2n+2), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-2.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-1 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-1.flipped > div:nth-of-type(2n+1) {
+    .drift .span-8.skew-r-1 > div:nth-of-type(2n+2), .drift .span-8.skew-r-1.flipped > div:nth-of-type(2n+1) {
       grid-column: 6 / -1;
       order: 2; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-8 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(10, 1fr);
+    grid-column: 3/-3; }
     .drift .span-8.skew-l-4 > div:nth-of-type(2n+1), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
+      grid-column: 1/span 2;
       order: 1; }
     .drift .span-8.skew-l-4 > div:nth-of-type(2n+2), .drift .span-8.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
+      grid-column: 3 / -1;
       order: 2; }
     .drift .span-8.skew-l-2 > div:nth-of-type(2n+1), .drift .span-8.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+      grid-column: 1/span 3;
       order: 1; }
     .drift .span-8.skew-l-2 > div:nth-of-type(2n+2), .drift .span-8.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+      grid-column: 4 / -1;
       order: 2; }
     .drift .span-8.skew-l-1 > div:nth-of-type(2n+1), .drift .span-8.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
+      grid-column: 1/span 4;
       order: 1; }
     .drift .span-8.skew-l-1 > div:nth-of-type(2n+2), .drift .span-8.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
+      grid-column: 5 / -1;
       order: 2; }
     .drift .span-8.skew-r-4 > div:nth-of-type(2n+1), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
+      grid-column: 1/span 8;
       order: 1; }
     .drift .span-8.skew-r-4 > div:nth-of-type(2n+2), .drift .span-8.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-8 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-8 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
+      grid-column: 9 / -1;
       order: 2; }
     .drift .span-8.skew-r-2 > div:nth-of-type(2n+1), .drift .span-8.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
+      grid-column: 1/span 7;
       order: 1; }
     .drift .span-8.skew-r-2 > div:nth-of-type(2n+2), .drift .span-8.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
+      grid-column: 8 / -1;
       order: 2; }
     .drift .span-8.skew-r-1 > div:nth-of-type(2n+1), .drift .span-8.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
+      grid-column: 1/span 6;
       order: 1; }
     .drift .span-8.skew-r-1 > div:nth-of-type(2n+2), .drift .span-8.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
+      grid-column: 7 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-8 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(10, 1fr);
+    grid-column: 3/-3; }
     .drift .span-8 > div, .drift .span-8 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
 @media (min-width: 1025px) {
   .drift .span-6 {
     grid-template-columns: repeat(6, 1fr);
-    grid-column: 10/-10; } }
+    grid-column: 5/-5; }
+    .drift .span-6.skew-l-4 > div:nth-of-type(2n+1), .drift .span-6.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-6 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-6 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 1;
+      order: 1; }
+    .drift .span-6.skew-l-4 > div:nth-of-type(2n+2), .drift .span-6.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-6 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-6 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 2 / -1;
+      order: 2; }
+    .drift .span-6.skew-l-1 > div:nth-of-type(2n+1), .drift .span-6.skew-l-1.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 2;
+      order: 1; }
+    .drift .span-6.skew-l-1 > div:nth-of-type(2n+2), .drift .span-6.skew-l-1.flipped > div:nth-of-type(2n+1) {
+      grid-column: 3 / -1;
+      order: 2; }
+    .drift .span-6.skew-r-4 > div:nth-of-type(2n+1), .drift .span-6.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-6 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-6 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 5;
+      order: 1; }
+    .drift .span-6.skew-r-4 > div:nth-of-type(2n+2), .drift .span-6.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-6 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-6 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 6 / -1;
+      order: 2; }
+    .drift .span-6.skew-r-1 > div:nth-of-type(2n+1), .drift .span-6.skew-r-1.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 4;
+      order: 1; }
+    .drift .span-6.skew-r-1 > div:nth-of-type(2n+2), .drift .span-6.skew-r-1.flipped > div:nth-of-type(2n+1) {
+      grid-column: 5 / -1;
+      order: 2; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-6 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(10, 1fr);
+    grid-column: 3/-3; }
     .drift .span-6.skew-l-4 > div:nth-of-type(2n+1), .drift .span-6.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-6 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
+      grid-column: 1/span 2;
       order: 1; }
     .drift .span-6.skew-l-4 > div:nth-of-type(2n+2), .drift .span-6.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-6 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
+      grid-column: 3 / -1;
       order: 2; }
     .drift .span-6.skew-l-2 > div:nth-of-type(2n+1), .drift .span-6.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+      grid-column: 1/span 3;
       order: 1; }
     .drift .span-6.skew-l-2 > div:nth-of-type(2n+2), .drift .span-6.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+      grid-column: 4 / -1;
       order: 2; }
     .drift .span-6.skew-l-1 > div:nth-of-type(2n+1), .drift .span-6.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 8;
+      grid-column: 1/span 4;
       order: 1; }
     .drift .span-6.skew-l-1 > div:nth-of-type(2n+2), .drift .span-6.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 9 / -1;
+      grid-column: 5 / -1;
       order: 2; }
     .drift .span-6.skew-r-4 > div:nth-of-type(2n+1), .drift .span-6.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-6 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-6 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 12;
+      grid-column: 1/span 8;
       order: 1; }
     .drift .span-6.skew-r-4 > div:nth-of-type(2n+2), .drift .span-6.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-6 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-6 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 13 / -1;
+      grid-column: 9 / -1;
       order: 2; }
     .drift .span-6.skew-r-2 > div:nth-of-type(2n+1), .drift .span-6.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
+      grid-column: 1/span 7;
       order: 1; }
     .drift .span-6.skew-r-2 > div:nth-of-type(2n+2), .drift .span-6.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
+      grid-column: 8 / -1;
       order: 2; }
     .drift .span-6.skew-r-1 > div:nth-of-type(2n+1), .drift .span-6.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
+      grid-column: 1/span 6;
       order: 1; }
     .drift .span-6.skew-r-1 > div:nth-of-type(2n+2), .drift .span-6.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
+      grid-column: 7 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-6 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 4/-4; }
+    grid-template-columns: repeat(10, 1fr);
+    grid-column: 3/-3; }
     .drift .span-6 > div, .drift .span-6 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
 @media (min-width: 1025px) {
   .drift .span-4 {
     grid-template-columns: repeat(4, 1fr);
-    grid-column: 11/-11; } }
+    grid-column: 6/-6; }
+    .drift .span-4.skew-l-4 > div:nth-of-type(2n+1), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-2.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-1 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-1.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 1;
+      order: 1; }
+    .drift .span-4.skew-l-4 > div:nth-of-type(2n+2), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-2.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-1 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-1.flipped > div:nth-of-type(2n+1) {
+      grid-column: 2 / -1;
+      order: 2; }
+    .drift .span-4.skew-r-4 > div:nth-of-type(2n+1), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-2.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-1 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-1.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 3;
+      order: 1; }
+    .drift .span-4.skew-r-4 > div:nth-of-type(2n+2), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-2.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-1 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-1.flipped > div:nth-of-type(2n+1) {
+      grid-column: 4 / -1;
+      order: 2; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .drift .span-4 {
-    grid-template-columns: repeat(16, 1fr);
-    grid-column: 5/-5; }
-    .drift .span-4.skew-l-4 > div:nth-of-type(2n+1), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 5;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column: 4/-4; }
+    .drift .span-4.skew-l-4 > div:nth-of-type(2n+1), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-l-2 > div:nth-of-type(2n+1), .drift .span-4 .skew-l-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 2;
       order: 1; }
-    .drift .span-4.skew-l-4 > div:nth-of-type(2n+2), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 6 / -1;
-      order: 2; }
-    .drift .span-4.skew-l-2 > div:nth-of-type(2n+1), .drift .span-4.skew-l-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 6;
-      order: 1; }
-    .drift .span-4.skew-l-2 > div:nth-of-type(2n+2), .drift .span-4.skew-l-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 7 / -1;
+    .drift .span-4.skew-l-4 > div:nth-of-type(2n+2), .drift .span-4.skew-l-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-3.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-l-2 > div:nth-of-type(2n+2), .drift .span-4 .skew-l-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 3 / -1;
       order: 2; }
     .drift .span-4.skew-l-1 > div:nth-of-type(2n+1), .drift .span-4.skew-l-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 7;
+      grid-column: 1/span 3;
       order: 1; }
     .drift .span-4.skew-l-1 > div:nth-of-type(2n+2), .drift .span-4.skew-l-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 8 / -1;
+      grid-column: 4 / -1;
       order: 2; }
-    .drift .span-4.skew-r-4 > div:nth-of-type(2n+1), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 11;
+    .drift .span-4.skew-r-4 > div:nth-of-type(2n+1), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+2), .drift .span-4 .skew-r-2 > div:nth-of-type(2n+1), .drift .span-4 .skew-r-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1/span 6;
       order: 1; }
-    .drift .span-4.skew-r-4 > div:nth-of-type(2n+2), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+1) {
-      grid-column: 12 / -1;
-      order: 2; }
-    .drift .span-4.skew-r-2 > div:nth-of-type(2n+1), .drift .span-4.skew-r-2.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 10;
-      order: 1; }
-    .drift .span-4.skew-r-2 > div:nth-of-type(2n+2), .drift .span-4.skew-r-2.flipped > div:nth-of-type(2n+1) {
-      grid-column: 11 / -1;
+    .drift .span-4.skew-r-4 > div:nth-of-type(2n+2), .drift .span-4.skew-r-4.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-3 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-3.flipped > div:nth-of-type(2n+1), .drift .span-4 .skew-r-2 > div:nth-of-type(2n+2), .drift .span-4 .skew-r-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 7 / -1;
       order: 2; }
     .drift .span-4.skew-r-1 > div:nth-of-type(2n+1), .drift .span-4.skew-r-1.flipped > div:nth-of-type(2n+2) {
-      grid-column: 1/span 9;
+      grid-column: 1/span 5;
       order: 1; }
     .drift .span-4.skew-r-1 > div:nth-of-type(2n+2), .drift .span-4.skew-r-1.flipped > div:nth-of-type(2n+1) {
-      grid-column: 10 / -1;
+      grid-column: 6 / -1;
       order: 2; } }
 
 @media (max-width: 767px) {
   .drift .span-4 {
-    grid-template-columns: repeat(16, 1fr);
-    grid-column: 5/-5; }
+    grid-template-columns: repeat(8, 1fr);
+    grid-column: 4/-4; }
     .drift .span-4 > div, .drift .span-4 > div[class*="cols-"] > div {
       grid-column: 1 / -1; } }
 
@@ -971,59 +549,39 @@ img {
 
 #dev-grid {
   width: 100%; }
-  #dev-grid [class*="span-"] > div {
+  #dev-grid .span-14 > div:nth-of-type(1) {
+    grid-column: 1; }
+  #dev-grid .span-14 > div:nth-of-type(2) {
+    grid-column: 2; }
+  #dev-grid .span-14 > div:nth-of-type(3) {
+    grid-column: 3; }
+  #dev-grid .span-14 > div:nth-of-type(4) {
+    grid-column: 4; }
+  #dev-grid .span-14 > div:nth-of-type(5) {
+    grid-column: 5; }
+  #dev-grid .span-14 > div:nth-of-type(6) {
+    grid-column: 6; }
+  #dev-grid .span-14 > div:nth-of-type(7) {
+    grid-column: 7; }
+  #dev-grid .span-14 > div:nth-of-type(8) {
+    grid-column: 8; }
+  #dev-grid .span-14 > div:nth-of-type(9) {
+    grid-column: 9; }
+  #dev-grid .span-14 > div:nth-of-type(10) {
+    grid-column: 10; }
+  #dev-grid .span-14 > div:nth-of-type(11) {
+    grid-column: 11; }
+  #dev-grid .span-14 > div:nth-of-type(12) {
+    grid-column: 12; }
+  #dev-grid .span-14 > div:nth-of-type(13) {
+    grid-column: 13; }
+  #dev-grid .span-14 > div:nth-of-type(14) {
+    grid-column: 14; }
+  #dev-grid .span-14 > div {
     overflow: hidden;
     background-color: rgba(255, 0, 0, 0.1);
     box-shadow: inset 1px 0 0 0 white; }
-  #dev-grid .span-24 > div:nth-of-type(1) {
-    grid-column: 1; }
-  #dev-grid .span-24 > div:nth-of-type(2) {
-    grid-column: 2; }
-  #dev-grid .span-24 > div:nth-of-type(3) {
-    grid-column: 3; }
-  #dev-grid .span-24 > div:nth-of-type(4) {
-    grid-column: 4; }
-  #dev-grid .span-24 > div:nth-of-type(5) {
-    grid-column: 5; }
-  #dev-grid .span-24 > div:nth-of-type(6) {
-    grid-column: 6; }
-  #dev-grid .span-24 > div:nth-of-type(7) {
-    grid-column: 7; }
-  #dev-grid .span-24 > div:nth-of-type(8) {
-    grid-column: 8; }
-  #dev-grid .span-24 > div:nth-of-type(9) {
-    grid-column: 9; }
-  #dev-grid .span-24 > div:nth-of-type(10) {
-    grid-column: 10; }
-  #dev-grid .span-24 > div:nth-of-type(11) {
-    grid-column: 11; }
-  #dev-grid .span-24 > div:nth-of-type(12) {
-    grid-column: 12; }
-  #dev-grid .span-24 > div:nth-of-type(13) {
-    grid-column: 13; }
-  #dev-grid .span-24 > div:nth-of-type(14) {
-    grid-column: 14; }
-  #dev-grid .span-24 > div:nth-of-type(15) {
-    grid-column: 15; }
-  #dev-grid .span-24 > div:nth-of-type(16) {
-    grid-column: 16; }
-  #dev-grid .span-24 > div:nth-of-type(17) {
-    grid-column: 17; }
-  #dev-grid .span-24 > div:nth-of-type(18) {
-    grid-column: 18; }
-  #dev-grid .span-24 > div:nth-of-type(19) {
-    grid-column: 19; }
-  #dev-grid .span-24 > div:nth-of-type(20) {
-    grid-column: 20; }
-  #dev-grid .span-24 > div:nth-of-type(21) {
-    grid-column: 21; }
-  #dev-grid .span-24 > div:nth-of-type(22) {
-    grid-column: 22; }
-  #dev-grid .span-24 > div:nth-of-type(23) {
-    grid-column: 23; }
-  #dev-grid .span-24 > div:nth-of-type(24) {
-    grid-column: 24; }
-  #dev-grid [class*="span-"] > div:nth-of-type(n+13) {
+  #dev-grid .span-14 > div:nth-of-type(n+8) {
     text-align: right;
     box-shadow: inset -1px 0 0 0 white; }
 

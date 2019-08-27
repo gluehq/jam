@@ -5,7 +5,7 @@
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
-    grid-column-gap: 3px;
+    // grid-column-gap: 3px;
 }
 
 
@@ -14,6 +14,7 @@
 [class*=span-] {
     display: grid;
     position: relative;
+    // @include xgap();
 }
 
 //  Core rules
@@ -24,6 +25,7 @@
     
     $offset: ($span-max - $span) / 2;
     grid-column: #{$offset + 1}/#{-1 - $offset};
+    
     
 }
 
@@ -103,14 +105,14 @@
             }
             
             //  Limit the width variations on handhelds
-            //  to groups of three
+            //  to number of groups set with $span-rgs
             
-            //  6 = the amount of spans to group?
-            //  8 = maybe 24 / (6 / 2)?
-            $resp-span: (floor($span / 6) + 8) * 2;
+            $span-rem: ($span-max - $span) / 2;
+            $span-mod: ceil($span-rem / $span-rgs);
+            $resp-span: $span-max - ($span-mod * 2);
             
             @include media(tablet) {
-                    
+                
                 @include spans($resp-span);
             
             }
@@ -194,13 +196,7 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     
     width: 100%;
     
-    [class*="span-"] > div {
-        overflow: hidden;
-        background-color: $color-dev-bkgd;
-        box-shadow: inset 1px 0 0 0 white;
-    }
-    
-    .span-24 {
+    .span-#{$span-max} {
     
         @for $span from 1 through $span-max {
         
@@ -212,7 +208,13 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     
     }
     
-    [class*="span-"] > div:nth-of-type(n+13) {
+    .span-#{$span-max} > div {
+        overflow: hidden;
+        background-color: $color-dev-bkgd;
+        box-shadow: inset 1px 0 0 0 white;
+    }
+    
+    .span-#{$span-max} > div:nth-of-type(n+#{($span-max / 2) + 1}) {
         text-align: right;
         box-shadow: inset -1px 0 0 0 white;
     }
