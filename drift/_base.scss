@@ -1,22 +1,25 @@
 
 //  V A R I A B L E S
 
-$span-max:  14;
+//  Basic grid unit amounts
+$span-max:  16;
 $span-min:  4;
 
-//  Responsive group size
-//  Spans that aren't full width are grouped together on mobile
-//  to create fewer width variations
+//  Responsive group size - spans that aren't full width are
+//  grouped together on mobile to create fewer width variations
 $span-rgs:  2;
 
+//  Maximum number of evenly spaced columns
 $cols-max:  3;
 
+//  Maximum grid unit difference in .cols-2 child widths
 $skew-max:  4;
 
 $ygap-ph:   12px;
-$ygap-tb:   16px;
-$ygap-st:   24px;
-$ygap-lg:   32px;
+$ygap-pl:   24px;
+$ygap-tb:   32px;
+$ygap-st:   40px;
+$ygap-lg:   52px;
 
 $xgap-ph:   16px;
 $xgap-pl:   28px;
@@ -111,26 +114,31 @@ $grey-80:   #484848;// 80%
 
 //  responsive fixed-width gaps between columns
 
-@mixin xgap() {
+@mixin gaps() {
     
     @include media(phone) {
-        column-gap: $xgap-ph;
+        grid-column-gap: $xgap-ph;
+        grid-row-gap: $ygap-pl;
     }
     
     @include media(plus) {
-        column-gap: $xgap-pl;
+        grid-column-gap: $xgap-pl;
+        grid-row-gap: $ygap-pl;
     }
     
     @include media(tablet) {
-        column-gap: $xgap-tb;
+        grid-column-gap: $xgap-tb;
+        grid-row-gap: $ygap-tb;
     }
     
     @include media(standard) {
-        column-gap: $xgap-st;
+        grid-column-gap: $xgap-st;
+        grid-row-gap: $ygap-st;
     }
     
     @include media(large) {
-        column-gap: $xgap-lg;
+        grid-column-gap: $xgap-lg;
+        grid-row-gap: $ygap-lg;
     }
     
 }
