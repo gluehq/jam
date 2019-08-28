@@ -33,59 +33,103 @@
 
 @mixin spans($span) {
     
-    @include span($span);
-    
-    @if $span > $span-max / 4 {
-            
-        $val: $span-max / $skew-max;
-        $skew-adj: round($span / $val);
+    .drift .span-#{$span} {
+        @include span($span);
+    }
         
-        $directions: l, r;
+    @for $cols from 2 through $cols-max {
         
-        @each $way in $directions {
-            
-            $classes: '';
-            
-            @for $amount from $skew-max through 1 {
+        .drift .cols-#{$cols} {
                 
-                @if $skew-adj < $amount {
+            display: grid;
+            grid-template-columns: repeat(#{$cols}, 1fr);
+            
+            @for $col from 1 through $cols {
+                
+                > div:nth-of-type(#{$cols}n+#{$col}), &.flipped > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                    grid-column: $col;
+                    order: $col;
+                }
+                
+            }
+            
+        }
+        
+        @if $cols == 2 {
+            
+            $col-span: round($span / $cols);
+            
+            .drift .span-#{$span}.cols-#{$cols} {
+                
+                grid-template-columns: repeat(#{$span}, 1fr);
+                
+            }
+            
+            @if $span > $span-max / 4 {
+                
+                $val: $span-max / $skew-max;
+                $skew-adj: round($span / $val);
+                
+                $directions: l, r;
+                
+                @each $way in $directions {
                     
-                    $classes: $classes + '.skew-#{$way}-#{$amount}, ';
+                    $classes: '';
                     
-                } @else {
-                    
-                    &#{$classes}.skew-#{$way}-#{$amount} {
-                    
-                        $col-end: '';
+                    @for $amount from $skew-max through 1 {
                         
-                        @if $way == l {
-                            $col-end: ($span / 2) - $amount;
+                        @if $skew-adj < $amount {
+                            
+                            $classes: $classes + '.drift .span-#{$span}.skew-#{$way}-#{$amount}, ';
+                            
                         } @else {
-                            $col-end: ($span / 2) + $amount;
-                        }
-                        
-                        > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
-                            // grid-template-columns: repeat($col-end, 1fr);
-                            grid-column: 1 / span #{$col-end};
-                            order: 1;
-                        }
-                        
-                        > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
-                            // grid-template-columns:      repeat(($span - $col-end), 1fr);
-                            grid-column: #{$col-end +1} / -1;
-                            order: 2;
+                            
+                            #{$classes}.drift .span-#{$span}.skew-#{$way}-#{$amount} {
+                                
+                                // content: '#{$classes}';
+                                    
+                                $col-end: '';
+                                    
+                                @if $way == l {
+                                    $col-end: ($span / 2) -     $amount;
+                                } @else {
+                                    $col-end: ($span / 2) +     $amount;
+                                }
+                                    
+                                > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
+                                    // grid-template-columns: repeat($col-end, 1fr);
+                                    grid-column: 1 / span #{$col-end};
+                                    order: 1;
+                                }
+                                    
+                                > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
+                                    // grid-template-columns:      repeat(($span - $col-end), 1fr);
+                                    grid-column: #{$col-end + 1} / -1;
+                                    order: 2;
+                                }
+                                    
+                                &.pack-l:not(.flipped) > div:nth-of-type(2n+1), &.flipped.pack-l > div:nth-of-type(2n+2) {
+                                    grid-column: 2 / span #{$col-end - 1};
+                                }
+                                    
+                                &.pack-r:not(.flipped) > div:nth-of-type(2n+2), &.flipped.pack-r > div:nth-of-type(2n+1) {
+                                    grid-column: #{$col-end + 1} / -2;
+                                }
+                                
+                            }
+                                
+                            $classes: '';
+                            
                         }
                         
                     }
                     
-                    $classes: '';
-                
                 }
-            
+                
             }
-        
+            
         }
-    
+        
     }
     
 }
@@ -95,74 +139,36 @@
 @for $span from $span-max through $span-min {
     
     @if $span % 2 == 0 {
-      
-        .drift .span-#{$span} {
         
-            @include media(standard-large) {
-                
-                @include spans($span);
-                
-            }
+        @include media(standard-large) {
             
-            //  Limit the width variations on handhelds
-            //  to number of groups set with $span-rgs
-            
-            $span-rem: ($span-max - $span) / 2;
-            $span-mod: ceil($span-rem / $span-rgs);
-            $resp-span: $span-max - ($span-mod * 2);
-            
-            @include media(tablet) {
-                
-                @include spans($resp-span);
-            
-            }
-            
-            @include media(phone-plus) {
-                
-                @include span($resp-span);
-                
-                > div, > div[class*="cols-"] > div {
-                    grid-column: 1 / -1;
-                }
-                
-            }
+            @include spans($span);
             
         }
         
-    }
-
-}
-
-
-//  C O L S
-
-//  Must come after the span classes
-
-.drift [class*=cols-] {
-    display: grid;
-    grid-template-rows: 1;
-}
-
-@for $col from 2 through $cols-max {
-    
-    .drift .cols-#{$col}:not([class*="skew-"]) {
+        //  Limit the width variations on handhelds
+        //  to number of groups set with $span-rgs
         
-        grid-template-columns: repeat(#{$col}, 1fr);
-        @include gaps();
+        $span-rem: ($span-max - $span) / 2;
+        $span-mod: ceil($span-rem / $span-rgs);
+        $resp-span: $span-max - ($span-mod * 2);
+        
+        @include media(tablet) {
             
-        @for $div from 1 through $col {
-
-            > div:nth-of-type(#{$col}n+#{$div}), &.flipped > div:nth-of-type(#{$col}n+#{$col - $div + 1}) {
-                order: $div;
-                grid-column: $div;
-            }
-
+            @include spans($resp-span);
+            
         }
         
         @include media(phone-plus) {
             
-            > div:nth-of-type(n) {
-                grid-column: 1 / -1;
+            .drift .span-#{$span} {
+                
+                @include span($resp-span);
+                    
+                > div, > div[class*="cols-"] > div {
+                    grid-column: 1 / -1;
+                }
+                
             }
             
         }
@@ -180,6 +186,8 @@
     grid-column: 1 / -1;
 }
 
+//  Make images fit their cols
+
 img {
     width: 100%;
 }
@@ -196,25 +204,25 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
 #dev-grid {
     
     width: 100%;
-    
-    [class*=span-] {
-    
-        @for $span from 1 through $span-max {
         
+    [class*=span-] {
+        
+        @for $span from 1 through $span-max {
+            
             > div:nth-of-type(#{$span}) {
                 grid-column: #{$span};
             }
             
         }
-    
+        
     }
-    
+        
     [class*=span-] > div {
         overflow: hidden;
         background-color: $color-dev-bkgd;
         // box-shadow: inset 1px 0 0 0 white;
     }
-    
+        
     [class*=span-] > div:nth-of-type(n+#{($span-max / 2) + 1}) {
         text-align: right;
         // box-shadow: inset -1px 0 0 0 white;
