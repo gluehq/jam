@@ -26,6 +26,37 @@
     $offset: ($span-max - $span) / 2;
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
+}
+
+@mixin cols-2($col-end) {
+  
+    &.cols-2 {
+        
+        grid-template-columns: repeat(#{$col-end}, 1fr);
+        
+        $col-end: $col-end / 2;
+            
+        > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
+            // grid-template-columns: repeat($col-end, 1fr);
+            grid-column: 1 / span #{$col-end};
+            order: 1;
+        }
+            
+        > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
+            // grid-template-columns: repeat(($span - $col-end), 1fr);
+            grid-column: #{$col-end + 1} / -1;
+            order: 2;
+        }
+            
+        &.pack-l:not(.flipped) > div:nth-of-type(2n+1), &.flipped.pack-l > div:nth-of-type(2n+2) {
+            grid-column: 2 / span #{$col-end - 1};
+        }
+            
+        &.pack-r:not(.flipped) > div:nth-of-type(2n+2), &.flipped.pack-r > div:nth-of-type(2n+1) {
+            grid-column: #{$col-end + 1} / -2;
+        }
+        
+    }
     
 }
 
@@ -43,6 +74,7 @@
                 
             display: grid;
             grid-template-columns: repeat(#{$cols}, 1fr);
+            @include gaps();
             
             @for $col from 1 through $cols {
                 
@@ -87,33 +119,49 @@
                             #{$classes}.drift .span-#{$span}.skew-#{$way}-#{$amount} {
                                 
                                 // content: '#{$classes}';
-                                    
+                                
                                 $col-end: '';
-                                    
+                                
                                 @if $way == l {
-                                    $col-end: ($span / 2) -     $amount;
+                                    $col-end: ($span / 2) - $amount;
                                 } @else {
-                                    $col-end: ($span / 2) +     $amount;
+                                    $col-end: ($span / 2) + $amount;
                                 }
-                                    
+                                
                                 > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
+                                    
                                     // grid-template-columns: repeat($col-end, 1fr);
                                     grid-column: 1 / span #{$col-end};
                                     order: 1;
-                                }
                                     
+                                    @include cols-2($col-end);
+                                    
+                                }
+                                
                                 > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
-                                    // grid-template-columns:      repeat(($span - $col-end), 1fr);
+                                    
+                                    // grid-template-columns: repeat(($span - $col-end), 1fr);
                                     grid-column: #{$col-end + 1} / -1;
                                     order: 2;
-                                }
                                     
+                                    @include cols-2($col-end);
+                                    
+                                }
+                                
                                 &.pack-l:not(.flipped) > div:nth-of-type(2n+1), &.flipped.pack-l > div:nth-of-type(2n+2) {
-                                    grid-column: 2 / span #{$col-end - 1};
-                                }
                                     
+                                    grid-column: 2 / span #{$col-end - 1};
+                                    
+                                    @include cols-2($col-end);
+                                    
+                                }
+                                
                                 &.pack-r:not(.flipped) > div:nth-of-type(2n+2), &.flipped.pack-r > div:nth-of-type(2n+1) {
+                                    
                                     grid-column: #{$col-end + 1} / -2;
+                                    
+                                    @include cols-2($col-end);
+                                    
                                 }
                                 
                             }
