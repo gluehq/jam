@@ -1,7 +1,31 @@
 
 @import '../drift/base';
 @import '../drift/grid';
+@import '../drift/type';
 
 body {
     margin: 0;
+}
+
+.main {
+    $unit: calc(#{percentage(1/12)} + (#{$xgap-lg} / 11));
+    padding: 0 $unit;
+}
+
+.image {
+    
+    &.left, &.right {
+        width: calc(50% - (#{$xgap-lg} / 2));
+    }
+        
+    &.left {
+        float: left;
+        margin: 0 $xgap-lg $ygap-lg 0;
+    }
+        
+    &.right {
+        float: right;
+        margin: 0 0 $ygap-lg $xgap-lg;
+    }
+    
 }
