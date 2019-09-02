@@ -25,7 +25,7 @@ $xgap-ph:   16px;
 $xgap-pl:   20px;
 $xgap-tb:   32px;
 $xgap-st:   44px;
-$xgap-lg:   56px;
+$xgap-lg:   52px;
 
 $plus:      414px;  // iPhone 5 landscape + 1px
 $tablet:    768px;  // iPhone 6, 7, 8 Plus landscape + 1px
@@ -118,7 +118,7 @@ $grey-80:   #484848;// 80%
     
     @include media(phone) {
         grid-column-gap: $xgap-ph;
-        grid-row-gap: $ygap-pl;
+        grid-row-gap: $ygap-ph;
     }
     
     @include media(plus) {

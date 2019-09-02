@@ -52,7 +52,7 @@ body {
     margin: 0 0 1.2rem 0;
     font-size: 3.4rem;
     font-weight: 300;
-    line-height: 4.6rem;
+    line-height: 4.4rem;
         
     @include media(phone) {
         font-size: 3.4rem;
@@ -72,7 +72,7 @@ body {
     margin: 0 0 1.2rem 0;
     font-size: 2.6rem;
     font-weight: 300;
-    line-height: 3.8rem;
+    line-height: 3.6rem;
 }
 
 @mixin p-large {
