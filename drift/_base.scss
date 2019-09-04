@@ -15,6 +15,9 @@ $cols-max:  3;
 //  Maximum grid unit difference in .cols-2 child widths
 $skew-max:  4;
 
+//  
+$all-media: large, standard, tablet, plus, phone;
+
 $ygap-ph:   12px;
 $ygap-pl:   20px;
 $ygap-tb:   28px;
@@ -110,35 +113,62 @@ $grey-80:   #484848;// 80%
 }
 
 
-//  M I X I N S
+//  F U N C T I O N S
 
 //  responsive fixed-width gaps between columns
 
-@mixin gaps() {
+@function xgap($media) {
+        
+    $xgap: '';
     
-    @include media(phone) {
-        grid-column-gap: $xgap-ph;
-        grid-row-gap: $ygap-ph;
+    @if $media == phone {
+        $xgap: $xgap-ph;
+    }   
+
+    @if $media == plus {
+        $xgap: $xgap-pl;
+    }
+
+    @if $media == tablet {
+        $xgap: $xgap-tb;
+    }
+
+    @if $media == standard {
+        $xgap: $xgap-st;
+    }
+
+    @if $media == large {
+        $xgap: $xgap-lg;
     }
     
-    @include media(plus) {
-        grid-column-gap: $xgap-pl;
-        grid-row-gap: $ygap-pl;
+    @return $xgap;
+    
+}
+
+@function ygap($media) {
+        
+    $ygap: '';
+    
+    @if $media == phone {
+        $ygap: $ygap-ph;
+    }   
+
+    @if $media == plus {
+        $ygap: $ygap-pl;
+    }
+
+    @if $media == tablet {
+        $ygap: $ygap-tb;
+    }
+
+    @if $media == standard {
+        $ygap: $ygap-st;
+    }
+
+    @if $media == large {
+        $ygap: $ygap-lg;
     }
     
-    @include media(tablet) {
-        grid-column-gap: $xgap-tb;
-        grid-row-gap: $ygap-tb;
-    }
-    
-    @include media(standard) {
-        grid-column-gap: $xgap-st;
-        grid-row-gap: $ygap-st;
-    }
-    
-    @include media(large) {
-        grid-column-gap: $xgap-lg;
-        grid-row-gap: $ygap-lg;
-    }
+    @return $ygap;
     
 }
