@@ -81,130 +81,161 @@ img {
 
 @mixin cols($span, $span-actual, $span-to, $media) {
     
-    $cols: 2;
+    // $cols: 2;
         
     // $col-span: round($span / $cols);
+
+    $span-selects: '';
+
+    @for $span-this from $span through $span-to {
+
+        @if $span-this % 2 == 0 {
             
-    $classes: '';
 
             // @if $span-this == $span-to {
 
+            @if $span-this != $span-to {
 
-            // }
+                $span-selects: $span-selects + '.drift .span-#{$span-this}, ';
 
-            // $classes: $classes + '.drift .span-#{$span-this}';
-    
-            // @if $span > $span-max / 4 {
+            } @else {
+
+                #{$span-selects}.drift .span-#{$span-this} {
+                    @include span($span-actual);
+                }
+
+                // .tim {
+                //     content: '--- #{$span-to}';
+                // }
+
+            }
+
+        }
+
+    }
+
+    $span-selects: '';
+
+    // }
+
+    // $classes: $classes + '.drift .span-#{$span-this}';
+
+    @if $span > $span-max / 4 {
+        
+        $directions: l, r;
+            
+        $classes: '';
+        
+        @each $way in $directions {
+
+            $skew-mod: $span-max / $skew-max;
+            $skew-new: round($span-actual / $skew-mod);
+            
+            @for $skew-this from $skew-max through 1 {
                 
-                $directions: l, r;
-                
-                @each $way in $directions {
+                @if $skew-new < $skew-this {
+                    
+                    // $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
-                    $skew-mod: $span-max / $skew-max;
-                    $skew-new: round($span-actual / $skew-mod);
-                    
-                    // $classes: '';
-                    
-                    @for $skew-this from $skew-max through 1 {
-                        
-                        @if $skew-new < $skew-this {
+                    @for $span-this from $span-actual through $span-to {
+
+                        @if $span-this % 2 == 0 {
                             
-                            // $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                            $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
-                            @for $span-this from $span-actual through $span-to {
+                        }
 
-                                @if $span-this % 2 == 0 {
+                    }
+                    
+                } @else {
+                    
+                    // #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
+
+                    @for $span-this from $span-actual through $span-to {
+
+                        @if $span-this % 2 == 0 {
+
+                            @if $span-this != $span-to {
+
+                                $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+
+                            } @else {
+
+                                #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
                                     
-                                    $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                                    // content: '#{$classes}';
+                                    
+                                    $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
+                                    // content: '#{$perc}';
+                                    @include skew-cols($perc, $media);
+
+    //     //     //                                $col-end: '';
+    //     //     //                                
+    //     //     //                                @if $way == l {
+    //     //     //                                    $col-end: ($span / 2) - $skew-this;
+    //     //     //                                } @else {
+    //     //     //                                    $col-end: ($span / 2) + $skew-this;
+    //     //     //                                }
+    //     //     //                                
+    //     //     //                                > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
+    //     //     //                                    
+    //     //     //                                    // grid-template-columns: repeat($col-end, 1fr);
+    //     //     //                                    grid-column: 1 / span #{$col-end};
+    //     //     //                                    order: 1;
+    //     //     //                                    
+    //     //     //                                    // @include cols-2($col-end);
+    //     //     //                                    
+    //     //     //                                }
+    //     //     //                                
+    //     //     //                                > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
+    //     //     //                                    
+    //     //     //                                    // grid-template-columns: repeat(($span - $col-end), 1fr);
+    //     //     //                                    grid-column: #{$col-end + 1} / -1;
+    //     //     //                                    order: 2;
+    //     //     //                                    
+    //     //     //                                    // @include cols-2($col-end);
+    //     //     //                                    
+    //     //     //                                }
+    //     //     //                                
+    //     //     //                                &.pack-l:not(.flipped) > div:nth-of-type(2n+1), &.flipped.pack-l > div:nth-of-type(2n+2) {
+    //     //     //                                    
+    //     //     //                                    grid-column: 2 / span #{$col-end - 1};
+    //     //     //                                    
+    //     //     //                                    // @include cols-2($col-end);
+    //     //     //                                    
+    //     //     //                                }
+    //     //     //                                
+    //     //     //                                &.pack-r:not(.flipped) > div:nth-of-type(2n+2), &.flipped.pack-r > div:nth-of-type(2n+1) {
+    //     //     //                                    
+    //     //     //                                    grid-column: #{$col-end + 1} / -2;
+    //     //     //                                    
+    //     //     //                                    // @include cols-2($col-end);
+    //     //     //                                    
+    //     //     //                                }
 
                                 }
+                                    
+                                // $classes: '';
+                
+                                $classes: '';
 
                             }
-                            
-                        } @else {
-                            
-                            // #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
 
-                            @for $span-this from $span-actual through $span-to {
-
-                                @if $span-this % 2 == 0 {
-
-                                    @if $span-this != $span-to {
-
-                                        $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
-
-                                    } @else {
-
-                                    #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
-                                        
-                                        // content: '#{$classes}';
-                                        
-                                        $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
-                                        // content: '#{$perc}';
-                                        @include skew-cols($perc, $media);
-
-                //                                $col-end: '';
-                //                                
-                //                                @if $way == l {
-                //                                    $col-end: ($span / 2) - $skew-this;
-                //                                } @else {
-                //                                    $col-end: ($span / 2) + $skew-this;
-                //                                }
-                //                                
-                //                                > div:nth-of-type(2n+1), &.flipped > div:nth-of-type(2n+2) {
-                //                                    
-                //                                    // grid-template-columns: repeat($col-end, 1fr);
-                //                                    grid-column: 1 / span #{$col-end};
-                //                                    order: 1;
-                //                                    
-                //                                    // @include cols-2($col-end);
-                //                                    
-                //                                }
-                //                                
-                //                                > div:nth-of-type(2n+2), &.flipped > div:nth-of-type(2n+1) {
-                //                                    
-                //                                    // grid-template-columns: repeat(($span - $col-end), 1fr);
-                //                                    grid-column: #{$col-end + 1} / -1;
-                //                                    order: 2;
-                //                                    
-                //                                    // @include cols-2($col-end);
-                //                                    
-                //                                }
-                //                                
-                //                                &.pack-l:not(.flipped) > div:nth-of-type(2n+1), &.flipped.pack-l > div:nth-of-type(2n+2) {
-                //                                    
-                //                                    grid-column: 2 / span #{$col-end - 1};
-                //                                    
-                //                                    // @include cols-2($col-end);
-                //                                    
-                //                                }
-                //                                
-                //                                &.pack-r:not(.flipped) > div:nth-of-type(2n+2), &.flipped.pack-r > div:nth-of-type(2n+1) {
-                //                                    
-                //                                    grid-column: #{$col-end + 1} / -2;
-                //                                    
-                //                                    // @include cols-2($col-end);
-                //                                    
-                //                                }
-
-                                    }
-                                        
-                                    $classes: '';
-
-                                }
-
-                            }
-                            
                         }
                         
                     }
                     
                 }
                 
-            // }
             }
-
+            
         }
+    
+    }// Skews end
+
+    // $span-selects: '';
+
+}
 
 
 //  S P A N S
@@ -233,18 +264,21 @@ img {
         grid-column-gap: xgap($media);
         grid-row-gap: ygap($media);
     }
+
+    // $span-resp-end: $span-max !global;
+    $span-resp-end: $span-max;
     
     @for $span from $span-max through $span-min {
         
         @if $span % 2 == 0 {
             
-            @if $media == large {
+            // @if $media == large {
                 
-                .drift .span-#{$span} {
-                    @include span($span);
-                }
+            //     .drift .span-#{$span} {
+            //         @include span($span);
+            //     }
                 
-            }
+            // }
             
             @if $media == phone or $media == plus {
                 
@@ -252,26 +286,37 @@ img {
                 //  to number of groups set with $span-rgs
 
                 //  1. look ahead to group the spans
+                // .tim {
+                //     content: '#{$span} #{$span-resp-end}';
+                // }
 
-                $span-resp-end: $span;
 
-                @for $span-this from $span through $span-min {
+                @if $span < $span-resp-end {
 
-                    @if $span-this % 2 == 0 {
-                        @if span-resp($span-this) == span-resp($span) {
-                            $span-resp-end: $span-this;
+                    @for $span-this from $span through $span-min {
+
+                        @if $span-this % 2 == 0 {
+                            @if span-resp($span-this) == span-resp($span) {
+                                $span-resp-end: $span-this;
+                            }
                         }
+
                     }
+                    // .tim {
+                    //     content: 'span #{$span} end #{$span-resp-end}';
+                    // }
+
+                    // content: '#{$span}, #{span-resp($span)} --------- #{$span-resp-end}';
+
+                    // @if $span > $span-resp-end {
+                    //     content: 'compounds';
+                    // }
+                
+
+                    @include cols($span, span-resp($span), $span-resp-end, $media);
+                    
 
                 }
-
-                // content: '#{$span}, #{span-resp($span)} --------- #{$span-resp-end}';
-
-                // @if $span > $span-resp-end {
-                //     content: 'compounds';
-                // }
-                
-                @include cols($span, span-resp($span), $span-resp-end, $media);
                 
             } @else {
                 
@@ -302,6 +347,9 @@ img {
 
         @if $media != large {
             @include spans($media);
+            // .tim {
+            //     content: '.';
+            // }
         }
         
     }
