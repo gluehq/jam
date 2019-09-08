@@ -13,7 +13,7 @@ body {
         
         @if $media == large {
             
-            $unit: calc(#{percentage(1/11)} + (#{xgap(large)} / 10));
+            $unit: calc(#{percentage(1/10)} + (#{xgap(large)} / 9));
             padding: 0 $unit;
             
         } @else {
@@ -31,7 +31,7 @@ body {
                 
                 @include media($media) {
                     
-                    $unit: calc(#{percentage(1/11)} + (#{xgap($media)} / 10));
+                    $unit: calc(#{percentage(1/10)} + (#{xgap($media)} / 9));
                     padding: 0 $unit;
                     
                 }
