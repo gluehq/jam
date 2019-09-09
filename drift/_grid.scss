@@ -119,6 +119,9 @@ img {
     // }
 
     // $classes: $classes + '.drift .span-#{$span-this}';
+    // .tim {
+    // content: '#{$span-actual}';
+    // }
 
     @if $span > $span-max / 4 {
         
@@ -137,7 +140,7 @@ img {
                     
                     // $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
-                    @for $span-this from $span-actual through $span-to {
+                    @for $span-this from $span through $span-to {
 
                         @if $span-this % 2 == 0 {
                             
