@@ -11,30 +11,27 @@ body {
     
     @each $media in $all-media {
         
-        @if $media == large {
+        @if $media == large or $media == standard {
             
             $unit: calc(#{percentage(1/10)} + (#{xgap(large)} / 9));
             padding: 0 $unit;
             
-        } @else {
+        } @else if $media == tablet {
+                
+            @include media($media) {
+                
+                $unit: calc(#{percentage(1/11)} + (#{xgap($media)} / 10));
+                padding: 0 $unit;
+                
+            }
             
-            @if $media == phone or $media == plus {
+        } @else {
                 
-                @include media($media) {
-                    
-                    $unit: calc(#{percentage(1/16)} + (#{xgap($media)} / 15));
-                    padding: 0 $unit;
-                    
-                }
+            @include media($media) {
                 
-            } @else {
-                
-                @include media($media) {
-                    
-                    $unit: calc(#{percentage(1/10)} + (#{xgap($media)} / 9));
-                    padding: 0 $unit;
-                    
-                }
+                // $unit: calc(#{percentage(1/16)} + (#{xgap($media)} / 15));
+                // padding: 0 $unit;
+                padding: 0;
                 
             }
             

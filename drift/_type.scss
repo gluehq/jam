@@ -76,43 +76,23 @@ body {
 }
 
 @mixin p-large {
-    
     margin: 0 0 1.6rem 0;
     font-size: 1.8rem;
     line-height: 3.0rem;
-        
-    @include media(phone) {
-        font-size: 1.8rem;
-        line-height: 2.4rem;
-    }
-    
 }
 
 @mixin p {
-    
     margin: 0 0 1.6rem 0;
     padding: 0;
     font-size: 1.7rem;
     line-height: 2.8rem;
-        
-    @include media(standard) {
-        // line-height: 2.6rem;
-    }
-    
 }
 
 @mixin p-small {
-    
     margin: 0 0 1.6rem 0;
     font-size: 1.5rem;
     line-height: 2.4rem;
     letter-spacing: 0.01em;
-        
-    @include media(phone) {
-        // font-size: 1.5rem;
-        // line-height: 2rem;
-    }
-    
 }
 
 @mixin p-tiny {
