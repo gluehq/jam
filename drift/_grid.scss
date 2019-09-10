@@ -79,7 +79,7 @@ img {
     grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
 }
 
-@mixin cols($span, $span-actual, $span-to, $media) {
+@mixin cols-skew($span, $span-actual, $span-to, $media) {
     
     // $cols: 2;
         
@@ -119,9 +119,9 @@ img {
     // }
 
     // $classes: $classes + '.drift .span-#{$span-this}';
-    // .tim {
-    // content: '#{$span-actual}';
-    // }
+    .tim {
+    content: '#{$span-actual}';
+    }
 
     @if $span > $span-max / 4 {
         
@@ -154,7 +154,7 @@ img {
                     
                     // #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
 
-                    @for $span-this from $span-actual through $span-to {
+                    @for $span-this from $span through $span-to {
 
                         @if $span-this % 2 == 0 {
 
@@ -219,14 +219,14 @@ img {
                                 }
                                     
                                 // $classes: '';
-                
-                                $classes: '';
 
                             }
 
                         }
                         
                     }
+                
+                    $classes: '';
                     
                 }
                 
@@ -249,7 +249,7 @@ img {
     
     $offset: ($span-max - $span) / 2;
     
-    grid-template-columns: repeat($span, 1fr);
+    // grid-template-columns: repeat($span, 1fr);
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
 }
@@ -283,7 +283,7 @@ img {
                 
             // }
             
-            @if $media == phone or $media == plus {
+            @if $media == phone or $media == plus or $media == tablet {
                 
                 //  Limit the width variations on handhelds
                 //  to number of groups set with $span-rgs
@@ -316,14 +316,14 @@ img {
                     // }
                 
 
-                    @include cols($span, span-resp($span), $span-resp-end, $media);
+                    @include cols-skew($span, span-resp($span), $span-resp-end, $media);
                     
 
                 }
                 
             } @else {
                 
-                @include cols($span, $span, $span, $media);
+                @include cols-skew($span, $span, $span, $media);
                 
             }
             
@@ -344,7 +344,7 @@ img {
     
     @include media($media) {
 
-        @if $media == phone or $media == plus {
+        @if $media == phone or $media == plus or $media == tablet {
             @include cols-even($media);
         }
 
@@ -374,6 +374,8 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     width: 100%;
         
     [class*=span-] {
+
+        grid-template-columns: repeat($span-max, 1fr);
         
         @for $span from 1 through $span-max {
             

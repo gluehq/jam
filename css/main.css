@@ -43,8 +43,10 @@ img {
   grid-row-gap: 52px; }
 
 .drift .span-18 {
-  grid-template-columns: repeat(18, 1fr);
   grid-column: 1/-1; }
+
+.tim {
+  content: "18"; }
 
 .drift .span-18.skew-l-4 {
   grid-template-columns: calc(72.22222% - 14.44444px) auto; }
@@ -71,8 +73,10 @@ img {
   grid-template-columns: calc(55.55556% - 23.11111px) auto; }
 
 .drift .span-16 {
-  grid-template-columns: repeat(16, 1fr);
   grid-column: 2/-2; }
+
+.tim {
+  content: "16"; }
 
 .drift .span-16.skew-l-4 {
   grid-template-columns: calc(75% - 13px) auto; }
@@ -99,8 +103,10 @@ img {
   grid-template-columns: calc(56.25% - 22.75px) auto; }
 
 .drift .span-14 {
-  grid-template-columns: repeat(14, 1fr);
   grid-column: 3/-3; }
+
+.tim {
+  content: "14"; }
 
 .drift .span-14.skew-l-4, .drift .span-14.skew-l-3 {
   grid-template-columns: calc(71.42857% - 14.85714px) auto; }
@@ -121,8 +127,10 @@ img {
   grid-template-columns: calc(57.14286% - 22.28571px) auto; }
 
 .drift .span-12 {
-  grid-template-columns: repeat(12, 1fr);
   grid-column: 4/-4; }
+
+.tim {
+  content: "12"; }
 
 .drift .span-12.skew-l-4, .drift .span-12.skew-l-3 {
   grid-template-columns: calc(75% - 13px) auto; }
@@ -143,8 +151,10 @@ img {
   grid-template-columns: calc(58.33333% - 21.66667px) auto; }
 
 .drift .span-10 {
-  grid-template-columns: repeat(10, 1fr);
   grid-column: 5/-5; }
+
+.tim {
+  content: "10"; }
 
 .drift .span-10.skew-l-4, .drift .span-10.skew-l-3, .drift .span-10.skew-l-2 {
   grid-template-columns: calc(70% - 15.6px) auto; }
@@ -159,8 +169,10 @@ img {
   grid-template-columns: calc(60% - 20.8px) auto; }
 
 .drift .span-8 {
-  grid-template-columns: repeat(8, 1fr);
   grid-column: 6/-6; }
+
+.tim {
+  content: "8"; }
 
 .drift .span-8.skew-l-4, .drift .span-8.skew-l-3, .drift .span-8.skew-l-2 {
   grid-template-columns: calc(75% - 13px) auto; }
@@ -175,8 +187,10 @@ img {
   grid-template-columns: calc(62.5% - 19.5px) auto; }
 
 .drift .span-6 {
-  grid-template-columns: repeat(6, 1fr);
   grid-column: 7/-7; }
+
+.tim {
+  content: "6"; }
 
 .drift .span-6.skew-l-4, .drift .span-6.skew-l-3, .drift .span-6.skew-l-2, .drift .span-6.skew-l-1 {
   grid-template-columns: calc(66.66667% - 17.33333px) auto; }
@@ -185,16 +199,19 @@ img {
   grid-template-columns: calc(66.66667% - 17.33333px) auto; }
 
 .drift .span-4 {
-  grid-template-columns: repeat(4, 1fr);
   grid-column: 8/-8; }
+
+.tim {
+  content: "4"; }
 
 @media (min-width: 1025px) and (max-width: 1366px) {
   .drift, .drift [class*=span-], .drift [class*=cols-] {
     grid-column-gap: 44px;
     grid-row-gap: 40px; }
   .drift .span-18 {
-    grid-template-columns: repeat(18, 1fr);
     grid-column: 1/-1; }
+  .tim {
+    content: "18"; }
   .drift .span-18.skew-l-4 {
     grid-template-columns: calc(72.22222% - 12.22222px) auto; }
   .drift .span-18.skew-l-3 {
@@ -212,8 +229,9 @@ img {
   .drift .span-18.skew-r-1 {
     grid-template-columns: calc(55.55556% - 19.55556px) auto; }
   .drift .span-16 {
-    grid-template-columns: repeat(16, 1fr);
     grid-column: 2/-2; }
+  .tim {
+    content: "16"; }
   .drift .span-16.skew-l-4 {
     grid-template-columns: calc(75% - 11px) auto; }
   .drift .span-16.skew-l-3 {
@@ -231,8 +249,9 @@ img {
   .drift .span-16.skew-r-1 {
     grid-template-columns: calc(56.25% - 19.25px) auto; }
   .drift .span-14 {
-    grid-template-columns: repeat(14, 1fr);
     grid-column: 3/-3; }
+  .tim {
+    content: "14"; }
   .drift .span-14.skew-l-4, .drift .span-14.skew-l-3 {
     grid-template-columns: calc(71.42857% - 12.57143px) auto; }
   .drift .span-14.skew-l-2 {
@@ -246,8 +265,9 @@ img {
   .drift .span-14.skew-r-1 {
     grid-template-columns: calc(57.14286% - 18.85714px) auto; }
   .drift .span-12 {
-    grid-template-columns: repeat(12, 1fr);
     grid-column: 4/-4; }
+  .tim {
+    content: "12"; }
   .drift .span-12.skew-l-4, .drift .span-12.skew-l-3 {
     grid-template-columns: calc(75% - 11px) auto; }
   .drift .span-12.skew-l-2 {
@@ -261,8 +281,9 @@ img {
   .drift .span-12.skew-r-1 {
     grid-template-columns: calc(58.33333% - 18.33333px) auto; }
   .drift .span-10 {
-    grid-template-columns: repeat(10, 1fr);
     grid-column: 5/-5; }
+  .tim {
+    content: "10"; }
   .drift .span-10.skew-l-4, .drift .span-10.skew-l-3, .drift .span-10.skew-l-2 {
     grid-template-columns: calc(70% - 13.2px) auto; }
   .drift .span-10.skew-l-1 {
@@ -272,8 +293,9 @@ img {
   .drift .span-10.skew-r-1 {
     grid-template-columns: calc(60% - 17.6px) auto; }
   .drift .span-8 {
-    grid-template-columns: repeat(8, 1fr);
     grid-column: 6/-6; }
+  .tim {
+    content: "8"; }
   .drift .span-8.skew-l-4, .drift .span-8.skew-l-3, .drift .span-8.skew-l-2 {
     grid-template-columns: calc(75% - 11px) auto; }
   .drift .span-8.skew-l-1 {
@@ -283,120 +305,99 @@ img {
   .drift .span-8.skew-r-1 {
     grid-template-columns: calc(62.5% - 16.5px) auto; }
   .drift .span-6 {
-    grid-template-columns: repeat(6, 1fr);
     grid-column: 7/-7; }
+  .tim {
+    content: "6"; }
   .drift .span-6.skew-l-4, .drift .span-6.skew-l-3, .drift .span-6.skew-l-2, .drift .span-6.skew-l-1 {
     grid-template-columns: calc(66.66667% - 14.66667px) auto; }
   .drift .span-6.skew-r-4, .drift .span-6.skew-r-3, .drift .span-6.skew-r-2, .drift .span-6.skew-r-1 {
     grid-template-columns: calc(66.66667% - 14.66667px) auto; }
   .drift .span-4 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-column: 8/-8; } }
+    grid-column: 8/-8; }
+  .tim {
+    content: "4"; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .drift .cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); }
+    .drift .cols-2 > div:nth-of-type(2n+1), .drift .cols-2.flipped > div:nth-of-type(2n+2) {
+      grid-column: 1;
+      order: 1; }
+    .drift .cols-2 > div:nth-of-type(2n+2), .drift .cols-2.flipped > div:nth-of-type(2n+1) {
+      grid-column: 2;
+      order: 2; }
+  .drift .cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); }
+    .drift .cols-3 > div:nth-of-type(3n+1), .drift .cols-3.flipped > div:nth-of-type(3n+3) {
+      grid-column: 1;
+      order: 1; }
+    .drift .cols-3 > div:nth-of-type(3n+2), .drift .cols-3.flipped > div:nth-of-type(3n+2) {
+      grid-column: 2;
+      order: 2; }
+    .drift .cols-3 > div:nth-of-type(3n+3), .drift .cols-3.flipped > div:nth-of-type(3n+1) {
+      grid-column: 3;
+      order: 3; }
   .drift, .drift [class*=span-], .drift [class*=cols-] {
     grid-column-gap: 32px;
     grid-row-gap: 28px; }
-  .drift .span-18 {
-    grid-template-columns: repeat(18, 1fr);
-    grid-column: 1/-1; }
-  .drift .span-18.skew-l-4 {
-    grid-template-columns: calc(72.22222% - 8.88889px) auto; }
-  .drift .span-18.skew-l-3 {
-    grid-template-columns: calc(66.66667% - 10.66667px) auto; }
-  .drift .span-18.skew-l-2 {
-    grid-template-columns: calc(61.11111% - 12.44444px) auto; }
-  .drift .span-18.skew-l-1 {
-    grid-template-columns: calc(55.55556% - 14.22222px) auto; }
-  .drift .span-18.skew-r-4 {
-    grid-template-columns: calc(72.22222% - 8.88889px) auto; }
-  .drift .span-18.skew-r-3 {
-    grid-template-columns: calc(66.66667% - 10.66667px) auto; }
-  .drift .span-18.skew-r-2 {
-    grid-template-columns: calc(61.11111% - 12.44444px) auto; }
-  .drift .span-18.skew-r-1 {
-    grid-template-columns: calc(55.55556% - 14.22222px) auto; }
-  .drift .span-16 {
-    grid-template-columns: repeat(16, 1fr);
+  .drift .span-16, .drift .span-14 {
     grid-column: 2/-2; }
-  .drift .span-16.skew-l-4 {
+  .tim {
+    content: "16"; }
+  .drift .span-16.skew-l-4, .drift .span-14.skew-l-4 {
     grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-16.skew-l-3 {
+  .drift .span-16.skew-l-3, .drift .span-14.skew-l-3 {
     grid-template-columns: calc(68.75% - 10px) auto; }
-  .drift .span-16.skew-l-2 {
+  .drift .span-16.skew-l-2, .drift .span-14.skew-l-2 {
     grid-template-columns: calc(62.5% - 12px) auto; }
-  .drift .span-16.skew-l-1 {
+  .drift .span-16.skew-l-1, .drift .span-14.skew-l-1 {
     grid-template-columns: calc(56.25% - 14px) auto; }
-  .drift .span-16.skew-r-4 {
+  .drift .span-16.skew-r-4, .drift .span-14.skew-r-4 {
     grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-16.skew-r-3 {
+  .drift .span-16.skew-r-3, .drift .span-14.skew-r-3 {
     grid-template-columns: calc(68.75% - 10px) auto; }
-  .drift .span-16.skew-r-2 {
+  .drift .span-16.skew-r-2, .drift .span-14.skew-r-2 {
     grid-template-columns: calc(62.5% - 12px) auto; }
-  .drift .span-16.skew-r-1 {
+  .drift .span-16.skew-r-1, .drift .span-14.skew-r-1 {
     grid-template-columns: calc(56.25% - 14px) auto; }
-  .drift .span-14 {
-    grid-template-columns: repeat(14, 1fr);
+  .drift .span-12, .drift .span-10 {
     grid-column: 3/-3; }
-  .drift .span-14.skew-l-4, .drift .span-14.skew-l-3 {
+  .tim {
+    content: "14"; }
+  .drift .span-12.skew-l-4, .drift .span-10.skew-l-4, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3 {
     grid-template-columns: calc(71.42857% - 9.14286px) auto; }
-  .drift .span-14.skew-l-2 {
+  .drift .span-12.skew-l-2, .drift .span-10.skew-l-2 {
     grid-template-columns: calc(64.28571% - 11.42857px) auto; }
-  .drift .span-14.skew-l-1 {
+  .drift .span-12.skew-l-1, .drift .span-10.skew-l-1 {
     grid-template-columns: calc(57.14286% - 13.71429px) auto; }
-  .drift .span-14.skew-r-4, .drift .span-14.skew-r-3 {
+  .drift .span-12.skew-r-4, .drift .span-10.skew-r-4, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3 {
     grid-template-columns: calc(71.42857% - 9.14286px) auto; }
-  .drift .span-14.skew-r-2 {
+  .drift .span-12.skew-r-2, .drift .span-10.skew-r-2 {
     grid-template-columns: calc(64.28571% - 11.42857px) auto; }
-  .drift .span-14.skew-r-1 {
+  .drift .span-12.skew-r-1, .drift .span-10.skew-r-1 {
     grid-template-columns: calc(57.14286% - 13.71429px) auto; }
-  .drift .span-12 {
-    grid-template-columns: repeat(12, 1fr);
+  .drift .span-8, .drift .span-6 {
     grid-column: 4/-4; }
-  .drift .span-12.skew-l-4, .drift .span-12.skew-l-3 {
+  .tim {
+    content: "12"; }
+  .drift .span-8.skew-l-4, .drift .span-6.skew-l-4, .drift .span-8.skew-l-3, .drift .span-6.skew-l-3 {
     grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-12.skew-l-2 {
+  .drift .span-8.skew-l-2, .drift .span-6.skew-l-2 {
     grid-template-columns: calc(66.66667% - 10.66667px) auto; }
-  .drift .span-12.skew-l-1 {
+  .drift .span-8.skew-l-1, .drift .span-6.skew-l-1 {
     grid-template-columns: calc(58.33333% - 13.33333px) auto; }
-  .drift .span-12.skew-r-4, .drift .span-12.skew-r-3 {
+  .drift .span-8.skew-r-4, .drift .span-6.skew-r-4, .drift .span-8.skew-r-3, .drift .span-6.skew-r-3 {
     grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-12.skew-r-2 {
+  .drift .span-8.skew-r-2, .drift .span-6.skew-r-2 {
     grid-template-columns: calc(66.66667% - 10.66667px) auto; }
-  .drift .span-12.skew-r-1 {
+  .drift .span-8.skew-r-1, .drift .span-6.skew-r-1 {
     grid-template-columns: calc(58.33333% - 13.33333px) auto; }
-  .drift .span-10 {
-    grid-template-columns: repeat(10, 1fr);
-    grid-column: 5/-5; }
-  .drift .span-10.skew-l-4, .drift .span-10.skew-l-3, .drift .span-10.skew-l-2 {
-    grid-template-columns: calc(70% - 9.6px) auto; }
-  .drift .span-10.skew-l-1 {
-    grid-template-columns: calc(60% - 12.8px) auto; }
-  .drift .span-10.skew-r-4, .drift .span-10.skew-r-3, .drift .span-10.skew-r-2 {
-    grid-template-columns: calc(70% - 9.6px) auto; }
-  .drift .span-10.skew-r-1 {
-    grid-template-columns: calc(60% - 12.8px) auto; }
-  .drift .span-8 {
-    grid-template-columns: repeat(8, 1fr);
-    grid-column: 6/-6; }
-  .drift .span-8.skew-l-4, .drift .span-8.skew-l-3, .drift .span-8.skew-l-2 {
-    grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-8.skew-l-1 {
-    grid-template-columns: calc(62.5% - 12px) auto; }
-  .drift .span-8.skew-r-4, .drift .span-8.skew-r-3, .drift .span-8.skew-r-2 {
-    grid-template-columns: calc(75% - 8px) auto; }
-  .drift .span-8.skew-r-1 {
-    grid-template-columns: calc(62.5% - 12px) auto; }
-  .drift .span-6 {
-    grid-template-columns: repeat(6, 1fr);
-    grid-column: 7/-7; }
-  .drift .span-6.skew-l-4, .drift .span-6.skew-l-3, .drift .span-6.skew-l-2, .drift .span-6.skew-l-1 {
-    grid-template-columns: calc(66.66667% - 10.66667px) auto; }
-  .drift .span-6.skew-r-4, .drift .span-6.skew-r-3, .drift .span-6.skew-r-2, .drift .span-6.skew-r-1 {
-    grid-template-columns: calc(66.66667% - 10.66667px) auto; }
   .drift .span-4 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-column: 8/-8; } }
+    grid-column: 5/-5; }
+  .tim {
+    content: "10"; } }
 
 @media (min-width: 414px) and (max-width: 767px) {
   .drift .cols-2 {
@@ -407,8 +408,9 @@ img {
     grid-column-gap: 20px;
     grid-row-gap: 20px; }
   .drift .span-16, .drift .span-14 {
-    grid-template-columns: repeat(16, 1fr);
     grid-column: 2/-2; }
+  .tim {
+    content: "16"; }
   .drift .span-16.skew-l-4, .drift .span-14.skew-l-4 {
     grid-template-columns: calc(75% - 5px) auto; }
   .drift .span-16.skew-l-3, .drift .span-14.skew-l-3 {
@@ -426,38 +428,41 @@ img {
   .drift .span-16.skew-r-1, .drift .span-14.skew-r-1 {
     grid-template-columns: calc(56.25% - 8.75px) auto; }
   .drift .span-12, .drift .span-10 {
-    grid-template-columns: repeat(14, 1fr);
     grid-column: 3/-3; }
-  .drift .span-12.skew-l-4, .drift .span-10.skew-l-4, .drift .span-14.skew-l-3, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3 {
+  .tim {
+    content: "14"; }
+  .drift .span-12.skew-l-4, .drift .span-10.skew-l-4, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3 {
     grid-template-columns: calc(71.42857% - 5.71429px) auto; }
-  .drift .span-14.skew-l-2, .drift .span-12.skew-l-2, .drift .span-10.skew-l-2 {
+  .drift .span-12.skew-l-2, .drift .span-10.skew-l-2 {
     grid-template-columns: calc(64.28571% - 7.14286px) auto; }
-  .drift .span-14.skew-l-1, .drift .span-12.skew-l-1, .drift .span-10.skew-l-1 {
+  .drift .span-12.skew-l-1, .drift .span-10.skew-l-1 {
     grid-template-columns: calc(57.14286% - 8.57143px) auto; }
-  .drift .span-12.skew-r-4, .drift .span-10.skew-r-4, .drift .span-14.skew-r-3, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3 {
+  .drift .span-12.skew-r-4, .drift .span-10.skew-r-4, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3 {
     grid-template-columns: calc(71.42857% - 5.71429px) auto; }
-  .drift .span-14.skew-r-2, .drift .span-12.skew-r-2, .drift .span-10.skew-r-2 {
+  .drift .span-12.skew-r-2, .drift .span-10.skew-r-2 {
     grid-template-columns: calc(64.28571% - 7.14286px) auto; }
-  .drift .span-14.skew-r-1, .drift .span-12.skew-r-1, .drift .span-10.skew-r-1 {
+  .drift .span-12.skew-r-1, .drift .span-10.skew-r-1 {
     grid-template-columns: calc(57.14286% - 8.57143px) auto; }
   .drift .span-8, .drift .span-6 {
-    grid-template-columns: repeat(12, 1fr);
     grid-column: 4/-4; }
-  .drift .span-8.skew-l-4, .drift .span-6.skew-l-4, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3, .drift .span-8.skew-l-3, .drift .span-6.skew-l-3 {
+  .tim {
+    content: "12"; }
+  .drift .span-8.skew-l-4, .drift .span-6.skew-l-4, .drift .span-8.skew-l-3, .drift .span-6.skew-l-3 {
     grid-template-columns: calc(75% - 5px) auto; }
-  .drift .span-12.skew-l-2, .drift .span-10.skew-l-2, .drift .span-8.skew-l-2, .drift .span-6.skew-l-2 {
+  .drift .span-8.skew-l-2, .drift .span-6.skew-l-2 {
     grid-template-columns: calc(66.66667% - 6.66667px) auto; }
-  .drift .span-12.skew-l-1, .drift .span-10.skew-l-1, .drift .span-8.skew-l-1, .drift .span-6.skew-l-1 {
+  .drift .span-8.skew-l-1, .drift .span-6.skew-l-1 {
     grid-template-columns: calc(58.33333% - 8.33333px) auto; }
-  .drift .span-8.skew-r-4, .drift .span-6.skew-r-4, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3, .drift .span-8.skew-r-3, .drift .span-6.skew-r-3 {
+  .drift .span-8.skew-r-4, .drift .span-6.skew-r-4, .drift .span-8.skew-r-3, .drift .span-6.skew-r-3 {
     grid-template-columns: calc(75% - 5px) auto; }
-  .drift .span-12.skew-r-2, .drift .span-10.skew-r-2, .drift .span-8.skew-r-2, .drift .span-6.skew-r-2 {
+  .drift .span-8.skew-r-2, .drift .span-6.skew-r-2 {
     grid-template-columns: calc(66.66667% - 6.66667px) auto; }
-  .drift .span-12.skew-r-1, .drift .span-10.skew-r-1, .drift .span-8.skew-r-1, .drift .span-6.skew-r-1 {
+  .drift .span-8.skew-r-1, .drift .span-6.skew-r-1 {
     grid-template-columns: calc(58.33333% - 8.33333px) auto; }
   .drift .span-4 {
-    grid-template-columns: repeat(10, 1fr);
-    grid-column: 5/-5; } }
+    grid-column: 5/-5; }
+  .tim {
+    content: "10"; } }
 
 @media (max-width: 413px) {
   .drift .cols-2 {
@@ -468,8 +473,9 @@ img {
     grid-column-gap: 16px;
     grid-row-gap: 12px; }
   .drift .span-16, .drift .span-14 {
-    grid-template-columns: repeat(16, 1fr);
     grid-column: 2/-2; }
+  .tim {
+    content: "16"; }
   .drift .span-16.skew-l-4, .drift .span-14.skew-l-4 {
     grid-template-columns: calc(75% - 4px) auto; }
   .drift .span-16.skew-l-3, .drift .span-14.skew-l-3 {
@@ -487,80 +493,85 @@ img {
   .drift .span-16.skew-r-1, .drift .span-14.skew-r-1 {
     grid-template-columns: calc(56.25% - 7px) auto; }
   .drift .span-12, .drift .span-10 {
-    grid-template-columns: repeat(14, 1fr);
     grid-column: 3/-3; }
-  .drift .span-12.skew-l-4, .drift .span-10.skew-l-4, .drift .span-14.skew-l-3, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3 {
+  .tim {
+    content: "14"; }
+  .drift .span-12.skew-l-4, .drift .span-10.skew-l-4, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3 {
     grid-template-columns: calc(71.42857% - 4.57143px) auto; }
-  .drift .span-14.skew-l-2, .drift .span-12.skew-l-2, .drift .span-10.skew-l-2 {
+  .drift .span-12.skew-l-2, .drift .span-10.skew-l-2 {
     grid-template-columns: calc(64.28571% - 5.71429px) auto; }
-  .drift .span-14.skew-l-1, .drift .span-12.skew-l-1, .drift .span-10.skew-l-1 {
+  .drift .span-12.skew-l-1, .drift .span-10.skew-l-1 {
     grid-template-columns: calc(57.14286% - 6.85714px) auto; }
-  .drift .span-12.skew-r-4, .drift .span-10.skew-r-4, .drift .span-14.skew-r-3, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3 {
+  .drift .span-12.skew-r-4, .drift .span-10.skew-r-4, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3 {
     grid-template-columns: calc(71.42857% - 4.57143px) auto; }
-  .drift .span-14.skew-r-2, .drift .span-12.skew-r-2, .drift .span-10.skew-r-2 {
+  .drift .span-12.skew-r-2, .drift .span-10.skew-r-2 {
     grid-template-columns: calc(64.28571% - 5.71429px) auto; }
-  .drift .span-14.skew-r-1, .drift .span-12.skew-r-1, .drift .span-10.skew-r-1 {
+  .drift .span-12.skew-r-1, .drift .span-10.skew-r-1 {
     grid-template-columns: calc(57.14286% - 6.85714px) auto; }
   .drift .span-8, .drift .span-6 {
-    grid-template-columns: repeat(12, 1fr);
     grid-column: 4/-4; }
-  .drift .span-8.skew-l-4, .drift .span-6.skew-l-4, .drift .span-12.skew-l-3, .drift .span-10.skew-l-3, .drift .span-8.skew-l-3, .drift .span-6.skew-l-3 {
+  .tim {
+    content: "12"; }
+  .drift .span-8.skew-l-4, .drift .span-6.skew-l-4, .drift .span-8.skew-l-3, .drift .span-6.skew-l-3 {
     grid-template-columns: calc(75% - 4px) auto; }
-  .drift .span-12.skew-l-2, .drift .span-10.skew-l-2, .drift .span-8.skew-l-2, .drift .span-6.skew-l-2 {
+  .drift .span-8.skew-l-2, .drift .span-6.skew-l-2 {
     grid-template-columns: calc(66.66667% - 5.33333px) auto; }
-  .drift .span-12.skew-l-1, .drift .span-10.skew-l-1, .drift .span-8.skew-l-1, .drift .span-6.skew-l-1 {
+  .drift .span-8.skew-l-1, .drift .span-6.skew-l-1 {
     grid-template-columns: calc(58.33333% - 6.66667px) auto; }
-  .drift .span-8.skew-r-4, .drift .span-6.skew-r-4, .drift .span-12.skew-r-3, .drift .span-10.skew-r-3, .drift .span-8.skew-r-3, .drift .span-6.skew-r-3 {
+  .drift .span-8.skew-r-4, .drift .span-6.skew-r-4, .drift .span-8.skew-r-3, .drift .span-6.skew-r-3 {
     grid-template-columns: calc(75% - 4px) auto; }
-  .drift .span-12.skew-r-2, .drift .span-10.skew-r-2, .drift .span-8.skew-r-2, .drift .span-6.skew-r-2 {
+  .drift .span-8.skew-r-2, .drift .span-6.skew-r-2 {
     grid-template-columns: calc(66.66667% - 5.33333px) auto; }
-  .drift .span-12.skew-r-1, .drift .span-10.skew-r-1, .drift .span-8.skew-r-1, .drift .span-6.skew-r-1 {
+  .drift .span-8.skew-r-1, .drift .span-6.skew-r-1 {
     grid-template-columns: calc(58.33333% - 6.66667px) auto; }
   .drift .span-4 {
-    grid-template-columns: repeat(10, 1fr);
-    grid-column: 5/-5; } }
+    grid-column: 5/-5; }
+  .tim {
+    content: "10"; } }
 
 [class*=cols-] > div {
   background-color: rgba(255, 0, 0, 0.1); }
 
 #dev-grid {
   width: 100%; }
-  #dev-grid [class*=span-] > div:nth-of-type(1) {
-    grid-column: 1; }
-  #dev-grid [class*=span-] > div:nth-of-type(2) {
-    grid-column: 2; }
-  #dev-grid [class*=span-] > div:nth-of-type(3) {
-    grid-column: 3; }
-  #dev-grid [class*=span-] > div:nth-of-type(4) {
-    grid-column: 4; }
-  #dev-grid [class*=span-] > div:nth-of-type(5) {
-    grid-column: 5; }
-  #dev-grid [class*=span-] > div:nth-of-type(6) {
-    grid-column: 6; }
-  #dev-grid [class*=span-] > div:nth-of-type(7) {
-    grid-column: 7; }
-  #dev-grid [class*=span-] > div:nth-of-type(8) {
-    grid-column: 8; }
-  #dev-grid [class*=span-] > div:nth-of-type(9) {
-    grid-column: 9; }
-  #dev-grid [class*=span-] > div:nth-of-type(10) {
-    grid-column: 10; }
-  #dev-grid [class*=span-] > div:nth-of-type(11) {
-    grid-column: 11; }
-  #dev-grid [class*=span-] > div:nth-of-type(12) {
-    grid-column: 12; }
-  #dev-grid [class*=span-] > div:nth-of-type(13) {
-    grid-column: 13; }
-  #dev-grid [class*=span-] > div:nth-of-type(14) {
-    grid-column: 14; }
-  #dev-grid [class*=span-] > div:nth-of-type(15) {
-    grid-column: 15; }
-  #dev-grid [class*=span-] > div:nth-of-type(16) {
-    grid-column: 16; }
-  #dev-grid [class*=span-] > div:nth-of-type(17) {
-    grid-column: 17; }
-  #dev-grid [class*=span-] > div:nth-of-type(18) {
-    grid-column: 18; }
+  #dev-grid [class*=span-] {
+    grid-template-columns: repeat(18, 1fr); }
+    #dev-grid [class*=span-] > div:nth-of-type(1) {
+      grid-column: 1; }
+    #dev-grid [class*=span-] > div:nth-of-type(2) {
+      grid-column: 2; }
+    #dev-grid [class*=span-] > div:nth-of-type(3) {
+      grid-column: 3; }
+    #dev-grid [class*=span-] > div:nth-of-type(4) {
+      grid-column: 4; }
+    #dev-grid [class*=span-] > div:nth-of-type(5) {
+      grid-column: 5; }
+    #dev-grid [class*=span-] > div:nth-of-type(6) {
+      grid-column: 6; }
+    #dev-grid [class*=span-] > div:nth-of-type(7) {
+      grid-column: 7; }
+    #dev-grid [class*=span-] > div:nth-of-type(8) {
+      grid-column: 8; }
+    #dev-grid [class*=span-] > div:nth-of-type(9) {
+      grid-column: 9; }
+    #dev-grid [class*=span-] > div:nth-of-type(10) {
+      grid-column: 10; }
+    #dev-grid [class*=span-] > div:nth-of-type(11) {
+      grid-column: 11; }
+    #dev-grid [class*=span-] > div:nth-of-type(12) {
+      grid-column: 12; }
+    #dev-grid [class*=span-] > div:nth-of-type(13) {
+      grid-column: 13; }
+    #dev-grid [class*=span-] > div:nth-of-type(14) {
+      grid-column: 14; }
+    #dev-grid [class*=span-] > div:nth-of-type(15) {
+      grid-column: 15; }
+    #dev-grid [class*=span-] > div:nth-of-type(16) {
+      grid-column: 16; }
+    #dev-grid [class*=span-] > div:nth-of-type(17) {
+      grid-column: 17; }
+    #dev-grid [class*=span-] > div:nth-of-type(18) {
+      grid-column: 18; }
   #dev-grid [class*=span-] > div {
     overflow: hidden;
     background-color: rgba(255, 0, 0, 0.1); }
