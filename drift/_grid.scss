@@ -140,7 +140,15 @@ img {
                                     
                                     $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
                                     
-                                    grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+                                    @if $way == l {
+
+                                        grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+
+                                    } @else {
+
+                                        grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+
+                                    }
 
                                 }
 

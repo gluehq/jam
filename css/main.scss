@@ -13,14 +13,14 @@ body {
         
         @if $media == large or $media == standard {
             
-            $unit: calc(#{percentage(1/10)} + (#{xgap(large)} / 9));
+            $unit: calc(#{percentage(1/12)} + (#{xgap(large)} / 11));
             padding: 0 $unit;
             
         } @else if $media == tablet {
                 
             @include media($media) {
                 
-                $unit: calc(#{percentage(1/11)} + (#{xgap($media)} / 10));
+                $unit: calc(#{percentage(1/12)} + (#{xgap($media)} / 11));
                 padding: 0 $unit;
                 
             }
@@ -29,8 +29,6 @@ body {
                 
             @include media($media) {
                 
-                // $unit: calc(#{percentage(1/16)} + (#{xgap($media)} / 15));
-                // padding: 0 $unit;
                 padding: 0;
                 
             }
