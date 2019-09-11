@@ -711,50 +711,50 @@ body {
 
 @media (min-width: 1367px) {
   .image.left, .image.right {
-    width: calc(50% - (get-gap(large) / 2)); }
+    width: calc(50% - (52px / 2)); }
   .image.left {
     float: left;
-    margin: 0 get-gap(large) get-gap(large) 0; }
+    margin: 0 52px 26px 0; }
   .image.right {
     float: right;
-    margin: 0 0 get-gap(large) get-gap(large); } }
+    margin: 0 0 26px 52px; } }
 
 @media (min-width: 1025px) and (max-width: 1366px) {
   .image.left, .image.right {
-    width: calc(50% - (get-gap(standard) / 2)); }
+    width: calc(50% - (44px / 2)); }
   .image.left {
     float: left;
-    margin: 0 get-gap(standard) get-gap(standard) 0; }
+    margin: 0 44px 20px 0; }
   .image.right {
     float: right;
-    margin: 0 0 get-gap(standard) get-gap(standard); } }
+    margin: 0 0 20px 44px; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .image.left, .image.right {
-    width: calc(50% - (get-gap(tablet) / 2)); }
+    width: calc(50% - (32px / 2)); }
   .image.left {
     float: left;
-    margin: 0 get-gap(tablet) get-gap(tablet) 0; }
+    margin: 0 32px 14px 0; }
   .image.right {
     float: right;
-    margin: 0 0 get-gap(tablet) get-gap(tablet); } }
+    margin: 0 0 14px 32px; } }
 
 @media (min-width: 414px) and (max-width: 767px) {
   .image.left, .image.right {
-    width: calc(50% - (get-gap(plus) / 2)); }
+    width: calc(50% - (20px / 2)); }
   .image.left {
     float: left;
-    margin: 0 get-gap(plus) get-gap(plus) 0; }
+    margin: 0 20px 10px 0; }
   .image.right {
     float: right;
-    margin: 0 0 get-gap(plus) get-gap(plus); } }
+    margin: 0 0 10px 20px; } }
 
 @media (max-width: 413px) {
   .image.left, .image.right {
-    width: calc(50% - (get-gap(phone) / 2)); }
+    width: calc(50% - (16px / 2)); }
   .image.left {
     float: left;
-    margin: 0 get-gap(phone) get-gap(phone) 0; }
+    margin: 0 16px 6px 0; }
   .image.right {
     float: right;
-    margin: 0 0 get-gap(phone) get-gap(phone); } }
+    margin: 0 0 6px 16px; } }
