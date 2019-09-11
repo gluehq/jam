@@ -55,12 +55,17 @@ img {
 
         } @else {
 
-            .drift .cols-#{$cols} {
+            .drift .cols-#{$cols}, .drift .cols-#{$cols}.flipped {
 
                 grid-template-columns: 1fr;
-
-                > div:nth-of-type(n) {
-                    grid-column: 1 / -1;
+                    
+                @for $col from 1 through $cols {
+                    
+                    > div:nth-of-type(#{$cols}n+#{$col}), &.flipped > div:nth-of-type(#{$cols}n+#{$col}) {
+                        grid-column: 1 / -1;
+                        order: $col;
+                    }
+                    
                 }
 
             }
