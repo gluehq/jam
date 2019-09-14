@@ -33,31 +33,40 @@ body {
     @each $media in $all-media {
         
         @include media($media) {
-        
-            // &.left, &.right {
-            //     width: calc(50% - (#{xgap($media)} / 2));
-            // }
-                
-            // &.left {
-            //     float: left;
-            //     margin: 0 xgap($media) (ygap($media) / 2) 0;
-            // }
             
-            // &.right {
-            //     float: right;
-            //     margin: 0 0 (ygap($media) / 2) xgap($media);
-            // }
+            margin-bottom: 18px;
 
-            // &.jutting {
+            @if $media == large or $media == standard or $media == tablet {
+        
+                &.left, &.right {
+                    width: calc(50% - (#{xgap($media)} / 2));
+                }
+                    
+                &.left {
+                    float: left;
+                    margin-right: xgap($media);
+                }
+                
+                &.right {
+                    float: right;
+                    margin-left: xgap($media);
+                }
 
-            //     @if $media == large or $media == standard or $media == tablet {
-            //         $unit: calc((#{percentage(1/10)} + (#{xgap(large)} / 9)) * -1);
-            //         margin: 0 $unit 24px $unit;
-            //     } @else {
+                &.jutting {
 
-            //     }
+                    $unit: calc((#{percentage(1/10)} + (#{xgap($media)} / 9)) * -1);
+                    margin: 0 $unit 24px $unit;
 
-            // }
+                }
+
+            } @else {
+
+                &.jutting {
+                    $unit: calc((#{percentage(1/16)} + (#{xgap($media)} / 15)) * -1);
+                    margin: 0 $unit 20px $unit;
+                }
+
+            }
             
         }
         

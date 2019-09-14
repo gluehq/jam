@@ -20,6 +20,12 @@ img {
     width: 100%;
 }
 
+//  Remove bottom margins from last paragraphs etc
+
+div > *:last-child {
+    margin-bottom: 0;
+}
+
 
 //  S P A N S  &  C O L S
 
@@ -76,7 +82,7 @@ img {
     
     $offset: ($span-max - $span) / 2;
     
-    // NB a grid-template-columns rule here would break uniform col fallbacks
+    //  NB a grid-template-columns rule here would break uniform col fallbacks
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
 }
