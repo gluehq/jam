@@ -14,12 +14,6 @@
     position: relative;
 }
 
-//  Non grid element
-
-.drift *:not([class*=span-]) {
-    grid-column: 1 / -1;
-}
-
 //  Make images fit their cols
 
 img {
@@ -27,9 +21,9 @@ img {
 }
 
 
-//  C O L S
+//  S P A N S  &  C O L S
 
-//  Output uniform cols for flipped and fallback rules
+//  Output uniform cols for flip and fallback rules
 
 @mixin cols-uniform($media) {
 
@@ -44,7 +38,7 @@ img {
                     
                 @for $col from 1 through $cols {
                     
-                    > div:nth-of-type(#{$cols}n+#{$col}), &.flipped > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
                         grid-column: $col;
                         order: $col;
                     }
@@ -55,13 +49,13 @@ img {
 
         } @else {
 
-            .drift .cols-#{$cols}, .drift .cols-#{$cols}.flipped {
+            .drift .cols-#{$cols}, .drift .cols-#{$cols}.flip {
 
                 grid-template-columns: 1fr;
                     
                 @for $col from 1 through $cols {
                     
-                    > div:nth-of-type(#{$cols}n+#{$col}), &.flipped > div:nth-of-type(#{$cols}n+#{$col}) {
+                    > div:nth-of-type(#{$cols}n+#{$col}) {
                         grid-column: 1 / -1;
                         order: $col;
                     }
@@ -78,6 +72,15 @@ img {
 
 //  Output skewed cols
 
+@mixin span($span) {
+    
+    $offset: ($span-max - $span) / 2;
+    
+    // NB a grid-template-columns rule here would break uniform col fallbacks
+    grid-column: #{$offset + 1}/#{-1 - $offset};
+    
+}
+
 @mixin cols-skewed($span, $span-actual, $span-to, $media) {
 
     $span-selects: '';
@@ -88,12 +91,36 @@ img {
 
             @if $span-this != $span-to {
 
-                $span-selects: $span-selects + '.drift .span-#{$span-this}, ';
+                $span-selects: $span-selects + '.drift .span-#{$span-this}[class*=cols-], ';
 
             } @else {
 
-                #{$span-selects}.drift .span-#{$span-this} {
-                    @include span($span-actual);
+                @if $media == phone or $media == plus {
+
+                    #{$span-selects}.drift .span-#{$span-this}[class*=cols-] {
+
+                        $span-inset: ($span-max - $span-actual) / 2;
+
+                        //  Start with the first so we can keep spaces between additional frs tidy
+                        $span-frs: '1fr';
+                        @for $i from 2 through $span-inset {
+                            $span-frs: $span-frs + ' 1fr';
+                        }
+                        grid-column: 1 / -1;
+                        grid-template-columns: repeat(#{$span-max}, 1fr);
+
+                        > div:nth-child(n), &.flip div:nth-child(n) {
+                            grid-column: #{$span-inset + 1} / #{0 - ($span-inset + 1)};
+                        }
+
+                    }
+
+                } @else {
+
+                    #{$span-selects}.drift .span-#{$span-this} {
+                        @include span($span-actual);
+                    }
+
                 }
 
             }
@@ -102,92 +129,84 @@ img {
 
     }
 
-    $span-selects: '';
+    @if $media != phone and $media != plus {
 
-    @if $span > $span-max / 4 {
-        
-        $directions: l, r;
-            
-        $classes: '';
-        
-        @each $way in $directions {
+        $span-selects: '';
 
-            $skew-mod: $span-max / $skew-max;
-            $skew-new: round($span-actual / $skew-mod);
+        @if $span > $span-max / 4 {
             
-            @for $skew-this from $skew-max through 1 {
+            $directions: l, r;
                 
-                @if $skew-new < $skew-this {
+            $classes: '';
+            
+            @each $way in $directions {
 
-                    @for $span-this from $span through $span-to {
-
-                        @if $span-this % 2 == 0 {
-                            
-                            $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
-
-                        }
-
-                    }
+                $skew-mod: $span-max / $skew-max;
+                $skew-new: round($span-actual / $skew-mod);
+                
+                @for $skew-this from $skew-max through 1 {
                     
-                } @else {
+                    @if $skew-new < $skew-this {
 
-                    @for $span-this from $span through $span-to {
+                        @for $span-this from $span through $span-to {
 
-                        @if $span-this % 2 == 0 {
-
-                            @if $span-this != $span-to {
-
+                            @if $span-this % 2 == 0 {
+                                
                                 $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
-                            } @else {
+                            }
 
-                                #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
-                                    
-                                    $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
-                                    
-                                    @if $way == l {
+                        }
+                        
+                    } @else {
 
-                                        grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+                        @for $span-this from $span through $span-to {
 
-                                    } @else {
+                            @if $span-this % 2 == 0 {
 
-                                        grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+                                @if $span-this != $span-to {
+
+                                    $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+
+                                } @else {
+
+                                    #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
+                                        
+                                        $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
+                                        
+                                        @if $way == l {
+
+                                            grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+
+                                        } @else {
+
+                                            grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+
+                                        }
 
                                     }
 
                                 }
 
                             }
-
+                            
                         }
+                    
+                        $classes: '';
                         
                     }
-                
-                    $classes: '';
                     
                 }
                 
             }
-            
+        
         }
-    
+
     }
 
 }
 
-
-//  S P A N S
-
 //  Spans define the width of each page row
-
-@mixin span($span) {
-    
-    $offset: ($span-max - $span) / 2;
-    
-    // NB a grid-template-columns rule here would break uniform col fallbacks
-    grid-column: #{$offset + 1}/#{-1 - $offset};
-    
-}
 
 @function span-resp($span) {
     $span-rem: ($span-max - $span) / 2;
@@ -242,6 +261,12 @@ img {
 
 //  M E D I A
 
+//  Non grid element
+
+.drift *:not([class*=span-]) {
+    grid-column: 1 / -1;
+}
+
 @include cols-uniform(large);
 
 @include spans(large);
@@ -250,12 +275,26 @@ img {
     
     @include media($media) {
 
+        @if $media == phone or $media == plus {
+            
+            .drift *:not([class*=span-]) {
+                grid-column: 2 / -2;
+            }
+
+        }
+
         @if $media == phone or $media == plus or $media == tablet {
             @include cols-uniform($media);
         }
 
         @if $media != large {
             @include spans($media);
+        }
+
+        @if $media == phone or $media == plus {
+            .drift [class*=span-].bleed-ph > div:nth-of-type(2n+1),.drift [class*=span-].flip.bleed-ph > div:nth-of-type(2n+1) {
+                grid-column: 1 / -1;
+            }
         }
         
     }
@@ -268,7 +307,7 @@ img {
 $color-dev-bkgd: rgba(255, 0, 0, 0.1);
 
 [class*=cols-] > div {
-     // background-color: $color-dev-bkgd;
+    //  background-color: $color-dev-bkgd;
 }
 
 #dev-grid {
@@ -279,6 +318,7 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     [class*=span-] {
 
         grid-template-columns: repeat($span-max, 1fr);
+        background-color: $color-dev-bkgd;
         
         @for $span from 1 through $span-max {
             

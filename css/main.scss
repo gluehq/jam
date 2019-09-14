@@ -34,30 +34,30 @@ body {
         
         @include media($media) {
         
-            &.left, &.right {
-                width: calc(50% - (#{xgap($media)} / 2));
-            }
+            // &.left, &.right {
+            //     width: calc(50% - (#{xgap($media)} / 2));
+            // }
                 
-            &.left {
-                float: left;
-                margin: 0 xgap($media) (ygap($media) / 2) 0;
-            }
+            // &.left {
+            //     float: left;
+            //     margin: 0 xgap($media) (ygap($media) / 2) 0;
+            // }
             
-            &.right {
-                float: right;
-                margin: 0 0 (ygap($media) / 2) xgap($media);
-            }
+            // &.right {
+            //     float: right;
+            //     margin: 0 0 (ygap($media) / 2) xgap($media);
+            // }
 
-            &.jutting {
+            // &.jutting {
 
-                @if $media == large or $media == standard or $media == tablet {
-                    $unit: calc((#{percentage(1/10)} + (#{xgap(large)} / 9)) * -1);
-                    margin: 0 $unit 24px $unit;
-                } @else {
+            //     @if $media == large or $media == standard or $media == tablet {
+            //         $unit: calc((#{percentage(1/10)} + (#{xgap(large)} / 9)) * -1);
+            //         margin: 0 $unit 24px $unit;
+            //     } @else {
 
-                }
+            //     }
 
-            }
+            // }
             
         }
         
