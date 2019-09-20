@@ -1,7 +1,7 @@
 
 //  B A S E
 
-.drift {
+.jam {
     display: grid;
     grid-template-columns: repeat($span-max, 1fr);
     margin: 0 auto;
@@ -9,7 +9,7 @@
     max-width: $large - 1px;
 }
 
-.drift [class*=span-] {
+.jam [class*=span-] {
     display: grid;
     position: relative;
 }
@@ -41,7 +41,7 @@ div > *:last-child {
 
         @if $media != phone and $media != plus {
         
-            .drift .cols-#{$cols} {
+            .jam .cols-#{$cols} {
                 
                 display: grid;
                 grid-template-columns: repeat(#{$cols}, 1fr);
@@ -59,7 +59,7 @@ div > *:last-child {
 
         } @else {
 
-            .drift .cols-#{$cols}, .drift .cols-#{$cols}.flip {
+            .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
 
                 grid-template-columns: 1fr;
                     
@@ -102,13 +102,13 @@ div > *:last-child {
 
             @if $span-this != $span-to {
 
-                $span-selects: $span-selects + '.drift .span-#{$span-this}[class*=cols-], ';
+                $span-selects: $span-selects + '.jam .span-#{$span-this}[class*=cols-], ';
 
             } @else {
 
                 @if $media == phone or $media == plus {
 
-                    #{$span-selects}.drift .span-#{$span-this}[class*=cols-] {
+                    #{$span-selects}.jam .span-#{$span-this}[class*=cols-] {
 
                         $span-inset: ($span-max - $span-actual) / 2;
 
@@ -128,7 +128,7 @@ div > *:last-child {
 
                 } @else {
 
-                    #{$span-selects}.drift .span-#{$span-this} {
+                    #{$span-selects}.jam .span-#{$span-this} {
                         @include span($span-actual);
                     }
 
@@ -163,7 +163,7 @@ div > *:last-child {
 
                             @if $span-this % 2 == 0 {
                                 
-                                $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                                $classes: $classes + '.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
                             }
 
@@ -177,11 +177,11 @@ div > *:last-child {
 
                                 @if $span-this != $span-to {
 
-                                    $classes: $classes + '.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                                    $classes: $classes + '.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
 
                                 } @else {
 
-                                    #{$classes}.drift .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
+                                    #{$classes}.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
                                         
                                         $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
                                         
@@ -228,7 +228,7 @@ div > *:last-child {
 
 @mixin spans($media) {
     
-    .drift, .drift [class*=span-], .drift [class*=cols-] {
+    .jam, .jam [class*=span-], .jam [class*=cols-] {
         grid-column-gap: xgap($media);
         grid-row-gap: ygap($media);
     }
@@ -274,7 +274,7 @@ div > *:last-child {
 
 //  Non grid element
 
-.drift *:not([class*=span-]) {
+.jam *:not([class*=span-]) {
     grid-column: 1 / -1;
 }
 
@@ -288,7 +288,7 @@ div > *:last-child {
 
         @if $media == phone or $media == plus {
             
-            .drift *:not([class*=span-]) {
+            .jam *:not([class*=span-]) {
                 grid-column: 2 / -2;
             }
 
@@ -303,7 +303,7 @@ div > *:last-child {
         }
 
         @if $media == phone or $media == plus {
-            .drift [class*=span-].bleed-ph > div:nth-of-type(2n+1),.drift [class*=span-].flip.bleed-ph > div:nth-of-type(2n+1) {
+            .jam [class*=span-].bleed-ph > div:nth-of-type(2n+1),.jam [class*=span-].flip.bleed-ph > div:nth-of-type(2n+1) {
                 grid-column: 1 / -1;
             }
         }
