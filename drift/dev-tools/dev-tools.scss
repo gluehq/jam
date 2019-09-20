@@ -1,18 +1,23 @@
 
 @import '../base';
 
-#dev-box, .dev-label {
-    position: fixed;
-    display: block;
-    z-index: 99;
-    bottom: 20px;
-    left: 0;
-    margin: 0;
-    padding: 4px 8px 3px 8px;
+@mixin font() {
+    padding-top: 4px;
     font-family: 'Lucida Console', monospace;
     font-size: 12px;
     font-weight: 300;
     line-height: 18px;
+}
+
+#dev-box, .dev-label {
+    position: fixed;
+    display: block;
+    z-index: 100;
+    bottom: 20px;
+    left: 0;
+    margin: 0;
+    padding: 4px 8px 3px 8px;
+    @include font();
     color: white;
     background-color: black;
 }
@@ -36,35 +41,57 @@
 }
 
 .col > div:not(.col) > .dev-label {
-    top: 25px;
+    // top: 25px;
 }
 
 .dev-mode .dev-label {
     display: block;
 }
 
+$color-dev-bkgd: rgba(255, 0, 0, 0.1);
+
+[class*=cols-] > div {
+    //  background-color: $color-dev-bkgd;
+}
+
 #dev-grid {
-    // display: none;
+    
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 99;
     margin: 0 auto;
     width: 100%;
-    line-height: 0;
-}
+    // line-height: 0;
+        
+    [class*=span-] {
 
-#dev-grid .content-area {
-    background-color: transparent;
-}
-
-#dev-grid [class*="col"] {
-
-    // width: percentage(1/24);
-    background: url('images/grid.png') repeat-y 0 0;
-
-    @include media(lower-phone) {
-        width: percentage(1/16);
+        grid-template-columns: repeat($span-max, 1fr);
+        // background-color: $color-dev-bkgd;
+        
+        @for $span from 1 through $span-max {
+            
+            > div:nth-of-type(#{$span}) {
+                grid-column: #{$span};
+            }
+            
+        }
+        
+    }
+        
+    [class*=span-] > div {
+        overflow: hidden;
+        @include font();
+        background-color: $color-dev-bkgd;
     }
 
+    [class*=span-] > div.dev-label {
+        background-color: white;
+    }
+        
+    [class*=span-] > div:nth-of-type(n+#{($span-max / 2) + 1}) {
+        text-align: right;
+    }
+    
 }

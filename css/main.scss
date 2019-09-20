@@ -3,10 +3,6 @@
 @import '../drift/grid';
 @import '../drift/type';
 
-body {
-    margin: 0;
-}
-
 .main {
     
     @each $media in $all-media {
