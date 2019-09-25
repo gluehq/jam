@@ -2,15 +2,15 @@
 //  V A R I A B L E S
 
 //  Basic grid unit amounts
-$span-max:  18;
-$span-min:  6;
+$row-max:  18;
+$row-min:  6;
 
 //  Maximum grid unit difference in .cols-2 child widths
 $skew-max:  5;
 
-//  Responsive group size - spans that aren't full width are
+//  Responsive group size - rows that aren't full width are
 //  grouped together on mobile to create fewer width variations
-$span-resp-grp:  2;
+$row-resp-grp:  2;
 
 //  Maximum number of uniform width columns
 $cols-max:  3;

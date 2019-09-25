@@ -30,7 +30,7 @@ $(document).ready(function() {
                             html += classes + ' ';
                         }
                         if (id !== undefined) {
-                            html += '<span class="id">' + id + '</span>';
+                            html += '<row class="id">' + id + '</row>';
                         }
                         html += '</div>';
                         $(this).append(html);// Changing to prepend may break js-valign() in core.js

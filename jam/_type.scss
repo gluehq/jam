@@ -141,12 +141,12 @@ p, li {
    @include p;
 }
 
-p.small, span.small {
+p.small, row.small {
     @include p-small;
     margin-bottom: 1.4rem;
 }
 
-p.tiny, span.tiny {
+p.tiny, row.tiny {
     @include p-tiny;
     margin-bottom: 1.2rem;
 }

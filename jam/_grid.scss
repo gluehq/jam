@@ -3,13 +3,13 @@
 
 .jam {
     display: grid;
-    grid-template-columns: repeat($span-max, 1fr);
+    grid-template-columns: repeat($row-max, 1fr);
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
 }
 
-.jam [class*=span-] {
+.jam [class*=row-] {
     display: grid;
     position: relative;
 }
@@ -82,54 +82,54 @@ div > *:last-child {
 
 //  Output skewed cols
 
-@mixin span($span) {
+@mixin row($row) {
     
-    $offset: ($span-max - $span) / 2;
+    $offset: ($row-max - $row) / 2;
     
     //  NB a grid-template-columns rule here would break uniform col fallbacks
-    grid-template-columns: repeat(#{$span}, 1fr);
+    grid-template-columns: repeat(#{$row}, 1fr);
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
 }
 
-@mixin cols-skewed($span, $span-actual, $span-to, $media) {
+@mixin cols-skewed($row, $row-actual, $row-to, $media) {
 
-    $span-selects: '';
+    $row-selects: '';
 
-    @for $span-this from $span through $span-to {
+    @for $row-this from $row through $row-to {
 
-        @if $span-this % 2 == 0 {
+        @if $row-this % 2 == 0 {
 
-            @if $span-this != $span-to {
+            @if $row-this != $row-to {
 
-                $span-selects: $span-selects + '.jam .span-#{$span-this}[class*=cols-], ';
+                $row-selects: $row-selects + '.jam .row-#{$row-this}[class*=cols-], ';
 
             } @else {
 
                 @if $media == phone or $media == plus {
 
-                    #{$span-selects}.jam .span-#{$span-this}[class*=cols-] {
+                    #{$row-selects}.jam .row-#{$row-this}[class*=cols-] {
 
-                        $span-inset: ($span-max - $span-actual) / 2;
+                        $row-inset: ($row-max - $row-actual) / 2;
 
                         //  Start with the first so we can keep spaces between additional frs tidy
-                        $span-frs: '1fr';
-                        @for $i from 2 through $span-inset {
-                            $span-frs: $span-frs + ' 1fr';
+                        $row-frs: '1fr';
+                        @for $i from 2 through $row-inset {
+                            $row-frs: $row-frs + ' 1fr';
                         }
                         grid-column: 1 / -1;
-                        grid-template-columns: repeat(#{$span-max}, 1fr);
+                        grid-template-columns: repeat(#{$row-max}, 1fr);
 
                         > div:nth-child(n), &.flip div:nth-child(n) {
-                            grid-column: #{$span-inset + 1} / #{0 - ($span-inset + 1)};
+                            grid-column: #{$row-inset + 1} / #{0 - ($row-inset + 1)};
                         }
 
                     }
 
                 } @else {
 
-                    #{$span-selects}.jam .span-#{$span-this} {
-                        @include span($span-actual);
+                    #{$row-selects}.jam .row-#{$row-this} {
+                        @include row($row-actual);
                     }
 
                 }
@@ -142,9 +142,9 @@ div > *:last-child {
 
     @if $media != phone and $media != plus {
 
-        $span-selects: '';
+        $row-selects: '';
 
-        @if $span > $span-max / 4 {
+        @if $row > $row-max / 4 {
             
             $directions: l, r;
                 
@@ -152,18 +152,18 @@ div > *:last-child {
             
             @each $way in $directions {
 
-                $skew-mod: $span-max / $skew-max;
-                $skew-new: ceil($span-actual / $skew-mod);
+                $skew-mod: $row-max / $skew-max;
+                $skew-new: ceil($row-actual / $skew-mod);
                 
                 @for $skew-this from $skew-max through 1 {
                     
                     @if $skew-new < $skew-this {
 
-                        @for $span-this from $span through $span-to {
+                        @for $row-this from $row through $row-to {
 
-                            @if $span-this % 2 == 0 {
+                            @if $row-this % 2 == 0 {
                                 
-                                $classes: $classes + '.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                                $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
 
                             }
 
@@ -171,19 +171,19 @@ div > *:last-child {
                         
                     } @else {
 
-                        @for $span-this from $span through $span-to {
+                        @for $row-this from $row through $row-to {
 
-                            @if $span-this % 2 == 0 {
+                            @if $row-this % 2 == 0 {
 
-                                @if $span-this != $span-to {
+                                @if $row-this != $row-to {
 
-                                    $classes: $classes + '.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this}, ';
+                                    $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
 
                                 } @else {
 
-                                    #{$classes}.jam .span-#{$span-this}.skew-#{$way}-#{$skew-this} {
+                                    #{$classes}.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this} {
                                         
-                                        $perc: (100 / $span-actual) * (($span-actual / 2) + $skew-this);
+                                        $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
                                         
                                         @if $way == l {
 
@@ -217,49 +217,49 @@ div > *:last-child {
 
 }
 
-//  Spans define the width of each page row
+//  rows define the width of each page row
 
-@function span-resp($span) {
-    $span-rem: ($span-max - $span) / 2;
-    $span-mod: ceil($span-rem / $span-resp-grp);
-    $span-resp: $span-max - ($span-mod * 2);
-    @return $span-resp;
+@function row-resp($row) {
+    $row-rem: ($row-max - $row) / 2;
+    $row-mod: ceil($row-rem / $row-resp-grp);
+    $row-resp: $row-max - ($row-mod * 2);
+    @return $row-resp;
 }
 
-@mixin spans($media) {
+@mixin rows($media) {
     
-    .jam, .jam [class*=span-], .jam [class*=cols-] {
+    .jam, .jam [class*=row-], .jam [class*=cols-] {
         grid-column-gap: xgap($media);
         grid-row-gap: ygap($media);
     }
 
-    $span-resp-end: $span-max;
+    $row-resp-end: $row-max;
     
-    @for $span from $span-max through $span-min {
+    @for $row from $row-max through $row-min {
         
-        @if $span % 2 == 0 {
+        @if $row % 2 == 0 {
             
             @if $media == phone or $media == plus or $media == tablet {
                 
-                @if $span < $span-resp-end {
+                @if $row < $row-resp-end {
 
-                    @for $span-this from $span through $span-min {
+                    @for $row-this from $row through $row-min {
 
-                        @if $span-this % 2 == 0 {
-                            @if span-resp($span-this) == span-resp($span) {
-                                $span-resp-end: $span-this;
+                        @if $row-this % 2 == 0 {
+                            @if row-resp($row-this) == row-resp($row) {
+                                $row-resp-end: $row-this;
                             }
                         }
 
                     }
 
-                    @include cols-skewed($span, span-resp($span), $span-resp-end, $media);
+                    @include cols-skewed($row, row-resp($row), $row-resp-end, $media);
 
                 }
                 
             } @else {
                 
-                @include cols-skewed($span, $span, $span, $media);
+                @include cols-skewed($row, $row, $row, $media);
                 
             }
             
@@ -274,13 +274,13 @@ div > *:last-child {
 
 //  Non grid element
 
-.jam *:not([class*=span-]) {
+.jam *:not([class*=row-]) {
     grid-column: 1 / -1;
 }
 
 @include cols-uniform(large);
 
-@include spans(large);
+@include rows(large);
 
 @each $media in $all-media {
     
@@ -288,7 +288,7 @@ div > *:last-child {
 
         @if $media == phone or $media == plus {
             
-            .jam *:not([class*=span-]) {
+            .jam *:not([class*=row-]) {
                 grid-column: 2 / -2;
             }
 
@@ -299,11 +299,11 @@ div > *:last-child {
         }
 
         @if $media != large {
-            @include spans($media);
+            @include rows($media);
         }
 
         @if $media == phone or $media == plus {
-            .jam [class*=span-].bleed-ph > div:nth-of-type(2n+1),.jam [class*=span-].flip.bleed-ph > div:nth-of-type(2n+1) {
+            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1),.jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
                 grid-column: 1 / -1;
             }
         }

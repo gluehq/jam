@@ -65,32 +65,32 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     width: 100%;
     // line-height: 0;
         
-    [class*=span-] {
+    [class*=row-] {
 
-        grid-template-columns: repeat($span-max, 1fr);
+        grid-template-columns: repeat($row-max, 1fr);
         // background-color: $color-dev-bkgd;
         
-        @for $span from 1 through $span-max {
+        @for $row from 1 through $row-max {
             
-            > div:nth-of-type(#{$span}) {
-                grid-column: #{$span};
+            > div:nth-of-type(#{$row}) {
+                grid-column: #{$row};
             }
             
         }
         
     }
         
-    [class*=span-] > div {
+    [class*=row-] > div {
         overflow: hidden;
         @include font();
         background-color: $color-dev-bkgd;
     }
 
-    [class*=span-] > div.dev-label {
+    [class*=row-] > div.dev-label {
         background-color: white;
     }
         
-    [class*=span-] > div:nth-of-type(n+#{($span-max / 2) + 1}) {
+    [class*=row-] > div:nth-of-type(n+#{($row-max / 2) + 1}) {
         text-align: right;
     }
     
