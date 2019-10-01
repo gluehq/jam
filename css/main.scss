@@ -9,7 +9,7 @@
         
         @if $media == large or $media == standard {
             
-            $unit: calc(#{percentage(1/13)} + (#{xgap($media)} / 12));
+            $unit: calc(#{percentage(1/12)} + (#{xgap($media)} / 11));
             padding: 0 $unit;
             
         } @else {
@@ -47,7 +47,7 @@
             }
 
             &.jutting {
-                $unit: calc((#{percentage(1/11)} + (#{xgap($media)} / 10)) * -1);
+                $unit: calc((#{percentage(1/10)} + (#{xgap($media)} / 9)) * -1);
                 margin: 0 $unit 24px $unit;
             }
 
@@ -56,7 +56,7 @@
             @include media($media) {
 
                 &.jutting {
-                    $unit: calc((#{percentage(1/13)} + (#{xgap($media)} / 12)) * -1);
+                    $unit: calc((#{percentage(1/12)} + (#{xgap($media)} / 11)) * -1);
                     margin: 0 $unit 24px $unit;
                 }
 

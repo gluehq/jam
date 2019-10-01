@@ -646,8 +646,8 @@ blockquote {
   letter-spacing: 0.01em; }
 
 .main {
-  padding: 0 calc(7.69231% + (52px / 12));
-  padding: 0 calc(7.69231% + (44px / 12)); }
+  padding: 0 calc(8.33333% + (52px / 11));
+  padding: 0 calc(8.33333% + (44px / 11)); }
   @media (min-width: 768px) and (max-width: 1024px) {
     .main {
       padding: 0; } }
@@ -673,7 +673,7 @@ blockquote {
     float: right;
     margin-left: 52px; }
   .image.jutting {
-    margin: 0 calc((9.09091% + (52px / 10)) * -1) 24px calc((9.09091% + (52px / 10)) * -1); }
+    margin: 0 calc((10% + (52px / 9)) * -1) 24px calc((10% + (52px / 9)) * -1); }
   .image.left, .image.right {
     width: calc(50% - (44px / 2)); }
   .image.left {
@@ -683,10 +683,10 @@ blockquote {
     float: right;
     margin-left: 44px; }
   .image.jutting {
-    margin: 0 calc((9.09091% + (44px / 10)) * -1) 24px calc((9.09091% + (44px / 10)) * -1); }
+    margin: 0 calc((10% + (44px / 9)) * -1) 24px calc((10% + (44px / 9)) * -1); }
   @media (min-width: 768px) and (max-width: 1024px) {
     .image.jutting {
-      margin: 0 calc((7.69231% + (32px / 12)) * -1) 24px calc((7.69231% + (32px / 12)) * -1); } }
+      margin: 0 calc((8.33333% + (32px / 11)) * -1) 24px calc((8.33333% + (32px / 11)) * -1); } }
   @media (min-width: 414px) and (max-width: 767px) {
     .image.jutting {
       margin: 0 calc((6.25% + (20px / 15)) * -1) 20px calc((6.25% + (20px / 15)) * -1); } }
