@@ -646,9 +646,11 @@ blockquote {
   letter-spacing: 0.01em; }
 
 .main {
-  padding: 0 calc(8.33333% + (52px / 11));
-  padding: 0 calc(8.33333% + (52px / 11));
-  padding: 0 calc(8.33333% + (52px / 11)); }
+  padding: 0 calc(7.69231% + (52px / 12));
+  padding: 0 calc(7.69231% + (44px / 12)); }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .main {
+      padding: 0; } }
   @media (min-width: 414px) and (max-width: 767px) {
     .main {
       padding: 0; } }
@@ -656,56 +658,38 @@ blockquote {
     .main {
       padding: 0; } }
 
-@media (min-width: 1367px) {
-  .image {
-    margin-bottom: 18px; }
-    .image.left, .image.right {
-      width: calc(50% - (52px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 52px; }
-    .image.right {
-      float: right;
-      margin-left: 52px; }
+.image {
+  margin-bottom: 18px;
+  margin-bottom: 18px;
+  margin-bottom: 18px;
+  margin-bottom: 18px;
+  margin-bottom: 18px; }
+  .image.left, .image.right {
+    width: calc(50% - (52px / 2)); }
+  .image.left {
+    float: left;
+    margin-right: 52px; }
+  .image.right {
+    float: right;
+    margin-left: 52px; }
+  .image.jutting {
+    margin: 0 calc((9.09091% + (52px / 10)) * -1) 24px calc((9.09091% + (52px / 10)) * -1); }
+  .image.left, .image.right {
+    width: calc(50% - (44px / 2)); }
+  .image.left {
+    float: left;
+    margin-right: 44px; }
+  .image.right {
+    float: right;
+    margin-left: 44px; }
+  .image.jutting {
+    margin: 0 calc((9.09091% + (44px / 10)) * -1) 24px calc((9.09091% + (44px / 10)) * -1); }
+  @media (min-width: 768px) and (max-width: 1024px) {
     .image.jutting {
-      margin: 0 calc((10% + (52px / 9)) * -1) 24px calc((10% + (52px / 9)) * -1); } }
-
-@media (min-width: 1025px) and (max-width: 1366px) {
-  .image {
-    margin-bottom: 18px; }
-    .image.left, .image.right {
-      width: calc(50% - (44px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 44px; }
-    .image.right {
-      float: right;
-      margin-left: 44px; }
-    .image.jutting {
-      margin: 0 calc((10% + (44px / 9)) * -1) 24px calc((10% + (44px / 9)) * -1); } }
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  .image {
-    margin-bottom: 18px; }
-    .image.left, .image.right {
-      width: calc(50% - (32px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 32px; }
-    .image.right {
-      float: right;
-      margin-left: 32px; }
-    .image.jutting {
-      margin: 0 calc((10% + (32px / 9)) * -1) 24px calc((10% + (32px / 9)) * -1); } }
-
-@media (min-width: 414px) and (max-width: 767px) {
-  .image {
-    margin-bottom: 18px; }
+      margin: 0 calc((7.69231% + (32px / 12)) * -1) 24px calc((7.69231% + (32px / 12)) * -1); } }
+  @media (min-width: 414px) and (max-width: 767px) {
     .image.jutting {
       margin: 0 calc((6.25% + (20px / 15)) * -1) 20px calc((6.25% + (20px / 15)) * -1); } }
-
-@media (max-width: 413px) {
-  .image {
-    margin-bottom: 18px; }
+  @media (max-width: 413px) {
     .image.jutting {
       margin: 0 calc((6.25% + (16px / 15)) * -1) 20px calc((6.25% + (16px / 15)) * -1); } }
