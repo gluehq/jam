@@ -87,7 +87,6 @@ div > *:last-child {
     $offset: ($row-max - $row) / 2;
     
     //  NB a grid-template-columns rule here would break uniform col fallbacks
-    grid-template-columns: repeat(#{$row}, 1fr);
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
 }

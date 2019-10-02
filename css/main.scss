@@ -24,36 +24,50 @@
     
 }
 
+@mixin image($media) {
+    
+    &.left, &.right {
+        width: calc(50% - (#{xgap($media)} / 2));
+    }
+        
+    &.left {
+        float: left;
+        margin-right: xgap($media);
+    }
+    
+    &.right {
+        float: right;
+        margin-left: xgap($media);
+    }
+
+    &.jutting {
+        $unit: calc((#{percentage(1/10)} + (#{xgap($media)} / 9)) * -1);
+        margin: 0 $unit 24px $unit;
+    }
+
+}
+
 .image {
+
+    margin: 4px 0 20px 0;
+
+    @include image(large);
     
     @each $media in $all-media {
-            
-        margin-bottom: 18px;
 
-        @if $media == large or $media == standard {
+        @if $media == standard {
     
-            &.left, &.right {
-                width: calc(50% - (#{xgap($media)} / 2));
-            }
-                
-            &.left {
-                float: left;
-                margin-right: xgap($media);
-            }
-            
-            &.right {
-                float: right;
-                margin-left: xgap($media);
-            }
+            @include media($media) {
+    
+                @include image($media);
 
-            &.jutting {
-                $unit: calc((#{percentage(1/10)} + (#{xgap($media)} / 9)) * -1);
-                margin: 0 $unit 24px $unit;
             }
 
         } @else if $media == tablet {
     
             @include media($media) {
+    
+                @include image($media);
 
                 &.jutting {
                     $unit: calc((#{percentage(1/12)} + (#{xgap($media)} / 11)) * -1);
@@ -62,9 +76,11 @@
 
             }
 
-        } @else {
+        } @else if $media == plus or $media == phone {
 
             @include media($media) {
+    
+                @include image($media);
 
                 &.jutting {
                     $unit: calc((#{percentage(1/16)} + (#{xgap($media)} / 15)) * -1);

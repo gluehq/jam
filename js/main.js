@@ -12,7 +12,7 @@ var check_media;
 
 // Make sure these correspond with CSS
 
-var phone_limit = 414;
+var phone_limit = 411;
 var plus_limit = 768;
 var tablet_limit = 1025;
 var standard_limit = 1367;
