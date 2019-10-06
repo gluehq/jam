@@ -41,7 +41,7 @@ div > *:last-child {
 
         @if $media != phone and $media != plus {
         
-            .jam .cols-#{$cols} {
+            .jam [class*=row-].cols-#{$cols} {
                 
                 display: grid;
                 grid-template-columns: repeat(#{$cols}, 1fr);
@@ -86,7 +86,9 @@ div > *:last-child {
     
     $offset: ($row-max - $row) / 2;
     
-    //  NB a grid-template-columns rule here would break uniform col fallbacks
+    //  NB a grid-template-columns rule here breaks uniform col fallbacks
+    //  But one is needed so we can position stuff on the sub grid, so...
+    grid-template-columns: repeat(#{$row}, 1fr);
     grid-column: #{$offset + 1}/#{-1 - $offset};
     
 }
