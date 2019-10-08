@@ -41,9 +41,8 @@ div > *:last-child {
 
         @if $media != phone and $media != plus {
         
-            .jam [class*=row-].cols-#{$cols} {
+            .jam .cols-#{$cols} {
                 
-                display: grid;
                 grid-template-columns: repeat(#{$cols}, 1fr);
                     
                 @for $col from 1 through $cols {
@@ -60,8 +59,6 @@ div > *:last-child {
         } @else {
 
             .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
-
-                grid-template-columns: 1fr;
                     
                 @for $col from 1 through $cols {
                     
@@ -103,26 +100,30 @@ div > *:last-child {
 
             @if $row-this != $row-to {
 
-                $row-selects: $row-selects + '.jam .row-#{$row-this}[class*=cols-], ';
+                $row-selects: $row-selects + '.jam .row-#{$row-this}, ';
 
             } @else {
 
                 @if $media == phone or $media == plus {
 
-                    #{$row-selects}.jam .row-#{$row-this}[class*=cols-] {
+                    #{$row-selects}.jam .row-#{$row-this} {
 
-                        $row-inset: ($row-max - $row-actual) / 2;
+                        &, &[class*=cols-] {
 
-                        //  Start with the first so we can keep spaces between additional frs tidy
-                        $row-frs: '1fr';
-                        @for $i from 2 through $row-inset {
-                            $row-frs: $row-frs + ' 1fr';
-                        }
-                        grid-column: 1 / -1;
-                        grid-template-columns: repeat(#{$row-max}, 1fr);
+                            $row-inset: ($row-max - $row-actual) / 2;
 
-                        > div:nth-child(n), &.flip div:nth-child(n) {
-                            grid-column: #{$row-inset + 1} / #{0 - ($row-inset + 1)};
+                            //  Start with the first so we can keep spaces between additional frs tidy
+                            $row-frs: '1fr';
+                            @for $i from 2 through $row-inset {
+                                $row-frs: $row-frs + ' 1fr';
+                            }
+                            grid-column: 1 / -1;
+                            grid-template-columns: repeat(#{$row-max}, 1fr);
+
+                            > div:nth-child(n), &.flip div:nth-child(n) {
+                                grid-column: #{$row-inset + 1} / #{0 - ($row-inset + 1)};
+                            }
+
                         }
 
                     }
@@ -183,16 +184,31 @@ div > *:last-child {
                                 } @else {
 
                                     #{$classes}.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this} {
-                                        
-                                        $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
-                                        
-                                        @if $way == l {
 
-                                            grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+                                        $skew-limit: $skew-max / 1.5;
+
+                                        @if $media == tablet and $skew-this > $skew-limit {
+
+                                            grid-template-columns: #{$row-actual}fr;
+
+                                            > div:nth-of-type(n), &.flip > div:nth-of-type(n) {
+                                                order: 1;
+                                                grid-column: 1 / -1;
+                                            }
 
                                         } @else {
-
-                                            grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+                                        
+                                            $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
+                                            
+                                            @if $way == l {
+    
+                                                grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+    
+                                            } @else {
+    
+                                                grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+    
+                                            }
 
                                         }
 
@@ -279,8 +295,6 @@ div > *:last-child {
     grid-column: 1 / -1;
 }
 
-@include cols-uniform(large);
-
 @include rows(large);
 
 @each $media in $all-media {
@@ -304,11 +318,25 @@ div > *:last-child {
         }
 
         @if $media == phone or $media == plus {
-            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1),.jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
+            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
                 grid-column: 1 / -1;
             }
         }
         
     }
     
+}
+
+@include cols-uniform(large);
+
+@each $media in $all-media {
+
+    @include media($media) {
+
+        @if $media == phone or $media == plus or $media == tablet {
+            @include cols-uniform($media);
+        }
+
+    }
+
 }

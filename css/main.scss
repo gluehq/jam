@@ -70,7 +70,7 @@
                 @include image($media);
 
                 &.jutting {
-                    $unit: calc((#{percentage(1/12)} + (#{xgap($media)} / 11)) * -1);
+                    $unit: calc((#{percentage(1/16)} + (#{xgap($media)} / 15)) * -1);
                     margin: 0 $unit 24px $unit;
                 }
 
