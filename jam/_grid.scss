@@ -14,43 +14,39 @@
     position: relative;
 }
 
-//  Make images fit their cols
-
 body {
     margin: 0;
 }
+
+//  Make images fit their cols
 
 img {
     width: 100%;
 }
 
 //  Remove bottom margins from last paragraphs etc
-//  Removed because we want some divs in templates to give a class to contents eg intro
 
 div > *:last-child {
-    // margin-bottom: 0;
+    // margin-bottom: 0;// Too vague, some divs will be required to identify groups of elements
 }
 
-//  S P A N S  &  C O L S
+//  R O W S  &  C O L S
 
-//  Output uniform cols for flip and fallback rules
+//  Output uniform columns for flip and fallback rules
 
-@mixin cols-uniform($media) {
+@mixin flips($media) {
 
     @for $cols from 2 through $cols-max {
 
         @if $media != phone-plus {
 
-            /* Flip */
+            // Set the flip on non-phones
         
             .jam .cols-#{$cols} {
-                
-                // grid-template-columns: repeat(#{$cols}, 1fr);
                     
                 @for $col from 1 through $cols {
                     
                     > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                        // grid-column: $col;
                         order: $col;
                     }
                     
@@ -60,13 +56,17 @@ div > *:last-child {
 
         } @else {
 
+            // Unset the flip on phones
+
             .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
-            // .jam .cols-#{$cols} {
+
+                > div {
+                    grid-column: 1 / -1;
+                }
                     
                 @for $col from 1 through $cols {
                     
                     > div:nth-of-type(#{$cols}n+#{$col}) {
-                        grid-column: 1 / -1;
                         order: $col;
                     }
                     
@@ -80,36 +80,23 @@ div > *:last-child {
     
 }
 
-//  Output skewed cols
+// Create row
 
-@mixin row($row) {
-    
-    $offset: ($row-max - $row) / 2;
-    
-    //  NB a grid-template-columns rule here breaks uniform col fallbacks
-    //  But one is needed so we can position stuff on the sub grid, so...
-    grid-template-columns: repeat(#{$row}, 1fr);
-    grid-column: #{$offset + 1}/#{-1 - $offset};
+@mixin row($row, $row-actual, $row-to, $media) {
 
-    @for $cols from 2 through $cols-max {
-
-        &.cols-#{$cols} > div {
-            grid-column: span floor($row / $cols);
-        }
-
-    }
-    
-}
-
-@mixin cols-skewed($row, $row-actual, $row-to, $media) {
+    // Collapse handheld row widths if $row and $row-to are different
 
     $row-selects: '';
 
     @for $row-this from $row through $row-to {
 
+        // Ignore rows with uneven widths
+
         @if $row-this % 2 == 0 {
 
             @if $row-this != $row-to {
+
+                // Build up the string of selectors to collapse before continuing
 
                 $row-selects: $row-selects + '.jam .row-#{$row-this}, ';
 
@@ -117,7 +104,7 @@ div > *:last-child {
 
                 @if $media == phone-plus {
 
-                    /* Merging phones */
+                    // Maximise phone row widths and transfer inset to columns
 
                     #{$row-selects}.jam .row-#{$row-this} {
 
@@ -125,11 +112,6 @@ div > *:last-child {
 
                             $row-inset: ($row-max - $row-actual) / 2;
 
-                            //  Start with the first so we can keep spaces between additional frs tidy
-                            $row-frs: '1fr';
-                            @for $i from 2 through $row-inset {
-                                $row-frs: $row-frs + ' 1fr';
-                            }
                             grid-column: 1 / -1;
                             grid-template-columns: repeat(#{$row-max}, 1fr);
 
@@ -143,10 +125,23 @@ div > *:last-child {
 
                 } @else {
 
-                    /* Merging other */
+                    // Set uniform column widths
 
                     #{$row-selects}.jam .row-#{$row-this} {
-                        @include row($row-actual);
+    
+                        $offset: ($row-max - $row-actual) / 2;
+                        
+                        grid-template-columns: repeat(#{$row-actual}, 1fr);
+                        grid-column: #{$offset + 1}/#{-1 - $offset};
+
+                        @for $cols from 2 through $cols-max {
+
+                            &.cols-#{$cols} > div {
+                                grid-column: span floor($row-actual / $cols);
+                            }
+
+                        }
+
                     }
 
                 }
@@ -157,119 +152,24 @@ div > *:last-child {
 
     }
 
-    // @if $media != phone and $media != plus {
-
-    //     $row-selects: '';
-
-    //     @if $row > $row-max / 4 {
-            
-    //         $directions: l, r;
-                
-    //         $classes: '';
-            
-    //         @each $way in $directions {
-
-    //             $skew-mod: $row-max / $skew-max;
-    //             $skew-new: ceil($row-actual / $skew-mod);
-                
-    //             @for $skew-this from $skew-max through 1 {
-                    
-    //                 @if $skew-new < $skew-this {
-
-    //                     @for $row-this from $row through $row-to {
-
-    //                         @if $row-this % 2 == 0 {
-                                
-    //                             $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
-
-    //                         }
-
-    //                     }
-                        
-    //                 } @else {
-
-    //                     @for $row-this from $row through $row-to {
-
-    //                         @if $row-this % 2 == 0 {
-
-    //                             @if $row-this != $row-to {
-
-    //                                 $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
-
-    //                             } @else {
-
-    //                                 #{$classes}.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this} {
-
-    //                                     $skew-limit: $skew-max / 1.5;
-
-    //                                     @if $media == tablet and $skew-this > $skew-limit {
-
-    //                                         grid-template-columns: #{$row-actual}fr;
-
-    //                                         > div:nth-of-type(n), &.flip > div:nth-of-type(n) {
-    //                                             order: 1;
-    //                                             grid-column: 1 / -1;
-    //                                         }
-
-    //                                     } @else {
-                                        
-    //                                         $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
-                                            
-    //                                         @if $way == l {
-    
-    //                                             grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
-    
-    //                                         } @else {
-    
-    //                                             grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
-    
-    //                                         }
-
-    //                                     }
-
-    //                                 }
-
-    //                             }
-
-    //                         }
-                            
-    //                     }
-                    
-    //                     $classes: '';
-                        
-    //                 }
-                    
-    //             }
-                
-    //         }
-        
-    //     }
-
-    // }
 
 }
 
-//  rows define the width of each page row
+// Return which group a row will collapse to
+// Size of group set with $row-collapse-size
 
-@function row-resp($row) {
-    $row-rem: ($row-max - $row) / 2;
-    $row-mod: ceil($row-rem / $row-resp-grp);
-    $row-resp: $row-max - ($row-mod * 2);
-    @return $row-resp;
+@function row-collapse($row) {
+    $row-remain: ($row-max - $row) / 2;
+    $row-mod: ceil($row-remain / $row-collapse-size);
+    $row-collapse: $row-max - ($row-mod * 2);
+    @return $row-collapse;
 }
+
+// Determine how to build rows
 
 @mixin rows($media) {
 
-    // @if $media == phone or $media = plus {
-
-    //     .jam [class*=cols-] {
-    //         // grid-column-gap: 0;
-    //         grid-row-gap: 0;
-    //     }
-
-    // }
-
-    $row-resp-end: $row-max;
+    $row-collapse-last: $row-max;
     
     @for $row from $row-max through $row-min {
         
@@ -277,25 +177,25 @@ div > *:last-child {
 
             @if $media == large {
             
-                @include cols-skewed($row, $row, $row, $media);
+                @include row($row, $row, $row, $media);
 
             }
             
             @if $media == phone-plus or $media == phone-tablet {
                 
-                @if $row < $row-resp-end {
+                @if $row < $row-collapse-last {
 
                     @for $row-this from $row through $row-min {
 
                         @if $row-this % 2 == 0 {
-                            @if row-resp($row-this) == row-resp($row) {
-                                $row-resp-end: $row-this;
+                            @if row-collapse($row-this) == row-collapse($row) {
+                                $row-collapse-last: $row-this;
                             }
                         }
 
                     }
 
-                    @include cols-skewed($row, row-resp($row), $row-resp-end, $media);
+                    @include row($row, row-collapse($row), $row-collapse-last, $media);
 
                 }
                 
@@ -322,53 +222,55 @@ div > *:last-child {
 
 //  M E D I A
 
-//  Non grid element
-
+/* Non grid element default positioning */
 .jam *:not([class*=row-]) {
     grid-column: 1 / -1;
 }
 
-/* Gaps */
+/* Gap defaults */
 @include gaps(large);
 
-/* Rows */
+/* Row defaults */
 @include rows(large);
 
-/* Cols (uniform2) */
-@include cols-uniform(large);
+/* Column flipping */
+@include flips(large);
 
+/* Media specific gaps */
 @each $media in $all-media {
     
     @include media($media) {
 
+        // Exclude combined media
         @if $media != large and $media != phone-tablet and $media != phone-plus {
 
-            /* Gaps */
             @include gaps($media);
 
         }
 
         @if $media == phone-tablet {
 
-            /* Rows */
+            /* Collapsing row widths on handhelds */
+            // Tablet margins will not reduce if removed
             @include rows($media);
 
         }
 
         @if $media == phone-plus {
         
-            /* Reduce tablet and phone margins */
+            /* Non grid element phone positioning */
             .jam *:not([class*=row-]) {
                 grid-column: 2 / -2;
             }
 
-            /* Rows */
+            /* Maximise phone row widths and transfer inset to columns */
+            // Phone image bleeds will break if removed
             @include rows($media);
             
-            /* Cols (uniform) */
-            @include cols-uniform($media);
+            /* Media specific column flipping */
+            @include flips($media);
 
-            /* Bleeds */
+            /* Phone image bleeds */
             .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
                 grid-column: 1 / -1;
             }
@@ -379,16 +281,10 @@ div > *:last-child {
 
 }
 
-// @include cols-uniform(large);
+/* Explicit column widths */
 
-// @each $media in $all-media {
-
-//     @include media($media) {
-
-//         @if $media == phone or $media == plus or $media == tablet {
-//             @include cols-uniform($media);
-//         }
-
-//     }
-
-// }
+@for $col-w from $col-min through $row-max - $col-min {
+    .jam [class*="row-"] div.col-w-#{$col-w} {// Increase specificity to override the uniform width defaults
+        grid-column: span $col-w;
+    }
+}
