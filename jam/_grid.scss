@@ -9,7 +9,7 @@
     max-width: $large - 1px;
 }
 
-.jam [class*=row-] {
+.jam [class*=row-], .jam [class*=cols-] {
     display: grid;
     position: relative;
 }
@@ -25,11 +25,11 @@ img {
 }
 
 //  Remove bottom margins from last paragraphs etc
+//  Removed because we want some divs in templates to give a class to contents eg intro
 
 div > *:last-child {
-    margin-bottom: 0;
+    // margin-bottom: 0;
 }
-
 
 //  S P A N S  &  C O L S
 
@@ -39,22 +39,22 @@ div > *:last-child {
 
     @for $cols from 2 through $cols-max {
 
-        @if $media != phone and $media != plus {
+        @if $media != phone-plus {
         
-            .jam .cols-#{$cols} {
+            // .jam .cols-#{$cols} {
                 
-                grid-template-columns: repeat(#{$cols}, 1fr);
+            //     grid-template-columns: repeat(#{$cols}, 1fr);
                     
-                @for $col from 1 through $cols {
+            //     @for $col from 1 through $cols {
                     
-                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                        grid-column: $col;
-                        order: $col;
-                    }
+            //         > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+            //             grid-column: $col;
+            //             // order: $col;
+            //         }
                     
-                }
+            //     }
                 
-            }
+            // }
 
         } @else {
 
@@ -64,7 +64,7 @@ div > *:last-child {
                     
                     > div:nth-of-type(#{$cols}n+#{$col}) {
                         grid-column: 1 / -1;
-                        order: $col;
+                        // order: $col;
                     }
                     
                 }
@@ -87,6 +87,14 @@ div > *:last-child {
     //  But one is needed so we can position stuff on the sub grid, so...
     grid-template-columns: repeat(#{$row}, 1fr);
     grid-column: #{$offset + 1}/#{-1 - $offset};
+
+    @for $cols from 2 through $cols-max {
+
+        &.cols-#{$cols} > div {
+            grid-column: span floor($row / $cols);
+        }
+
+    }
     
 }
 
@@ -142,95 +150,95 @@ div > *:last-child {
 
     }
 
-    @if $media != phone and $media != plus {
+    // @if $media != phone and $media != plus {
 
-        $row-selects: '';
+    //     $row-selects: '';
 
-        @if $row > $row-max / 4 {
+    //     @if $row > $row-max / 4 {
             
-            $directions: l, r;
+    //         $directions: l, r;
                 
-            $classes: '';
+    //         $classes: '';
             
-            @each $way in $directions {
+    //         @each $way in $directions {
 
-                $skew-mod: $row-max / $skew-max;
-                $skew-new: ceil($row-actual / $skew-mod);
+    //             $skew-mod: $row-max / $skew-max;
+    //             $skew-new: ceil($row-actual / $skew-mod);
                 
-                @for $skew-this from $skew-max through 1 {
+    //             @for $skew-this from $skew-max through 1 {
                     
-                    @if $skew-new < $skew-this {
+    //                 @if $skew-new < $skew-this {
 
-                        @for $row-this from $row through $row-to {
+    //                     @for $row-this from $row through $row-to {
 
-                            @if $row-this % 2 == 0 {
+    //                         @if $row-this % 2 == 0 {
                                 
-                                $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
+    //                             $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
 
-                            }
+    //                         }
 
-                        }
+    //                     }
                         
-                    } @else {
+    //                 } @else {
 
-                        @for $row-this from $row through $row-to {
+    //                     @for $row-this from $row through $row-to {
 
-                            @if $row-this % 2 == 0 {
+    //                         @if $row-this % 2 == 0 {
 
-                                @if $row-this != $row-to {
+    //                             @if $row-this != $row-to {
 
-                                    $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
+    //                                 $classes: $classes + '.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this}, ';
 
-                                } @else {
+    //                             } @else {
 
-                                    #{$classes}.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this} {
+    //                                 #{$classes}.jam .row-#{$row-this}.skew-#{$way}-#{$skew-this} {
 
-                                        $skew-limit: $skew-max / 1.5;
+    //                                     $skew-limit: $skew-max / 1.5;
 
-                                        @if $media == tablet and $skew-this > $skew-limit {
+    //                                     @if $media == tablet and $skew-this > $skew-limit {
 
-                                            grid-template-columns: #{$row-actual}fr;
+    //                                         grid-template-columns: #{$row-actual}fr;
 
-                                            > div:nth-of-type(n), &.flip > div:nth-of-type(n) {
-                                                order: 1;
-                                                grid-column: 1 / -1;
-                                            }
+    //                                         > div:nth-of-type(n), &.flip > div:nth-of-type(n) {
+    //                                             order: 1;
+    //                                             grid-column: 1 / -1;
+    //                                         }
 
-                                        } @else {
+    //                                     } @else {
                                         
-                                            $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
+    //                                         $perc: (100 / $row-actual) * (($row-actual / 2) + $skew-this);
                                             
-                                            @if $way == l {
+    //                                         @if $way == l {
     
-                                                grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
+    //                                             grid-template-columns: auto calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)});
     
-                                            } @else {
+    //                                         } @else {
     
-                                                grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
+    //                                             grid-template-columns: calc(#{$perc}% - #{(xgap($media) / 100) * (100 - $perc)}) auto;
     
-                                            }
+    //                                         }
 
-                                        }
+    //                                     }
 
-                                    }
+    //                                 }
 
-                                }
+    //                             }
 
-                            }
+    //                         }
                             
-                        }
+    //                     }
                     
-                        $classes: '';
+    //                     $classes: '';
                         
-                    }
+    //                 }
                     
-                }
+    //             }
                 
-            }
+    //         }
         
-        }
+    //     }
 
-    }
+    // }
 
 }
 
@@ -244,19 +252,29 @@ div > *:last-child {
 }
 
 @mixin rows($media) {
-    
-    .jam, .jam [class*=row-], .jam [class*=cols-] {
-        grid-column-gap: xgap($media);
-        grid-row-gap: ygap($media);
-    }
+
+    // @if $media == phone or $media = plus {
+
+    //     .jam [class*=cols-] {
+    //         // grid-column-gap: 0;
+    //         grid-row-gap: 0;
+    //     }
+
+    // }
 
     $row-resp-end: $row-max;
     
     @for $row from $row-max through $row-min {
         
         @if $row % 2 == 0 {
+
+            @if $media == large {
             
-            @if $media == phone or $media == plus or $media == tablet {
+                @include cols-skewed($row, $row, $row, $media);
+
+            }
+            
+            @if $media == phone-tablet {
                 
                 @if $row < $row-resp-end {
 
@@ -274,10 +292,6 @@ div > *:last-child {
 
                 }
                 
-            } @else {
-                
-                @include cols-skewed($row, $row, $row, $media);
-                
             }
             
         }
@@ -286,6 +300,18 @@ div > *:last-child {
     
 }
 
+@mixin gaps($media) {
+    
+    @if $media != phone-plus and $media != phone-plus {
+
+        .jam, .jam [class*=row-], .jam [class*=cols-] {
+            grid-column-gap: xgap($media);
+            grid-row-gap: ygap($media);
+        }
+
+    }
+
+}
 
 //  M E D I A
 
@@ -295,48 +321,64 @@ div > *:last-child {
     grid-column: 1 / -1;
 }
 
+/* Gaps */
+@include gaps(large);
+
+/* Rows */
 @include rows(large);
 
-@each $media in $all-media {
-    
-    @include media($media) {
-
-        @if $media == phone or $media == plus {
-            
-            .jam *:not([class*=row-]) {
-                grid-column: 2 / -2;
-            }
-
-        }
-
-        @if $media == phone or $media == plus or $media == tablet {
-            @include cols-uniform($media);
-        }
-
-        @if $media != large {
-            @include rows($media);
-        }
-
-        @if $media == phone or $media == plus {
-            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
-                grid-column: 1 / -1;
-            }
-        }
-        
-    }
-    
-}
-
+/* Cols (uniform2) */
 @include cols-uniform(large);
 
 @each $media in $all-media {
-
+    
     @include media($media) {
 
-        @if $media == phone or $media == plus or $media == tablet {
+        @if $media != large and $media != phone-tablet and $media != phone-plus {
+
+            /* Gaps */
+            @include gaps($media);
+
+        }
+
+        @if $media == phone-tablet {
+        
+            // /* Reduce tablet and phone margins */
+            // .jam *:not([class*=row-]) {
+            //     grid-column: 2 / -2;
+            // }
+
+            /* Rows */
+            @include rows($media);
+
+        }
+
+        @if $media == phone-plus {
+            
+            /* Cols (uniform) */
             @include cols-uniform($media);
+
+            /* Bleeds */
+            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
+                grid-column: 1 / -1;
+            }
+
         }
 
     }
 
 }
+
+// @include cols-uniform(large);
+
+// @each $media in $all-media {
+
+//     @include media($media) {
+
+//         @if $media == phone or $media == plus or $media == tablet {
+//             @include cols-uniform($media);
+//         }
+
+//     }
+
+// }
