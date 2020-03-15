@@ -40,31 +40,34 @@ div > *:last-child {
     @for $cols from 2 through $cols-max {
 
         @if $media != phone-plus {
+
+            /* Flip */
         
-            // .jam .cols-#{$cols} {
+            .jam .cols-#{$cols} {
                 
-            //     grid-template-columns: repeat(#{$cols}, 1fr);
+                // grid-template-columns: repeat(#{$cols}, 1fr);
                     
-            //     @for $col from 1 through $cols {
+                @for $col from 1 through $cols {
                     
-            //         > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-            //             grid-column: $col;
-            //             // order: $col;
-            //         }
+                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                        // grid-column: $col;
+                        order: $col;
+                    }
                     
-            //     }
+                }
                 
-            // }
+            }
 
         } @else {
 
             .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
+            // .jam .cols-#{$cols} {
                     
                 @for $col from 1 through $cols {
                     
                     > div:nth-of-type(#{$cols}n+#{$col}) {
                         grid-column: 1 / -1;
-                        // order: $col;
+                        order: $col;
                     }
                     
                 }
