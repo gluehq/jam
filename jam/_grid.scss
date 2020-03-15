@@ -112,7 +112,9 @@ div > *:last-child {
 
             } @else {
 
-                @if $media == phone or $media == plus {
+                @if $media == phone-plus {
+
+                    /* Merging phones */
 
                     #{$row-selects}.jam .row-#{$row-this} {
 
@@ -137,6 +139,8 @@ div > *:last-child {
                     }
 
                 } @else {
+
+                    /* Merging other */
 
                     #{$row-selects}.jam .row-#{$row-this} {
                         @include row($row-actual);
@@ -274,7 +278,7 @@ div > *:last-child {
 
             }
             
-            @if $media == phone-tablet {
+            @if $media == phone-plus or $media == phone-tablet {
                 
                 @if $row < $row-resp-end {
 
@@ -342,11 +346,6 @@ div > *:last-child {
         }
 
         @if $media == phone-tablet {
-        
-            // /* Reduce tablet and phone margins */
-            // .jam *:not([class*=row-]) {
-            //     grid-column: 2 / -2;
-            // }
 
             /* Rows */
             @include rows($media);
@@ -354,6 +353,14 @@ div > *:last-child {
         }
 
         @if $media == phone-plus {
+        
+            /* Reduce tablet and phone margins */
+            .jam *:not([class*=row-]) {
+                grid-column: 2 / -2;
+            }
+
+            /* Rows */
+            @include rows($media);
             
             /* Cols (uniform) */
             @include cols-uniform($media);
