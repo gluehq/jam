@@ -3,9 +3,11 @@
 @import '../jam/grid';
 @import '../jam/type';
 
-.main {
+.jam [class*="row-"] div.main {
+
+    display: block;
     
-    @each $media in $all-media {
+    @each $media in $single-media {
         
         @if $media == large or $media == standard {
             

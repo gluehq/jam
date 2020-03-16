@@ -81,6 +81,72 @@ img {
   .jam .row-6.cols-3 > div {
     grid-column: span 2; }
 
+/* Explicit column widths */
+.jam [class*=row-] div.col-3 {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+
+.jam [class*=row-] div.col-4 {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); }
+
+.jam [class*=row-] div.col-5 {
+  grid-column: span 5;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); }
+
+.jam [class*=row-] div.col-6 {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); }
+
+.jam [class*=row-] div.col-7 {
+  grid-column: span 7;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); }
+
+.jam [class*=row-] div.col-8 {
+  grid-column: span 8;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); }
+
+.jam [class*=row-] div.col-9 {
+  grid-column: span 9;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); }
+
+.jam [class*=row-] div.col-10 {
+  grid-column: span 10;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); }
+
+.jam [class*=row-] div.col-11 {
+  grid-column: span 11;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr); }
+
+.jam [class*=row-] div.col-12 {
+  grid-column: span 12;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); }
+
+.jam [class*=row-] div.col-13 {
+  grid-column: span 13;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr); }
+
+.jam [class*=row-] div.col-14 {
+  grid-column: span 14;
+  display: grid;
+  grid-template-columns: repeat(14, 1fr); }
+
+.jam [class*=row-] div.col-15 {
+  grid-column: span 15;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr); }
+
 /* Column flipping */
 .jam .cols-2 > div:nth-of-type(2n+1), .jam .cols-2.flip > div:nth-of-type(2n+2) {
   order: 1; }
@@ -144,23 +210,29 @@ img {
 
 @media (max-width: 767px) {
   /* Non grid element phone positioning */
-  .jam *:not([class*=row-]) {
+  .jam *:not([class*=row-], [class*=col-]) {
     grid-column: 2 / -2; }
   /* Maximise phone row widths and transfer inset to columns */
   .jam .row-16, .jam .row-16[class*=cols-], .jam .row-14, .jam .row-14[class*=cols-] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-16 > div:nth-child(n), .jam .row-16.flip div:nth-child(n), .jam .row-16[class*=cols-] > div:nth-child(n), .jam .row-16[class*=cols-].flip div:nth-child(n), .jam .row-14 > div:nth-child(n), .jam .row-14.flip div:nth-child(n), .jam .row-14[class*=cols-] > div:nth-child(n), .jam .row-14[class*=cols-].flip div:nth-child(n) {
+      display: grid;
+      grid-template-columns: repeat(16, 1fr);
       grid-column: 2 / -2; }
   .jam .row-12, .jam .row-12[class*=cols-], .jam .row-10, .jam .row-10[class*=cols-] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-12 > div:nth-child(n), .jam .row-12.flip div:nth-child(n), .jam .row-12[class*=cols-] > div:nth-child(n), .jam .row-12[class*=cols-].flip div:nth-child(n), .jam .row-10 > div:nth-child(n), .jam .row-10.flip div:nth-child(n), .jam .row-10[class*=cols-] > div:nth-child(n), .jam .row-10[class*=cols-].flip div:nth-child(n) {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
       grid-column: 3 / -3; }
   .jam .row-8, .jam .row-8[class*=cols-], .jam .row-6, .jam .row-6[class*=cols-] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-8 > div:nth-child(n), .jam .row-8.flip div:nth-child(n), .jam .row-8[class*=cols-] > div:nth-child(n), .jam .row-8[class*=cols-].flip div:nth-child(n), .jam .row-6 > div:nth-child(n), .jam .row-6.flip div:nth-child(n), .jam .row-6[class*=cols-] > div:nth-child(n), .jam .row-6[class*=cols-].flip div:nth-child(n) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
       grid-column: 4 / -4; }
   /* Media specific column flipping */
   .jam .cols-2 > div, .jam .cols-2.flip > div {
@@ -179,47 +251,8 @@ img {
     order: 3; }
   /* Phone image bleeds */
   .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
+    grid-template-columns: repeat(18, 1fr);
     grid-column: 1 / -1; } }
-
-/* Explicit column widths */
-.jam [class*="row-"] div.col-3 {
-  grid-column: span 3; }
-
-.jam [class*="row-"] div.col-4 {
-  grid-column: span 4; }
-
-.jam [class*="row-"] div.col-5 {
-  grid-column: span 5; }
-
-.jam [class*="row-"] div.col-6 {
-  grid-column: span 6; }
-
-.jam [class*="row-"] div.col-7 {
-  grid-column: span 7; }
-
-.jam [class*="row-"] div.col-8 {
-  grid-column: span 8; }
-
-.jam [class*="row-"] div.col-9 {
-  grid-column: span 9; }
-
-.jam [class*="row-"] div.col-10 {
-  grid-column: span 10; }
-
-.jam [class*="row-"] div.col-11 {
-  grid-column: span 11; }
-
-.jam [class*="row-"] div.col-12 {
-  grid-column: span 12; }
-
-.jam [class*="row-"] div.col-13 {
-  grid-column: span 13; }
-
-.jam [class*="row-"] div.col-14 {
-  grid-column: span 14; }
-
-.jam [class*="row-"] div.col-15 {
-  grid-column: span 15; }
 
 html {
   font-size: 62.5%; }
@@ -331,23 +364,18 @@ blockquote {
   line-height: 2.4rem;
   letter-spacing: 0.01em; }
 
-.main {
+.jam [class*="row-"] div.main {
+  display: block;
   padding: 0 calc(8.33333% + (52px / 11));
   padding: 0 calc(8.33333% + (44px / 11)); }
   @media (min-width: 768px) and (max-width: 1024px) {
-    .main {
+    .jam [class*="row-"] div.main {
       padding: 0; } }
   @media (min-width: 411px) and (max-width: 767px) {
-    .main {
+    .jam [class*="row-"] div.main {
       padding: 0; } }
   @media (max-width: 410px) {
-    .main {
-      padding: 0; } }
-  @media (max-width: 1024px) {
-    .main {
-      padding: 0; } }
-  @media (max-width: 767px) {
-    .main {
+    .jam [class*="row-"] div.main {
       padding: 0; } }
 
 .image {

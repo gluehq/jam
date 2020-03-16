@@ -116,6 +116,8 @@ div > *:last-child {
                             grid-template-columns: repeat(#{$row-max}, 1fr);
 
                             > div:nth-child(n), &.flip div:nth-child(n) {
+                                display: grid;
+                                grid-template-columns: repeat(#{$row-actual}, 1fr);
                                 grid-column: #{$row-inset + 1} / #{0 - ($row-inset + 1)};
                             }
 
@@ -151,7 +153,6 @@ div > *:last-child {
         }
 
     }
-
 
 }
 
@@ -232,6 +233,15 @@ div > *:last-child {
 
 /* Row defaults */
 @include rows(large);
+        
+/* Explicit column widths */
+@for $col-w from $col-min through $row-max - $col-min {
+    .jam [class*=row-] div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
+        grid-column: span $col-w;
+        display: grid;
+        grid-template-columns: repeat(#{$col-w}, 1fr);
+    }
+}
 
 /* Column flipping */
 @include flips(large);
@@ -259,7 +269,7 @@ div > *:last-child {
         @if $media == phone-plus {
         
             /* Non grid element phone positioning */
-            .jam *:not([class*=row-]) {
+            .jam *:not([class*=row-],[class*=col-]) {
                 grid-column: 2 / -2;
             }
 
@@ -272,6 +282,7 @@ div > *:last-child {
 
             /* Phone image bleeds */
             .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
+                grid-template-columns: repeat(#{$row-max}, 1fr);
                 grid-column: 1 / -1;
             }
 
@@ -279,12 +290,4 @@ div > *:last-child {
 
     }
 
-}
-
-/* Explicit column widths */
-
-@for $col-w from $col-min through $row-max - $col-min {
-    .jam [class*="row-"] div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
-        grid-column: span $col-w;
-    }
 }
