@@ -1,4 +1,6 @@
 
+@import 'base';
+
 //  B A S E
 
 .jam {
@@ -27,58 +29,10 @@ img {
 //  Remove bottom margins from last paragraphs etc
 
 div > *:last-child {
-    // margin-bottom: 0;// Too vague, some divs will be required to identify groups of elements
+    // margin-bottom: 0;// Too vague, some divs will be required to group elements
 }
 
 //  R O W S  &  C O L S
-
-//  Output uniform columns for flip and fallback rules
-
-@mixin flips($media) {
-
-    @for $cols from 2 through $cols-max {
-
-        @if $media != phone-plus {
-
-            // Set the flip on non-phones
-        
-            .jam .cols-#{$cols} {
-                    
-                @for $col from 1 through $cols {
-                    
-                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                        order: $col;
-                    }
-                    
-                }
-                
-            }
-
-        } @else {
-
-            // Unset the flip on phones
-
-            .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
-
-                > div {
-                    grid-column: 1 / -1;
-                }
-                    
-                @for $col from 1 through $cols {
-                    
-                    > div:nth-of-type(#{$cols}n+#{$col}) {
-                        order: $col;
-                    }
-                    
-                }
-
-            }
-
-        }
-
-    }
-    
-}
 
 // Create row
 
@@ -212,13 +166,61 @@ div > *:last-child {
     
     @if $media != phone-plus and $media != phone-plus {
 
-        .jam, .jam [class*=row-], .jam [class*=cols-] {
+        .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
             grid-column-gap: xgap($media);
             grid-row-gap: ygap($media);
         }
 
     }
 
+}
+
+//  Output uniform columns for flip and fallback rules
+
+@mixin flips($media) {
+
+    @for $cols from 2 through $cols-max {
+
+        @if $media != phone-plus {
+
+            // Set the flip on non-phones
+        
+            .jam .cols-#{$cols} {
+                    
+                @for $col from 1 through $cols {
+                    
+                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                        order: $col;
+                    }
+                    
+                }
+                
+            }
+
+        } @else {
+
+            // Unset the flip on phones
+
+            .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
+
+                > div {
+                    grid-column: 1 / -1;
+                }
+                    
+                @for $col from 1 through $cols {
+                    
+                    > div:nth-of-type(#{$cols}n+#{$col}) {
+                        order: $col;
+                    }
+                    
+                }
+
+            }
+
+        }
+
+    }
+    
 }
 
 //  M E D I A
@@ -228,22 +230,24 @@ div > *:last-child {
     grid-column: 1 / -1;
 }
 
-/* Gap defaults */
-@include gaps(large);
-
 /* Row defaults */
 @include rows(large);
+
+/* Gap defaults */
+@include gaps(large);
         
 /* Explicit column widths */
 @for $col-w from $col-min through $row-max - $col-min {
-    .jam [class*=row-] div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
+
+    .jam div[class*=row-] div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
         grid-column: span $col-w;
         display: grid;
         grid-template-columns: repeat(#{$col-w}, 1fr);
     }
+
 }
 
-/* Column flipping */
+/* Column flips */
 @include flips(large);
 
 /* Media specific gaps */

@@ -19,11 +19,6 @@ img {
 .jam *:not([class*=row-]) {
   grid-column: 1 / -1; }
 
-/* Gap defaults */
-.jam, .jam [class*=row-], .jam [class*=cols-] {
-  grid-column-gap: 52px;
-  grid-row-gap: 44px; }
-
 /* Row defaults */
 .jam .row-18 {
   grid-template-columns: repeat(18, 1fr);
@@ -81,73 +76,78 @@ img {
   .jam .row-6.cols-3 > div {
     grid-column: span 2; }
 
+/* Gap defaults */
+.jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
+  grid-column-gap: 52px;
+  grid-row-gap: 44px; }
+
 /* Explicit column widths */
-.jam [class*=row-] div.col-3 {
+.jam div[class*=row-] div.col-3 {
   grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(3, 1fr); }
 
-.jam [class*=row-] div.col-4 {
+.jam div[class*=row-] div.col-4 {
   grid-column: span 4;
   display: grid;
   grid-template-columns: repeat(4, 1fr); }
 
-.jam [class*=row-] div.col-5 {
+.jam div[class*=row-] div.col-5 {
   grid-column: span 5;
   display: grid;
   grid-template-columns: repeat(5, 1fr); }
 
-.jam [class*=row-] div.col-6 {
+.jam div[class*=row-] div.col-6 {
   grid-column: span 6;
   display: grid;
   grid-template-columns: repeat(6, 1fr); }
 
-.jam [class*=row-] div.col-7 {
+.jam div[class*=row-] div.col-7 {
   grid-column: span 7;
   display: grid;
   grid-template-columns: repeat(7, 1fr); }
 
-.jam [class*=row-] div.col-8 {
+.jam div[class*=row-] div.col-8 {
   grid-column: span 8;
   display: grid;
   grid-template-columns: repeat(8, 1fr); }
 
-.jam [class*=row-] div.col-9 {
+.jam div[class*=row-] div.col-9 {
   grid-column: span 9;
   display: grid;
   grid-template-columns: repeat(9, 1fr); }
 
-.jam [class*=row-] div.col-10 {
+.jam div[class*=row-] div.col-10 {
   grid-column: span 10;
   display: grid;
   grid-template-columns: repeat(10, 1fr); }
 
-.jam [class*=row-] div.col-11 {
+.jam div[class*=row-] div.col-11 {
   grid-column: span 11;
   display: grid;
   grid-template-columns: repeat(11, 1fr); }
 
-.jam [class*=row-] div.col-12 {
+.jam div[class*=row-] div.col-12 {
   grid-column: span 12;
   display: grid;
   grid-template-columns: repeat(12, 1fr); }
 
-.jam [class*=row-] div.col-13 {
+.jam div[class*=row-] div.col-13 {
   grid-column: span 13;
   display: grid;
   grid-template-columns: repeat(13, 1fr); }
 
-.jam [class*=row-] div.col-14 {
+.jam div[class*=row-] div.col-14 {
   grid-column: span 14;
   display: grid;
   grid-template-columns: repeat(14, 1fr); }
 
-.jam [class*=row-] div.col-15 {
+.jam div[class*=row-] div.col-15 {
   grid-column: span 15;
   display: grid;
   grid-template-columns: repeat(15, 1fr); }
 
-/* Column flipping */
+/* Column flips */
 .jam .cols-2 > div:nth-of-type(2n+1), .jam .cols-2.flip > div:nth-of-type(2n+2) {
   order: 1; }
 
@@ -165,22 +165,22 @@ img {
 
 /* Media specific gaps */
 @media (min-width: 1025px) and (max-width: 1366px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-] {
+  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 44px;
     grid-row-gap: 40px; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-] {
+  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 32px;
     grid-row-gap: 36px; } }
 
 @media (min-width: 411px) and (max-width: 767px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-] {
+  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 20px;
     grid-row-gap: 32px; } }
 
 @media (max-width: 410px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-] {
+  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 16px;
     grid-row-gap: 28px; } }
 
@@ -364,18 +364,16 @@ blockquote {
   line-height: 2.4rem;
   letter-spacing: 0.01em; }
 
-.jam [class*="row-"] div.main {
-  display: block;
-  padding: 0 calc(8.33333% + (52px / 11));
-  padding: 0 calc(8.33333% + (44px / 11)); }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .jam [class*="row-"] div.main {
-      padding: 0; } }
+.jam .body-col {
+  display: block !important;
+  padding: 0 8.33333%;
+  padding: 0 8.33333%;
+  padding: 0 8.33333%; }
   @media (min-width: 411px) and (max-width: 767px) {
-    .jam [class*="row-"] div.main {
+    .jam .body-col {
       padding: 0; } }
   @media (max-width: 410px) {
-    .jam [class*="row-"] div.main {
+    .jam .body-col {
       padding: 0; } }
 
 .image {
@@ -388,8 +386,6 @@ blockquote {
   .image.right {
     float: right;
     margin-left: 52px; }
-  .image.jutting {
-    margin: 0 calc((10% + (52px / 9)) * -1) 24px calc((10% + (52px / 9)) * -1); }
   @media (min-width: 1025px) and (max-width: 1366px) {
     .image.left, .image.right {
       width: calc(50% - (44px / 2)); }
@@ -398,9 +394,7 @@ blockquote {
       margin-right: 44px; }
     .image.right {
       float: right;
-      margin-left: 44px; }
-    .image.jutting {
-      margin: 0 calc((10% + (44px / 9)) * -1) 24px calc((10% + (44px / 9)) * -1); } }
+      margin-left: 44px; } }
   @media (min-width: 768px) and (max-width: 1024px) {
     .image.left, .image.right {
       width: calc(50% - (32px / 2)); }
@@ -409,11 +403,7 @@ blockquote {
       margin-right: 32px; }
     .image.right {
       float: right;
-      margin-left: 32px; }
-    .image.jutting {
-      margin: 0 calc((10% + (32px / 9)) * -1) 24px calc((10% + (32px / 9)) * -1); }
-    .image.jutting {
-      margin: 0 calc((6.25% + (32px / 15)) * -1) 24px calc((6.25% + (32px / 15)) * -1); } }
+      margin-left: 32px; } }
   @media (min-width: 411px) and (max-width: 767px) {
     .image.left, .image.right {
       width: calc(50% - (20px / 2)); }
@@ -423,10 +413,8 @@ blockquote {
     .image.right {
       float: right;
       margin-left: 20px; }
-    .image.jutting {
-      margin: 0 calc((10% + (20px / 9)) * -1) 24px calc((10% + (20px / 9)) * -1); }
-    .image.jutting {
-      margin: 0 calc((6.25% + (20px / 15)) * -1) 20px calc((6.25% + (20px / 15)) * -1); } }
+    .image.left, .image.right {
+      width: 100%; } }
   @media (max-width: 410px) {
     .image.left, .image.right {
       width: calc(50% - (16px / 2)); }
@@ -436,21 +424,5 @@ blockquote {
     .image.right {
       float: right;
       margin-left: 16px; }
-    .image.jutting {
-      margin: 0 calc((10% + (16px / 9)) * -1) 24px calc((10% + (16px / 9)) * -1); }
-    .image.jutting {
-      margin: 0 calc((6.25% + (16px / 15)) * -1) 20px calc((6.25% + (16px / 15)) * -1); } }
-
-.xrow-16 {
-  grid-template-columns: repeat(16, 1fr) !important;
-  grid-column: 2 / -2; }
-
-.xrow-14 {
-  grid-template-columns: repeat(14, 1fr) !important;
-  grid-column: 3 / -3; }
-
-.xcol-w-8 {
-  grid-column: span 8 !important; }
-
-.xcol-w-6 {
-  grid-column: span 6 !important; }
+    .image.left, .image.right {
+      width: 100%; } }
