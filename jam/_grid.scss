@@ -34,6 +34,20 @@ div > *:last-child {
 
 //  R O W S  &  C O L S
 
+@mixin cols($col-max, $col-mod) {
+
+    @for $col-w from $col-min through $col-max {
+
+        div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
+            grid-column: span #{$col-w + $col-mod};
+            display: grid;
+            grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
+        }
+
+    }
+
+}
+
 // Create row
 
 @mixin row($row, $row-actual, $row-to, $media) {
@@ -72,7 +86,7 @@ div > *:last-child {
                             > div:nth-child(n), &.flip div:nth-child(n) {
                                 display: grid;
                                 grid-template-columns: repeat(#{$row-actual}, 1fr);
-                                grid-column: #{$row-inset + 1} / #{0 - ($row-inset + 1)};
+                                grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
                             }
 
                         }
@@ -85,15 +99,27 @@ div > *:last-child {
 
                     #{$row-selects}.jam .row-#{$row-this} {
     
-                        $offset: ($row-max - $row-actual) / 2;
+                        $row-inset: ($row-max - $row-actual) / 2;
                         
                         grid-template-columns: repeat(#{$row-actual}, 1fr);
-                        grid-column: #{$offset + 1}/#{-1 - $offset};
+                        grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
 
                         @for $cols from 2 through $cols-max {
 
                             &.cols-#{$cols} > div {
                                 grid-column: span floor($row-actual / $cols);
+                            }
+
+                            /* Test */
+    
+                            @if $row-this != $row-actual {
+    
+                                &.cols-#{$cols} {
+                                    /* Test 2 */
+                                    content: '#{$row-this}, #{$row-actual}';
+                                    @include cols($row-this - $col-min, ($row-actual - $row-this) / 2);
+                                }
+    
                             }
 
                         }
@@ -237,13 +263,9 @@ div > *:last-child {
 @include gaps(large);
         
 /* Explicit column widths */
-@for $col-w from $col-min through $row-max - $col-min {
+.jam div[class*=row-] {
 
-    .jam div[class*=row-] div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
-        grid-column: span $col-w;
-        display: grid;
-        grid-template-columns: repeat(#{$col-w}, 1fr);
-    }
+    @include cols($row-max - $col-min, 0);
 
 }
 
