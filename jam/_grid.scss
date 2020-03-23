@@ -62,15 +62,15 @@ div > *:last-child {
 
         @if $row-this % 2 == 0 {
 
-            @if $row-this != $row-to {
+            @if $media == phone-plus {
 
-                // Build up the string of selectors to collapse before continuing
-
-                $row-selects: $row-selects + '.jam .row-#{$row-this}, ';
-
-            } @else {
-
-                @if $media == phone-plus {
+                @if $row-this != $row-to {
+    
+                    // Build up the string of selectors to collapse before continuing
+    
+                    $row-selects: $row-selects + '.jam .row-#{$row-this}, ';
+    
+                } @else {
 
                     // Maximise phone row widths and transfer inset to columns
 
@@ -93,33 +93,33 @@ div > *:last-child {
 
                     }
 
-                } @else {
+                }
 
-                    // Set uniform column widths
+            } @else {
 
-                    #{$row-selects}.jam .row-#{$row-this} {
-    
-                        $row-inset: ($row-max - $row-actual) / 2;
+                .jam .row-#{$row-this} {
+
+                    // Set default width and position of row
+
+                    $row-inset: ($row-max - $row-actual) / 2;
+                    
+                    grid-template-columns: repeat(#{$row-actual}, 1fr);
+                    grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
+
+                    // Set specific col width
+
+                    @for $cols from 2 through $cols-max {
+
+                        &.cols-#{$cols} > div {
+                            grid-column: span floor($row-actual / $cols);
+                        }
+
+                        // Increase width of columns if row width has been increased
                         
-                        grid-template-columns: repeat(#{$row-actual}, 1fr);
-                        grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
+                        @if $row-this != $row-actual {
 
-                        @for $cols from 2 through $cols-max {
-
-                            &.cols-#{$cols} > div {
-                                grid-column: span floor($row-actual / $cols);
-                            }
-
-                            /* Test */
-    
-                            @if $row-this != $row-actual {
-    
-                                &.cols-#{$cols} {
-                                    /* Test 2 */
-                                    content: '#{$row-this}, #{$row-actual}';
-                                    @include cols($row-this - $col-min, ($row-actual - $row-this) / 2);
-                                }
-    
+                            &.cols-#{$cols} > {
+                                @include cols($row-this - $col-min, ($row-actual - $row-this) / 2);
                             }
 
                         }
@@ -135,6 +135,7 @@ div > *:last-child {
     }
 
 }
+
 
 // Return which group a row will collapse to
 // Size of group set with $row-collapse-size
