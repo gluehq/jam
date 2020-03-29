@@ -27,6 +27,8 @@ img {
     grid-column: span 9; }
   .jam .row-18.cols-3 > div, .jam .row-18 .cols-3 > div {
     grid-column: span 6; }
+  .jam .row-18.cols-4 > div, .jam .row-18 .cols-4 > div {
+    grid-column: span 4; }
 
 .jam .row-16 {
   grid-template-columns: repeat(16, 1fr);
@@ -35,6 +37,8 @@ img {
     grid-column: span 8; }
   .jam .row-16.cols-3 > div, .jam .row-16 .cols-3 > div {
     grid-column: span 5; }
+  .jam .row-16.cols-4 > div, .jam .row-16 .cols-4 > div {
+    grid-column: span 4; }
 
 .jam .row-14 {
   grid-template-columns: repeat(14, 1fr);
@@ -43,6 +47,8 @@ img {
     grid-column: span 7; }
   .jam .row-14.cols-3 > div, .jam .row-14 .cols-3 > div {
     grid-column: span 4; }
+  .jam .row-14.cols-4 > div, .jam .row-14 .cols-4 > div {
+    grid-column: span 3; }
 
 .jam .row-12 {
   grid-template-columns: repeat(12, 1fr);
@@ -51,6 +57,8 @@ img {
     grid-column: span 6; }
   .jam .row-12.cols-3 > div, .jam .row-12 .cols-3 > div {
     grid-column: span 4; }
+  .jam .row-12.cols-4 > div, .jam .row-12 .cols-4 > div {
+    grid-column: span 3; }
 
 .jam .row-10 {
   grid-template-columns: repeat(10, 1fr);
@@ -59,6 +67,8 @@ img {
     grid-column: span 5; }
   .jam .row-10.cols-3 > div, .jam .row-10 .cols-3 > div {
     grid-column: span 3; }
+  .jam .row-10.cols-4 > div, .jam .row-10 .cols-4 > div {
+    grid-column: span 2; }
 
 .jam .row-8 {
   grid-template-columns: repeat(8, 1fr);
@@ -66,6 +76,8 @@ img {
   .jam .row-8.cols-2 > div, .jam .row-8 .cols-2 > div {
     grid-column: span 4; }
   .jam .row-8.cols-3 > div, .jam .row-8 .cols-3 > div {
+    grid-column: span 2; }
+  .jam .row-8.cols-4 > div, .jam .row-8 .cols-4 > div {
     grid-column: span 2; }
 
 .jam .row-6 {
@@ -75,6 +87,8 @@ img {
     grid-column: span 3; }
   .jam .row-6.cols-3 > div, .jam .row-6 .cols-3 > div {
     grid-column: span 2; }
+  .jam .row-6.cols-4 > div, .jam .row-6 .cols-4 > div {
+    grid-column: span 1; }
 
 /* Gap defaults */
 .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
@@ -83,67 +97,54 @@ img {
 
 /* Explicit column widths */
 .jam div[class*=row-] div.col-3 {
-  display: grid;
   grid-column: span 3;
   grid-template-columns: repeat(3, 1fr); }
 
 .jam div[class*=row-] div.col-4 {
-  display: grid;
   grid-column: span 4;
   grid-template-columns: repeat(4, 1fr); }
 
 .jam div[class*=row-] div.col-5 {
-  display: grid;
   grid-column: span 5;
   grid-template-columns: repeat(5, 1fr); }
 
 .jam div[class*=row-] div.col-6 {
-  display: grid;
   grid-column: span 6;
   grid-template-columns: repeat(6, 1fr); }
 
 .jam div[class*=row-] div.col-7 {
-  display: grid;
   grid-column: span 7;
   grid-template-columns: repeat(7, 1fr); }
 
 .jam div[class*=row-] div.col-8 {
-  display: grid;
   grid-column: span 8;
   grid-template-columns: repeat(8, 1fr); }
 
 .jam div[class*=row-] div.col-9 {
-  display: grid;
   grid-column: span 9;
   grid-template-columns: repeat(9, 1fr); }
 
 .jam div[class*=row-] div.col-10 {
-  display: grid;
   grid-column: span 10;
   grid-template-columns: repeat(10, 1fr); }
 
 .jam div[class*=row-] div.col-11 {
-  display: grid;
   grid-column: span 11;
   grid-template-columns: repeat(11, 1fr); }
 
 .jam div[class*=row-] div.col-12 {
-  display: grid;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr); }
 
 .jam div[class*=row-] div.col-13 {
-  display: grid;
   grid-column: span 13;
   grid-template-columns: repeat(13, 1fr); }
 
 .jam div[class*=row-] div.col-14 {
-  display: grid;
   grid-column: span 14;
   grid-template-columns: repeat(14, 1fr); }
 
 .jam div[class*=row-] div.col-15 {
-  display: grid;
   grid-column: span 15;
   grid-template-columns: repeat(15, 1fr); }
 
@@ -163,27 +164,343 @@ img {
 .jam .cols-3 > div:nth-of-type(3n+3), .jam .cols-3.flip > div:nth-of-type(3n+1) {
   order: 3; }
 
-/* Column pads */
-@media (min-width: 768px) {
-  .jam .pad-l-1 > * {
-    grid-column-start: 2; }
-  .jam .pad-l-2 > * {
-    grid-column-start: 3; }
-  .jam .pad-r-1 > * {
-    grid-column-end: -2; }
-  .jam .pad-r-2 > * {
-    grid-column-end: -3; } }
+.jam .cols-4 > div:nth-of-type(4n+1), .jam .cols-4.flip > div:nth-of-type(4n+4) {
+  order: 1; }
 
+.jam .cols-4 > div:nth-of-type(4n+2), .jam .cols-4.flip > div:nth-of-type(4n+3) {
+  order: 2; }
+
+.jam .cols-4 > div:nth-of-type(4n+3), .jam .cols-4.flip > div:nth-of-type(4n+2) {
+  order: 3; }
+
+.jam .cols-4 > div:nth-of-type(4n+4), .jam .cols-4.flip > div:nth-of-type(4n+1) {
+  order: 4; }
+
+/* Column pads */
 /* Media specific versions */
+@media (min-width: 1367px) {
+  div.col-3.pad-l-col {
+    padding-left: calc((100% - (48px * 2)) / 3); }
+  div.col-3.pad-l-unit {
+    padding-left: calc((100% - (48px * 2)) / 3 + 48px); }
+  div.col-3.pad-r-col {
+    padding-right: calc((100% - (48px * 2)) / 3); }
+  div.col-3.pad-r-unit {
+    padding-right: calc((100% - (48px * 2)) / 3 + 48px); }
+  div.col-4.pad-l-col {
+    padding-left: calc((100% - (48px * 3)) / 4); }
+  div.col-4.pad-l-unit {
+    padding-left: calc((100% - (48px * 3)) / 4 + 48px); }
+  div.col-4.pad-r-col {
+    padding-right: calc((100% - (48px * 3)) / 4); }
+  div.col-4.pad-r-unit {
+    padding-right: calc((100% - (48px * 3)) / 4 + 48px); }
+  div.col-5.pad-l-col {
+    padding-left: calc((100% - (48px * 4)) / 5); }
+  div.col-5.pad-l-unit {
+    padding-left: calc((100% - (48px * 4)) / 5 + 48px); }
+  div.col-5.pad-r-col {
+    padding-right: calc((100% - (48px * 4)) / 5); }
+  div.col-5.pad-r-unit {
+    padding-right: calc((100% - (48px * 4)) / 5 + 48px); }
+  div.col-6.pad-l-col {
+    padding-left: calc((100% - (48px * 5)) / 6); }
+  div.col-6.pad-l-unit {
+    padding-left: calc((100% - (48px * 5)) / 6 + 48px); }
+  div.col-6.pad-r-col {
+    padding-right: calc((100% - (48px * 5)) / 6); }
+  div.col-6.pad-r-unit {
+    padding-right: calc((100% - (48px * 5)) / 6 + 48px); }
+  div.col-7.pad-l-col {
+    padding-left: calc((100% - (48px * 6)) / 7); }
+  div.col-7.pad-l-unit {
+    padding-left: calc((100% - (48px * 6)) / 7 + 48px); }
+  div.col-7.pad-r-col {
+    padding-right: calc((100% - (48px * 6)) / 7); }
+  div.col-7.pad-r-unit {
+    padding-right: calc((100% - (48px * 6)) / 7 + 48px); }
+  div.col-8.pad-l-col {
+    padding-left: calc((100% - (48px * 7)) / 8); }
+  div.col-8.pad-l-unit {
+    padding-left: calc((100% - (48px * 7)) / 8 + 48px); }
+  div.col-8.pad-r-col {
+    padding-right: calc((100% - (48px * 7)) / 8); }
+  div.col-8.pad-r-unit {
+    padding-right: calc((100% - (48px * 7)) / 8 + 48px); }
+  div.col-9.pad-l-col {
+    padding-left: calc((100% - (48px * 8)) / 9); }
+  div.col-9.pad-l-unit {
+    padding-left: calc((100% - (48px * 8)) / 9 + 48px); }
+  div.col-9.pad-r-col {
+    padding-right: calc((100% - (48px * 8)) / 9); }
+  div.col-9.pad-r-unit {
+    padding-right: calc((100% - (48px * 8)) / 9 + 48px); }
+  div.col-10.pad-l-col {
+    padding-left: calc((100% - (48px * 9)) / 10); }
+  div.col-10.pad-l-unit {
+    padding-left: calc((100% - (48px * 9)) / 10 + 48px); }
+  div.col-10.pad-r-col {
+    padding-right: calc((100% - (48px * 9)) / 10); }
+  div.col-10.pad-r-unit {
+    padding-right: calc((100% - (48px * 9)) / 10 + 48px); }
+  div.col-11.pad-l-col {
+    padding-left: calc((100% - (48px * 10)) / 11); }
+  div.col-11.pad-l-unit {
+    padding-left: calc((100% - (48px * 10)) / 11 + 48px); }
+  div.col-11.pad-r-col {
+    padding-right: calc((100% - (48px * 10)) / 11); }
+  div.col-11.pad-r-unit {
+    padding-right: calc((100% - (48px * 10)) / 11 + 48px); }
+  div.col-12.pad-l-col {
+    padding-left: calc((100% - (48px * 11)) / 12); }
+  div.col-12.pad-l-unit {
+    padding-left: calc((100% - (48px * 11)) / 12 + 48px); }
+  div.col-12.pad-r-col {
+    padding-right: calc((100% - (48px * 11)) / 12); }
+  div.col-12.pad-r-unit {
+    padding-right: calc((100% - (48px * 11)) / 12 + 48px); }
+  div.col-13.pad-l-col {
+    padding-left: calc((100% - (48px * 12)) / 13); }
+  div.col-13.pad-l-unit {
+    padding-left: calc((100% - (48px * 12)) / 13 + 48px); }
+  div.col-13.pad-r-col {
+    padding-right: calc((100% - (48px * 12)) / 13); }
+  div.col-13.pad-r-unit {
+    padding-right: calc((100% - (48px * 12)) / 13 + 48px); }
+  div.col-14.pad-l-col {
+    padding-left: calc((100% - (48px * 13)) / 14); }
+  div.col-14.pad-l-unit {
+    padding-left: calc((100% - (48px * 13)) / 14 + 48px); }
+  div.col-14.pad-r-col {
+    padding-right: calc((100% - (48px * 13)) / 14); }
+  div.col-14.pad-r-unit {
+    padding-right: calc((100% - (48px * 13)) / 14 + 48px); }
+  div.col-15.pad-l-col {
+    padding-left: calc((100% - (48px * 14)) / 15); }
+  div.col-15.pad-l-unit {
+    padding-left: calc((100% - (48px * 14)) / 15 + 48px); }
+  div.col-15.pad-r-col {
+    padding-right: calc((100% - (48px * 14)) / 15); }
+  div.col-15.pad-r-unit {
+    padding-right: calc((100% - (48px * 14)) / 15 + 48px); } }
+
 @media (min-width: 1025px) and (max-width: 1366px) {
   .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 44px;
-    grid-row-gap: 40px; } }
+    grid-row-gap: 40px; }
+  div.col-3.pad-l-col {
+    padding-left: calc((100% - (44px * 2)) / 3); }
+  div.col-3.pad-l-unit {
+    padding-left: calc((100% - (44px * 2)) / 3 + 44px); }
+  div.col-3.pad-r-col {
+    padding-right: calc((100% - (44px * 2)) / 3); }
+  div.col-3.pad-r-unit {
+    padding-right: calc((100% - (44px * 2)) / 3 + 44px); }
+  div.col-4.pad-l-col {
+    padding-left: calc((100% - (44px * 3)) / 4); }
+  div.col-4.pad-l-unit {
+    padding-left: calc((100% - (44px * 3)) / 4 + 44px); }
+  div.col-4.pad-r-col {
+    padding-right: calc((100% - (44px * 3)) / 4); }
+  div.col-4.pad-r-unit {
+    padding-right: calc((100% - (44px * 3)) / 4 + 44px); }
+  div.col-5.pad-l-col {
+    padding-left: calc((100% - (44px * 4)) / 5); }
+  div.col-5.pad-l-unit {
+    padding-left: calc((100% - (44px * 4)) / 5 + 44px); }
+  div.col-5.pad-r-col {
+    padding-right: calc((100% - (44px * 4)) / 5); }
+  div.col-5.pad-r-unit {
+    padding-right: calc((100% - (44px * 4)) / 5 + 44px); }
+  div.col-6.pad-l-col {
+    padding-left: calc((100% - (44px * 5)) / 6); }
+  div.col-6.pad-l-unit {
+    padding-left: calc((100% - (44px * 5)) / 6 + 44px); }
+  div.col-6.pad-r-col {
+    padding-right: calc((100% - (44px * 5)) / 6); }
+  div.col-6.pad-r-unit {
+    padding-right: calc((100% - (44px * 5)) / 6 + 44px); }
+  div.col-7.pad-l-col {
+    padding-left: calc((100% - (44px * 6)) / 7); }
+  div.col-7.pad-l-unit {
+    padding-left: calc((100% - (44px * 6)) / 7 + 44px); }
+  div.col-7.pad-r-col {
+    padding-right: calc((100% - (44px * 6)) / 7); }
+  div.col-7.pad-r-unit {
+    padding-right: calc((100% - (44px * 6)) / 7 + 44px); }
+  div.col-8.pad-l-col {
+    padding-left: calc((100% - (44px * 7)) / 8); }
+  div.col-8.pad-l-unit {
+    padding-left: calc((100% - (44px * 7)) / 8 + 44px); }
+  div.col-8.pad-r-col {
+    padding-right: calc((100% - (44px * 7)) / 8); }
+  div.col-8.pad-r-unit {
+    padding-right: calc((100% - (44px * 7)) / 8 + 44px); }
+  div.col-9.pad-l-col {
+    padding-left: calc((100% - (44px * 8)) / 9); }
+  div.col-9.pad-l-unit {
+    padding-left: calc((100% - (44px * 8)) / 9 + 44px); }
+  div.col-9.pad-r-col {
+    padding-right: calc((100% - (44px * 8)) / 9); }
+  div.col-9.pad-r-unit {
+    padding-right: calc((100% - (44px * 8)) / 9 + 44px); }
+  div.col-10.pad-l-col {
+    padding-left: calc((100% - (44px * 9)) / 10); }
+  div.col-10.pad-l-unit {
+    padding-left: calc((100% - (44px * 9)) / 10 + 44px); }
+  div.col-10.pad-r-col {
+    padding-right: calc((100% - (44px * 9)) / 10); }
+  div.col-10.pad-r-unit {
+    padding-right: calc((100% - (44px * 9)) / 10 + 44px); }
+  div.col-11.pad-l-col {
+    padding-left: calc((100% - (44px * 10)) / 11); }
+  div.col-11.pad-l-unit {
+    padding-left: calc((100% - (44px * 10)) / 11 + 44px); }
+  div.col-11.pad-r-col {
+    padding-right: calc((100% - (44px * 10)) / 11); }
+  div.col-11.pad-r-unit {
+    padding-right: calc((100% - (44px * 10)) / 11 + 44px); }
+  div.col-12.pad-l-col {
+    padding-left: calc((100% - (44px * 11)) / 12); }
+  div.col-12.pad-l-unit {
+    padding-left: calc((100% - (44px * 11)) / 12 + 44px); }
+  div.col-12.pad-r-col {
+    padding-right: calc((100% - (44px * 11)) / 12); }
+  div.col-12.pad-r-unit {
+    padding-right: calc((100% - (44px * 11)) / 12 + 44px); }
+  div.col-13.pad-l-col {
+    padding-left: calc((100% - (44px * 12)) / 13); }
+  div.col-13.pad-l-unit {
+    padding-left: calc((100% - (44px * 12)) / 13 + 44px); }
+  div.col-13.pad-r-col {
+    padding-right: calc((100% - (44px * 12)) / 13); }
+  div.col-13.pad-r-unit {
+    padding-right: calc((100% - (44px * 12)) / 13 + 44px); }
+  div.col-14.pad-l-col {
+    padding-left: calc((100% - (44px * 13)) / 14); }
+  div.col-14.pad-l-unit {
+    padding-left: calc((100% - (44px * 13)) / 14 + 44px); }
+  div.col-14.pad-r-col {
+    padding-right: calc((100% - (44px * 13)) / 14); }
+  div.col-14.pad-r-unit {
+    padding-right: calc((100% - (44px * 13)) / 14 + 44px); }
+  div.col-15.pad-l-col {
+    padding-left: calc((100% - (44px * 14)) / 15); }
+  div.col-15.pad-l-unit {
+    padding-left: calc((100% - (44px * 14)) / 15 + 44px); }
+  div.col-15.pad-r-col {
+    padding-right: calc((100% - (44px * 14)) / 15); }
+  div.col-15.pad-r-unit {
+    padding-right: calc((100% - (44px * 14)) / 15 + 44px); } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 32px;
-    grid-row-gap: 36px; } }
+    grid-row-gap: 36px; }
+  div.col-3.pad-l-col {
+    padding-left: calc((100% - (32px * 2)) / 3); }
+  div.col-3.pad-l-unit {
+    padding-left: calc((100% - (32px * 2)) / 3 + 32px); }
+  div.col-3.pad-r-col {
+    padding-right: calc((100% - (32px * 2)) / 3); }
+  div.col-3.pad-r-unit {
+    padding-right: calc((100% - (32px * 2)) / 3 + 32px); }
+  div.col-4.pad-l-col {
+    padding-left: calc((100% - (32px * 3)) / 4); }
+  div.col-4.pad-l-unit {
+    padding-left: calc((100% - (32px * 3)) / 4 + 32px); }
+  div.col-4.pad-r-col {
+    padding-right: calc((100% - (32px * 3)) / 4); }
+  div.col-4.pad-r-unit {
+    padding-right: calc((100% - (32px * 3)) / 4 + 32px); }
+  div.col-5.pad-l-col {
+    padding-left: calc((100% - (32px * 4)) / 5); }
+  div.col-5.pad-l-unit {
+    padding-left: calc((100% - (32px * 4)) / 5 + 32px); }
+  div.col-5.pad-r-col {
+    padding-right: calc((100% - (32px * 4)) / 5); }
+  div.col-5.pad-r-unit {
+    padding-right: calc((100% - (32px * 4)) / 5 + 32px); }
+  div.col-6.pad-l-col {
+    padding-left: calc((100% - (32px * 5)) / 6); }
+  div.col-6.pad-l-unit {
+    padding-left: calc((100% - (32px * 5)) / 6 + 32px); }
+  div.col-6.pad-r-col {
+    padding-right: calc((100% - (32px * 5)) / 6); }
+  div.col-6.pad-r-unit {
+    padding-right: calc((100% - (32px * 5)) / 6 + 32px); }
+  div.col-7.pad-l-col {
+    padding-left: calc((100% - (32px * 6)) / 7); }
+  div.col-7.pad-l-unit {
+    padding-left: calc((100% - (32px * 6)) / 7 + 32px); }
+  div.col-7.pad-r-col {
+    padding-right: calc((100% - (32px * 6)) / 7); }
+  div.col-7.pad-r-unit {
+    padding-right: calc((100% - (32px * 6)) / 7 + 32px); }
+  div.col-8.pad-l-col {
+    padding-left: calc((100% - (32px * 7)) / 8); }
+  div.col-8.pad-l-unit {
+    padding-left: calc((100% - (32px * 7)) / 8 + 32px); }
+  div.col-8.pad-r-col {
+    padding-right: calc((100% - (32px * 7)) / 8); }
+  div.col-8.pad-r-unit {
+    padding-right: calc((100% - (32px * 7)) / 8 + 32px); }
+  div.col-9.pad-l-col {
+    padding-left: calc((100% - (32px * 8)) / 9); }
+  div.col-9.pad-l-unit {
+    padding-left: calc((100% - (32px * 8)) / 9 + 32px); }
+  div.col-9.pad-r-col {
+    padding-right: calc((100% - (32px * 8)) / 9); }
+  div.col-9.pad-r-unit {
+    padding-right: calc((100% - (32px * 8)) / 9 + 32px); }
+  div.col-10.pad-l-col {
+    padding-left: calc((100% - (32px * 9)) / 10); }
+  div.col-10.pad-l-unit {
+    padding-left: calc((100% - (32px * 9)) / 10 + 32px); }
+  div.col-10.pad-r-col {
+    padding-right: calc((100% - (32px * 9)) / 10); }
+  div.col-10.pad-r-unit {
+    padding-right: calc((100% - (32px * 9)) / 10 + 32px); }
+  div.col-11.pad-l-col {
+    padding-left: calc((100% - (32px * 10)) / 11); }
+  div.col-11.pad-l-unit {
+    padding-left: calc((100% - (32px * 10)) / 11 + 32px); }
+  div.col-11.pad-r-col {
+    padding-right: calc((100% - (32px * 10)) / 11); }
+  div.col-11.pad-r-unit {
+    padding-right: calc((100% - (32px * 10)) / 11 + 32px); }
+  div.col-12.pad-l-col {
+    padding-left: calc((100% - (32px * 11)) / 12); }
+  div.col-12.pad-l-unit {
+    padding-left: calc((100% - (32px * 11)) / 12 + 32px); }
+  div.col-12.pad-r-col {
+    padding-right: calc((100% - (32px * 11)) / 12); }
+  div.col-12.pad-r-unit {
+    padding-right: calc((100% - (32px * 11)) / 12 + 32px); }
+  div.col-13.pad-l-col {
+    padding-left: calc((100% - (32px * 12)) / 13); }
+  div.col-13.pad-l-unit {
+    padding-left: calc((100% - (32px * 12)) / 13 + 32px); }
+  div.col-13.pad-r-col {
+    padding-right: calc((100% - (32px * 12)) / 13); }
+  div.col-13.pad-r-unit {
+    padding-right: calc((100% - (32px * 12)) / 13 + 32px); }
+  div.col-14.pad-l-col {
+    padding-left: calc((100% - (32px * 13)) / 14); }
+  div.col-14.pad-l-unit {
+    padding-left: calc((100% - (32px * 13)) / 14 + 32px); }
+  div.col-14.pad-r-col {
+    padding-right: calc((100% - (32px * 13)) / 14); }
+  div.col-14.pad-r-unit {
+    padding-right: calc((100% - (32px * 13)) / 14 + 32px); }
+  div.col-15.pad-l-col {
+    padding-left: calc((100% - (32px * 14)) / 15); }
+  div.col-15.pad-l-unit {
+    padding-left: calc((100% - (32px * 14)) / 15 + 32px); }
+  div.col-15.pad-r-col {
+    padding-right: calc((100% - (32px * 14)) / 15); }
+  div.col-15.pad-r-unit {
+    padding-right: calc((100% - (32px * 14)) / 15 + 32px); } }
 
 @media (min-width: 411px) and (max-width: 767px) {
   .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
@@ -204,241 +521,878 @@ img {
       grid-column: span 8; }
     .jam .row-16.cols-3 > div, .jam .row-16 .cols-3 > div {
       grid-column: span 5; }
+    .jam .row-16.cols-4 > div, .jam .row-16 .cols-4 > div {
+      grid-column: span 4; }
   .jam .row-14 {
     grid-template-columns: repeat(16, 1fr);
     grid-column: 2 / -2; }
     .jam .row-14.cols-2 > div, .jam .row-14 .cols-2 > div {
       grid-column: span 8; }
     .jam .row-14.cols-2 > div.col-3 {
-      display: grid;
       grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
+    .jam .row-14.cols-2 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-2 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-14.cols-2 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-2 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-14.cols-2 > div.col-4 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-14.cols-2 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-2 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-14.cols-2 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-2 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-14.cols-2 > div.col-5 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-14.cols-2 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-2 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-14.cols-2 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-2 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-14.cols-2 > div.col-6 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-14.cols-2 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-2 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-14.cols-2 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-2 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-14.cols-2 > div.col-7 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-14.cols-2 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-2 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-14.cols-2 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-2 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
     .jam .row-14.cols-2 > div.col-8 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-14.cols-2 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-2 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-14.cols-2 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-2 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
     .jam .row-14.cols-2 > div.col-9 {
-      display: grid;
       grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
+    .jam .row-14.cols-2 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-2 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-14.cols-2 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-2 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
     .jam .row-14.cols-2 > div.col-10 {
-      display: grid;
       grid-column: span 11;
       grid-template-columns: repeat(11, 1fr); }
+    .jam .row-14.cols-2 > div.col-10.pad-l-col {
+      padding-left: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-2 > div.col-10.pad-l-unit {
+      padding-left: calc((100% - ( * 9)) / 10 + ); }
+    .jam .row-14.cols-2 > div.col-10.pad-r-col {
+      padding-right: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-2 > div.col-10.pad-r-unit {
+      padding-right: calc((100% - ( * 9)) / 10 + ); }
     .jam .row-14.cols-2 > div.col-11 {
-      display: grid;
       grid-column: span 12;
       grid-template-columns: repeat(12, 1fr); }
+    .jam .row-14.cols-2 > div.col-11.pad-l-col {
+      padding-left: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-2 > div.col-11.pad-l-unit {
+      padding-left: calc((100% - ( * 10)) / 11 + ); }
+    .jam .row-14.cols-2 > div.col-11.pad-r-col {
+      padding-right: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-2 > div.col-11.pad-r-unit {
+      padding-right: calc((100% - ( * 10)) / 11 + ); }
     .jam .row-14.cols-3 > div, .jam .row-14 .cols-3 > div {
       grid-column: span 5; }
     .jam .row-14.cols-3 > div.col-3 {
-      display: grid;
       grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
+    .jam .row-14.cols-3 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-3 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-14.cols-3 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-3 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-14.cols-3 > div.col-4 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-14.cols-3 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-3 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-14.cols-3 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-3 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-14.cols-3 > div.col-5 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-14.cols-3 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-3 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-14.cols-3 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-3 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-14.cols-3 > div.col-6 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-14.cols-3 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-3 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-14.cols-3 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-3 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-14.cols-3 > div.col-7 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-14.cols-3 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-3 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-14.cols-3 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-3 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
     .jam .row-14.cols-3 > div.col-8 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-14.cols-3 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-3 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-14.cols-3 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-3 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
     .jam .row-14.cols-3 > div.col-9 {
-      display: grid;
       grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
+    .jam .row-14.cols-3 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-3 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-14.cols-3 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-3 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
     .jam .row-14.cols-3 > div.col-10 {
-      display: grid;
       grid-column: span 11;
       grid-template-columns: repeat(11, 1fr); }
+    .jam .row-14.cols-3 > div.col-10.pad-l-col {
+      padding-left: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-3 > div.col-10.pad-l-unit {
+      padding-left: calc((100% - ( * 9)) / 10 + ); }
+    .jam .row-14.cols-3 > div.col-10.pad-r-col {
+      padding-right: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-3 > div.col-10.pad-r-unit {
+      padding-right: calc((100% - ( * 9)) / 10 + ); }
     .jam .row-14.cols-3 > div.col-11 {
-      display: grid;
       grid-column: span 12;
       grid-template-columns: repeat(12, 1fr); }
+    .jam .row-14.cols-3 > div.col-11.pad-l-col {
+      padding-left: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-3 > div.col-11.pad-l-unit {
+      padding-left: calc((100% - ( * 10)) / 11 + ); }
+    .jam .row-14.cols-3 > div.col-11.pad-r-col {
+      padding-right: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-3 > div.col-11.pad-r-unit {
+      padding-right: calc((100% - ( * 10)) / 11 + ); }
+    .jam .row-14.cols-4 > div, .jam .row-14 .cols-4 > div {
+      grid-column: span 4; }
+    .jam .row-14.cols-4 > div.col-3 {
+      grid-column: span 4;
+      grid-template-columns: repeat(4, 1fr); }
+    .jam .row-14.cols-4 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-4 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-14.cols-4 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-14.cols-4 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-14.cols-4 > div.col-4 {
+      grid-column: span 5;
+      grid-template-columns: repeat(5, 1fr); }
+    .jam .row-14.cols-4 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-4 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-14.cols-4 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-14.cols-4 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-14.cols-4 > div.col-5 {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-14.cols-4 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-4 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-14.cols-4 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-14.cols-4 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-14.cols-4 > div.col-6 {
+      grid-column: span 7;
+      grid-template-columns: repeat(7, 1fr); }
+    .jam .row-14.cols-4 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-4 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-14.cols-4 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-14.cols-4 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-14.cols-4 > div.col-7 {
+      grid-column: span 8;
+      grid-template-columns: repeat(8, 1fr); }
+    .jam .row-14.cols-4 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-4 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-14.cols-4 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-14.cols-4 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-14.cols-4 > div.col-8 {
+      grid-column: span 9;
+      grid-template-columns: repeat(9, 1fr); }
+    .jam .row-14.cols-4 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-4 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-14.cols-4 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-14.cols-4 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-14.cols-4 > div.col-9 {
+      grid-column: span 10;
+      grid-template-columns: repeat(10, 1fr); }
+    .jam .row-14.cols-4 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-4 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-14.cols-4 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-14.cols-4 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-14.cols-4 > div.col-10 {
+      grid-column: span 11;
+      grid-template-columns: repeat(11, 1fr); }
+    .jam .row-14.cols-4 > div.col-10.pad-l-col {
+      padding-left: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-4 > div.col-10.pad-l-unit {
+      padding-left: calc((100% - ( * 9)) / 10 + ); }
+    .jam .row-14.cols-4 > div.col-10.pad-r-col {
+      padding-right: calc((100% - ( * 9)) / 10); }
+    .jam .row-14.cols-4 > div.col-10.pad-r-unit {
+      padding-right: calc((100% - ( * 9)) / 10 + ); }
+    .jam .row-14.cols-4 > div.col-11 {
+      grid-column: span 12;
+      grid-template-columns: repeat(12, 1fr); }
+    .jam .row-14.cols-4 > div.col-11.pad-l-col {
+      padding-left: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-4 > div.col-11.pad-l-unit {
+      padding-left: calc((100% - ( * 10)) / 11 + ); }
+    .jam .row-14.cols-4 > div.col-11.pad-r-col {
+      padding-right: calc((100% - ( * 10)) / 11); }
+    .jam .row-14.cols-4 > div.col-11.pad-r-unit {
+      padding-right: calc((100% - ( * 10)) / 11 + ); }
   .jam .row-12 {
     grid-template-columns: repeat(14, 1fr);
     grid-column: 3 / -3; }
     .jam .row-12.cols-2 > div, .jam .row-12 .cols-2 > div {
       grid-column: span 7; }
     .jam .row-12.cols-2 > div.col-3 {
-      display: grid;
       grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
+    .jam .row-12.cols-2 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-2 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-12.cols-2 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-2 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-12.cols-2 > div.col-4 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-12.cols-2 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-2 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-12.cols-2 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-2 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-12.cols-2 > div.col-5 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-12.cols-2 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-2 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-12.cols-2 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-2 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-12.cols-2 > div.col-6 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-12.cols-2 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-2 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-12.cols-2 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-2 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-12.cols-2 > div.col-7 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-12.cols-2 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-2 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-12.cols-2 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-2 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
     .jam .row-12.cols-2 > div.col-8 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-12.cols-2 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-2 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-12.cols-2 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-2 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
     .jam .row-12.cols-2 > div.col-9 {
-      display: grid;
       grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
+    .jam .row-12.cols-2 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-2 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-12.cols-2 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-2 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
     .jam .row-12.cols-3 > div, .jam .row-12 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-12.cols-3 > div.col-3 {
-      display: grid;
       grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
+    .jam .row-12.cols-3 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-3 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-12.cols-3 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-3 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-12.cols-3 > div.col-4 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-12.cols-3 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-3 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-12.cols-3 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-3 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-12.cols-3 > div.col-5 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-12.cols-3 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-3 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-12.cols-3 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-3 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-12.cols-3 > div.col-6 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-12.cols-3 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-3 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-12.cols-3 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-3 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-12.cols-3 > div.col-7 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-12.cols-3 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-3 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-12.cols-3 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-3 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
     .jam .row-12.cols-3 > div.col-8 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-12.cols-3 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-3 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-12.cols-3 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-3 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
     .jam .row-12.cols-3 > div.col-9 {
-      display: grid;
       grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
+    .jam .row-12.cols-3 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-3 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-12.cols-3 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-3 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-12.cols-4 > div, .jam .row-12 .cols-4 > div {
+      grid-column: span 3; }
+    .jam .row-12.cols-4 > div.col-3 {
+      grid-column: span 4;
+      grid-template-columns: repeat(4, 1fr); }
+    .jam .row-12.cols-4 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-4 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-12.cols-4 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-12.cols-4 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-12.cols-4 > div.col-4 {
+      grid-column: span 5;
+      grid-template-columns: repeat(5, 1fr); }
+    .jam .row-12.cols-4 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-4 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-12.cols-4 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-12.cols-4 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-12.cols-4 > div.col-5 {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-12.cols-4 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-4 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-12.cols-4 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-12.cols-4 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-12.cols-4 > div.col-6 {
+      grid-column: span 7;
+      grid-template-columns: repeat(7, 1fr); }
+    .jam .row-12.cols-4 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-4 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-12.cols-4 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-12.cols-4 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-12.cols-4 > div.col-7 {
+      grid-column: span 8;
+      grid-template-columns: repeat(8, 1fr); }
+    .jam .row-12.cols-4 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-4 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-12.cols-4 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-12.cols-4 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-12.cols-4 > div.col-8 {
+      grid-column: span 9;
+      grid-template-columns: repeat(9, 1fr); }
+    .jam .row-12.cols-4 > div.col-8.pad-l-col {
+      padding-left: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-4 > div.col-8.pad-l-unit {
+      padding-left: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-12.cols-4 > div.col-8.pad-r-col {
+      padding-right: calc((100% - ( * 7)) / 8); }
+    .jam .row-12.cols-4 > div.col-8.pad-r-unit {
+      padding-right: calc((100% - ( * 7)) / 8 + ); }
+    .jam .row-12.cols-4 > div.col-9 {
+      grid-column: span 10;
+      grid-template-columns: repeat(10, 1fr); }
+    .jam .row-12.cols-4 > div.col-9.pad-l-col {
+      padding-left: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-4 > div.col-9.pad-l-unit {
+      padding-left: calc((100% - ( * 8)) / 9 + ); }
+    .jam .row-12.cols-4 > div.col-9.pad-r-col {
+      padding-right: calc((100% - ( * 8)) / 9); }
+    .jam .row-12.cols-4 > div.col-9.pad-r-unit {
+      padding-right: calc((100% - ( * 8)) / 9 + ); }
   .jam .row-10 {
     grid-template-columns: repeat(14, 1fr);
     grid-column: 3 / -3; }
     .jam .row-10.cols-2 > div, .jam .row-10 .cols-2 > div {
       grid-column: span 7; }
     .jam .row-10.cols-2 > div.col-3 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-10.cols-2 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-2 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-10.cols-2 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-2 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-10.cols-2 > div.col-4 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-10.cols-2 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-2 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-10.cols-2 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-2 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-10.cols-2 > div.col-5 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-10.cols-2 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-2 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-10.cols-2 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-2 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-10.cols-2 > div.col-6 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-10.cols-2 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-2 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-10.cols-2 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-2 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-10.cols-2 > div.col-7 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-10.cols-2 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-2 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-10.cols-2 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-2 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
     .jam .row-10.cols-3 > div, .jam .row-10 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-10.cols-3 > div.col-3 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-10.cols-3 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-3 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-10.cols-3 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-3 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-10.cols-3 > div.col-4 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-10.cols-3 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-3 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-10.cols-3 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-3 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-10.cols-3 > div.col-5 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-10.cols-3 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-3 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-10.cols-3 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-3 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-10.cols-3 > div.col-6 {
-      display: grid;
       grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
+    .jam .row-10.cols-3 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-3 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-10.cols-3 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-3 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
     .jam .row-10.cols-3 > div.col-7 {
-      display: grid;
       grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
+    .jam .row-10.cols-3 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-3 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-10.cols-3 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-3 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-10.cols-4 > div, .jam .row-10 .cols-4 > div {
+      grid-column: span 3; }
+    .jam .row-10.cols-4 > div.col-3 {
+      grid-column: span 5;
+      grid-template-columns: repeat(5, 1fr); }
+    .jam .row-10.cols-4 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-4 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-10.cols-4 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-10.cols-4 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-10.cols-4 > div.col-4 {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-10.cols-4 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-4 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-10.cols-4 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-10.cols-4 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-10.cols-4 > div.col-5 {
+      grid-column: span 7;
+      grid-template-columns: repeat(7, 1fr); }
+    .jam .row-10.cols-4 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-4 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-10.cols-4 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-10.cols-4 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-10.cols-4 > div.col-6 {
+      grid-column: span 8;
+      grid-template-columns: repeat(8, 1fr); }
+    .jam .row-10.cols-4 > div.col-6.pad-l-col {
+      padding-left: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-4 > div.col-6.pad-l-unit {
+      padding-left: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-10.cols-4 > div.col-6.pad-r-col {
+      padding-right: calc((100% - ( * 5)) / 6); }
+    .jam .row-10.cols-4 > div.col-6.pad-r-unit {
+      padding-right: calc((100% - ( * 5)) / 6 + ); }
+    .jam .row-10.cols-4 > div.col-7 {
+      grid-column: span 9;
+      grid-template-columns: repeat(9, 1fr); }
+    .jam .row-10.cols-4 > div.col-7.pad-l-col {
+      padding-left: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-4 > div.col-7.pad-l-unit {
+      padding-left: calc((100% - ( * 6)) / 7 + ); }
+    .jam .row-10.cols-4 > div.col-7.pad-r-col {
+      padding-right: calc((100% - ( * 6)) / 7); }
+    .jam .row-10.cols-4 > div.col-7.pad-r-unit {
+      padding-right: calc((100% - ( * 6)) / 7 + ); }
   .jam .row-8 {
     grid-template-columns: repeat(12, 1fr);
     grid-column: 4 / -4; }
     .jam .row-8.cols-2 > div, .jam .row-8 .cols-2 > div {
       grid-column: span 6; }
     .jam .row-8.cols-2 > div.col-3 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-8.cols-2 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-2 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-8.cols-2 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-2 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-8.cols-2 > div.col-4 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-8.cols-2 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-2 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-8.cols-2 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-2 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-8.cols-2 > div.col-5 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-8.cols-2 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-2 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-8.cols-2 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-2 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
     .jam .row-8.cols-3 > div, .jam .row-8 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-8.cols-3 > div.col-3 {
-      display: grid;
       grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
+    .jam .row-8.cols-3 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-3 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-8.cols-3 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-3 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-8.cols-3 > div.col-4 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-8.cols-3 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-3 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-8.cols-3 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-3 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
     .jam .row-8.cols-3 > div.col-5 {
-      display: grid;
       grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
+    .jam .row-8.cols-3 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-3 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-8.cols-3 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-3 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-8.cols-4 > div, .jam .row-8 .cols-4 > div {
+      grid-column: span 3; }
+    .jam .row-8.cols-4 > div.col-3 {
+      grid-column: span 5;
+      grid-template-columns: repeat(5, 1fr); }
+    .jam .row-8.cols-4 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-4 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-8.cols-4 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-8.cols-4 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-8.cols-4 > div.col-4 {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-8.cols-4 > div.col-4.pad-l-col {
+      padding-left: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-4 > div.col-4.pad-l-unit {
+      padding-left: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-8.cols-4 > div.col-4.pad-r-col {
+      padding-right: calc((100% - ( * 3)) / 4); }
+    .jam .row-8.cols-4 > div.col-4.pad-r-unit {
+      padding-right: calc((100% - ( * 3)) / 4 + ); }
+    .jam .row-8.cols-4 > div.col-5 {
+      grid-column: span 7;
+      grid-template-columns: repeat(7, 1fr); }
+    .jam .row-8.cols-4 > div.col-5.pad-l-col {
+      padding-left: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-4 > div.col-5.pad-l-unit {
+      padding-left: calc((100% - ( * 4)) / 5 + ); }
+    .jam .row-8.cols-4 > div.col-5.pad-r-col {
+      padding-right: calc((100% - ( * 4)) / 5); }
+    .jam .row-8.cols-4 > div.col-5.pad-r-unit {
+      padding-right: calc((100% - ( * 4)) / 5 + ); }
   .jam .row-6 {
     grid-template-columns: repeat(12, 1fr);
     grid-column: 4 / -4; }
     .jam .row-6.cols-2 > div, .jam .row-6 .cols-2 > div {
       grid-column: span 6; }
     .jam .row-6.cols-2 > div.col-3 {
-      display: grid;
       grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
+    .jam .row-6.cols-2 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-2 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-6.cols-2 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-2 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
     .jam .row-6.cols-3 > div, .jam .row-6 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-6.cols-3 > div.col-3 {
-      display: grid;
       grid-column: span 6;
-      grid-template-columns: repeat(6, 1fr); } }
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-6.cols-3 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-3 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-6.cols-3 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-3 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-6.cols-4 > div, .jam .row-6 .cols-4 > div {
+      grid-column: span 3; }
+    .jam .row-6.cols-4 > div.col-3 {
+      grid-column: span 6;
+      grid-template-columns: repeat(6, 1fr); }
+    .jam .row-6.cols-4 > div.col-3.pad-l-col {
+      padding-left: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-4 > div.col-3.pad-l-unit {
+      padding-left: calc((100% - ( * 2)) / 3 + ); }
+    .jam .row-6.cols-4 > div.col-3.pad-r-col {
+      padding-right: calc((100% - ( * 2)) / 3); }
+    .jam .row-6.cols-4 > div.col-3.pad-r-unit {
+      padding-right: calc((100% - ( * 2)) / 3 + ); } }
 
 @media (max-width: 767px) {
   /* Non grid element phone positioning */
@@ -449,21 +1403,18 @@ img {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-16 > div:nth-child(n), .jam .row-16.flip div:nth-child(n), .jam .row-16[class*=cols-] > div:nth-child(n), .jam .row-16[class*=cols-].flip div:nth-child(n), .jam .row-14 > div:nth-child(n), .jam .row-14.flip div:nth-child(n), .jam .row-14[class*=cols-] > div:nth-child(n), .jam .row-14[class*=cols-].flip div:nth-child(n) {
-      display: grid;
       grid-template-columns: repeat(16, 1fr);
       grid-column: 2 / -2; }
   .jam .row-12, .jam .row-12[class*=cols-], .jam .row-10, .jam .row-10[class*=cols-] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-12 > div:nth-child(n), .jam .row-12.flip div:nth-child(n), .jam .row-12[class*=cols-] > div:nth-child(n), .jam .row-12[class*=cols-].flip div:nth-child(n), .jam .row-10 > div:nth-child(n), .jam .row-10.flip div:nth-child(n), .jam .row-10[class*=cols-] > div:nth-child(n), .jam .row-10[class*=cols-].flip div:nth-child(n) {
-      display: grid;
       grid-template-columns: repeat(14, 1fr);
       grid-column: 3 / -3; }
   .jam .row-8, .jam .row-8[class*=cols-], .jam .row-6, .jam .row-6[class*=cols-] {
     grid-column: 1 / -1;
     grid-template-columns: repeat(18, 1fr); }
     .jam .row-8 > div:nth-child(n), .jam .row-8.flip div:nth-child(n), .jam .row-8[class*=cols-] > div:nth-child(n), .jam .row-8[class*=cols-].flip div:nth-child(n), .jam .row-6 > div:nth-child(n), .jam .row-6.flip div:nth-child(n), .jam .row-6[class*=cols-] > div:nth-child(n), .jam .row-6[class*=cols-].flip div:nth-child(n) {
-      display: grid;
       grid-template-columns: repeat(12, 1fr);
       grid-column: 4 / -4; }
   /* Media specific column flipping */
@@ -481,6 +1432,16 @@ img {
     order: 2; }
   .jam .cols-3 > div:nth-of-type(3n+3), .jam .cols-3.flip > div:nth-of-type(3n+3) {
     order: 3; }
+  .jam .cols-4 > div, .jam .cols-4.flip > div {
+    grid-column: 1 / -1; }
+  .jam .cols-4 > div:nth-of-type(4n+1), .jam .cols-4.flip > div:nth-of-type(4n+1) {
+    order: 1; }
+  .jam .cols-4 > div:nth-of-type(4n+2), .jam .cols-4.flip > div:nth-of-type(4n+2) {
+    order: 2; }
+  .jam .cols-4 > div:nth-of-type(4n+3), .jam .cols-4.flip > div:nth-of-type(4n+3) {
+    order: 3; }
+  .jam .cols-4 > div:nth-of-type(4n+4), .jam .cols-4.flip > div:nth-of-type(4n+4) {
+    order: 4; }
   /* Phone image bleeds */
   .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
     grid-template-columns: repeat(18, 1fr);
@@ -596,24 +1557,6 @@ blockquote {
   line-height: 2.4rem;
   letter-spacing: 0.01em; }
 
-.jam .body-col {
-  display: block !important; }
-  @media (min-width: 1367px) {
-    .jam .body-col {
-      padding: 0 calc((8.33333% + 3px) * 1); } }
-  @media (min-width: 1025px) and (max-width: 1366px) {
-    .jam .body-col {
-      padding: 0 calc((8.33333% + 2.66667px) * 1); } }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .jam .body-col {
-      padding: 0 calc((8.33333% + 1.66667px) * 1); } }
-  @media (min-width: 411px) and (max-width: 767px) {
-    .jam .body-col {
-      padding: 0; } }
-  @media (max-width: 410px) {
-    .jam .body-col {
-      padding: 0; } }
-
 .image {
   margin: 4px 0 20px 0; }
   .image.left, .image.right {
@@ -658,8 +1601,10 @@ blockquote {
       float: right;
       margin-left: 20px; }
     .image.jutting {
-      margin: 0 calc((6.25% + 0.25px) * -1) 32px calc((6.25% + 0.25px) * -1); }
+      margin: 0 calc((6.25% + 0.25px) * -1) 32px calc((6.25% + 0.25px) * -1);
+      content: 'tits'; }
     .image.left, .image.right {
+      margin-left: 0;
       width: 100%; } }
   @media (max-width: 410px) {
     .image.left, .image.right {
@@ -671,11 +1616,8 @@ blockquote {
       float: right;
       margin-left: 16px; }
     .image.jutting {
-      margin: 0 calc((6.25% + 0px) * -1) 28px calc((6.25% + 0px) * -1); }
+      margin: 0 calc((6.25% + 0px) * -1) 28px calc((6.25% + 0px) * -1);
+      content: 'tits'; }
     .image.left, .image.right {
+      margin-left: 0;
       width: 100%; } }
-
-@media (min-width: 768px) {
-  .jam .pad-l-1 {
-    row-gap: 0;
-    max-height: 0; } }

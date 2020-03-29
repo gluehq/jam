@@ -11,31 +11,6 @@
     @return $unit;
 }
 
-.jam .body-col {
-
-    display: block !important;
-    
-    @each $media in $single-media {
-        
-        @if $media == large or $media == standard or $media == tablet {
-            
-            @include media($media) {
-                $unit: unit(12, $media, 1);
-                padding: 0 $unit;
-            }
-            
-        } @else {
-                
-            @include media($media) {
-                padding: 0;
-            }
-            
-        }
-        
-    }
-    
-}
-
 @mixin image($media) {
     
     &.left, &.right {
@@ -55,7 +30,6 @@
     @if $media == large or $media == standard or $media == tablet  {
     
         &.jutting {
-            // $unit: calc((#{percentage(1/10)} + (#{xgap($media)} / 9)) * -1);
             $unit: unit(10, $media, -1);
             margin: 0 $unit ygap($media) $unit;
         }
@@ -63,12 +37,13 @@
     } @else if $media == phone or $media == plus {
 
         &.jutting {
-            // $unit: calc((#{percentage(1/16)} + (#{xgap($media)} / 15)) * -1);
             $unit: unit(16, $media, -1);
             margin: 0 $unit ygap($media) $unit;
+            content: 'tits';
         }
         
         &.left, &.right {
+            margin-left: 0;
             width: 100%;
         }
 
@@ -112,13 +87,4 @@
         
     }
     
-}
-
-@include media(tablet-large) {
-    
-    .jam .pad-l-1 {
-        row-gap: 0;
-        max-height: 0;
-    }
-
 }

@@ -1,26 +1,22 @@
 
 //  V A R I A B L E S
 
-//  Basic grid unit amounts
+//  Basic grid unit limits
 $row-max:  18;
 $row-min:  6;
 
+//  Maximum number of uniform width columns in a row
+$cols-max:  4;
+
 //  Smallest col size in grid units
 $col-min:  3;
-
-//  Maximum grid unit difference in .cols-2 child widths
-$skew-max:  5;
 
 //  Collapsing group size - rows that aren't full width are
 //  collapsed together on mobile to create fewer width variations
 $row-collapse-size:  2;
 
-//  Maximum number of uniform width columns
-$cols-max:  3;
-
-//  
+//  Media queries including key combined ranges
 $all-media: large, standard, tablet, plus, phone, phone-tablet, phone-plus;
-$single-media: large, standard, tablet, plus, phone;
 
 $ygap-ph:   28px;
 $ygap-pl:   32px;

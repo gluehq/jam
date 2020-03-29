@@ -34,17 +34,54 @@ div > *:last-child {
 
 //  R O W S  &  C O L S
 
-@mixin cols($col-max, $col-mod) {
+@mixin cols($media, $col-max, $col-mod) {
 
     @for $col-w from $col-min through $col-max {
 
-        div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
-            display: grid;// Causes children to distribute across or down an implicit grid
-            grid-column: span #{$col-w + $col-mod};
-            grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
-            // Override implicit grid an prevent children being distributed down column
-            // row-gap: 0;
-            // max-height: 0;// forces columns to collapse upward
+        @if $media == all or $media == phone-tablet {
+
+            div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
+
+                // display: grid;// Do not reenable, adss gaps and distributes children down an implicit grid column
+                grid-column: span #{$col-w + $col-mod};
+                grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
+
+            }
+
+        }
+
+        @if $media != phone-plus and $media != all {
+
+            $sides: l, r;
+        
+            @each $side in $sides {
+        
+                $sizes: col, unit;// A unit being the col plus the gap
+        
+                @each $size in $sizes {
+        
+                    div.col-#{$col-w}.pad-#{$side}-#{$size} {
+        
+                        $unit: 0;
+        
+                        @if $size == col {
+                            $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
+                        } @else if $size == unit {
+                            $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
+                        }
+                            
+                        @if $side == l {
+                            padding-left: $unit;
+                        } @else {
+                            padding-right: $unit;
+                        }
+        
+                    }
+        
+                }
+        
+            }
+
         }
 
     }
@@ -87,7 +124,7 @@ div > *:last-child {
                             grid-template-columns: repeat(#{$row-max}, 1fr);
 
                             > div:nth-child(n), &.flip div:nth-child(n) {
-                                display: grid;
+                                // display: grid;// Do not reenable, adss gaps and distributes children down an implicit grid column
                                 grid-template-columns: repeat(#{$row-actual}, 1fr);
                                 grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
                             }
@@ -122,7 +159,7 @@ div > *:last-child {
                         @if $row-this != $row-actual {
 
                             &.cols-#{$cols} > {
-                                @include cols($row-this - $col-min, ($row-actual - $row-this) / 2);
+                                @include cols($media, $row-this - $col-min, ($row-actual - $row-this) / 2);
                             }
 
                         }
@@ -138,7 +175,6 @@ div > *:last-child {
     }
 
 }
-
 
 // Return which group a row will collapse to
 // Size of group set with $row-collapse-size
@@ -253,34 +289,6 @@ div > *:last-child {
     
 }
 
-@mixin pads($media) {
-
-    @include media($media) {
-
-        $sides: l, r;
-
-        @each $side in $sides {
-
-            @for $pad from 1 through $col-min - 1 {
-
-                .jam .pad-#{$side}-#{$pad} > * {
-
-                    @if $side == l {
-                        grid-column-start: #{1 + $pad};
-                    } @else if $side == r {
-                        grid-column-end: #{-1 - $pad};
-                    }
-
-                }
-
-            }
-
-        }
-
-    }
-
-}
-
 //  M E D I A
 
 /* Non grid element default positioning */
@@ -296,16 +304,14 @@ div > *:last-child {
         
 /* Explicit column widths */
 .jam div[class*=row-] {
-
-    @include cols($row-max - $col-min, 0);
-
+    @include cols(all, $row-max - $col-min, 0);
 }
 
 /* Column flips */
 @include flips(large);
 
 /* Column pads */
-@include pads(tablet-large);
+// @include pads(tablet-large);
 
 /* Media specific versions */
 @each $media in $all-media {
@@ -314,17 +320,17 @@ div > *:last-child {
 
         // Exclude combined media
         @if $media != large and $media != phone-tablet and $media != phone-plus {
-
             @include gaps($media);
+        }
 
+        @if $media == large or $media == standard or $media == tablet {
+            @include cols($media, $row-max - $col-min, 0);
         }
 
         @if $media == phone-tablet {
-
             /* Collapsing row widths on handhelds */
             // Tablet margins will not reduce if removed
             @include rows($media);
-
         }
 
         @if $media == phone-plus {
