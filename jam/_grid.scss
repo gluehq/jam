@@ -39,9 +39,12 @@ div > *:last-child {
     @for $col-w from $col-min through $col-max {
 
         div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
+            display: grid;// Causes children to distribute across or down an implicit grid
             grid-column: span #{$col-w + $col-mod};
-            display: grid;
             grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
+            // Override implicit grid an prevent children being distributed down column
+            // row-gap: 0;
+            // max-height: 0;// forces columns to collapse upward
         }
 
     }
@@ -110,7 +113,7 @@ div > *:last-child {
 
                     @for $cols from 2 through $cols-max {
 
-                        &.cols-#{$cols} > div {
+                        &.cols-#{$cols} > div, & .cols-#{$cols} > div {
                             grid-column: span floor($row-actual / $cols);
                         }
 
@@ -250,6 +253,34 @@ div > *:last-child {
     
 }
 
+@mixin pads($media) {
+
+    @include media($media) {
+
+        $sides: l, r;
+
+        @each $side in $sides {
+
+            @for $pad from 1 through $col-min - 1 {
+
+                .jam .pad-#{$side}-#{$pad} > * {
+
+                    @if $side == l {
+                        grid-column-start: #{1 + $pad};
+                    } @else if $side == r {
+                        grid-column-end: #{-1 - $pad};
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
 //  M E D I A
 
 /* Non grid element default positioning */
@@ -273,7 +304,10 @@ div > *:last-child {
 /* Column flips */
 @include flips(large);
 
-/* Media specific gaps */
+/* Column pads */
+@include pads(tablet-large);
+
+/* Media specific versions */
 @each $media in $all-media {
     
     @include media($media) {

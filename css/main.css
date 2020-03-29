@@ -23,57 +23,57 @@ img {
 .jam .row-18 {
   grid-template-columns: repeat(18, 1fr);
   grid-column: 1 / -1; }
-  .jam .row-18.cols-2 > div {
+  .jam .row-18.cols-2 > div, .jam .row-18 .cols-2 > div {
     grid-column: span 9; }
-  .jam .row-18.cols-3 > div {
+  .jam .row-18.cols-3 > div, .jam .row-18 .cols-3 > div {
     grid-column: span 6; }
 
 .jam .row-16 {
   grid-template-columns: repeat(16, 1fr);
   grid-column: 2 / -2; }
-  .jam .row-16.cols-2 > div {
+  .jam .row-16.cols-2 > div, .jam .row-16 .cols-2 > div {
     grid-column: span 8; }
-  .jam .row-16.cols-3 > div {
+  .jam .row-16.cols-3 > div, .jam .row-16 .cols-3 > div {
     grid-column: span 5; }
 
 .jam .row-14 {
   grid-template-columns: repeat(14, 1fr);
   grid-column: 3 / -3; }
-  .jam .row-14.cols-2 > div {
+  .jam .row-14.cols-2 > div, .jam .row-14 .cols-2 > div {
     grid-column: span 7; }
-  .jam .row-14.cols-3 > div {
+  .jam .row-14.cols-3 > div, .jam .row-14 .cols-3 > div {
     grid-column: span 4; }
 
 .jam .row-12 {
   grid-template-columns: repeat(12, 1fr);
   grid-column: 4 / -4; }
-  .jam .row-12.cols-2 > div {
+  .jam .row-12.cols-2 > div, .jam .row-12 .cols-2 > div {
     grid-column: span 6; }
-  .jam .row-12.cols-3 > div {
+  .jam .row-12.cols-3 > div, .jam .row-12 .cols-3 > div {
     grid-column: span 4; }
 
 .jam .row-10 {
   grid-template-columns: repeat(10, 1fr);
   grid-column: 5 / -5; }
-  .jam .row-10.cols-2 > div {
+  .jam .row-10.cols-2 > div, .jam .row-10 .cols-2 > div {
     grid-column: span 5; }
-  .jam .row-10.cols-3 > div {
+  .jam .row-10.cols-3 > div, .jam .row-10 .cols-3 > div {
     grid-column: span 3; }
 
 .jam .row-8 {
   grid-template-columns: repeat(8, 1fr);
   grid-column: 6 / -6; }
-  .jam .row-8.cols-2 > div {
+  .jam .row-8.cols-2 > div, .jam .row-8 .cols-2 > div {
     grid-column: span 4; }
-  .jam .row-8.cols-3 > div {
+  .jam .row-8.cols-3 > div, .jam .row-8 .cols-3 > div {
     grid-column: span 2; }
 
 .jam .row-6 {
   grid-template-columns: repeat(6, 1fr);
   grid-column: 7 / -7; }
-  .jam .row-6.cols-2 > div {
+  .jam .row-6.cols-2 > div, .jam .row-6 .cols-2 > div {
     grid-column: span 3; }
-  .jam .row-6.cols-3 > div {
+  .jam .row-6.cols-3 > div, .jam .row-6 .cols-3 > div {
     grid-column: span 2; }
 
 /* Gap defaults */
@@ -83,68 +83,68 @@ img {
 
 /* Explicit column widths */
 .jam div[class*=row-] div.col-3 {
-  grid-column: span 3;
   display: grid;
+  grid-column: span 3;
   grid-template-columns: repeat(3, 1fr); }
 
 .jam div[class*=row-] div.col-4 {
-  grid-column: span 4;
   display: grid;
+  grid-column: span 4;
   grid-template-columns: repeat(4, 1fr); }
 
 .jam div[class*=row-] div.col-5 {
-  grid-column: span 5;
   display: grid;
+  grid-column: span 5;
   grid-template-columns: repeat(5, 1fr); }
 
 .jam div[class*=row-] div.col-6 {
-  grid-column: span 6;
   display: grid;
+  grid-column: span 6;
   grid-template-columns: repeat(6, 1fr); }
 
 .jam div[class*=row-] div.col-7 {
-  grid-column: span 7;
   display: grid;
+  grid-column: span 7;
   grid-template-columns: repeat(7, 1fr); }
 
 .jam div[class*=row-] div.col-8 {
-  grid-column: span 8;
   display: grid;
+  grid-column: span 8;
   grid-template-columns: repeat(8, 1fr); }
 
 .jam div[class*=row-] div.col-9 {
-  grid-column: span 9;
   display: grid;
+  grid-column: span 9;
   grid-template-columns: repeat(9, 1fr); }
 
 .jam div[class*=row-] div.col-10 {
-  grid-column: span 10;
   display: grid;
+  grid-column: span 10;
   grid-template-columns: repeat(10, 1fr); }
 
 .jam div[class*=row-] div.col-11 {
-  grid-column: span 11;
   display: grid;
+  grid-column: span 11;
   grid-template-columns: repeat(11, 1fr); }
 
 .jam div[class*=row-] div.col-12 {
-  grid-column: span 12;
   display: grid;
+  grid-column: span 12;
   grid-template-columns: repeat(12, 1fr); }
 
 .jam div[class*=row-] div.col-13 {
-  grid-column: span 13;
   display: grid;
+  grid-column: span 13;
   grid-template-columns: repeat(13, 1fr); }
 
 .jam div[class*=row-] div.col-14 {
-  grid-column: span 14;
   display: grid;
+  grid-column: span 14;
   grid-template-columns: repeat(14, 1fr); }
 
 .jam div[class*=row-] div.col-15 {
-  grid-column: span 15;
   display: grid;
+  grid-column: span 15;
   grid-template-columns: repeat(15, 1fr); }
 
 /* Column flips */
@@ -163,7 +163,18 @@ img {
 .jam .cols-3 > div:nth-of-type(3n+3), .jam .cols-3.flip > div:nth-of-type(3n+1) {
   order: 3; }
 
-/* Media specific gaps */
+/* Column pads */
+@media (min-width: 768px) {
+  .jam .pad-l-1 > * {
+    grid-column-start: 2; }
+  .jam .pad-l-2 > * {
+    grid-column-start: 3; }
+  .jam .pad-r-1 > * {
+    grid-column-end: -2; }
+  .jam .pad-r-2 > * {
+    grid-column-end: -3; } }
+
+/* Media specific versions */
 @media (min-width: 1025px) and (max-width: 1366px) {
   .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
     grid-column-gap: 44px;
@@ -189,244 +200,244 @@ img {
   .jam .row-16 {
     grid-template-columns: repeat(16, 1fr);
     grid-column: 2 / -2; }
-    .jam .row-16.cols-2 > div {
+    .jam .row-16.cols-2 > div, .jam .row-16 .cols-2 > div {
       grid-column: span 8; }
-    .jam .row-16.cols-3 > div {
+    .jam .row-16.cols-3 > div, .jam .row-16 .cols-3 > div {
       grid-column: span 5; }
   .jam .row-14 {
     grid-template-columns: repeat(16, 1fr);
     grid-column: 2 / -2; }
-    .jam .row-14.cols-2 > div {
+    .jam .row-14.cols-2 > div, .jam .row-14 .cols-2 > div {
       grid-column: span 8; }
     .jam .row-14.cols-2 > div.col-3 {
-      grid-column: span 4;
       display: grid;
+      grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
     .jam .row-14.cols-2 > div.col-4 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-14.cols-2 > div.col-5 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-14.cols-2 > div.col-6 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-14.cols-2 > div.col-7 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-14.cols-2 > div.col-8 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
     .jam .row-14.cols-2 > div.col-9 {
-      grid-column: span 10;
       display: grid;
+      grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
     .jam .row-14.cols-2 > div.col-10 {
-      grid-column: span 11;
       display: grid;
+      grid-column: span 11;
       grid-template-columns: repeat(11, 1fr); }
     .jam .row-14.cols-2 > div.col-11 {
-      grid-column: span 12;
       display: grid;
+      grid-column: span 12;
       grid-template-columns: repeat(12, 1fr); }
-    .jam .row-14.cols-3 > div {
+    .jam .row-14.cols-3 > div, .jam .row-14 .cols-3 > div {
       grid-column: span 5; }
     .jam .row-14.cols-3 > div.col-3 {
-      grid-column: span 4;
       display: grid;
+      grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
     .jam .row-14.cols-3 > div.col-4 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-14.cols-3 > div.col-5 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-14.cols-3 > div.col-6 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-14.cols-3 > div.col-7 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-14.cols-3 > div.col-8 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
     .jam .row-14.cols-3 > div.col-9 {
-      grid-column: span 10;
       display: grid;
+      grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
     .jam .row-14.cols-3 > div.col-10 {
-      grid-column: span 11;
       display: grid;
+      grid-column: span 11;
       grid-template-columns: repeat(11, 1fr); }
     .jam .row-14.cols-3 > div.col-11 {
-      grid-column: span 12;
       display: grid;
+      grid-column: span 12;
       grid-template-columns: repeat(12, 1fr); }
   .jam .row-12 {
     grid-template-columns: repeat(14, 1fr);
     grid-column: 3 / -3; }
-    .jam .row-12.cols-2 > div {
+    .jam .row-12.cols-2 > div, .jam .row-12 .cols-2 > div {
       grid-column: span 7; }
     .jam .row-12.cols-2 > div.col-3 {
-      grid-column: span 4;
       display: grid;
+      grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
     .jam .row-12.cols-2 > div.col-4 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-12.cols-2 > div.col-5 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-12.cols-2 > div.col-6 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-12.cols-2 > div.col-7 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-12.cols-2 > div.col-8 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
     .jam .row-12.cols-2 > div.col-9 {
-      grid-column: span 10;
       display: grid;
+      grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
-    .jam .row-12.cols-3 > div {
+    .jam .row-12.cols-3 > div, .jam .row-12 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-12.cols-3 > div.col-3 {
-      grid-column: span 4;
       display: grid;
+      grid-column: span 4;
       grid-template-columns: repeat(4, 1fr); }
     .jam .row-12.cols-3 > div.col-4 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-12.cols-3 > div.col-5 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-12.cols-3 > div.col-6 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-12.cols-3 > div.col-7 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-12.cols-3 > div.col-8 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
     .jam .row-12.cols-3 > div.col-9 {
-      grid-column: span 10;
       display: grid;
+      grid-column: span 10;
       grid-template-columns: repeat(10, 1fr); }
   .jam .row-10 {
     grid-template-columns: repeat(14, 1fr);
     grid-column: 3 / -3; }
-    .jam .row-10.cols-2 > div {
+    .jam .row-10.cols-2 > div, .jam .row-10 .cols-2 > div {
       grid-column: span 7; }
     .jam .row-10.cols-2 > div.col-3 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-10.cols-2 > div.col-4 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-10.cols-2 > div.col-5 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-10.cols-2 > div.col-6 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-10.cols-2 > div.col-7 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
-    .jam .row-10.cols-3 > div {
+    .jam .row-10.cols-3 > div, .jam .row-10 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-10.cols-3 > div.col-3 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-10.cols-3 > div.col-4 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-10.cols-3 > div.col-5 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
     .jam .row-10.cols-3 > div.col-6 {
-      grid-column: span 8;
       display: grid;
+      grid-column: span 8;
       grid-template-columns: repeat(8, 1fr); }
     .jam .row-10.cols-3 > div.col-7 {
-      grid-column: span 9;
       display: grid;
+      grid-column: span 9;
       grid-template-columns: repeat(9, 1fr); }
   .jam .row-8 {
     grid-template-columns: repeat(12, 1fr);
     grid-column: 4 / -4; }
-    .jam .row-8.cols-2 > div {
+    .jam .row-8.cols-2 > div, .jam .row-8 .cols-2 > div {
       grid-column: span 6; }
     .jam .row-8.cols-2 > div.col-3 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-8.cols-2 > div.col-4 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-8.cols-2 > div.col-5 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
-    .jam .row-8.cols-3 > div {
+    .jam .row-8.cols-3 > div, .jam .row-8 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-8.cols-3 > div.col-3 {
-      grid-column: span 5;
       display: grid;
+      grid-column: span 5;
       grid-template-columns: repeat(5, 1fr); }
     .jam .row-8.cols-3 > div.col-4 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
     .jam .row-8.cols-3 > div.col-5 {
-      grid-column: span 7;
       display: grid;
+      grid-column: span 7;
       grid-template-columns: repeat(7, 1fr); }
   .jam .row-6 {
     grid-template-columns: repeat(12, 1fr);
     grid-column: 4 / -4; }
-    .jam .row-6.cols-2 > div {
+    .jam .row-6.cols-2 > div, .jam .row-6 .cols-2 > div {
       grid-column: span 6; }
     .jam .row-6.cols-2 > div.col-3 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); }
-    .jam .row-6.cols-3 > div {
+    .jam .row-6.cols-3 > div, .jam .row-6 .cols-3 > div {
       grid-column: span 4; }
     .jam .row-6.cols-3 > div.col-3 {
-      grid-column: span 6;
       display: grid;
+      grid-column: span 6;
       grid-template-columns: repeat(6, 1fr); } }
 
 @media (max-width: 767px) {
@@ -566,7 +577,7 @@ ul {
   padding-left: 1.2em; }
 
 li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
   padding-left: 0.3em;
   text-align: left !important; }
 
@@ -663,3 +674,8 @@ blockquote {
       margin: 0 calc((6.25% + 0px) * -1) 28px calc((6.25% + 0px) * -1); }
     .image.left, .image.right {
       width: 100%; } }
+
+@media (min-width: 768px) {
+  .jam .pad-l-1 {
+    row-gap: 0;
+    max-height: 0; } }

@@ -116,8 +116,9 @@
 
 @include media(tablet-large) {
     
-    .jam .pad-l-1 * {
-        // grid-column-start: 2;
+    .jam .pad-l-1 {
+        row-gap: 0;
+        max-height: 0;
     }
 
 }
