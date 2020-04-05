@@ -50,39 +50,39 @@ div > *:last-child {
 
         }
 
-        @if $media != phone-plus and $media != all {
+        // @if $media != phone-plus and $media != all {
 
-            $sides: l, r;
+        //     $sides: l, r;
         
-            @each $side in $sides {
+        //     @each $side in $sides {
         
-                $sizes: col, unit;// A unit being the col plus the gap
+        //         $sizes: col, unit;// A unit being the col plus the gap
         
-                @each $size in $sizes {
+        //         @each $size in $sizes {
         
-                    div.col-#{$col-w}.pad-#{$side}-#{$size} {
+        //             div.col-#{$col-w}.pad-#{$side}-#{$size} {
         
-                        $unit: 0;
+        //                 $unit: 0;
         
-                        @if $size == col {
-                            $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
-                        } @else if $size == unit {
-                            $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
-                        }
+        //                 @if $size == col {
+        //                     $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
+        //                 } @else if $size == unit {
+        //                     $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
+        //                 }
                             
-                        @if $side == l {
-                            padding-left: $unit;
-                        } @else {
-                            padding-right: $unit;
-                        }
+        //                 @if $side == l {
+        //                     padding-left: $unit;
+        //                 } @else {
+        //                     padding-right: $unit;
+        //                 }
         
-                    }
+        //             }
         
-                }
+        //         }
         
-            }
+        //     }
 
-        }
+        // }
 
     }
 
@@ -150,7 +150,7 @@ div > *:last-child {
 
                     @for $cols from 2 through $cols-max {
 
-                        &.cols-#{$cols} > div, & .cols-#{$cols} > div {
+                        &.cols-#{$cols} > div {
                             grid-column: span floor($row-actual / $cols);
                         }
 
@@ -241,59 +241,35 @@ div > *:last-child {
 
 }
 
-//  Output uniform columns for flip and fallback rules
-
-@mixin flips($media) {
-
-    @for $cols from 2 through $cols-max {
-
-        @if $media != phone-plus {
-
-            // Set the flip on non-phones
-        
-            .jam .cols-#{$cols} {
-                    
-                @for $col from 1 through $cols {
-                    
-                    > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                        order: $col;
-                    }
-                    
-                }
-                
-            }
-
-        } @else {
-
-            // Unset the flip on phones
-
-            .jam .cols-#{$cols}, .jam .cols-#{$cols}.flip {
-
-                > div {
-                    grid-column: 1 / -1;
-                }
-                    
-                @for $col from 1 through $cols {
-                    
-                    > div:nth-of-type(#{$cols}n+#{$col}) {
-                        order: $col;
-                    }
-                    
-                }
-
-            }
-
-        }
-
-    }
-    
-}
-
 //  M E D I A
 
 /* Non grid element default positioning */
-.jam *:not([class*=row-]) {
+.jam *:not(div) {
     grid-column: 1 / -1;
+}
+
+/* Equal colun widths */
+@include media(tablet-large) {
+
+    @for $cols from 2 through $cols-max {
+
+        .jam .cols-#{$cols} {
+
+            display: grid;
+            grid-template-columns: repeat(#{$cols}, 1fr);
+                
+            @for $col from 1 through $cols {
+                
+                > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                    order: $col;
+                }
+                
+            }
+            
+        }
+
+    }
+
 }
 
 /* Row defaults */
@@ -302,13 +278,10 @@ div > *:last-child {
 /* Gap defaults */
 @include gaps(large);
         
-/* Explicit column widths */
+/* Variable column widths */
 .jam div[class*=row-] {
     @include cols(all, $row-max - $col-min, 0);
 }
-
-/* Column flips */
-@include flips(large);
 
 /* Column pads */
 // @include pads(tablet-large);
@@ -343,9 +316,6 @@ div > *:last-child {
             /* Maximise phone row widths and transfer inset to columns */
             // Phone image bleeds will break if removed
             @include rows($media);
-            
-            /* Media specific column flipping */
-            @include flips($media);
 
             /* Phone image bleeds */
             .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {

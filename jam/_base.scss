@@ -17,6 +17,7 @@ $row-collapse-size:  2;
 
 //  Media queries including key combined ranges
 $all-media: large, standard, tablet, plus, phone, phone-tablet, phone-plus;
+$single-media: large, standard, tablet, plus, phone;
 
 $ygap-ph:   28px;
 $ygap-pl:   32px;
@@ -171,4 +172,18 @@ $grey-80:   #484848;// 80%
     
     @return $ygap;
     
+}
+
+@function pad($media, $col-w, $amount) {
+
+    $pad: 0;
+
+    @if $amount == col {
+        $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
+    } @else if $amount == unit {
+        $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
+    }
+    
+    @return $pad;
+
 }

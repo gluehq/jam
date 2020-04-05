@@ -11,6 +11,30 @@
     @return $unit;
 }
 
+.jam .body-col {
+
+    display: block !important;
+    
+    @each $media in $single-media {
+        
+        @if $media == large or $media == standard or $media == tablet {
+            
+            @include media($media) {
+                padding: 0 pad($media, 12, unit);
+            }
+            
+        } @else {
+                
+            @include media($media) {
+                padding: 0;
+            }
+            
+        }
+        
+    }
+    
+}
+
 @mixin image($media) {
     
     &.left, &.right {
@@ -87,4 +111,18 @@
         
     }
     
+}
+
+.side-col {
+
+    $media: tablet, standard, large;
+
+    @each $this-media in $media {
+
+        @include media($this-media) {
+            padding-left: pad($this-media, 4, col);
+        }
+
+    }
+
 }
