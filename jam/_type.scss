@@ -5,13 +5,7 @@ html {
     
    font-size: 62.5%;// 16 / 10
         
-    &.splash-mode {
-        @include media(standard) {
-            font-size: 68.75%;// 16 / 11
-        }
-    }
-        
-    @include media(phone) {
+    @include media(phone-tablet) {
         font-size: 56.25%;// 16 / 9
     }
     

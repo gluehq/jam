@@ -42,7 +42,7 @@ div > *:last-child {
 
             div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
 
-                // display: grid;// Do not reenable, adss gaps and distributes children down an implicit grid column
+                // display: grid;// Do not reenable, adds gaps and distributes children down an implicit grid column
                 grid-column: span #{$col-w + $col-mod};
                 grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
 
@@ -244,18 +244,28 @@ div > *:last-child {
 //  M E D I A
 
 /* Non grid element default positioning */
-.jam *:not(div) {
+.jam * {// Only problem is this breaks equal cols
+// .jam *:not(div) {// Needs negating too much
     grid-column: 1 / -1;
 }
 
-/* Equal colun widths */
+/* Equal column widths */
 @include media(tablet-large) {
+
+    .jam [class*=cols-] {
+        
+        display: grid;
+
+        > div {
+            grid-column: span 1;
+        }
+
+    }
 
     @for $cols from 2 through $cols-max {
 
         .jam .cols-#{$cols} {
 
-            display: grid;
             grid-template-columns: repeat(#{$cols}, 1fr);
                 
             @for $col from 1 through $cols {
