@@ -29,7 +29,7 @@ img {
 //  Remove bottom margins from last paragraphs etc
 
 div > *:last-child {
-    // margin-bottom: 0;// Too vague, some divs will be required to group elements
+    margin-bottom: 0;// Contentious
 }
 
 //  R O W S  &  C O L S
@@ -49,40 +49,6 @@ div > *:last-child {
             }
 
         }
-
-        // @if $media != phone-plus and $media != all {
-
-        //     $sides: l, r;
-        
-        //     @each $side in $sides {
-        
-        //         $sizes: col, unit;// A unit being the col plus the gap
-        
-        //         @each $size in $sizes {
-        
-        //             div.col-#{$col-w}.pad-#{$side}-#{$size} {
-        
-        //                 $unit: 0;
-        
-        //                 @if $size == col {
-        //                     $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
-        //                 } @else if $size == unit {
-        //                     $unit: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
-        //                 }
-                            
-        //                 @if $side == l {
-        //                     padding-left: $unit;
-        //                 } @else {
-        //                     padding-right: $unit;
-        //                 }
-        
-        //             }
-        
-        //         }
-        
-        //     }
-
-        // }
 
     }
 
@@ -237,6 +203,10 @@ div > *:last-child {
             grid-row-gap: ygap($media);
         }
 
+        .jam [class*=cols-] [class*=cols-] {
+            margin: ygap($media) 0;
+        }
+
     }
 
 }
@@ -244,8 +214,7 @@ div > *:last-child {
 //  M E D I A
 
 /* Non grid element default positioning */
-.jam * {// Only problem is this breaks equal cols
-// .jam *:not(div) {// Needs negating too much
+.jam * {
     grid-column: 1 / -1;
 }
 
@@ -253,7 +222,7 @@ div > *:last-child {
 @include media(tablet-large) {
 
     .jam [class*=cols-] {
-        
+
         display: grid;
 
         > div {
@@ -268,13 +237,13 @@ div > *:last-child {
 
             grid-template-columns: repeat(#{$cols}, 1fr);
                 
-            @for $col from 1 through $cols {
+            // @for $col from 1 through $cols {
                 
-                > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                    order: $col;
-                }
+            //     > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+            //         order: $col;// Flex value, causes crazy cell ordering issues
+            //     }
                 
-            }
+            // }
             
         }
 

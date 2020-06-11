@@ -28,13 +28,13 @@ body {
 
 @mixin h1 {
     
-    margin: 0 0 1.4rem 0;
+    margin: 0 0 2rem 0;
     font-size: 4.4rem;
     font-weight: 300;
     line-height: 5.2rem;
         
     @include media(lower-phone) {
-        margin: 0 0 1.4rem 0;
+        margin: 0 0 2rem 0;
         font-size: 3.8rem;
         line-height: 4.4rem;
     }
@@ -43,7 +43,7 @@ body {
 
 @mixin h2 {
     
-    margin: 0 0 1.2rem 0;
+    margin: 0 0 2rem 0;
     font-size: 3.4rem;
     font-weight: 300;
     line-height: 4.4rem;
@@ -56,41 +56,41 @@ body {
 }
 
 @mixin h3 {
-    margin: 0 0 1.2rem 0;
+    margin: 0 0 2rem 0;
     font-size: 3.0rem;
     font-weight: 300;
     line-height: 4.0rem;
 }
 
 @mixin h4 {
-    margin: 0 0 1.2rem 0;
+    margin: 0 0 2rem 0;
     font-size: 2.6rem;
     font-weight: 300;
     line-height: 3.6rem;
 }
 
 @mixin p-large {
-    margin: 0 0 1.6rem 0;
+    margin: 0 0 2rem 0;
     font-size: 1.8rem;
     line-height: 3.0rem;
 }
 
 @mixin p {
-    margin: 0 0 1.6rem 0;
+    margin: 0 0 2rem 0;
     padding: 0;
     font-size: 1.7rem;
     line-height: 2.8rem;
 }
 
 @mixin p-small {
-    margin: 0 0 1.6rem 0;
+    margin: 0 0 1.8rem 0;
     font-size: 1.5rem;
     line-height: 2.4rem;
     letter-spacing: 0.01em;
 }
 
 @mixin p-tiny {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.6rem 0;
     font-size: 1.3rem;
     line-height: 2.0rem;
     letter-spacing: 0.01em;
@@ -104,7 +104,7 @@ h1 {
 }
 
 p + h1 {
-    margin-top: 2.0rem;
+    margin-top: 2.8rem;
 }
 
 h2 {
@@ -112,7 +112,7 @@ h2 {
 }
 
 p + h2 {
-    margin-top: 2.0rem;
+    margin-top: 2.4rem;
 }
 
 h3 {
@@ -120,11 +120,15 @@ h3 {
 }
 
 p + h3 {
-    margin-top: 1.8rem;
+    margin-top: 2.4rem;
 }
 
 h4 {
    @include h4;
+}
+
+p + h4 {
+    margin-top: 2.4rem;
 }
 
 p.large, blockquote {
@@ -152,8 +156,8 @@ h5, h6 {
 }
 
 ul {
-    margin: 0 0 1.8rem 0;
-    padding-left: 1.2em;
+    margin: 0 0 2.4rem 0;
+    padding-left: 1.5em;
 }
 
 li {
