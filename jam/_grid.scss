@@ -9,7 +9,6 @@
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
-    overflow: hidden;// Added so perspective effects don't cause scrollbars
 }
 
 .jam [class*=row-], .jam [class*=cols-] {
@@ -293,7 +292,7 @@ div > *:last-child {
                  grid-column: 2 / -2;
             }
 
-            // Fix issue the above causes with cells in Glue
+            // Fix issue the above causes with cells on Glue website
             .jam [class*=cols-] > div {
                 grid-column: 1 / -1;
             }
