@@ -139,12 +139,12 @@ p, li {
    @include p;
 }
 
-p.small, row.small {
+p.small, .small p, .small li, p.disclaimer {
     @include p-small;
     margin-bottom: 1.4rem;
 }
 
-p.tiny, row.tiny {
+p.tiny, .tiny p, .tiny li {
     @include p-tiny;
     margin-bottom: 1.2rem;
 }
@@ -178,10 +178,11 @@ blockquote {
     padding-left: 0;
 }
 
-.small-text {
-    
-    p, li {
-        @include p-small;
-    }
-    
+.disclaimer {
+    @include p-tiny;
+    color: $grey-50;
+}
+
+ul + .disclaimer, p + .disclaimer {
+   margin-top: -1.4rem;
 }

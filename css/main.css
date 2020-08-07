@@ -483,6 +483,8 @@ div > *:last-child {
   /* Non grid element phone positioning */
   .jam *:not([class*=row-], [class*=col-]) {
     grid-column: 2 / -2; }
+  .jam [class*=cols-] > div {
+    grid-column: 1 / -1; }
   /* Maximise phone row widths and transfer inset to columns */
   .jam .row-16, .jam .row-16[class*=cols-], .jam .row-14, .jam .row-14[class*=cols-] {
     grid-column: 1 / -1;
@@ -571,14 +573,14 @@ p, li {
   font-size: 1.7rem;
   line-height: 2.8rem; }
 
-p.small, row.small {
+p.small, .small p, .small li, p.disclaimer {
   margin: 0 0 1.8rem 0;
   font-size: 1.5rem;
   line-height: 2.4rem;
   letter-spacing: 0.01em;
   margin-bottom: 1.4rem; }
 
-p.tiny, row.tiny {
+p.tiny, .tiny p, .tiny li {
   margin: 0 0 1.6rem 0;
   font-size: 1.3rem;
   line-height: 2.0rem;
@@ -611,11 +613,15 @@ ol li {
 blockquote {
   padding-left: 0; }
 
-.small-text p, .small-text li {
-  margin: 0 0 1.8rem 0;
-  font-size: 1.5rem;
-  line-height: 2.4rem;
-  letter-spacing: 0.01em; }
+.disclaimer {
+  margin: 0 0 1.6rem 0;
+  font-size: 1.3rem;
+  line-height: 2.0rem;
+  letter-spacing: 0.01em;
+  color: #959595; }
+
+ul + .disclaimer, p + .disclaimer {
+  margin-top: -1.4rem; }
 
 .jam .body-col {
   display: block !important; }

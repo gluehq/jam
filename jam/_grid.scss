@@ -9,6 +9,7 @@
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
+    overflow: hidden;// Added so perspective effects don't cause scrollbars
 }
 
 .jam [class*=row-], .jam [class*=cols-] {
@@ -29,7 +30,7 @@ img {
 //  Remove bottom margins from last paragraphs etc
 
 div > *:last-child {
-    margin-bottom: 0;// Contentious
+    margin-bottom: 0;// Contentious, but cells need this
 }
 
 //  R O W S  &  C O L S
@@ -289,7 +290,12 @@ div > *:last-child {
         
             /* Non grid element phone positioning */
             .jam *:not([class*=row-],[class*=col-]) {
-                grid-column: 2 / -2;
+                 grid-column: 2 / -2;
+            }
+
+            // Fix issue the above causes with cells in Glue
+            .jam [class*=cols-] > div {
+                grid-column: 1 / -1;
             }
 
             /* Maximise phone row widths and transfer inset to columns */

@@ -95,4 +95,10 @@ $(document).ready(function() {
 
     });
 
+    // Remove white space from between <li>s
+    $('ul, ol').each(function() {
+        var html = $(this).html();
+        $(this).html(html.replace(/(<\/li>)\s*/g, '$1'));
+    });
+
 });
