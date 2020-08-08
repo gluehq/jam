@@ -30,10 +30,28 @@ div > *:last-child {
       grid-column: span 1; }
   .jam .cols-2 {
     grid-template-columns: repeat(2, 1fr); }
+    .jam .cols-2.flip > div:nth-of-type(2n+2) {
+      order: 1; }
+    .jam .cols-2.flip > div:nth-of-type(2n+1) {
+      order: 2; }
   .jam .cols-3 {
     grid-template-columns: repeat(3, 1fr); }
+    .jam .cols-3.flip > div:nth-of-type(3n+3) {
+      order: 1; }
+    .jam .cols-3.flip > div:nth-of-type(3n+2) {
+      order: 2; }
+    .jam .cols-3.flip > div:nth-of-type(3n+1) {
+      order: 3; }
   .jam .cols-4 {
-    grid-template-columns: repeat(4, 1fr); } }
+    grid-template-columns: repeat(4, 1fr); }
+    .jam .cols-4.flip > div:nth-of-type(4n+4) {
+      order: 1; }
+    .jam .cols-4.flip > div:nth-of-type(4n+3) {
+      order: 2; }
+    .jam .cols-4.flip > div:nth-of-type(4n+2) {
+      order: 3; }
+    .jam .cols-4.flip > div:nth-of-type(4n+1) {
+      order: 4; } }
 
 /* Row defaults */
 .jam .row-18 {
@@ -490,7 +508,9 @@ div > *:last-child {
   /* Phone image bleeds */
   .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
     grid-template-columns: repeat(18, 1fr);
-    grid-column: 1 / -1; } }
+    grid-column: 1 / -1;
+    padding-left: 0;
+    padding-right: 0; } }
 
 html {
   font-size: 62.5%; }
@@ -625,10 +645,22 @@ ul + .disclaimer, p + .disclaimer {
         padding: 0 14px; } }
   @media (min-width: 411px) and (max-width: 767px) {
     .jam .body-col {
-      padding: 0; } }
+      padding: 0; }
+      .jam .body-col > *:not([class*=cols]) {
+        padding: 0 10px; }
+      .jam .body-col .image {
+        box-sizing: border-box; }
+      .jam .body-col .image.jutting {
+        padding: 0; } }
   @media (max-width: 410px) {
     .jam .body-col {
-      padding: 0; } }
+      padding: 0; }
+      .jam .body-col > *:not([class*=cols]) {
+        padding: 0 8px; }
+      .jam .body-col .image {
+        box-sizing: border-box; }
+      .jam .body-col .image.jutting {
+        padding: 0; } }
 
 .image {
   margin: 4px 0 20px 0; }

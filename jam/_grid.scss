@@ -119,6 +119,10 @@ div > *:last-child {
                             grid-column: span floor($row-actual / $cols);
                         }
 
+                        &.cols-#{$cols}.flip > div {
+
+                        }
+
                         // Increase width of columns if row width has been increased
                         
                         @if $row-this != $row-actual {
@@ -227,6 +231,14 @@ div > *:last-child {
         .jam .cols-#{$cols} {
 
             grid-template-columns: repeat(#{$cols}, 1fr);
+
+            @for $col from 1 through $cols {
+
+                &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
+                    order: $col;// Flex value, can cause cell ordering issues
+                }
+
+            }
             
         }
 
@@ -286,6 +298,8 @@ div > *:last-child {
             .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
                 grid-template-columns: repeat(#{$row-max}, 1fr);
                 grid-column: 1 / -1;
+                padding-left: 0;
+                padding-right: 0;
             }
 
         }

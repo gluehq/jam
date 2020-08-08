@@ -7,7 +7,6 @@
 // Return width of one column plus one gutter
 
 @function unit($cols, $media, $mod) {
-    // $unit: calc((#{percentage(1/$cols)} + #{(xgap($media) / $cols - 1)}) * #{$mod});
     $unit: calc(#{percentage(1/$cols) * #{$mod}});
     @return $unit;
 }
@@ -33,7 +32,21 @@
         } @else {
                 
             @include media($media) {
+
                 padding: 0;
+
+                & > *:not([class*=cols])  {
+                    padding: 0 (xgap($media) / 2);
+                }
+
+                .image {
+                    box-sizing: border-box;
+                }
+
+                .image.jutting {
+                    padding: 0;
+                }
+
             }
             
         }
