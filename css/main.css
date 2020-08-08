@@ -482,7 +482,7 @@ div > *:last-child {
 
 @media (max-width: 767px) {
   /* Non grid element phone positioning */
-  .jam *:not([class*=row-], [class*=col-]) {
+  .jam * {
     grid-column: 2 / -2; }
   .jam [class*=cols-] > div {
     grid-column: 1 / -1; }

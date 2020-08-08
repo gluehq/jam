@@ -257,7 +257,6 @@ div > *:last-child {
     @include cols(all, $row-max - $col-min, 0);
 }
 
-
 /* Media specific versions */
 @each $media in $all-media {
     
@@ -281,8 +280,8 @@ div > *:last-child {
         @if $media == phone-plus {
         
             /* Non grid element phone positioning */
-            .jam *:not([class*=row-],[class*=col-]) {
-                 grid-column: 2 / -2;
+            .jam * {
+                grid-column: 2 / -2;
             }
 
             // Fix issue the above causes with cells on Glue website
