@@ -598,9 +598,8 @@ h5, h6 {
   text-transform: uppercase;
   letter-spacing: 0.02em; }
 
-ul {
-  margin: 0 0 2.4rem 0;
-  padding-left: 1.5em; }
+ul, ol {
+  margin: 0 0 2.4rem 0; }
 
 li {
   margin-bottom: 0.2rem;
@@ -608,10 +607,12 @@ li {
   text-align: left !important; }
 
 ul li {
-  list-style-type: disc; }
+  list-style-type: disc;
+  margin-left: 1.7rem; }
 
 ol li {
-  list-style: decimal; }
+  list-style: decimal;
+  margin-left: 1.9rem; }
 
 blockquote {
   padding-left: 0; }
