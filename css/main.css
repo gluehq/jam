@@ -6,8 +6,7 @@
   max-width: 1366px; }
 
 .jam [class*=row-], .jam [class*=cols-] {
-  display: grid;
-  position: relative; }
+  display: grid; }
 
 body {
   margin: 0; }
@@ -20,7 +19,8 @@ div > *:last-child {
 
 /* Non grid element default positioning */
 .jam * {
-  grid-column: 1 / -1; }
+  grid-column: 1 / -1;
+  position: relative; }
 
 /* Equal column widths */
 @media (min-width: 768px) {
@@ -107,12 +107,8 @@ div > *:last-child {
     grid-column: span 1; }
 
 /* Gap defaults */
-.jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-  grid-column-gap: 44px;
-  grid-row-gap: 40px; }
-
-.jam [class*=cols-] [class*=cols-] {
-  margin: 40px 0; }
+.jam [class*=col-x], .jam [class*=cols-] > * {
+  padding: 20px 22px 40px 22px; }
 
 /* Variable column widths */
 .jam div[class*=row-] div.col-3 {
@@ -167,35 +163,22 @@ div > *:last-child {
   grid-column: span 15;
   grid-template-columns: repeat(15, 1fr); }
 
-/* Column pads */
 /* Media specific versions */
 @media (min-width: 1025px) and (max-width: 1366px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-    grid-column-gap: 40px;
-    grid-row-gap: 36px; }
-  .jam [class*=cols-] [class*=cols-] {
-    margin: 36px 0; } }
+  .jam [class*=col-x], .jam [class*=cols-] > * {
+    padding: 18px 20px 36px 20px; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-    grid-column-gap: 28px;
-    grid-row-gap: 32px; }
-  .jam [class*=cols-] [class*=cols-] {
-    margin: 32px 0; } }
+  .jam [class*=col-x], .jam [class*=cols-] > * {
+    padding: 16px 14px 32px 14px; } }
 
 @media (min-width: 411px) and (max-width: 767px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-    grid-column-gap: 20px;
-    grid-row-gap: 28px; }
-  .jam [class*=cols-] [class*=cols-] {
-    margin: 28px 0; } }
+  .jam [class*=col-x], .jam [class*=cols-] > * {
+    padding: 14px 10px 28px 10px; } }
 
 @media (max-width: 410px) {
-  .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-    grid-column-gap: 16px;
-    grid-row-gap: 24px; }
-  .jam [class*=cols-] [class*=cols-] {
-    margin: 24px 0; } }
+  .jam [class*=col-x], .jam [class*=cols-] > * {
+    padding: 12px 8px 24px 8px; } }
 
 @media (max-width: 1024px) {
   /* Collapsing row widths on handhelds */
@@ -627,13 +610,19 @@ ul + .disclaimer, p + .disclaimer {
   display: block !important; }
   @media (min-width: 1367px) {
     .jam .body-col {
-      padding: 0 calc((100% - (44px * 11)) / 12 + 44px); } }
+      padding: 0 calc(8.33333% * 1); }
+      .jam .body-col > *:not([class*=cols]) {
+        padding: 0 22px; } }
   @media (min-width: 1025px) and (max-width: 1366px) {
     .jam .body-col {
-      padding: 0 calc((100% - (40px * 11)) / 12 + 40px); } }
+      padding: 0 calc(8.33333% * 1); }
+      .jam .body-col > *:not([class*=cols]) {
+        padding: 0 20px; } }
   @media (min-width: 768px) and (max-width: 1024px) {
     .jam .body-col {
-      padding: 0 calc((100% - (28px * 11)) / 12 + 28px); } }
+      padding: 0 calc(8.33333% * 1); }
+      .jam .body-col > *:not([class*=cols]) {
+        padding: 0 14px; } }
   @media (min-width: 411px) and (max-width: 767px) {
     .jam .body-col {
       padding: 0; } }
@@ -642,69 +631,77 @@ ul + .disclaimer, p + .disclaimer {
       padding: 0; } }
 
 .image {
-  margin: 4px 0 28px 0; }
+  margin: 4px 0 20px 0; }
   .image.left, .image.right {
-    width: calc(50% - (44px / 2)); }
+    width: calc(50% - 44px); }
   .image.left {
     float: left;
-    margin-right: 44px; }
+    margin-right: 22px; }
   .image.right {
     float: right;
-    margin-left: 44px; }
+    margin-left: 22px; }
   .image.jutting {
-    margin: 0 calc((10% + 3.4px) * -1) 40px calc((10% + 3.4px) * -1); }
+    margin: 0 calc(10% * -1) 40px calc(10% * -1); }
   @media (min-width: 1025px) and (max-width: 1366px) {
-    .image.left, .image.right {
-      width: calc(50% - (40px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 40px; }
-    .image.right {
-      float: right;
-      margin-left: 40px; }
-    .image.jutting {
-      margin: 0 calc((10% + 3px) * -1) 36px calc((10% + 3px) * -1); } }
+    .image {
+      margin: 4px 0 18px 0; }
+      .image.left, .image.right {
+        width: calc(50% - 40px); }
+      .image.left {
+        float: left;
+        margin-right: 20px; }
+      .image.right {
+        float: right;
+        margin-left: 20px; }
+      .image.jutting {
+        margin: 0 calc(10% * -1) 36px calc(10% * -1); } }
   @media (min-width: 768px) and (max-width: 1024px) {
-    .image.left, .image.right {
-      width: calc(50% - (28px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 28px; }
-    .image.right {
-      float: right;
-      margin-left: 28px; }
-    .image.jutting {
-      margin: 0 calc((10% + 1.8px) * -1) 32px calc((10% + 1.8px) * -1); } }
+    .image {
+      margin: 4px 0 16px 0; }
+      .image.left, .image.right {
+        width: calc(50% - 28px); }
+      .image.left {
+        float: left;
+        margin-right: 14px; }
+      .image.right {
+        float: right;
+        margin-left: 14px; }
+      .image.jutting {
+        margin: 0 calc(10% * -1) 32px calc(10% * -1); } }
   @media (min-width: 411px) and (max-width: 767px) {
-    .image.left, .image.right {
-      width: calc(50% - (20px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 20px; }
-    .image.right {
-      float: right;
-      margin-left: 20px; }
-    .image.jutting {
-      margin: 0 calc((6.25% + 0.25px) * -1) 28px calc((6.25% + 0.25px) * -1);
-      content: 'tits'; }
-    .image.left, .image.right {
-      margin-left: 0;
-      width: 100%; } }
+    .image {
+      margin: 4px 0 14px 0; }
+      .image.left, .image.right {
+        width: calc(50% - 20px); }
+      .image.left {
+        float: left;
+        margin-right: 10px; }
+      .image.right {
+        float: right;
+        margin-left: 10px; }
+      .image.jutting {
+        margin: 0 calc(6.25% * -1) 28px calc(6.25% * -1);
+        content: 'tits'; }
+      .image.left, .image.right {
+        margin-left: 0;
+        width: 100%; } }
   @media (max-width: 410px) {
-    .image.left, .image.right {
-      width: calc(50% - (16px / 2)); }
-    .image.left {
-      float: left;
-      margin-right: 16px; }
-    .image.right {
-      float: right;
-      margin-left: 16px; }
-    .image.jutting {
-      margin: 0 calc((6.25% + 0px) * -1) 24px calc((6.25% + 0px) * -1);
-      content: 'tits'; }
-    .image.left, .image.right {
-      margin-left: 0;
-      width: 100%; } }
+    .image {
+      margin: 4px 0 12px 0; }
+      .image.left, .image.right {
+        width: calc(50% - 16px); }
+      .image.left {
+        float: left;
+        margin-right: 8px; }
+      .image.right {
+        float: right;
+        margin-left: 8px; }
+      .image.jutting {
+        margin: 0 calc(6.25% * -1) 24px calc(6.25% * -1);
+        content: 'tits'; }
+      .image.left, .image.right {
+        margin-left: 0;
+        width: 100%; } }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .side-col {

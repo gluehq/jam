@@ -13,7 +13,6 @@
 
 .jam [class*=row-], .jam [class*=cols-] {
     display: grid;
-    position: relative;
 }
 
 body {
@@ -90,7 +89,7 @@ div > *:last-child {
                             grid-template-columns: repeat(#{$row-max}, 1fr);
 
                             > div:nth-child(n), &.flip div:nth-child(n) {
-                                // display: grid;// Do not reenable, adss gaps and distributes children down an implicit grid column
+                                // display: grid;// Do not reenable, adds gaps and distributes children down an implicit grid column
                                 grid-template-columns: repeat(#{$row-actual}, 1fr);
                                 grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
                             }
@@ -196,17 +195,8 @@ div > *:last-child {
 
 @mixin gaps($media) {
     
-    @if $media != phone-plus and $media != phone-plus {
-
-        .jam, .jam [class*=row-], .jam [class*=cols-], .jam [class*=col-] {
-            grid-column-gap: xgap($media);
-            grid-row-gap: ygap($media);
-        }
-
-        .jam [class*=cols-] [class*=cols-] {
-            margin: ygap($media) 0;
-        }
-
+    .jam [class*=col-x], .jam [class*=cols-] > * {
+        padding: (ygap($media) / 2) (xgap($media) / 2) ygap($media) (xgap($media) / 2);
     }
 
 }
@@ -216,6 +206,7 @@ div > *:last-child {
 /* Non grid element default positioning */
 .jam * {
     grid-column: 1 / -1;
+    position: relative;
 }
 
 /* Equal column widths */
@@ -236,14 +227,6 @@ div > *:last-child {
         .jam .cols-#{$cols} {
 
             grid-template-columns: repeat(#{$cols}, 1fr);
-                
-            // @for $col from 1 through $cols {
-                
-            //     > div:nth-of-type(#{$cols}n+#{$col}), &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-            //         order: $col;// Flex value, causes crazy cell ordering issues
-            //     }
-                
-            // }
             
         }
 
@@ -262,8 +245,6 @@ div > *:last-child {
     @include cols(all, $row-max - $col-min, 0);
 }
 
-/* Column pads */
-// @include pads(tablet-large);
 
 /* Media specific versions */
 @each $media in $all-media {

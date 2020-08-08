@@ -27,8 +27,8 @@
     position: absolute;
     top: 0;
     height: 17px;
-    color: #c2c2c2;
-    background-color: white;
+    color: $grey-40;
+    background-color: rgba(255, 240, 240, 0.8);
 }
 
 .dev-label .id {
@@ -37,11 +37,7 @@
 
 .row > .dev-label {
     top: -25px;
-    color: #959595;
-}
-
-.col > div:not(.col) > .dev-label {
-    // top: 25px;
+    color: $grey-60;
 }
 
 .dev-mode .dev-label {
@@ -49,10 +45,6 @@
 }
 
 $color-dev-bkgd: rgba(255, 0, 0, 0.1);
-
-[class*=cols-] > div {
-    //  background-color: $color-dev-bkgd;
-}
 
 #dev-grid {
     
@@ -63,17 +55,24 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     z-index: 99;
     margin: 0 auto;
     width: 100%;
-    // line-height: 0;
         
     [class*=row-] {
 
         grid-template-columns: repeat($row-max, 1fr);
-        // background-color: $color-dev-bkgd;
         
         @for $row from 1 through $row-max {
             
             > div:nth-of-type(#{$row}) {
                 grid-column: #{$row};
+    
+                @each $media in $single-media {
+                        
+                    @include media($media) {
+                        padding: 0 (xgap($media) / 2);
+                    }
+
+                }
+                
             }
             
         }
@@ -84,14 +83,29 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
         overflow: hidden;
         @include font();
         background-color: $color-dev-bkgd;
+        background-clip: content-box;
     }
 
     [class*=row-] > div.dev-label {
-        background-color: white;
+        display: none;
     }
         
     [class*=row-] > div:nth-of-type(n+#{($row-max / 2) + 1}) {
         text-align: right;
     }
     
+}
+
+.jam [class*=row-][class*=cols-] .dev-label {
+
+    grid-column: 1 / -1;
+    
+    @each $media in $single-media {
+            
+        @include media($media) {
+            padding: 8px (xgap($media) / 2) 10px (xgap($media) / 2);
+        }
+
+    }
+
 }

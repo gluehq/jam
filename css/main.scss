@@ -7,7 +7,8 @@
 // Return width of one column plus one gutter
 
 @function unit($cols, $media, $mod) {
-    $unit: calc((#{percentage(1/$cols)} + #{(xgap($media) / $cols - 1)}) * #{$mod});
+    // $unit: calc((#{percentage(1/$cols)} + #{(xgap($media) / $cols - 1)}) * #{$mod});
+    $unit: calc(#{percentage(1/$cols) * #{$mod}});
     @return $unit;
 }
 
@@ -20,7 +21,13 @@
         @if $media == large or $media == standard or $media == tablet {
             
             @include media($media) {
-                padding: 0 pad($media, 12, unit);
+
+                padding: 0 unit(12, $media, 1);
+
+                & > *:not([class*=cols]) {
+                    padding: 0 (xgap($media) / 2);
+                }
+
             }
             
         } @else {
@@ -36,19 +43,21 @@
 }
 
 @mixin image($media) {
+
+    margin: 4px 0 (ygap($media) / 2) 0;
     
-    &.left, &.right {
-        width: calc(50% - (#{xgap($media)} / 2));
+    &.left, &.right { 
+        width: calc(50% - #{xgap($media)});
     }
     
     &.left {
         float: left;
-        margin-right: xgap($media);
+        margin-right: xgap($media) / 2;
     }
     
     &.right {
         float: right;
-        margin-left: xgap($media);
+        margin-left: xgap($media) / 2;
     }
 
     @if $media == large or $media == standard or $media == tablet  {
@@ -76,8 +85,6 @@
 }
 
 .image {
-
-    margin: 4px 0 28px 0;
 
     @include image(large);
     
