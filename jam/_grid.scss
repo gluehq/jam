@@ -198,10 +198,26 @@ div > *:last-child {
 }
 
 @mixin gaps($media) {
-    
-    .jam [class*=col-x], .jam [class*=cols-] > * {
-        padding: (ygap($media) / 2) (xgap($media) / 2) ygap($media) (xgap($media) / 2);
+
+    .jam [class*=cols-] {
+        padding-bottom: ygap($media);
     }
+
+    /* Cells */
+
+    // @if $media == large or $media == standard or $media == tablet {
+    
+    //     .jam [class*=cols-] > *, .jam [class*=row-] > * {
+    //         padding: (ygap($media) / 2) (xgap($media) / 2) ygap($media) (xgap($media) / 2);
+    //     }
+
+    // } @else {
+
+        .jam [class*=cols-] > *, .jam [class*=row-] > * {
+            padding: (ygap($media) / 2) (xgap($media) / 2) (ygap($media) / 2) (xgap($media) / 2);
+        }
+
+    // }
 
 }
 

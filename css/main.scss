@@ -23,7 +23,7 @@
 
                 padding: 0 unit(12, $media, 1);
 
-                & > *:not([class*=cols]) {
+                & > *:not([class*=cols-]) {
                     padding: 0 (xgap($media) / 2);
                 }
 
@@ -57,7 +57,11 @@
 
 @mixin image($media) {
 
-    margin: 4px 0 (ygap($media) / 2) 0;
+    @if $media == large or $media == standard  {
+        margin: 4px 0 (ygap($media) / 2) 0;
+    } @else {
+        margin: 4px 0 ygap($media) 0;
+    }
     
     &.left, &.right { 
         width: calc(50% - #{xgap($media)});
@@ -133,7 +137,9 @@
     
 }
 
-.side-col {
+.jam .side-col {
+
+    padding-top: 0;
 
     $media: tablet, standard, large;
 

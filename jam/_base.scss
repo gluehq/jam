@@ -25,8 +25,8 @@ $ygap-tb:   32px;
 $ygap-st:   36px;
 $ygap-lg:   40px;
 
-$xgap-ph:   16px;
-$xgap-pl:   20px;
+$xgap-ph:   20px;
+$xgap-pl:   24px;
 $xgap-tb:   28px;
 $xgap-st:   40px;
 $xgap-lg:   44px;
@@ -174,16 +174,16 @@ $grey-80:   #484848;// 80%
     
 }
 
-@function pad($media, $col-w, $amount) {
+// @function pad($media, $col-w, $amount) {
 
-    $pad: 0;
+//     $pad: 0;
 
-    @if $amount == col {
-        $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
-    } @else if $amount == unit {
-        $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
-    }
+//     @if $amount == col {
+//         $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w});
+//     } @else if $amount == unit {
+//         $pad: calc((100% - (#{xgap($media)} * #{$col-w - 1})) / #{$col-w} + #{xgap($media)});
+//     }
     
-    @return $pad;
+//     @return $pad;
 
-}
+// }
