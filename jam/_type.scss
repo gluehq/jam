@@ -29,7 +29,7 @@ body {
 @mixin h1 {
     
     margin: 0 0 2rem 0;
-    font-size: 4.4rem;
+    font-size: 4.8rem;
     font-weight: 300;
     line-height: 4.8rem;
         
@@ -50,29 +50,35 @@ body {
 
 @mixin h3 {
     margin: 0 0 2rem 0;
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     font-weight: 300;
     line-height: 3.6rem;
 }
 
 @mixin h4 {
     margin: 0 0 2rem 0;
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     font-weight: 300;
-    line-height: 3.4rem;
+    line-height: 3.2rem;
+}
+
+@mixin p-xlarge {
+    margin: 0 0 2rem 0;
+    font-size: 2.2rem;
+    line-height: 3.0rem;
 }
 
 @mixin p-large {
     margin: 0 0 2rem 0;
-    font-size: 1.8rem;
-    line-height: 3.0rem;
+    font-size: 2.0rem;
+    line-height: 2.8rem;
 }
 
 @mixin p {
     margin: 0 0 2rem 0;
     padding: 0;
     font-size: 1.7rem;
-    line-height: 2.8rem;
+    line-height: 2.6rem;
 }
 
 @mixin p-small {
@@ -155,7 +161,7 @@ ul, ol {
 li {
     margin-bottom: 0.2rem;
     padding-left: 0.3em;
-    text-align: left !important;
+    text-align: left;
 }
 
 ul li {
@@ -166,6 +172,27 @@ ul li {
 ol li {
     list-style: decimal;
     margin-left: 1.9rem;
+}
+
+nav {
+    
+    ul li {
+        @include p-large;
+        display: inline-block;
+        list-style: none;
+        margin-left: 1.7rem;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}
+
+nav ul li:first-of-type {
+    margin-left: 0;
 }
 
 blockquote {
