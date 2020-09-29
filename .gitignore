@@ -3,4 +3,5 @@ readme.html
 # Leave file types for last so ! exceptions don't exempt them
 .DS_Store
 prepros-6.config
+prepros.config
 *.code-workspace
