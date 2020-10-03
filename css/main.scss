@@ -28,7 +28,7 @@
 
         }
 
-        [class*=cols-] div { 
+        [class*=jam-cols-] div { 
             padding: 0 0 ygap($media, 1) 0;
         }
 
@@ -115,7 +115,7 @@
 
 }
 
-.jam {
+// .jam {
 
     @include body-col(large);
     @include jutting(large);
@@ -149,4 +149,4 @@
         
     }
     
-}
+// }

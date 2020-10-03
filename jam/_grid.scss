@@ -24,7 +24,7 @@ body {
     margin: 0;
 }
 
-.jam {
+.jam-jar {
 
     position: relative;
     margin: 0 auto;
@@ -42,39 +42,39 @@ body {
         max-width: none;
     }
 
-    [class*=span-] {
+}
 
-        position: relative;
-        margin: 0 auto;
+[class*=jam-span-] {
 
-        &.align-l {
-            margin: 0;
-        }
+    position: relative;
+    margin: 0 auto;
 
-        &.align-r {
-            margin: 0 0 0 auto;
-        }
-
+    &.align-l {
+        margin: 0;
     }
 
-    [class*=cols-] {
-
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-
-        // Non grid element default positioning
-        * {
-            position: relative;
-            // Do not remove margin as multiple text element blocks will require it
-            width: 100%;
-        }
-
+    &.align-r {
+        margin: 0 0 0 auto;
     }
 
     //  Remove bottom margins from last paragraphs etc
     *:last-child {
         margin-bottom: 0;// Causes issue, but elements like uniform columns require this
+    }
+
+}
+
+[class*=jam-cols-] {
+
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    // Non grid element default positioning
+    * {
+        position: relative;
+        // Do not remove margin as multiple text element blocks will require it
+        width: 100%;
     }
 
 }
@@ -97,21 +97,21 @@ $cols-max: nth($cols, -1);
 
                 // Build up the string of selectors to collapse before continuing
 
-                $span-selects: $span-selects + '.jam .span-#{$span-this}, ';
+                $span-selects: $span-selects + '.jam-span-#{$span-this}, ';
 
             } @else {
 
                 // Maximise phone span widths and transfer inset to columns
 
-                #{$span-selects}.jam .span-#{$span-this} {
+                #{$span-selects}.jam-span-#{$span-this} {
 
                     width: percentage($span-actual/$span-max);
 
-                    &[class*=cols] > div, [class*=cols] > div {
+                    &[class*=jam-cols] > div, [class*=jam-cols] > div {
                         width: 100%;
                     }
 
-                    &[class*=cols] > .bleed-phone {
+                    &[class*=jam-cols] > .jam-bleed {
 
                         margin: 0 percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
                         width: percentage(($span-actual + ($span-max - $span-actual))/$span-actual);
@@ -124,13 +124,13 @@ $cols-max: nth($cols, -1);
 
         } @else {
 
-            .jam .span-#{$span-this} {
+            .jam-span-#{$span-this} {
 
                 width: percentage($span-this/$span-max);
 
                 @for $sub-width from $span-this through $span-min {
 
-                    .span-#{$sub-width} {
+                    .jam-span-#{$sub-width} {
                         width: percentage($sub-width/$span-this);
                     }
 
@@ -198,7 +198,7 @@ $cols-max: nth($cols, -1);
 
 @each $col in $cols {
 
-    .jam .cols-#{$col} > div {
+    .jam-cols-#{$col} > div {
         width: percentage(1/$col);
     }
 
@@ -209,19 +209,19 @@ $cols-max: nth($cols, -1);
 @mixin gaps($media) {
 
     // Default gutter padding WARNING: Change at peril
-    .jam [class*=span-] {
+    [class*=jam-span-] {
 
         *:not(div) {
             padding: 0 xgap($media, 0.5);
         }
 
-        div:not([class*=cols-]) {
+        div:not([class*=jam-cols-]) {
             // padding: ygap($media, 0.5) 0 ygap($media, 1) 0;
         }
 
         @if $media == large {
 
-            > div[class*=span-] {
+            > div[class*=jam-span-] {
                 // padding-bottom: ygap($media, 0.5);
             }
 
@@ -234,7 +234,7 @@ $cols-max: nth($cols, -1);
 @include gaps(large);
 
 // Likely to be content divs WARNING: Change at peril
-.jam [class*=cols-] [class*=span-] {
+[class*=jam-cols-] [class*=jam-span-] {
 
     // Remove the top padding to align with content in an adjacent column 
     > div:first-child {
@@ -245,7 +245,7 @@ $cols-max: nth($cols, -1);
 
 /* Flip */
 
-.jam .flip-wide {
+.jam-flip {
     flex-direction: row-reverse;
 }
 
@@ -267,7 +267,7 @@ $cols-max: nth($cols, -1);
         @if $media == phone-plus {
 
             // Removing gaps around full-bleed images on phone
-            .jam [class*=cols] > .bleed-phone {
+            [class*=jam-cols] > .jam-bleed {
 
                 *, div {
                     padding: 0;
