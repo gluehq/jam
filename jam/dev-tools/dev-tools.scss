@@ -9,42 +9,61 @@
     line-height: 18px;
 }
 
-#dev-box, .dev-label {
-    position: fixed;
+#dev-box, .dev-label div {
     display: block;
+    position: fixed;
     z-index: 100;
     bottom: 20px;
     left: 0;
     margin: 0;
-    padding: 4px 8px 3px 8px;
+    padding: 4px 8px;
     @include font();
     color: white;
     background-color: black;
 }
 
-.dev-label {
-    display: none;
+.labels {
     position: absolute;
     top: 0;
-    height: 17px;
-    color: $grey-40;
-    background-color: rgba(255, 240, 240, 0.8);
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.05);
 }
 
-.dev-label .id {
-    color: black;
-}
+.dev-label {
 
-.row > .dev-label {
-    top: -25px;
-    color: $grey-60;
-}
-
-.dev-mode .dev-label {
     display: block;
+    position: absolute;
+    margin-bottom: 1px;
+
+    div {
+        display: inline-block;
+        position: relative;
+        top: 0;
+        margin-right: 1px;
+        box-sizing: content-box;
+        height: 17px;
+        width: auto !important;
+        color: $grey-60;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .id {
+        color: black;
+    }
+
 }
 
-$color-dev-bkgd: rgba(255, 0, 0, 0.1);
+.dev-label-group {
+
+    position: absolute;
+
+    .dev-label {
+        position: relative;
+    }
+
+}
 
 #dev-grid {
     
@@ -55,55 +74,42 @@ $color-dev-bkgd: rgba(255, 0, 0, 0.1);
     z-index: 99;
     margin: 0 auto;
     width: 100%;
+    pointer-events: none;
         
-    [class*=row-] {
+    [class*=span-] {
 
-        grid-template-columns: repeat($row-max, 1fr);
+        display: flex;
+        padding: 0;
+
+        > div {
+            @include font();
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 100%;
+            width: percentage(1/$span-max);
+            overflow: hidden;
+            background-color: rgba(255, 0, 0, 0.1);
+            background-clip: content-box;
+        }
         
-        @for $row from 1 through $row-max {
-            
-            > div:nth-of-type(#{$row}) {
-                grid-column: #{$row};
-    
-                @each $media in $single-media {
-                        
-                    @include media($media) {
-                        padding: 0 (xgap($media) / 2);
-                    }
-
-                }
-                
-            }
-            
+        > div:nth-of-type(n+#{($span-max / 2) + 1}) {
+            text-align: right;
         }
         
     }
-        
-    [class*=row-] > div {
-        overflow: hidden;
-        @include font();
-        background-color: $color-dev-bkgd;
-        background-clip: content-box;
-    }
-
-    [class*=row-] > div.dev-label {
-        display: none;
-    }
-        
-    [class*=row-] > div:nth-of-type(n+#{($row-max / 2) + 1}) {
-        text-align: right;
-    }
     
 }
-
-.jam [class*=row-][class*=cols-] .dev-label {
-
-    grid-column: 1 / -1;
     
-    @each $media in $single-media {
+@each $media in $single-media {
             
-        @include media($media) {
-            padding: 8px (xgap($media) / 2) 10px (xgap($media) / 2);
+    @include media($media) {
+
+        #dev-grid [class*=span-] {
+
+            > div {
+                padding: 0 xgap($media, 0.5);
+            }
+
         }
 
     }

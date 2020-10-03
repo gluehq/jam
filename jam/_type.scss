@@ -27,23 +27,15 @@ body {
 //  M I X I N S
 
 @mixin h1 {
-    
     margin: 0 0 2rem 0;
-    font-size: 4.8rem;
+    font-size: 3.6rem;
     font-weight: 300;
-    line-height: 4.8rem;
-        
-    @include media(phone) {
-        margin: 0 0 2rem 0;
-        font-size: 4.0rem;
-        line-height: 4.4rem;
-    }
-    
+    line-height: 4.4rem;
 }
 
 @mixin h2 {
     margin: 0 0 2rem 0;
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     font-weight: 300;
     line-height: 4.0rem;
 }
@@ -64,13 +56,13 @@ body {
 
 @mixin p-xlarge {
     margin: 0 0 2rem 0;
-    font-size: 2.2rem;
+    font-size: 2.0rem;
     line-height: 3.0rem;
 }
 
 @mixin p-large {
     margin: 0 0 2rem 0;
-    font-size: 2.0rem;
+    font-size: 1.8rem;
     line-height: 2.8rem;
 }
 
@@ -91,7 +83,7 @@ body {
 @mixin p-tiny {
     margin: 0 0 1.6rem 0;
     font-size: 1.3rem;
-    line-height: 2.0rem;
+    line-height: 2.1rem;
     letter-spacing: 0.01em;
 }
 
@@ -138,7 +130,7 @@ p, li {
    @include p;
 }
 
-p.small, .small p, .small li, p.disclaimer {
+p.small, .small p, .small li, {
     @include p-small;
     margin-bottom: 1.4rem;
 }
@@ -155,12 +147,15 @@ h5, h6 {
 }
 
 ul, ol {
+    list-style-type: none;
+    list-style: none;
     margin: 0 0 2.4rem 0;
 }
 
 li {
-    margin-bottom: 0.2rem;
-    padding-left: 0.3em;
+    position: relative;
+    margin-bottom: 0.6rem;
+    padding-left: 0;
     text-align: left;
 }
 
@@ -174,32 +169,19 @@ ol li {
     margin-left: 1.9rem;
 }
 
-nav {
-    
-    ul li {
-        @include p-large;
-        display: inline-block;
-        list-style: none;
-        margin-left: 1.7rem;
-        margin-bottom: 0;
-        padding: 0;
+p, h1, h2, h3, h4, h5, ul, ol, blockquote {
+    + img, + div {
+        margin-top: 2.8rem;
     }
+}
 
-    a {
-        text-decoration: none;
+img, div {
+    + p, + h1, + h2, + h3, + h4, + h5, + ul, + ol, + blockquote {
+        margin-top: 3.2rem;
     }
-
 }
 
-nav ul li:first-of-type {
-    margin-left: 0;
-}
-
-blockquote {
-    padding-left: 0;
-}
-
-.disclaimer {
+.disclaimer, .disclaimer p {
     @include p-tiny;
     color: $grey-50;
 }

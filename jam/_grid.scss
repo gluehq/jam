@@ -1,138 +1,137 @@
 
 @import 'base';
 
+
+//  M I X I N S
+
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: '';
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
 //  B A S E
-
-.jam {
-    display: grid;
-    grid-template-columns: repeat($row-max, 1fr);
-    margin: 0 auto;
-    width: 100%;
-    max-width: $large - 1px;
-}
-
-.jam [class*=row-], .jam [class*=cols-] {
-    display: grid;
-}
 
 body {
     margin: 0;
 }
 
-//  Make images fit their cols
+.jam {
 
-img {
+    position: relative;
+    margin: 0 auto;
     width: 100%;
-}
+    max-width: $large - 1px;
+    min-width: 320px;
 
-//  Remove bottom margins from last paragraphs etc
+    * {
+        box-sizing: border-box;
+    }
 
-div > *:last-child {
-    margin-bottom: 0;// Contentious, but cells need this
-}
+    //  Make images fit their cols
+    img {
+        width: 100%;
+        max-width: none;
+    }
 
-//  R O W S  &  C O L S
+    [class*=span-] {
 
-@mixin cols($media, $col-max, $col-mod) {
+        position: relative;
+        margin: 0 auto;
 
-    @for $col-w from $col-min through $col-max {
+        &.align-l {
+            margin: 0;
+        }
 
-        @if $media == all or $media == phone-tablet {
-
-            div.col-#{$col-w} {// Increase specificity to override the uniform width defaults
-
-                // display: grid;// Do not reenable, adds gaps and distributes children down an implicit grid column
-                grid-column: span #{$col-w + $col-mod};
-                grid-template-columns: repeat(#{$col-w + $col-mod}, 1fr);
-
-            }
-
+        &.align-r {
+            margin: 0 0 0 auto;
         }
 
     }
 
+    [class*=cols-] {
+
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+
+        // Non grid element default positioning
+        * {
+            position: relative;
+            // Do not remove margin as multiple text element blocks will require it
+            width: 100%;
+        }
+
+    }
+
+    //  Remove bottom margins from last paragraphs etc
+    *:last-child {
+        margin-bottom: 0;// Causes issue, but elements like uniform columns require this
+    }
+
 }
 
-// Create row
+// Set common vars
+$cols-min: nth($cols, 1);
+$cols-max: nth($cols, -1);
 
-@mixin row($row, $row-actual, $row-to, $media) {
+@mixin span($span, $span-actual, $span-to, $media) {
 
-    // Collapse handheld row widths if $row and $row-to are different
+    // Collapse handheld span widths if $span and $span-to are different
 
-    $row-selects: '';
+    $span-selects: '';
 
-    @for $row-this from $row through $row-to {
+    @for $span-this from $span through $span-to {
 
-        // Ignore rows with uneven widths
+        @if $media == phone-plus {
 
-        @if $row-this % 2 == 0 {
+            @if $span-this != $span-to {
 
-            @if $media == phone-plus {
+                // Build up the string of selectors to collapse before continuing
 
-                @if $row-this != $row-to {
-    
-                    // Build up the string of selectors to collapse before continuing
-    
-                    $row-selects: $row-selects + '.jam .row-#{$row-this}, ';
-    
-                } @else {
-
-                    // Maximise phone row widths and transfer inset to columns
-
-                    #{$row-selects}.jam .row-#{$row-this} {
-
-                        &, &[class*=cols-] {
-
-                            $row-inset: ($row-max - $row-actual) / 2;
-
-                            grid-column: 1 / -1;
-                            grid-template-columns: repeat(#{$row-max}, 1fr);
-
-                            > div:nth-child(n), &.flip div:nth-child(n) {
-                                // display: grid;// Do not reenable, adds gaps and distributes children down an implicit grid column
-                                grid-template-columns: repeat(#{$row-actual}, 1fr);
-                                grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
-                            }
-
-                        }
-
-                    }
-
-                }
+                $span-selects: $span-selects + '.jam .span-#{$span-this}, ';
 
             } @else {
 
-                .jam .row-#{$row-this} {
+                // Maximise phone span widths and transfer inset to columns
 
-                    // Set default width and position of row
+                #{$span-selects}.jam .span-#{$span-this} {
 
-                    $row-inset: ($row-max - $row-actual) / 2;
-                    
-                    grid-template-columns: repeat(#{$row-actual}, 1fr);
-                    grid-column: #{$row-inset + 1} / #{-1 - $row-inset};
+                    width: percentage($span-actual/$span-max);
 
-                    // Set specific col width
+                    &[class*=cols] > div, [class*=cols] > div {
+                        width: 100%;
+                    }
 
-                    @for $cols from 2 through $cols-max {
+                    &[class*=cols] > .bleed-phone {
 
-                        &.cols-#{$cols} > div {
-                            grid-column: span floor($row-actual / $cols);
-                        }
+                        margin: 0 percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
+                        width: percentage(($span-actual + ($span-max - $span-actual))/$span-actual);
 
-                        &.cols-#{$cols}.flip > div {
+                    }
 
-                        }
+                }
 
-                        // Increase width of columns if row width has been increased
-                        
-                        @if $row-this != $row-actual {
+            }
 
-                            &.cols-#{$cols} > {
-                                @include cols($media, $row-this - $col-min, ($row-actual - $row-this) / 2);
-                            }
+        } @else {
 
-                        }
+            .jam .span-#{$span-this} {
 
+                width: percentage($span-this/$span-max);
+
+                @for $sub-width from $span-this through $span-min {
+
+                    .span-#{$sub-width} {
+                        width: percentage($sub-width/$span-this);
                     }
 
                 }
@@ -145,50 +144,44 @@ div > *:last-child {
 
 }
 
-// Return which group a row will collapse to
-// Size of group set with $row-collapse-size
+// Return which span a span will collapse to
+// Amount of spans that collapse together set with $span-collapse
 
-@function row-collapse($row) {
-    $row-remain: ($row-max - $row) / 2;
-    $row-mod: ceil($row-remain / $row-collapse-size);
-    $row-collapse: $row-max - ($row-mod * 2);
-    @return $row-collapse;
+@function span-collapse($span) {
+    $span-remain: ($span-max - $span) / 2;
+    $span-mod: ceil($span-remain / $span-collapse);
+    $span-collapse: $span-max - ($span-mod * 2);
+    @return $span-collapse;
 }
 
-// Determine how to build rows
+// Determine how to build spans
 
-@mixin rows($media) {
+@mixin check-span($media) {
 
-    $row-collapse-last: $row-max;
+    $span-collapse-last: $span-max;
     
-    @for $row from $row-max through $row-min {
+    @for $span from $span-max through $span-min {
+
+        @if $media == large {
         
-        @if $row % 2 == 0 {
+            @include span($span, $span, $span, $media);
 
-            @if $media == large {
+        }
+        
+        @if $media == phone-plus {
             
-                @include row($row, $row, $row, $media);
+            @if $span < $span-collapse-last {
 
-            }
-            
-            @if $media == phone-plus or $media == phone-tablet {
-                
-                @if $row < $row-collapse-last {
+                @for $sub-span from $span through $span-min {
 
-                    @for $row-this from $row through $row-min {
-
-                        @if $row-this % 2 == 0 {
-                            @if row-collapse($row-this) == row-collapse($row) {
-                                $row-collapse-last: $row-this;
-                            }
-                        }
-
+                    @if span-collapse($sub-span) == span-collapse($span) {
+                        $span-collapse-last: $sub-span;
                     }
 
-                    @include row($row, row-collapse($row), $row-collapse-last, $media);
-
                 }
-                
+
+                @include span($span, span-collapse($span), $span-collapse-last, $media);
+
             }
             
         }
@@ -196,125 +189,90 @@ div > *:last-child {
     }
     
 }
+
+/* Spans */
+
+@include check-span(large);
+
+/* Uniform column widths */
+
+@each $col in $cols {
+
+    .jam .cols-#{$col} > div {
+        width: percentage(1/$col);
+    }
+
+}
+
+/* Gaps */
 
 @mixin gaps($media) {
 
-    .jam [class*=cols-] {
-        padding-bottom: ygap($media);
-    }
+    // Default gutter padding WARNING: Change at peril
+    .jam [class*=span-] {
 
-    /* Cells */
-
-    // @if $media == large or $media == standard or $media == tablet {
-    
-    //     .jam [class*=cols-] > *, .jam [class*=row-] > * {
-    //         padding: (ygap($media) / 2) (xgap($media) / 2) ygap($media) (xgap($media) / 2);
-    //     }
-
-    // } @else {
-
-        .jam [class*=cols-] > *, .jam [class*=row-] > * {
-            padding: (ygap($media) / 2) (xgap($media) / 2) (ygap($media) / 2) (xgap($media) / 2);
+        *:not(div) {
+            padding: 0 xgap($media, 0.5);
         }
 
-    // }
-
-}
-
-//  M E D I A
-
-/* Non grid element default positioning */
-.jam * {
-    grid-column: 1 / -1;
-    position: relative;
-}
-
-/* Equal column widths */
-@include media(tablet-large) {
-
-    .jam [class*=cols-] {
-
-        display: grid;
-
-        > div {
-            grid-column: span 1;
+        div:not([class*=cols-]) {
+            // padding: ygap($media, 0.5) 0 ygap($media, 1) 0;
         }
 
-    }
+        @if $media == large {
 
-    @for $cols from 2 through $cols-max {
-
-        .jam .cols-#{$cols} {
-
-            grid-template-columns: repeat(#{$cols}, 1fr);
-
-            @for $col from 1 through $cols {
-
-                &.flip > div:nth-of-type(#{$cols}n+#{$cols - $col + 1}) {
-                    order: $col;// Flex value, can cause cell ordering issues
-                }
-
+            > div[class*=span-] {
+                // padding-bottom: ygap($media, 0.5);
             }
-            
+
         }
 
     }
 
 }
 
-/* Row defaults */
-@include rows(large);
-
-/* Gap defaults */
 @include gaps(large);
-        
-/* Variable column widths */
-.jam div[class*=row-] {
-    @include cols(all, $row-max - $col-min, 0);
+
+// Likely to be content divs WARNING: Change at peril
+.jam [class*=cols-] [class*=span-] {
+
+    // Remove the top padding to align with content in an adjacent column 
+    > div:first-child {
+        // padding-top: 0;
+    }
+
 }
 
-/* Media specific versions */
+/* Flip */
+
+.jam .flip-wide {
+    flex-direction: row-reverse;
+}
+
+/* Media query loop */
+
 @each $media in $all-media {
     
     @include media($media) {
 
-        // Exclude combined media
-        @if $media != large and $media != phone-tablet and $media != phone-plus {
+        @if $media != large {
+            @include check-span($media);
+        }
+
+        // Avoid double-ups
+        @if $media != large and $media != phone-plus {
             @include gaps($media);
         }
 
-        @if $media == large or $media == standard or $media == tablet {
-            @include cols($media, $row-max - $col-min, 0);
-        }
-
-        @if $media == phone-tablet {
-            /* Collapsing row widths on handhelds */
-            // Tablet margins will not reduce if removed
-            @include rows($media);
-        }
-
         @if $media == phone-plus {
-        
-            /* Non grid element phone positioning */
-            .jam * {
-                grid-column: 2 / -2;
-            }
 
-            // Fix issue the above causes with cells on Glue website
-            .jam [class*=cols-] > div {
-                grid-column: 1 / -1;
-            }
+            // Removing gaps around full-bleed images on phone
+            .jam [class*=cols] > .bleed-phone {
 
-            /* Maximise phone row widths and transfer inset to columns */
-            // Phone image bleeds will break if removed
-            @include rows($media);
+                *, div {
+                    padding: 0;
+                }
 
-            /* Phone image bleeds */
-            .jam [class*=row-].bleed-ph > div:nth-of-type(2n+1), .jam [class*=row-].flip.bleed-ph > div:nth-of-type(2n+1) {
-                grid-template-columns: repeat(#{$row-max}, 1fr);
-                grid-column: 1 / -1;
-                padding-left: 0;
-                padding-right: 0;
             }
 
         }

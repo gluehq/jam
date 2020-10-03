@@ -2,41 +2,42 @@
 
 <style>[alt="Jam logo"] {width: 150px;}</style>
 
-Jam is a CSS Grid based grid system for creating common page layouts with predefined responsive behaviour. It is intentionally subjective in order to be simple enough for HTML beginners or CMS operators to understand and as such is not a fully customisable grid system.
+Jam is a CSS Flexbox based grid system for creating common page layouts with basic predefined responsive behaviours. It is intended to be simple enough for HTML beginners or CMS operators to understand. While it is not as comprehensive as some grid systems, it is surprisingly powerful.
 
-Jam should be used to produce basic page layouts which can easily be enhanced by (the Sass functions included for use in*) your custom code.
+Jam can be used to produce page layouts which you can easily build upon with the media query mixins included.
 
 ## User benefits
 
 Intended to be easy for non-technical people to understand:
 
-- Layout system based on varying row widths and uniform child columns
-- Includes a skew option for two column rows allows varying widths
+- Layout system based on varying span widths with uniform or irregular child column widths
 - Easily produces common page layouts
-- All layouts have predefined responsive behaviours
+- Layouts have basic responsive behaviours
+- Pixels and percentages are the default units
 
 ## Customisation
 
-Uses Sass and includes many variables for custom grid generation, including:
+Includes many Sass variables and mixins for custom grid generation, including:
 
-- Number of horizontal grid units (default 18)
-- Maximum number of uniform width columns per row (starting at 2)
-- Media queries
+- Maximum grid units span (default 18)
+- Acceptable column variants array (default 2, 3, 4, 6 and of course 1 if class is not present)
+- Media query breakpoints / maximum content width
+- Media query mixins
 - Responsive gutter widths and heights
+- Optional Sass partial for typography
 
 ## Technical rationale
 
 These other goals were important when developing Jam:
 
-- Use CSS Grid and Sass
-- Include Sass mixins and functions* for project specific enhancements
-- For simplicity, Jam classes should be applied to row divs only
-- Allow non-column elements to span rows
+- Be easy to build upon
+- Use as few classes as possible (eg columns are uniform width unless widths are specified)
+- Allow non-column elements to span containers by default
+- Be lightweight
 
 ## File size management
 
 These steps have been taken to minimise file size:
 
 - The Sass ouput contains as few @media blocks as possible
-- No offset or padding methods unless you add them
-- Skew option not nestable to prevent file size blowout
+- There are almost no column positioning methods
