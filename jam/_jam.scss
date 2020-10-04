@@ -8,14 +8,16 @@ body {
     margin: 0;
 }
 
-.jam-jar {
+img {
+    width: 100%;
+}
 
+.jam-jar {
     position: relative;
     margin: 0 auto;
     width: 100%;
     max-width: $large - 1px;
     min-width: 320px;
-
 }
 
 [class*=jam-span-] {

@@ -1,5 +1,8 @@
 
-//  S E T U P
+@import '../jam/config';
+
+
+//  B A S E
 
 html {
     
@@ -167,6 +170,16 @@ ul li {
 ol li {
     list-style: decimal;
     margin-left: 1.9rem;
+}
+
+nav li {
+
+    list-style: none;
+
+    a {
+        text-decoration: none;
+    }
+    
 }
 
 p, h1, h2, h3, h4, h5, ul, ol, blockquote {
