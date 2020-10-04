@@ -50,10 +50,11 @@ Jam lets you add padding at your discretion, because it can't predict where you'
 - jam-gap-y($media, $modifier)
 - jam-unit($parent-span, $media, $modifier)
 
-## Separate add-ons
+## Optional add-ons
 
+- **Demo** An example web page which may help you learn more about Jam until I improve these docs
+- **Jam Dev Tools** package, hold down g to display layout grid overlay with div classes and id
 - **Jam Type** Sass partial file, featuring rem-based starter typography (default 1.0rem = 10px on non-mobiles)
-- **Jam Dev Tools** package featuring keypress triggered layout grid overlay displaying div classes and id
 
 ## Technical rationale
 
@@ -74,4 +75,7 @@ These steps have been taken to minimise file size:
 
 ## To-dos
 
-- Convert Dev Tools and demo jQuery to vanilla JavaScript
+- Replace the demo page copy
+- Add illustrated 'how to use' section to docs
+- Add 'how to install' section
+- Convert Dev Tools and demo page jQuery to vanilla JavaScript
