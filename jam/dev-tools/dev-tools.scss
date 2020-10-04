@@ -95,6 +95,15 @@
         > div:nth-of-type(n+#{($span-max / 2) + 1}) {
             text-align: right;
         }
+    
+        > div:before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
         
     }
     
@@ -108,6 +117,15 @@
 
             > div {
                 padding: 0 xgap($media, 0.5);
+            }
+    
+            > div:before {
+                left: xgap($media, 0.5);
+            }
+        
+            > div:nth-of-type(n+#{($span-max / 2) + 1}):before {
+                left: auto;
+                right: xgap($media, 0.5);
             }
 
         }

@@ -57,9 +57,9 @@ body {
         margin: 0 0 0 auto;
     }
 
-    //  Remove bottom margins from last paragraphs etc
+    // Remove bottom margins from last paragraphs etc. Causes some issues, but usually beneficial
     *:last-child {
-        margin-bottom: 0;// Causes issue, but elements like uniform columns require this
+        margin-bottom: 0;
     }
 
 }
@@ -73,7 +73,6 @@ body {
     // Non grid element default positioning
     * {
         position: relative;
-        // Do not remove margin as multiple text element blocks will require it
         width: 100%;
     }
 
@@ -95,7 +94,7 @@ $cols-max: nth($cols, -1);
 
             @if $span-this != $span-to {
 
-                // Build up the string of selectors to collapse before continuing
+                // Build up the string of selectors to merge before rules
 
                 $span-selects: $span-selects + '.jam-span-#{$span-this}, ';
 
@@ -144,21 +143,21 @@ $cols-max: nth($cols, -1);
 
 }
 
-// Return which span a span will collapse to
-// Amount of spans that collapse together set with $span-collapse
+// Return which span a span will merge to
+// Amount of spans that merge together set with $spans-merge
 
-@function span-collapse($span) {
+@function merge-span($span) {
     $span-remain: ($span-max - $span) / 2;
-    $span-mod: ceil($span-remain / $span-collapse);
-    $span-collapse: $span-max - ($span-mod * 2);
-    @return $span-collapse;
+    $span-mod: ceil($span-remain / $spans-merge);
+    $spans-merge: $span-max - ($span-mod * 2);
+    @return $spans-merge;
 }
 
-// Determine how to build spans
+// Check media and build simple or merged span
 
-@mixin check-span($media) {
+@mixin build-span($media) {
 
-    $span-collapse-last: $span-max;
+    $spans-merge-last: $span-max;
     
     @for $span from $span-max through $span-min {
 
@@ -170,17 +169,17 @@ $cols-max: nth($cols, -1);
         
         @if $media == phone-plus {
             
-            @if $span < $span-collapse-last {
+            @if $span < $spans-merge-last {
 
                 @for $sub-span from $span through $span-min {
 
-                    @if span-collapse($sub-span) == span-collapse($span) {
-                        $span-collapse-last: $sub-span;
+                    @if merge-span($sub-span) == merge-span($span) {
+                        $spans-merge-last: $sub-span;
                     }
 
                 }
 
-                @include span($span, span-collapse($span), $span-collapse-last, $media);
+                @include span($span, merge-span($span), $spans-merge-last, $media);
 
             }
             
@@ -192,7 +191,7 @@ $cols-max: nth($cols, -1);
 
 /* Spans */
 
-@include check-span(large);
+@include build-span(large);
 
 /* Uniform column widths */
 
@@ -208,21 +207,36 @@ $cols-max: nth($cols, -1);
 
 @mixin gaps($media) {
 
-    // Default gutter padding WARNING: Change at peril
     [class*=jam-span-] {
 
         *:not(div) {
             padding: 0 xgap($media, 0.5);
         }
 
-        div:not([class*=jam-cols-]) {
-            // padding: ygap($media, 0.5) 0 ygap($media, 1) 0;
-        }
+    }
 
-        @if $media == large {
+    @for $padding from $padding-mod-max through 1 {
 
-            > div[class*=jam-span-] {
-                // padding-bottom: ygap($media, 0.5);
+        [class*=jam] {// Increase specificity and allow usage on jam-jar
+
+            &.jam-top-#{$padding}, .jam-top-#{$padding} {
+                padding-top: ygap($media, $padding * 0.5);
+            }
+
+            &.jam-bottom-#{$padding}, .jam-bottom-#{$padding} {
+                padding-bottom: ygap($media, $padding * 0.5);
+            }
+
+            @if $media == phone or $media == plus {
+
+                &.jam-top-ph-#{$padding}, .jam-top-ph-#{$padding} {
+                    padding-top: ygap($media, $padding * 0.5);
+                }
+    
+                &.jam-bottom-ph-#{$padding}, .jam-bottom-ph-#{$padding} {
+                    padding-bottom: ygap($media, $padding * 0.5);
+                }
+
             }
 
         }
@@ -232,16 +246,6 @@ $cols-max: nth($cols, -1);
 }
 
 @include gaps(large);
-
-// Likely to be content divs WARNING: Change at peril
-[class*=jam-cols-] [class*=jam-span-] {
-
-    // Remove the top padding to align with content in an adjacent column 
-    > div:first-child {
-        // padding-top: 0;
-    }
-
-}
 
 /* Flip */
 
@@ -256,7 +260,7 @@ $cols-max: nth($cols, -1);
     @include media($media) {
 
         @if $media != large {
-            @include check-span($media);
+            @include build-span($media);
         }
 
         // Avoid double-ups

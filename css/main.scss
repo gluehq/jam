@@ -28,8 +28,14 @@
 
         }
 
-        [class*=jam-cols-] div { 
-            padding: 0 0 ygap($media, 1) 0;
+        [class*=jam-cols-] {
+
+            padding: ygap($media, 0.5) 0 ygap($media, 0.5) 0;
+
+            div { 
+                padding: 0 0 ygap($media, 1) 0;
+            }
+
         }
 
     }
@@ -59,6 +65,8 @@
 
         }
 
+        padding-bottom: ygap($media, 1);
+
     }
 
 }
@@ -68,9 +76,9 @@
     .body-col .image {
 
         @if $media == large or $media == standard or $media == tablet  {
-            margin-top: 4px 0 ygap($media, 0.5) 0;
+            margin: 3px 0 ygap($media, 0.5) 0;
         } @else {
-            margin-top: 4px 0 ygap($media, 1) 0;
+            margin: 3px 0 ygap($media, 1) 0;
         }
         
         &.left, &.right {
@@ -118,8 +126,8 @@
 // .jam {
 
     @include body-col(large);
-    @include jutting(large);
     @include image(large);
+    @include jutting(large);// Must come after image
     @include side-col(large);
     
     @each $media in $all-media {
@@ -129,8 +137,8 @@
             @include media($media) {
 
                 @include body-col($media);
-                @include jutting($media);
                 @include image($media);
+                @include jutting($media);
                 @include side-col($media);
 
             }

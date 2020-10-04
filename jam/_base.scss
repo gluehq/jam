@@ -11,7 +11,10 @@ $span-min: 2;
 $cols: 2 3 4 6;
 
 // Collapsing group size: how decreasing span widths are grouped together on mobile
-$span-collapse: 2;
+$spans-merge: 2;
+
+// Maximum padding multiplier: each will be half the amount in ygap variables
+$padding-mod-max: 4;
 
 // Media queries including key combined ranges
 $all-media: large, standard, tablet, plus, phone, phone-plus;

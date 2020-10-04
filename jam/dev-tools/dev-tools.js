@@ -102,7 +102,7 @@ function remove_labels() {
 
 function refresh_dev_tools() {
 
-    $('#dev-grid .jam > [class*=cols-]').each(function() {
+    $('#dev-grid [class*=jam-cols-]').each(function() {
         $(this).css('height', '');
         $(this).height($(window).height());
     });

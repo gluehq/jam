@@ -170,12 +170,12 @@ ol li {
 }
 
 p, h1, h2, h3, h4, h5, ul, ol, blockquote {
-    + img, + div {
+    + img {
         margin-top: 2.8rem;
     }
 }
 
-img, div {
+img {
     + p, + h1, + h2, + h3, + h4, + h5, + ul, + ol, + blockquote {
         margin-top: 3.2rem;
     }
