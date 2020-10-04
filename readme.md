@@ -74,4 +74,4 @@ These steps have been taken to minimise file size:
 
 ## To-dos
 
-- Convert Dev Tools to vanilla JavaScript
+- Convert Dev Tools and demo jQuery to vanilla JavaScript
