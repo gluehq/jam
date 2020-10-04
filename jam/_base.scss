@@ -7,10 +7,10 @@ $span-max: 18;
 // Minimum span width: 2 or more recommended if $span-max is greater than 8
 $span-min: 2;
 
-// List of acceptable column amounts in a span
+// List of acceptable numbers of columns in a span
 $cols: 2 3 4 6;
 
-// Collapsing group size: how decreasing span widths are grouped together on mobile
+// Span merge range: how many span widths are grouped together on mobile
 $spans-merge: 2;
 
 // Maximum padding multiplier: each will be half the amount in ygap variables
@@ -20,17 +20,17 @@ $padding-mod-max: 4;
 $all-media: large, standard, tablet, plus, phone, phone-plus;
 $single-media: large, standard, tablet, plus, phone;
 
-$ygap-ph:   24px;
-$ygap-pl:   28px;
-$ygap-tb:   32px;
-$ygap-st:   36px;
-$ygap-lg:   40px;
+$gap-y-ph:   24px;
+$gap-y-pl:   28px;
+$gap-y-tb:   32px;
+$gap-y-st:   36px;
+$gap-y-lg:   40px;
 
-$xgap-ph:   20px;
-$xgap-pl:   24px;
-$xgap-tb:   28px;
-$xgap-st:   40px;
-$xgap-lg:   44px;
+$gap-x-ph:   20px;
+$gap-x-pl:   24px;
+$gap-x-tb:   28px;
+$gap-x-st:   40px;
+$gap-x-lg:   44px;
 
 $plus:      411px;      // Pixel 2 portrait
 $tablet:    768px;      // iPad 10" portrait
@@ -50,7 +50,7 @@ $grey-80:   #484848;  // 80%
 
 //  M E D I A   Q U E R I E S
 
-@mixin media($media) {
+@mixin jam-media($media) {
     
     //  Individual ranges
 
@@ -117,75 +117,75 @@ $grey-80:   #484848;  // 80%
 
 //  F U N C T I O N S
 
-//  responsive fixed-width gaps between columns
+// Responsive fixed-width gaps function
 
-@function xgap($media, $modifier) {
+@function jam-gap-x($media, $modifier) {
         
-    $xgap: '';
+    $gap-x: '';
     
     @if $media == phone {
-        $xgap: $xgap-ph;
+        $gap-x: $gap-x-ph;
     }   
 
     @if $media == plus {
-        $xgap: $xgap-pl;
+        $gap-x: $gap-x-pl;
     }
 
     @if $media == tablet {
-        $xgap: $xgap-tb;
+        $gap-x: $gap-x-tb;
     }
 
     @if $media == standard {
-        $xgap: $xgap-st;
+        $gap-x: $gap-x-st;
     }
 
     @if $media == large {
-        $xgap: $xgap-lg;
+        $gap-x: $gap-x-lg;
     }
 
     @if $modifier != null {
-        $xgap: $xgap * $modifier;
+        $gap-x: $gap-x * $modifier;
     }
     
-    @return $xgap;
+    @return $gap-x;
     
 }
 
-@function ygap($media, $modifier) {
+@function jam-gap-y($media, $modifier) {
         
-    $ygap: '';
+    $gap-y: '';
     
     @if $media == phone {
-        $ygap: $ygap-ph;
+        $gap-y: $gap-y-ph;
     }   
 
     @if $media == plus {
-        $ygap: $ygap-pl;
+        $gap-y: $gap-y-pl;
     }
 
     @if $media == tablet {
-        $ygap: $ygap-tb;
+        $gap-y: $gap-y-tb;
     }
 
     @if $media == standard {
-        $ygap: $ygap-st;
+        $gap-y: $gap-y-st;
     }
 
     @if $media == large {
-        $ygap: $ygap-lg;
+        $gap-y: $gap-y-lg;
     }
 
     @if $modifier != null {
-        $ygap: $ygap * $modifier;
+        $gap-y: $gap-y * $modifier;
     }
     
-    @return $ygap;
+    @return $gap-y;
     
 }
-
 
 // Return span units
-@function unit($cols, $media, $modifier) {
-    $unit: calc(#{percentage(1/$cols) * $modifier});
+
+@function jam-unit($parent-span, $media, $modifier) {
+    $unit: percentage(1/$parent-span) * $modifier;
     @return $unit;
 }

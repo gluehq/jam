@@ -9,13 +9,6 @@ body {
   max-width: 1366px;
   min-width: 320px;
 }
-.jam-jar * {
-  box-sizing: border-box;
-}
-.jam-jar img {
-  width: 100%;
-  max-width: none;
-}
 
 [class*=jam-span-] {
   position: relative;
@@ -27,6 +20,15 @@ body {
 [class*=jam-span-].align-r {
   margin: 0 0 0 auto;
 }
+[class*=jam-span-] * {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+[class*=jam-span-] img {
+  width: 100%;
+  max-width: none;
+}
 [class*=jam-span-] *:last-child {
   margin-bottom: 0;
 }
@@ -35,10 +37,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-}
-[class*=jam-cols-] * {
-  position: relative;
-  width: 100%;
 }
 
 /* Spans */
@@ -569,23 +567,6 @@ body {
   width: 100%;
 }
 
-/* Uniform column widths */
-.jam-cols-2 > div {
-  width: 50%;
-}
-
-.jam-cols-3 > div {
-  width: 33.3333333333%;
-}
-
-.jam-cols-4 > div {
-  width: 25%;
-}
-
-.jam-cols-6 > div {
-  width: 16.6666666667%;
-}
-
 /* Gaps */
 [class*=jam-span-] *:not(div) {
   padding: 0 22px;
@@ -617,6 +598,23 @@ body {
 }
 [class*=jam].jam-bottom-1, [class*=jam] .jam-bottom-1 {
   padding-bottom: 20px;
+}
+
+/* Uniform column widths */
+.jam-cols-2 > div {
+  width: 50%;
+}
+
+.jam-cols-3 > div {
+  width: 33.3333333333%;
+}
+
+.jam-cols-4 > div {
+  width: 25%;
+}
+
+.jam-cols-6 > div {
+  width: 16.6666666667%;
 }
 
 /* Flip */
@@ -809,10 +807,10 @@ body {
   .jam-span-17, .jam-span-16, .jam-span-15, .jam-span-14 {
     width: 88.8888888889%;
   }
-  .jam-span-17[class*=jam-cols] > div, .jam-span-17 [class*=jam-cols] > div, .jam-span-16[class*=jam-cols] > div, .jam-span-16 [class*=jam-cols] > div, .jam-span-15[class*=jam-cols] > div, .jam-span-15 [class*=jam-cols] > div, .jam-span-14[class*=jam-cols] > div, .jam-span-14 [class*=jam-cols] > div {
+  .jam-span-17[class*=jam-span] > div, .jam-span-17 [class*=jam-span] > div, .jam-span-16[class*=jam-span] > div, .jam-span-16 [class*=jam-span] > div, .jam-span-15[class*=jam-span] > div, .jam-span-15 [class*=jam-span] > div, .jam-span-14[class*=jam-span] > div, .jam-span-14 [class*=jam-span] > div {
     width: 100%;
   }
-  .jam-span-17[class*=jam-cols] > .jam-bleed, .jam-span-16[class*=jam-cols] > .jam-bleed, .jam-span-15[class*=jam-cols] > .jam-bleed, .jam-span-14[class*=jam-cols] > .jam-bleed {
+  .jam-span-17 [class*=jam-span].jam-bleed, .jam-span-17[class*=jam-span] .jam-bleed, .jam-span-16 [class*=jam-span].jam-bleed, .jam-span-16[class*=jam-span] .jam-bleed, .jam-span-15 [class*=jam-span].jam-bleed, .jam-span-15[class*=jam-span] .jam-bleed, .jam-span-14 [class*=jam-span].jam-bleed, .jam-span-14[class*=jam-span] .jam-bleed {
     margin: 0 -6.25%;
     width: 112.5%;
   }
@@ -820,10 +818,10 @@ body {
   .jam-span-13, .jam-span-12, .jam-span-11, .jam-span-10 {
     width: 77.7777777778%;
   }
-  .jam-span-13[class*=jam-cols] > div, .jam-span-13 [class*=jam-cols] > div, .jam-span-12[class*=jam-cols] > div, .jam-span-12 [class*=jam-cols] > div, .jam-span-11[class*=jam-cols] > div, .jam-span-11 [class*=jam-cols] > div, .jam-span-10[class*=jam-cols] > div, .jam-span-10 [class*=jam-cols] > div {
+  .jam-span-13[class*=jam-span] > div, .jam-span-13 [class*=jam-span] > div, .jam-span-12[class*=jam-span] > div, .jam-span-12 [class*=jam-span] > div, .jam-span-11[class*=jam-span] > div, .jam-span-11 [class*=jam-span] > div, .jam-span-10[class*=jam-span] > div, .jam-span-10 [class*=jam-span] > div {
     width: 100%;
   }
-  .jam-span-13[class*=jam-cols] > .jam-bleed, .jam-span-12[class*=jam-cols] > .jam-bleed, .jam-span-11[class*=jam-cols] > .jam-bleed, .jam-span-10[class*=jam-cols] > .jam-bleed {
+  .jam-span-13 [class*=jam-span].jam-bleed, .jam-span-13[class*=jam-span] .jam-bleed, .jam-span-12 [class*=jam-span].jam-bleed, .jam-span-12[class*=jam-span] .jam-bleed, .jam-span-11 [class*=jam-span].jam-bleed, .jam-span-11[class*=jam-span] .jam-bleed, .jam-span-10 [class*=jam-span].jam-bleed, .jam-span-10[class*=jam-span] .jam-bleed {
     margin: 0 -14.2857142857%;
     width: 128.5714285714%;
   }
@@ -831,10 +829,10 @@ body {
   .jam-span-9, .jam-span-8, .jam-span-7, .jam-span-6 {
     width: 66.6666666667%;
   }
-  .jam-span-9[class*=jam-cols] > div, .jam-span-9 [class*=jam-cols] > div, .jam-span-8[class*=jam-cols] > div, .jam-span-8 [class*=jam-cols] > div, .jam-span-7[class*=jam-cols] > div, .jam-span-7 [class*=jam-cols] > div, .jam-span-6[class*=jam-cols] > div, .jam-span-6 [class*=jam-cols] > div {
+  .jam-span-9[class*=jam-span] > div, .jam-span-9 [class*=jam-span] > div, .jam-span-8[class*=jam-span] > div, .jam-span-8 [class*=jam-span] > div, .jam-span-7[class*=jam-span] > div, .jam-span-7 [class*=jam-span] > div, .jam-span-6[class*=jam-span] > div, .jam-span-6 [class*=jam-span] > div {
     width: 100%;
   }
-  .jam-span-9[class*=jam-cols] > .jam-bleed, .jam-span-8[class*=jam-cols] > .jam-bleed, .jam-span-7[class*=jam-cols] > .jam-bleed, .jam-span-6[class*=jam-cols] > .jam-bleed {
+  .jam-span-9 [class*=jam-span].jam-bleed, .jam-span-9[class*=jam-span] .jam-bleed, .jam-span-8 [class*=jam-span].jam-bleed, .jam-span-8[class*=jam-span] .jam-bleed, .jam-span-7 [class*=jam-span].jam-bleed, .jam-span-7[class*=jam-span] .jam-bleed, .jam-span-6 [class*=jam-span].jam-bleed, .jam-span-6[class*=jam-span] .jam-bleed {
     margin: 0 -25%;
     width: 150%;
   }
@@ -842,15 +840,15 @@ body {
   .jam-span-5, .jam-span-4, .jam-span-3, .jam-span-2 {
     width: 55.5555555556%;
   }
-  .jam-span-5[class*=jam-cols] > div, .jam-span-5 [class*=jam-cols] > div, .jam-span-4[class*=jam-cols] > div, .jam-span-4 [class*=jam-cols] > div, .jam-span-3[class*=jam-cols] > div, .jam-span-3 [class*=jam-cols] > div, .jam-span-2[class*=jam-cols] > div, .jam-span-2 [class*=jam-cols] > div {
+  .jam-span-5[class*=jam-span] > div, .jam-span-5 [class*=jam-span] > div, .jam-span-4[class*=jam-span] > div, .jam-span-4 [class*=jam-span] > div, .jam-span-3[class*=jam-span] > div, .jam-span-3 [class*=jam-span] > div, .jam-span-2[class*=jam-span] > div, .jam-span-2 [class*=jam-span] > div {
     width: 100%;
   }
-  .jam-span-5[class*=jam-cols] > .jam-bleed, .jam-span-4[class*=jam-cols] > .jam-bleed, .jam-span-3[class*=jam-cols] > .jam-bleed, .jam-span-2[class*=jam-cols] > .jam-bleed {
+  .jam-span-5 [class*=jam-span].jam-bleed, .jam-span-5[class*=jam-span] .jam-bleed, .jam-span-4 [class*=jam-span].jam-bleed, .jam-span-4[class*=jam-span] .jam-bleed, .jam-span-3 [class*=jam-span].jam-bleed, .jam-span-3[class*=jam-span] .jam-bleed, .jam-span-2 [class*=jam-span].jam-bleed, .jam-span-2[class*=jam-span] .jam-bleed {
     margin: 0 -40%;
     width: 180%;
   }
 
-  [class*=jam-cols] > .jam-bleed *, [class*=jam-cols] > .jam-bleed div {
+  [class*=jam-span].jam-bleed *, [class*=jam-span].jam-bleed div, [class*=jam-span] .jam-bleed *, [class*=jam-span] .jam-bleed div {
     padding: 0;
   }
 }
@@ -998,8 +996,8 @@ ul + .disclaimer, p + .disclaimer {
 }
 
 .body-col {
-  padding-left: calc(6.25%);
-  padding-right: calc(6.25%);
+  padding-left: 6.25%;
+  padding-right: 6.25%;
 }
 .body-col [class*=jam-cols-] {
   padding: 20px 0 20px 0;
@@ -1024,21 +1022,21 @@ ul + .disclaimer, p + .disclaimer {
   margin-left: 22px;
 }
 
-.body-col .jutting {
-  margin-left: calc(-10%);
-  margin-right: calc(-10%);
-  width: calc(120%);
+.body-col[class*=jam-span-] .jutting {
+  margin-left: -10%;
+  margin-right: -10%;
+  width: 120%;
   padding-bottom: 40px;
 }
 
 .side-col {
-  padding-left: calc(6.25%);
+  padding-left: 6.25%;
 }
 
 @media (min-width: 1025px) and (max-width: 1366px) {
   .body-col {
-    padding-left: calc(6.25%);
-    padding-right: calc(6.25%);
+    padding-left: 6.25%;
+    padding-right: 6.25%;
   }
   .body-col [class*=jam-cols-] {
     padding: 18px 0 18px 0;
@@ -1063,21 +1061,21 @@ ul + .disclaimer, p + .disclaimer {
     margin-left: 20px;
   }
 
-  .body-col .jutting {
-    margin-left: calc(-10%);
-    margin-right: calc(-10%);
-    width: calc(120%);
+  .body-col[class*=jam-span-] .jutting {
+    margin-left: -10%;
+    margin-right: -10%;
+    width: 120%;
     padding-bottom: 36px;
   }
 
   .side-col {
-    padding-left: calc(6.25%);
+    padding-left: 6.25%;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .body-col {
-    padding-left: calc(6.25%);
-    padding-right: calc(6.25%);
+    padding-left: 6.25%;
+    padding-right: 6.25%;
   }
   .body-col [class*=jam-cols-] {
     padding: 16px 0 16px 0;
@@ -1102,21 +1100,21 @@ ul + .disclaimer, p + .disclaimer {
     margin-left: 14px;
   }
 
-  .body-col .jutting {
-    margin-left: calc(-10%);
-    margin-right: calc(-10%);
-    width: calc(120%);
+  .body-col[class*=jam-span-] .jutting {
+    margin-left: -10%;
+    margin-right: -10%;
+    width: 120%;
     padding-bottom: 32px;
   }
 
   .side-col {
-    padding-left: calc(6.25%);
+    padding-left: 6.25%;
   }
 }
 @media (min-width: 411px) and (max-width: 767px) {
   .body-col {
-    padding-left: calc(5.5555555556%);
-    padding-right: calc(5.5555555556%);
+    padding-left: 5.5555555556%;
+    padding-right: 5.5555555556%;
   }
   .body-col [class*=jam-cols-] {
     padding: 14px 0 14px 0;
@@ -1145,21 +1143,21 @@ ul + .disclaimer, p + .disclaimer {
     width: 100%;
   }
 
-  .body-col .jutting {
-    margin-left: calc(-6.25%);
-    margin-right: calc(-6.25%);
-    width: calc(112.5%);
+  .body-col[class*=jam-span-] .jutting {
+    margin-left: -6.25%;
+    margin-right: -6.25%;
+    width: 112.5%;
     padding-bottom: 28px;
   }
-  .body-col .jutting * {
+  .body-col[class*=jam-span-] .jutting * {
     padding-left: 0;
     padding-right: 0;
   }
 }
 @media (max-width: 410px) {
   .body-col {
-    padding-left: calc(5.5555555556%);
-    padding-right: calc(5.5555555556%);
+    padding-left: 5.5555555556%;
+    padding-right: 5.5555555556%;
   }
   .body-col [class*=jam-cols-] {
     padding: 12px 0 12px 0;
@@ -1188,13 +1186,13 @@ ul + .disclaimer, p + .disclaimer {
     width: 100%;
   }
 
-  .body-col .jutting {
-    margin-left: calc(-6.25%);
-    margin-right: calc(-6.25%);
-    width: calc(112.5%);
+  .body-col[class*=jam-span-] .jutting {
+    margin-left: -6.25%;
+    margin-right: -6.25%;
+    width: 112.5%;
     padding-bottom: 24px;
   }
-  .body-col .jutting * {
+  .body-col[class*=jam-span-] .jutting * {
     padding-left: 0;
     padding-right: 0;
   }

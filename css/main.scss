@@ -18,22 +18,22 @@
 
         @if $media == large or $media == standard or $media == tablet {
 
-            padding-left: unit(16, $media, 1);
-            padding-right: unit(16, $media, 1);
+            padding-left: jam-unit(16, $media, 1);
+            padding-right: jam-unit(16, $media, 1);
         
         } @else if $media == phone or $media == plus {
 
-            padding-left: unit(18, $media, 1);
-            padding-right: unit(18, $media, 1);
+            padding-left: jam-unit(18, $media, 1);
+            padding-right: jam-unit(18, $media, 1);
 
         }
 
         [class*=jam-cols-] {
 
-            padding: ygap($media, 0.5) 0 ygap($media, 0.5) 0;
+            padding: jam-gap-y($media, 0.5) 0 jam-gap-y($media, 0.5) 0;
 
             div { 
-                padding: 0 0 ygap($media, 1) 0;
+                padding: 0 0 jam-gap-y($media, 1) 0;
             }
 
         }
@@ -44,19 +44,19 @@
 
 @mixin jutting($media) {
 
-    .body-col .jutting {
+    .body-col[class*=jam-span-] .jutting {
     
         @if $media == large or $media == standard or $media == tablet {
         
-            margin-left: unit(10, $media, -1);
-            margin-right: unit(10, $media, -1);
-            width: unit(10, $media, 12);
+            margin-left: jam-unit(10, $media, -1);
+            margin-right: jam-unit(10, $media, -1);
+            width: jam-unit(10, $media, 12);
     
         } @else if $media == phone or $media == plus {
     
-            margin-left: unit(16, $media, -1);
-            margin-right: unit(16, $media, -1);
-            width: unit(16, $media, 18);
+            margin-left: jam-unit(16, $media, -1);
+            margin-right: jam-unit(16, $media, -1);
+            width: jam-unit(16, $media, 18);
 
             * {
                 padding-left: 0;
@@ -65,7 +65,7 @@
 
         }
 
-        padding-bottom: ygap($media, 1);
+        padding-bottom: jam-gap-y($media, 1);
 
     }
 
@@ -76,9 +76,9 @@
     .body-col .image {
 
         @if $media == large or $media == standard or $media == tablet  {
-            margin: 3px 0 ygap($media, 0.5) 0;
+            margin: 3px 0 jam-gap-y($media, 0.5) 0;
         } @else {
-            margin: 3px 0 ygap($media, 1) 0;
+            margin: 3px 0 jam-gap-y($media, 1) 0;
         }
         
         &.left, &.right {
@@ -88,12 +88,12 @@
         
         &.left {
             float: left;
-            margin-right: xgap($media, 0.5);
+            margin-right: jam-gap-x($media, 0.5);
         }
         
         &.right {
             float: right;
-            margin-left: xgap($media, 0.5);
+            margin-left: jam-gap-x($media, 0.5);
         }
     
         @if $media == phone or $media == plus {
@@ -115,7 +115,7 @@
 
         @if $media == large or $media == standard or $media == tablet  {
 
-            padding-left: unit(16, $media, 1);
+            padding-left: jam-unit(16, $media, 1);
     
         }
     
@@ -134,7 +134,7 @@
         
         @if $media != large and $media != phone-plus {
             
-            @include media($media) {
+            @include jam-media($media) {
 
                 @include body-col($media);
                 @include image($media);
@@ -147,7 +147,7 @@
 
         @if $media == phone-plus {
             
-            @include media($media) {
+            @include jam-media($media) {
                 .body-cols {
                     width: 100%;
                 }

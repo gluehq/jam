@@ -5,7 +5,7 @@ html {
     
    font-size: 62.5%;// 16 / 10
         
-    @include media(phone-tablet) {
+    @include jam-media(phone-tablet) {
         font-size: 56.25%;// 16 / 9
     }
     
