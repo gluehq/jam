@@ -34,8 +34,8 @@ $gap-x-lg:   44px;
 
 $plus:      411px;      // Pixel 2 portrait
 $tablet:    768px;      // iPad 10" portrait
-$standard:  1025px;     // iPad 10" landscape, 13" portrait + 1px
-$large:     1367px;     // Common 13" laptop size + 1px
+$standard:  1024px;     // iPad 10" landscape, 13" portrait
+$large:     1366px;     // Common 13" laptop size
 
 $grey-5:    #f5f5f5;  // 5%
 $grey-10:   #ececec;  // 10%
@@ -67,11 +67,11 @@ $grey-80:   #484848;  // 80%
     }
 
     @if $media == standard {
-        @media (min-width: $standard) and (max-width: $large - 1px) { @content; }
+        @media (min-width: $standard) and (max-width: $large) { @content; }
     }
 
     @if $media == large {
-        @media (min-width: $large) { @content; }
+        @media (min-width: $large + 1px) { @content; }
     }
 
     //  Combined ranges
@@ -85,7 +85,7 @@ $grey-80:   #484848;  // 80%
     }
 
     @if $media == phone-standard {
-        @media (max-width: $large - 1px) { @content; }
+        @media (max-width: $large) { @content; }
     }
 
     @if $media == plus-tablet {
@@ -93,7 +93,7 @@ $grey-80:   #484848;  // 80%
     }
 
     @if $media == plus-standard {
-        @media (min-width: $plus) and (max-width: $large - 1px) { @content; }
+        @media (min-width: $plus) and (max-width: $large) { @content; }
     }
 
     @if $media == plus-large {
@@ -101,7 +101,7 @@ $grey-80:   #484848;  // 80%
     }
 
     @if $media == tablet-standard {
-        @media (min-width: $tablet) and (max-width: $large - 1px) { @content; }
+        @media (min-width: $tablet) and (max-width: $large) { @content; }
     }
 
     @if $media == tablet-large {

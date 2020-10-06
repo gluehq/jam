@@ -16,7 +16,7 @@ img {
     position: relative;
     margin: 0 auto;
     width: 100%;
-    max-width: $large - 1px;
+    max-width: $large;
     min-width: 320px;
 }
 
@@ -33,10 +33,10 @@ img {
         margin: 0 0 0 auto;
     }
 
-    * {
+    > * {
         box-sizing: border-box;
         position: relative;
-        width: 100%;
+        width: 100%;// * Has unexpected effects on elements like paths in svg
     }
 
     //  Make images fit their cols
@@ -46,8 +46,11 @@ img {
     }
 
     // Remove bottom margins from last paragraphs etc. Causes some issues, but usually beneficial
-    *:last-child {
-        margin-bottom: 0;
+    // Excludes headings because these generally have text underneath
+    p, img, ul, ol, blockquote {
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
 }
@@ -96,10 +99,8 @@ $cols-max: nth($cols, -1);
                     }
 
                     & [class*=jam-span].jam-bleed, &[class*=jam-span] .jam-bleed {
-
                         margin: 0 percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
                         width: percentage(($span-actual + ($span-max - $span-actual))/$span-actual);
-
                     }
 
                 }
@@ -180,9 +181,9 @@ $cols-max: nth($cols, -1);
 
 @mixin gaps($media) {
 
-    [class*=jam-span-] {
+    [class*=jam-span-], [class*=jam-cols-] > div {
 
-        *:not(div) {
+        > *:not(div) {
             padding: 0 jam-gap-x($media, 0.5);
         }
 
