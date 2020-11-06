@@ -2,7 +2,7 @@
 
 
 
-Jam is a CSS Flexbox based starter grid system, featuring content blocks of varying widths with basic predefined responsive behaviours. It is designed for use in CMSes and is simple enough for content editors and HTML beginners to understand. While it is not as comprehensive as some grid systems, you'll spend less time learning utility classes, setting up breakpoints, and overriding opinionated CSS.
+Jam is a CSS Flexbox based starter grid system, featuring content blocks of varying widths with basic predefined responsive behaviours. It is designed for use in CMSes and is simple enough for content editors and CSS beginners to understand. While it is not as comprehensive as some grid systems, you'll spend less time learning utility classes, setting up breakpoints, and overriding opinionated CSS.
 
 Jam can be used to produce the underlying page layouts from which you can create your final designs, using your own code and the included Sass mixins.
 
@@ -19,15 +19,17 @@ Jam is designed to be easy for non-technical people to understand, either direct
 
 ## CSS classes
 
-You only need to know three classes to start using Jam:
+You only need to know five classes to start using Jam:
 
-- **.jam-jar** Apply this on a container element to define maximum width of the content using a Sass variable
+- **.jam-jar** Apply this on a container element to make its contents adhere to the Sass variable for maximum width
 - **.jam-span-*[n]*** Width of current element
 - **.jam-cols-*[n]*** Defines how many columns the divs inside are arranged into
+- **.jam-span** All gutters are created by padding automatically applied to .jam-span-*[n]* class divs, and divs immediately inside jam-cols-*[n]* class divs. This class can apply the gutter padding to more nested divs where it does not automatically appear
+- **.jam-align-*[l or r]*** Jam layout blocks are centered by default but can be arranged left or right with this class. This does not dictate the alignment of text
 
 Jam has two very useful classes many web projects will use:
 
-- **.jam-flip** *(Non-mobiles only)* Content HTML should be in order of appearance for mobiles, screen readers or search engines. Apply this on the same element as *.jam-cols-[n]* to reverse the column order (eg, show image on the right and text on the left) on larger screens
+- **.jam-flip** *(Non-mobiles only)* Content HTML should be in order of appearance for mobiles, screen readers or search engines. Apply this on the same element as *.jam-cols-[n]* to reverse the column order (eg, show first column with an image on the right and the second column of text on the left) on larger screens
 - **.jam-bleed** *(Mobiles only)* Apply this to a span to make it appear full-bleed (edge-to edge, left-to-right) on mobile
 
 Jam lets you add padding at your discretion, because it can't predict where you'll need it. These all add padding equivalent to half the Sass variable you use for vertical gap, multiplied by [n]:

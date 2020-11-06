@@ -1,8 +1,7 @@
 
-@import '../../jam/base';
-@import '../../jam/_grid';
-@import '../../jam/type';
-
+@import '../../jam/config';
+@import '../../jam/jam';
+@import '../../jam-type/jam-type';
 
 @mixin body-col($media) {
 
@@ -25,16 +24,6 @@
 
             padding-left: jam-unit(18, $media, 1);
             padding-right: jam-unit(18, $media, 1);
-
-        }
-
-        [class*=jam-cols-] {
-
-            padding: jam-gap-y($media, 0.5) 0 jam-gap-y($media, 0.5) 0;
-
-            div { 
-                padding: 0 0 jam-gap-y($media, 1) 0;
-            }
 
         }
 
