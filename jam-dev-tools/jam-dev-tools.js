@@ -100,6 +100,8 @@ function remove_labels() {
     }
 }
 
+var key_down;
+
 function refresh_dev_tools() {
 
     $('#dev-grid [class*=jam-cols-]').each(function() {
@@ -107,7 +109,7 @@ function refresh_dev_tools() {
         $(this).height($(window).height());
     });
 
-    if ($('html').hasClass('dev-mode')) {
+    if (key_down === 65 && $('html').hasClass('dev-mode')) {
         remove_labels();
         create_labels();
     }
@@ -119,8 +121,11 @@ $(document).ready(function() {
     refresh_dev_tools();
     $(window).resize(refresh_dev_tools);
 
+    // 'G' for grid only
+
     $(document).keydown(function(e) {
-        if (e.keyCode === 71) {
+        if (e.keyCode === 65) {
+            key_down = 65;
             $('html').addClass('dev-mode');
             $('#dev-grid').show();
             refresh_dev_tools();
@@ -132,10 +137,30 @@ $(document).ready(function() {
     });
 
     $(document).keyup(function(e) {
-        if (e.keyCode === 71) {
+        if (e.keyCode === 65) {
+            key_down = null;
             remove_labels();
             $('html').removeClass('dev-mode');
             $('#dev-grid').hide();
+        }
+    });
+
+    // 'A' for all
+
+    $(document).keydown(function(e) {
+        if (e.keyCode === 71) {
+            key_down = 71;
+            $('html').addClass('dev-mode');
+            $('#dev-grid').show();
+        }
+    });
+
+    $(document).keyup(function(e) {
+        if (e.keyCode === 71) {
+            key_down = null;
+            $('html').removeClass('dev-mode');
+            $('#dev-grid').hide();
+            remove_labels();
         }
     });
 
