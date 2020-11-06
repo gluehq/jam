@@ -30,6 +30,9 @@ img {
   position: relative;
   width: 100%;
 }
+[class*=jam-span-] > a {
+  display: inline-block;
+}
 [class*=jam-span-] img {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -578,11 +581,8 @@ img {
 }
 
 /* Gaps */
-[class*=jam-span] > *:not(div):not(li), [class*=jam-cols-] > div > *:not(div):not(li) {
+[class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
   padding: 0 22px;
-}
-[class*=jam-span] > a, [class*=jam-cols-] > div > a {
-  display: inline-block;
 }
 
 [class*=jam-cols-] > div {
@@ -664,11 +664,8 @@ img {
 
 /* Media query loop */
 @media (min-width: 1024px) and (max-width: 1366px) {
-  [class*=jam-span] > *:not(div):not(li), [class*=jam-cols-] > div > *:not(div):not(li) {
+  [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 20px;
-  }
-  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
-    display: inline-block;
   }
 
   [class*=jam-cols-] > div {
@@ -708,11 +705,8 @@ img {
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  [class*=jam-span] > *:not(div):not(li), [class*=jam-cols-] > div > *:not(div):not(li) {
+  [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 14px;
-  }
-  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
-    display: inline-block;
   }
 
   [class*=jam-cols-] > div {
@@ -752,11 +746,8 @@ img {
   }
 }
 @media (min-width: 411px) and (max-width: 767px) {
-  [class*=jam-span] > *:not(div):not(li), [class*=jam-cols-] > div > *:not(div):not(li) {
+  [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 12px;
-  }
-  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
-    display: inline-block;
   }
 
   [class*=jam-cols-] > div:not(:last-child) {
@@ -816,11 +807,8 @@ img {
   }
 }
 @media (max-width: 410px) {
-  [class*=jam-span] > *:not(div):not(li), [class*=jam-cols-] > div > *:not(div):not(li) {
+  [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 10px;
-  }
-  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
-    display: inline-block;
   }
 
   [class*=jam-cols-] > div:not(:last-child) {

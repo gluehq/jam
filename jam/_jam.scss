@@ -39,6 +39,10 @@ img {
         width: 100%;// * Has unexpected effects on elements like paths in svg
     }
 
+    > a {// For a tags containing images
+        display: inline-block;
+    }
+
     //  Make images fit their cols
     img {
         box-sizing: border-box;
@@ -185,10 +189,6 @@ $cols-max: nth($cols, -1);
 
         > *:not(div):not(section):not(li) {
             padding: 0 jam-gap-x($media, 0.5);
-        }
-
-        > a {// For a tags containing images
-            display: inline-block;
         }
 
     }
