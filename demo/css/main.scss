@@ -71,7 +71,6 @@
         }
         
         &.left, &.right {
-            padding: 0 !important;
             width: 50%;
         }
         
@@ -103,9 +102,7 @@
     .side-col {
 
         @if $media == large or $media == standard or $media == tablet  {
-
             padding-left: jam-unit(16, $media, 1);
-    
         }
     
     }

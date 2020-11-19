@@ -1081,7 +1081,6 @@ ul + .disclaimer, p + .disclaimer {
   margin: 3px 0 20px 0;
 }
 .body-col .image.left, .body-col .image.right {
-  padding: 0 !important;
   width: 50%;
 }
 .body-col .image.left {
@@ -1114,7 +1113,6 @@ ul + .disclaimer, p + .disclaimer {
     margin: 3px 0 18px 0;
   }
   .body-col .image.left, .body-col .image.right {
-    padding: 0 !important;
     width: 50%;
   }
   .body-col .image.left {
@@ -1147,7 +1145,6 @@ ul + .disclaimer, p + .disclaimer {
     margin: 3px 0 16px 0;
   }
   .body-col .image.left, .body-col .image.right {
-    padding: 0 !important;
     width: 50%;
   }
   .body-col .image.left {
@@ -1180,7 +1177,6 @@ ul + .disclaimer, p + .disclaimer {
     margin: 3px 0 28px 0;
   }
   .body-col .image.left, .body-col .image.right {
-    padding: 0 !important;
     width: 50%;
   }
   .body-col .image.left {
@@ -1217,7 +1213,6 @@ ul + .disclaimer, p + .disclaimer {
     margin: 3px 0 24px 0;
   }
   .body-col .image.left, .body-col .image.right {
-    padding: 0 !important;
     width: 50%;
   }
   .body-col .image.left {
