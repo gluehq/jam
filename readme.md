@@ -27,7 +27,7 @@ You only need to know five classes to start using Jam:
 - **.jam-span** All gutters are created by padding automatically applied to .jam-span-*[n]* class divs, and divs immediately inside jam-cols-*[n]* class divs. This class can apply the gutter padding to more nested divs where it does not automatically appear
 - **.jam-align-*[l or r]*** Jam layout blocks are centered by default but can be arranged left or right with this class. This does not dictate the alignment of text
 
-Jam has two very useful classes many web projects will use:
+Jam also has two less obvious classes that many web projects will use:
 
 - **.jam-flip** *(Non-mobiles only)* Content HTML should be in order of appearance for mobiles, screen readers or search engines. Apply this on the same element as *.jam-cols-[n]* to reverse the column order (eg, show first column with an image on the right and the second column of text on the left) on larger screens
 - **.jam-bleed** *(Mobiles only)* Apply this to a span to make it appear full-bleed (edge-to edge, left-to-right) on mobile

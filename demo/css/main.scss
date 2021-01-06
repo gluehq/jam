@@ -5,26 +5,10 @@
 
 @mixin body-col($media) {
 
-    @if $media == phone-plus {
-        
-        .body-cols {
-            width: 100%;
-        }
-        
-    }
-
     .body-col {
 
-        @if $media == large or $media == standard or $media == tablet {
-
-            padding-left: jam-unit(16, $media, 1);
-            padding-right: jam-unit(16, $media, 1);
-        
-        } @else if $media == phone or $media == plus {
-
-            padding-left: jam-unit(18, $media, 1);
-            padding-right: jam-unit(18, $media, 1);
-
+        &[class*=jam-span-] > div:first-child {
+            margin-top: 0;
         }
 
     }
@@ -37,9 +21,9 @@
     
         @if $media == large or $media == standard or $media == tablet {
         
-            margin-left: jam-unit(10, $media, -1);
-            margin-right: jam-unit(10, $media, -1);
-            width: jam-unit(10, $media, 12);
+            margin-left: jam-unit(12, $media, -1);
+            margin-right: jam-unit(12, $media, -1);
+            width: jam-unit(12, $media, 14);
     
         } @else if $media == phone or $media == plus {
     
@@ -54,7 +38,8 @@
 
         }
 
-        padding-bottom: jam-gap-y($media, 1);
+        margin-top: jam-gap-y($media, 1.25);
+        margin-bottom: jam-gap-y($media, 1.25);
 
     }
 
@@ -65,9 +50,9 @@
     .body-col .image {
 
         @if $media == large or $media == standard or $media == tablet  {
-            margin: 3px 0 jam-gap-y($media, 0.5) 0;
+            margin: 3px 0 24px 0;
         } @else {
-            margin: 3px 0 jam-gap-y($media, 1) 0;
+            margin: 12px 0 30px 0;
         }
         
         &.left, &.right {
@@ -109,38 +94,24 @@
 
 }
 
-// .jam {
+@include body-col(large);
+@include image(large);
+@include jutting(large);// Must come after image
+@include side-col(large);
 
-    @include body-col(large);
-    @include image(large);
-    @include jutting(large);// Must come after image
-    @include side-col(large);
+@each $media in $all-media {
     
-    @each $media in $all-media {
+    @if $media != large and $media != phone-plus {
         
-        @if $media != large and $media != phone-plus {
-            
-            @include jam-media($media) {
+        @include jam-media($media) {
 
-                @include body-col($media);
-                @include image($media);
-                @include jutting($media);
-                @include side-col($media);
+            @include body-col($media);
+            @include image($media);
+            @include jutting($media);
+            @include side-col($media);
 
-            }
-            
-        }
-
-        @if $media == phone-plus {
-            
-            @include jam-media($media) {
-                .body-cols {
-                    width: 100%;
-                }
-            }
-            
         }
         
     }
     
-// }
+}

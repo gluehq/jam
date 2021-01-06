@@ -50,13 +50,6 @@ img {
         max-width: none;
     }
 
-    // Remove bottom margins from last paragraphs etc. Causes some issues, but usually beneficial
-    p, img, ul, ol, blockquote {
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
 }
 
 [class*=jam-cols-] {
@@ -103,7 +96,8 @@ $cols-max: nth($cols, -1);
                     }
 
                     & [class*=jam-span-].jam-bleed, &[class*=jam-span-] .jam-bleed {
-                        margin: 0 percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
+                        margin-left: percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
+                        margin-right: percentage((($span-max - $span-actual) / 2)/$span-actual) * -1;
                         width: percentage(($span-actual + ($span-max - $span-actual))/$span-actual);
                     }
 
@@ -185,6 +179,10 @@ $cols-max: nth($cols, -1);
 
 @mixin gaps($media) {
 
+    [class*=jam-cols-] {
+        margin: jam-gap-y($media, 1.25) auto;
+    }
+
     [class*=jam-span], [class*=jam-cols-] > div {// NB not jam-span- so jam-span class can be used to invoke the gutter padding
 
         > *:not(div):not(section):not(li) {
@@ -196,24 +194,20 @@ $cols-max: nth($cols, -1);
     @if $media != phone and $media != plus {
 
         [class*=jam-cols-] > div {
-            padding-bottom: jam-gap-y($media, 1);
-        }
-
-        [class*=jam-cols-]:not(:last-child) {
-            padding-bottom: jam-gap-y($media, 1);
+            margin-bottom: jam-gap-y($media, 0.75);
         }
 
     } @else {
 
         [class*=jam-cols-] > div:not(:last-child) {
-            padding-bottom: jam-gap-y($media, 1);
+            margin-bottom: jam-gap-y($media, 1);
         }
 
     }
 
-    @for $padding from $padding-mod-max through 1 {
+    [class*=jam] {// Increase specificity and allow usage on jam-jar
 
-        [class*=jam] {// Increase specificity and allow usage on jam-jar
+        @for $padding from $padding-mod-max through 1 {
 
             &.jam-top-#{$padding}, .jam-top-#{$padding} {
                 padding-top: jam-gap-y($media, $padding * 0.5);
@@ -237,6 +231,14 @@ $cols-max: nth($cols, -1);
 
         }
 
+        &.jam-top-ph-0, .jam-top-ph-0 {
+            padding-top: 0;
+        }
+    
+        &.jam-bottom-ph-0, .jam-bottom-ph-0 {
+            padding-bottom: 0;
+        }
+
     }
 
 }
@@ -252,7 +254,7 @@ $cols-max: nth($cols, -1);
     }
 
     .jam-cols-#{$col} > div:nth-last-of-type(-n+#{$col}) {
-        padding-bottom: 0;
+        margin-bottom: 0;
     }
 
 }

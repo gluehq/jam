@@ -24,60 +24,60 @@ body {
 //  M I X I N S
 
 @mixin h1 {
-    margin: 0 0 2rem 0;
+    margin: 2.4rem 0 2rem 0;
     font-size: 3.6rem;
     font-weight: 300;
     line-height: 4.4rem;
 }
 
 @mixin h2 {
-    margin: 0 0 2rem 0;
+    margin: 2.4rem 0 2rem 0;
     font-size: 3.2rem;
     font-weight: 300;
     line-height: 4.0rem;
 }
 
 @mixin h3 {
-    margin: 0 0 2rem 0;
+    margin: 2.4rem 0 2rem 0;
     font-size: 2.8rem;
     font-weight: 300;
     line-height: 3.6rem;
 }
 
 @mixin h4 {
-    margin: 0 0 2rem 0;
+    margin: 2.4rem 0 2rem 0;
     font-size: 2.4rem;
     font-weight: 300;
     line-height: 3.2rem;
 }
 
 @mixin p-xlarge {
-    margin: 0 0 2rem 0;
+    margin: 2rem 0 2rem 0;
     font-size: 2.2rem;
     line-height: 3.2rem;
 }
 
 @mixin p-large {
-    margin: 0 0 2rem 0;
+    margin: 2rem 0 2rem 0;
     font-size: 1.8rem;
     line-height: 2.8rem;
 }
 
 @mixin p {
-    margin: 0 0 2rem 0;
+    margin: 2rem 0 2rem 0;
     font-size: 1.7rem;
     line-height: 2.6rem;
 }
 
 @mixin p-small {
-    margin: 0 0 1.8rem 0;
+    margin: 1.8rem 0 1.8rem 0;
     font-size: 1.5rem;
     line-height: 2.4rem;
     letter-spacing: 0.01em;
 }
 
 @mixin p-tiny {
-    margin: 0 0 1.6rem 0;
+    margin: 1.6rem 0 1.6rem 0;
     font-size: 1.3rem;
     line-height: 2.1rem;
     letter-spacing: 0.01em;
@@ -87,39 +87,15 @@ body {
 //   S T Y L E S
 
 h1 {
-
    @include h1;
-
-   p + & {
-       margin-top: 2.8rem;
-   }
-    
-   &:last-child {
-       margin-bottom: 3.6rem;
-   }
-
 }
 
 h2 {
-
     @include h2;
-
-    p + & {
-        margin-top: 2.4rem;
-    }
-    
-    &:last-child {
-        margin-bottom: 4.0rem;
-    }
-
 }
 
 h3 {
    @include h3;
-}
-
-p + h3 {
-    margin-top: 2.4rem;
 }
 
 h4 {
@@ -133,8 +109,12 @@ h4 {
 
 }
 
-p + h4 {
-    margin-top: 2.4rem;
+h1 +, h2 +, h3 +, h4 + {
+
+    h1, h2, h3, h4 {
+        margin-top: 2rem;
+    }
+
 }
 
 p.large, .large p, blockquote {
@@ -143,6 +123,14 @@ p.large, .large p, blockquote {
 
 p, li, td, input, select, label, textarea {
    @include p;
+}
+
+ul, ol {
+    margin: 2rem 0 2.4rem 0;
+}
+
+li {
+    margin-top: 0;
 }
 
 p.small, .small p, .small li, {
@@ -194,23 +182,21 @@ nav li {
     
 }
 
-p, h1, h2, h3, h4, h5, ul, ol, blockquote {
-    + img {
-        margin-top: 2.8rem;
+div > {
+
+    p, h4, h3, h2, h1, ul, ol, blockquote {
+
+        &:first-child {
+            margin-top: 0;
+        }
+
     }
+
 }
 
-img {
-    + p, + h1, + h2, + h3, + h4, + h5, + ul, + ol, + blockquote {
-        margin-top: 3.2rem;
+// Remove bottom margins from last paragraphs etc. Causes some issues, but usually beneficial
+p, img, ul, ol, blockquote {
+    &:last-child {
+        margin-bottom: 0;
     }
-}
-
-.disclaimer, .disclaimer p {
-    @include p-tiny;
-    color: $grey-50;
-}
-
-ul + .disclaimer, p + .disclaimer {
-   margin-top: -1.4rem;
 }
