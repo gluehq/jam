@@ -189,12 +189,24 @@ $cols-max: nth($cols, -1);
             padding: 0 jam-gap-x($media, 0.5);
         }
 
+        // Allow for 'cards' aka multiple elements in an A tag
+
+        > a {
+
+            display: block;
+
+            img {
+                padding: 0;
+            }
+
+        }
+
     }
 
     @if $media != phone and $media != plus {
 
         [class*=jam-cols-] > div {
-            margin-bottom: jam-gap-y($media, 0.75);
+            margin-bottom: jam-gap-y($media, 1);
         }
 
     } @else {

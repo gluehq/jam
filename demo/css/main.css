@@ -585,9 +585,15 @@ img {
 [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
   padding: 0 22px;
 }
+[class*=jam-span] > a, [class*=jam-cols-] > div > a {
+  display: block;
+}
+[class*=jam-span] > a img, [class*=jam-cols-] > div > a img {
+  padding: 0;
+}
 
 [class*=jam-cols-] > div {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 [class*=jam].jam-top-4, [class*=jam] .jam-top-4 {
@@ -671,9 +677,15 @@ img {
   [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 20px;
   }
+  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
+    display: block;
+  }
+  [class*=jam-span] > a img, [class*=jam-cols-] > div > a img {
+    padding: 0;
+  }
 
   [class*=jam-cols-] > div {
-    margin-bottom: 27px;
+    margin-bottom: 36px;
   }
 
   [class*=jam].jam-top-4, [class*=jam] .jam-top-4 {
@@ -715,9 +727,15 @@ img {
   [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 14px;
   }
+  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
+    display: block;
+  }
+  [class*=jam-span] > a img, [class*=jam-cols-] > div > a img {
+    padding: 0;
+  }
 
   [class*=jam-cols-] > div {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   [class*=jam].jam-top-4, [class*=jam] .jam-top-4 {
@@ -758,6 +776,12 @@ img {
 
   [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 12px;
+  }
+  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
+    display: block;
+  }
+  [class*=jam-span] > a img, [class*=jam-cols-] > div > a img {
+    padding: 0;
   }
 
   [class*=jam-cols-] > div:not(:last-child) {
@@ -826,6 +850,12 @@ img {
 
   [class*=jam-span] > *:not(div):not(section):not(li), [class*=jam-cols-] > div > *:not(div):not(section):not(li) {
     padding: 0 10px;
+  }
+  [class*=jam-span] > a, [class*=jam-cols-] > div > a {
+    display: block;
+  }
+  [class*=jam-span] > a img, [class*=jam-cols-] > div > a img {
+    padding: 0;
   }
 
   [class*=jam-cols-] > div:not(:last-child) {
@@ -1062,7 +1092,7 @@ nav li a {
   text-decoration: none;
 }
 
-div > p:first-child, div > h4:first-child, div > h3:first-child, div > h2:first-child, div > h1:first-child, div > ul:first-child, div > ol:first-child, div > blockquote:first-child {
+div > p:first-child, div > h6:first-child, div > h5:first-child, div > h4:first-child, div > h3:first-child, div > h2:first-child, div > h1:first-child, div > ul:first-child, div > ol:first-child, div > blockquote:first-child {
   margin-top: 0;
 }
 
