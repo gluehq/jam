@@ -53,13 +53,13 @@ body {
 
 @mixin p-xlarge {
     margin: 2rem 0 2rem 0;
-    font-size: 2.2rem;
-    line-height: 3.2rem;
+    font-size: 2.1rem;
+    line-height: 3.0rem;
 }
 
 @mixin p-large {
     margin: 2rem 0 2rem 0;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     line-height: 2.8rem;
 }
 
@@ -110,7 +110,11 @@ h1 +, h2 +, h3 +, h4 + {
 
 }
 
-p.large, .large p, blockquote {
+p.text-xlarge, .text-xlarge p {
+   @include p-xlarge;
+}
+
+p.text-large, .text-large p, blockquote {
    @include p-large;
 }
 
@@ -126,12 +130,12 @@ li {
     margin-top: 0;
 }
 
-p.small, .small p, .small li, {
+p.text-small, .text-small p, .text-small li, {
     @include p-small;
     margin-bottom: 1.4rem;
 }
 
-p.tiny, .tiny p, .tiny li {
+p.text-tiny, .text-tiny p, .text-tiny li {
     @include p-tiny;
     margin-bottom: 1.2rem;
 }
