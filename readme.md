@@ -82,7 +82,6 @@ These steps have been taken to minimise file size:
 
 - Replace the demo page copy
 - Add explanations of mixins to Readme
-- Move the dev-box media / width jQuery to Dev Tools
+- Move the dev-box media / width JS to Dev Tools
 - Add illustrated 'how to use' section to Readme
 - Add 'how to install' section to Readme
-- Convert Dev Tools and demo page jQuery to vanilla JavaScript

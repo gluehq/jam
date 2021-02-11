@@ -21,8 +21,11 @@ var standard_limit = 1367;
 
 var page_pos;
 
-
 //  F U N C T I O N S
+
+function refresh_devbox() {
+    document.querySelector('#dev-box').textContent = curr_media + ' ' + actual_width + ' ' + page_pos;
+}
 
 function on_resize() {
 
@@ -31,10 +34,10 @@ function on_resize() {
     var disabled_width;
     var scrollbar_width;
 
-    reported_width = $(window).width();
-    $('body').css('overflow', 'hidden');
-    disabled_width = $(window).width();
-    $('body').css('overflow', '');
+    reported_width = window.innerWidth;
+    document.body.style.overflow = 'hidden';
+    disabled_width = window.innerWidth;
+    document.body.style.overflow = '';
 
     if (window.navigator.userAgent.match(/Safari/i) && !window.navigator.userAgent.match(/Chrome/i)) {
         scrollbar_width = 0;
@@ -74,31 +77,40 @@ function on_resize() {
         // ...
     }
 
-    $('#dev-box').text(curr_media + ' ' + actual_width);
+    refresh_devbox();
 
 }
 
+function on_scroll() {
 
-$(document).ready(function() {
+    // Handle differing browser support for scrollTop
+    if (document.documentElement.scrollTop !== 0) {
+        page_pos = document.documentElement.scrollTop;
+    } else {
+        page_pos = document.body.scrollTop;
+    }
+    
+    refresh_devbox();
+
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
     
     on_resize();
-    $(window).resize(on_resize);
+    window.addEventListener('resize', function(event) {
+        on_resize();
+    });
 
-    $(window).scroll(function() {
-
-        // Handle differing browser support for scrollTop
-        if ($('html').scrollTop() !== 0) {
-            page_pos = $('html').scrollTop();
-        } else {
-            page_pos = $('body').scrollTop();
-        }
-
+    on_scroll();
+    window.addEventListener('scroll', function(event) {
+        on_scroll();
     });
 
     // Remove white space from between <li>s
-    $('ul, ol').each(function() {
-        var html = $(this).html();
-        $(this).html(html.replace(/(<\/li>)\s*/g, '$1'));
+    var list_els = document.querySelectorAll('ul, ol');
+    Array.prototype.forEach.call(list_els, function(el, i) {
+        var html = list_els[i].innerHTML;
+        list_els[i].innerHTML = html.replace(/(<\/li>)\s*/g, '$1');
     });
 
 });

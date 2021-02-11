@@ -1,17 +1,18 @@
 
-
 function label_height(label) {
     // Calculate height methodically because unpainted elements and absolute
     // positioning can return zero and overlaps will not be detected
     var label_h = 0;
     // Calculate total height of classes label
-    label.find('.classes').each(function() {
-        label_h += $(this).outerHeight();
+    var classes = document.querySelectorAll('.classes');
+    Array.prototype.forEach.call(classes, function(el, i) {
+        label_h += classes[i].outerHeight;
     });
     // If height is still zero, check for id label
     if (label_h == 0) {
-        label.find('.id').each(function() {
-            label_h += $(this).outerHeight();
+        var id = document.querySelectorAll('.id');
+        Array.prototype.forEach.call(id, function(el, i) {
+            label_h += id[i].outerHeight;
         });
     }
     return label_h;
@@ -22,70 +23,78 @@ function label_width(label) {
     // positioning can return zero and overlaps will not be detected
     var label_w = 0;
     // Calculate total width of classes label
-    label.find('.classes').each(function() {
-        $(this).offsetHeight;
-        label_w += $(this).outerWidth();
+    var classes = document.querySelectorAll('.classes');
+    Array.prototype.forEach.call(classes, function(el, i) {
+        classes[i].offsetHeight;
+        label_w += classes[i].outerWidth;
     });
     // If width is still zero, check for id label
-    // if (label_w == 0) {
-        label.find('.id').each(function() {
-            label_w += $(this).outerWidth();
-        });
-    // }
+    var id = document.querySelectorAll('.id');
+    Array.prototype.forEach.call(id, function(el, i) {
+        label_w += id[i].outerWidth;
+    });
     return label_w;
 }
 
 function create_labels() {
     // Iterate through relevant divs in the page
-    $('body > *:not(#dev-grid) div').each(function() {
+    var divs = document.querySelectorAll('body > *:not(#dev-grid) div');
+    Array.prototype.forEach.call(divs, function(el, i) {
         // Capture attributes
-        var classes = $(this).attr('class');
-        var id = $(this).attr('id');
+        var classes = divs[i].getAttribute('class');
+        var id = divs[i].getAttribute('id');
         // Proceed if any exist
-        if (classes !== undefined || id !== undefined) {
+        if (classes !== null || id !== null) {
             // Capture div positioning
-            var this_x = parseInt($(this).offset().left);
-            var this_y = parseInt($(this).offset().top);
+            var rect = divs[i].getBoundingClientRect();
+            var child_rect = divs[i].getBoundingClientRect();
+            var parent_rect = document.querySelector('#dev-grid .labels').getBoundingClientRect();
+            var this_y = parseInt(child_rect.top - parent_rect.top);
+            var this_x = parseInt(child_rect.left - parent_rect.left);
             // Create label html with these attributes
             var html = '<div class="dev-label" style="left: ' + this_x + 'px; top: ' + this_y + 'px;">';
-            if (classes !== undefined) {
+            if (classes !== null) {
                 html += '<div class="classes">' + classes + '</div>';
             }
-            if (id !== undefined) {
+            if (id !== null) {
                 html += '<div class="id">' + id + '</div>';
             }
             html += '</div>';
             // Add label html to labels container
-            $('#dev-grid .labels').append(html);
+            document.querySelector('#dev-grid .labels').insertAdjacentHTML('beforeend', html);
             // Capture new label's element
-            var new_el = $('#dev-grid .labels > *:last-child');
+            var new_el = document.querySelector('#dev-grid .labels > *:last-child');
             // Iterate through existing labels and groups
-            new_el.siblings().each(function() {
-                // Capture each sibling's positioning values without units
-                var other_x = parseInt($(this).css('left'));
-                var other_y = parseInt($(this).css('top'));
-                other_b = other_y + label_height($(this));
-                other_r = other_x + label_width($(this));
-                // Capture positioning values without units
-                var new_x = parseInt(new_el.css('left'));
-                var new_y = parseInt(new_el.css('top'));
-                var new_r = new_x + label_width(new_el);
-                // If new label overlaps an existing label or group
-                if ((new_x >= other_x && new_x < other_r || new_r >= other_x && new_r < other_r) && new_y >= other_y && new_y < other_b) {
-                    // Create group if the overlapped is not a group
-                    if (!$(this).hasClass('dev-label-group')) {
-                        // Capture existing positioning
-                        var style = $(this).attr('style');
-                        // Remove positioning
-                        $(this).removeAttr('style');
-                        // Create group and apply positioning to it
-                        $(this).wrap('<div class="dev-label-group" style="' + style + '"></div>');
+            Array.prototype.filter.call(new_el.parentNode.children, function(child) {
+                if (child !== el) {
+                    // Capture each sibling's positioning values without units
+                    var other_x = parseInt(child.style.left);
+                    var other_y = parseInt(child.style.top);
+                    other_b = other_y + label_height(child);
+                    other_r = other_x + label_width(child);
+                    // Capture positioning values without units
+                    var new_x = parseInt(new_el.style.left);
+                    var new_y = parseInt(new_el.style.top);
+                    var new_r = new_x + label_width(new_el);
+                    // If new label overlaps an existing label or group
+                    if ((new_x >= other_x && new_x < other_r || new_r >= other_x && new_r < other_r) && new_y >= other_y && new_y < other_b) {
+                        // Create group if the overlapped is not a group
+                        if (!child.classList.contains('dev-label-group')) {
+                            // Capture existing positioning
+                            var style = child.getAttribute('style');
+                            // Remove positioning
+                            child.removeAttribute('style');
+                            // Create group and apply positioning to it
+                            $(this).wrap('<div class="dev-label-group" style="' + style + '"></div>');
+                            var new_html = '<div class="dev-label-group" style="' + style + '"></div>';
+                            child.innerHTML = new_html;
+                        }
+                        // Remove label positioning
+                        new_el.removeAttribute('style');
+                        // Move label to group where its positioning takes over
+                        var detached = new_el.parentElement.removeChild(new_el);
+                        new_el.closest('.dev-label-group').appendChild(detached);
                     }
-                    // Remove label positioning
-                    new_el.removeAttr('style');
-                    // Move label to group where its positioning takes over
-                    var detached = new_el.detach();
-                    detached.appendTo($(this).closest('.dev-label-group'));
                 }
             });
         }
@@ -93,9 +102,10 @@ function create_labels() {
 }
 
 function remove_labels() {
-    if ($('.dev-label, .dev-label-group').length) {
-        $('.dev-label, .dev-label-group').each(function() {
-            $(this).remove();
+    var label_divs = document.querySelectorAll('.dev-label, .dev-label-group');
+    if (label_divs.length) {
+        Array.prototype.forEach.call(label_divs, function(el, i) {
+            label_divs[i].parentElement.removeChild(label_divs[i]);
         });
     }
 }
@@ -104,65 +114,55 @@ var key_down;
 
 function refresh_dev_tools() {
 
-    $('#dev-grid [class*=jam-cols-]').each(function() {
-        $(this).css('height', '');
-        $(this).height($(window).height());
+    var dev_cols = document.querySelectorAll('#dev-grid [class*=jam-cols-]');
+    Array.prototype.forEach.call(dev_cols, function(el, i) {
+        dev_cols[i].style.height = '';
+        dev_cols[i].style.height = document.documentElement.clientHeight  + 'px';
     });
 
-    if (key_down === 65 && $('html').hasClass('dev-mode')) {
+    if (key_down === 65 && document.documentElement.classList.contains('dev-mode')) {
         remove_labels();
         create_labels();
     }
 
 }
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function(event) {
 
     refresh_dev_tools();
-    $(window).resize(refresh_dev_tools);
+    window.addEventListener('resize', function(event) {
+        refresh_dev_tools();
+    });
 
-    // 'G' for grid only
-
-    $(document).keydown(function(e) {
-        if (e.keyCode === 65) {
+    document.body.onkeydown = function(e) {
+        if (e.keyCode === 65) {// 'G' for grid only
             key_down = 65;
-            $('html').addClass('dev-mode');
-            $('#dev-grid').show();
+            document.documentElement.classList.add('dev-mode');
+            document.querySelector('#dev-grid').style.display = 'block';
             refresh_dev_tools();
             // Prevent recreating labels while key is held down
-            if (!$('.dev-label').length) {
+            if (!document.querySelectorAll('.dev-label').length) {
                 create_labels();
             }
-        }
-    });
-
-    $(document).keyup(function(e) {
-        if (e.keyCode === 65) {
-            key_down = null;
-            remove_labels();
-            $('html').removeClass('dev-mode');
-            $('#dev-grid').hide();
-        }
-    });
-
-    // 'A' for all
-
-    $(document).keydown(function(e) {
-        if (e.keyCode === 71) {
+        } else if (e.keyCode === 71) {// 'A' for all
             key_down = 71;
-            $('html').addClass('dev-mode');
-            $('#dev-grid').show();
+            document.documentElement.classList.add('dev-mode');
+            document.querySelector('#dev-grid').style.display = 'block';
         }
-    });
+    }
 
-    $(document).keyup(function(e) {
-        if (e.keyCode === 71) {
+    document.body.onkeyup = function(e) {
+        if (e.keyCode === 65) {// 'G' for grid only
             key_down = null;
-            $('html').removeClass('dev-mode');
-            $('#dev-grid').hide();
+            remove_labels();
+            document.documentElement.classList.remove('dev-mode');
+            document.querySelector('#dev-grid').style.display = '';
+        } else if (e.keyCode === 71) {// 'A' for all
+            key_down = null;
+            document.documentElement.classList.remove('dev-mode');
+            document.querySelector('#dev-grid').style.display = '';
             remove_labels();
         }
-    });
+    }
 
 });
-
